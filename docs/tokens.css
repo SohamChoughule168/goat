@@ -1,0 +1,358 @@
+/* =========================================================================
+   IMAGINARS — DESIGN TOKENS
+   Direction: dark, precise, technical.
+   These values are FIXED. Do not invent colors, sizes, durations or easings
+   outside this file. If something is needed that is not here, stop and ask.
+   Contrast ratios noted below are measured, not estimated.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   FONTS
+   Two typefaces total. Four weights total. Not negotiable.
+   Primary  — Satoshi (Fontshare): geometric, tight, no default-UI smell.
+   Mono     — Geist Mono (Google): micro-labels and data only.
+
+   Self-hosted in this repo via next/font:
+     Satoshi 400/500/700  (src/fonts/Satoshi-*.woff2)
+     Geist Mono 500       (next/font/google)
+
+   If Fontshare is unavailable, the ONLY approved substitute is
+   Instrument Sans (Google, 400/500/600). Inter is forbidden.
+   ------------------------------------------------------------------------- */
+
+:root {
+  --font-sans: "Satoshi", "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* -----------------------------------------------------------------------
+     COLOR — cool neutral canvas, one warm accent.
+     The temperature contrast is the whole idea. Do not add a second hue.
+     ----------------------------------------------------------------------- */
+
+  /* Canvas & surfaces. Depth comes from these steps, not from shadows. */
+  --bg:          #08090A;   /* page canvas. never #000 */
+  --surface-1:   #0E1011;   /* subtle inset areas, code blocks, table stripes */
+  --surface-2:   #141719;   /* cards at rest */
+  --surface-3:   #191D1F;   /* raised / hovered cards, popovers, modals */
+
+  /* Text. Never pure white — it halates on near-black. */
+  --text-1:      #F2F4F5;   /* 18.06:1 on canvas — headings, primary copy */
+  --text-2:      #9BA3A8;   /*  7.78:1 on canvas — body, descriptions */
+  --text-3:      #7A8287;   /*  5.10:1 on canvas — meta, captions, labels */
+
+  /* Hairlines. In dark UI, borders do the work shadows do in light UI. */
+  --border:        rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.13);
+
+  /* Accent — exactly one. Warm amber against cool grays.
+     Accent may cover no more than ~5% of any viewport. */
+  --accent:       #FFB224;  /* 11.05:1 on canvas */
+  --accent-hover: #FFC04D;
+  --accent-ink:   #0A0A0B;  /* 10.97:1 on accent — dark text on accent fills */
+  --accent-dim:   rgba(255, 178, 36, 0.12);  /* tint washes only */
+
+  --focus-ring:   var(--accent);
+
+  /* -----------------------------------------------------------------------
+     TYPE SCALE
+     Rule: negative tracking as size grows, positive tracking ONLY on
+     small uppercase mono.
+     ----------------------------------------------------------------------- */
+
+  --text-display:  clamp(2.75rem, 6vw, 5.25rem);   /* hero line, once per page */
+  --text-h1:       clamp(2.25rem, 4.4vw, 3.5rem);
+  --text-h2:       clamp(1.75rem, 3.2vw, 2.5rem);
+  --text-h3:       1.375rem;
+  --text-lede:     1.125rem;   /* one paragraph under a hero or section head */
+  --text-body:     0.9375rem;  /* 15px. the default. not 16, not 18 */
+  --text-sm:       0.8125rem;
+  --text-micro:    0.6875rem;  /* mono, uppercase, wide tracking */
+
+  --tracking-display: -0.035em;
+  --tracking-h1:      -0.03em;
+  --tracking-h2:      -0.025em;
+  --tracking-h3:      -0.018em;
+  --tracking-body:    -0.006em;
+  --tracking-micro:    0.14em;  /* the only positive value permitted */
+
+  --leading-display: 0.98;
+  --leading-heading: 1.08;
+  --leading-lede:    1.5;
+  --leading-body:    1.65;
+
+  --weight-regular: 400;
+  --weight-medium:  500;   /* all headings live here */
+  --weight-bold:    700;   /* hero display line only, and only above 48px */
+
+  /* -----------------------------------------------------------------------
+     SPACE — 4px base. Use these rungs only.
+     ----------------------------------------------------------------------- */
+  --space-1:  0.25rem;  /*  4 */
+  --space-2:  0.5rem;   /*  8 */
+  --space-3:  0.75rem;  /* 12 */
+  --space-4:  1rem;     /* 16 */
+  --space-5:  1.25rem;  /* 20 */
+  --space-6:  1.5rem;   /* 24 */
+  --space-8:  2rem;     /* 32 */
+  --space-10: 2.5rem;   /* 40 */
+  --space-14: 3.5rem;   /* 56 */
+  --space-18: 4.5rem;   /* 72 */
+  --space-24: 6rem;     /* 96 */
+  --space-32: 8rem;     /* 128 */
+  --space-40: 10rem;    /* 160 */
+
+  --section-y:    clamp(6rem, 12vh, 10rem);  /* vertical rhythm between sections */
+  --container:    1120px;   /* not 1280 — tighter reads more editorial */
+  --measure:      62ch;     /* max width of any prose block */
+  --gutter:       var(--space-6);
+
+  /* -----------------------------------------------------------------------
+     RADIUS
+     inner = outer − padding. Nothing rectangular exceeds 16px.
+     ----------------------------------------------------------------------- */
+  --radius-sm:  6px;    /* buttons, inputs, badges */
+  --radius-md:  10px;   /* cards */
+  --radius-lg:  14px;   /* panels, modals */
+  --radius-full: 999px; /* pills and avatars only */
+
+  /* -----------------------------------------------------------------------
+     MOTION
+     One signature idea, applied consistently. Nothing exceeds 500ms.
+     No bounce, no elastic, no overshoot.
+     ----------------------------------------------------------------------- */
+  --dur-fast: 120ms;  /* hover, press, focus */
+  --dur-base: 220ms;  /* reveals, state changes */
+  --dur-slow: 420ms;  /* hero sequence, layout shifts */
+
+  --ease-out:   cubic-bezier(0.16, 1, 0.30, 1);  /* default for everything */
+  --ease-inout: cubic-bezier(0.76, 0, 0.24, 1);  /* symmetric moves only */
+
+  --stagger: 50ms;    /* delay between sibling reveals */
+  --reveal-y: 10px;   /* reveal travel distance. NOT 40px */
+}
+
+/* =========================================================================
+   ELEVATION RECIPES — dark UI depth without glassmorphism
+   ========================================================================= */
+
+.surface {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.surface--lit {
+  position: relative;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.surface--lit::before {
+  content: "";
+  position: absolute;
+  inset-inline: 12%;
+  top: -1px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.16) 50%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+.surface--raised {
+  background: var(--surface-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
+              0 8px 24px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* The ONE permitted background gradient on the whole site. */
+.hero-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    60% 50% at 50% 0%,
+    rgba(255, 178, 36, 0.06),
+    transparent 70%
+  );
+}
+
+/* =========================================================================
+   BASE
+   ========================================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis-weight: none;
+}
+
+h1, h2, h3 {
+  color: var(--text-1);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-heading);
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--text-h1); letter-spacing: var(--tracking-h1); }
+h2 { font-size: var(--text-h2); letter-spacing: var(--tracking-h2); }
+h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-h3); }
+
+p { margin: 0; max-width: var(--measure); text-wrap: pretty; }
+
+.display {
+  color: var(--text-1);
+  font-size: var(--text-display);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.lede {
+  font-size: var(--text-lede);
+  line-height: var(--leading-lede);
+  letter-spacing: -0.01em;
+  color: var(--text-2);
+  max-width: 46ch;
+}
+
+.micro {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-micro);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+section { padding-block: var(--section-y); }
+
+hr, .rule {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+/* =========================================================================
+   CONTROLS
+   ========================================================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 40px;
+  padding-inline: var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              filter var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-primary:active { transform: translateY(0.5px); filter: brightness(0.96); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-1);
+  border-color: var(--border-strong);
+}
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.05); }
+.btn-secondary:active { transform: translateY(0.5px); }
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding-inline: var(--space-3);
+  background: var(--surface-1);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text-1);
+  font: inherit;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+.input::placeholder { color: var(--text-3); }
+.input:focus { border-color: rgba(255, 255, 255, 0.28); }
+
+.card-interactive {
+  transition: background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.card-interactive:hover {
+  background: var(--surface-3);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+/* =========================================================================
+   SIGNATURE REVEAL
+   ========================================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-y));
+  transition: opacity var(--dur-base) var(--ease-out),
+              transform var(--dur-base) var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+.reveal { transition-delay: calc(var(--i, 0) * var(--stagger)); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
