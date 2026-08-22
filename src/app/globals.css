@@ -216,6 +216,45 @@ html:not(.js) .motif [data-float] {
 }
 
 /* =========================================================================
+   HERO SEQUENCE — hairline draw (anime.js) + staged content reveal
+   ========================================================================= */
+
+.hero-rule {
+  stroke: var(--text-1);
+  opacity: 0.32;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+html.js section:not(.hero-done) .hero-rule {
+  stroke-dashoffset: 100;
+}
+html.js [data-hero] {
+  opacity: 0;
+  transform: translateY(var(--reveal-y));
+}
+[data-hero="1"] { --hd: 1; }
+[data-hero="2"] { --hd: 2; }
+[data-hero="3"] { --hd: 3; }
+html.js .hero-done [data-hero] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+  transition-delay: calc(var(--hd, 0) * 60ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-hero] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  html.js section:not(.hero-done) .hero-rule {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* =========================================================================
    KEYFRAMES — surviving animations only
    ========================================================================= */
 
