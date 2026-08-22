@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { insights } from "@/content/insights";
@@ -20,9 +20,7 @@ export default function InsightsPreview() {
       <div className="shell">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p data-reveal="fade" className="eyebrow mb-4">
-              Insights
-            </p>
+            <p data-reveal="fade" className="eyebrow mb-4 flex items-center gap-3"><span className="text-primary">◆</span> Chapter V — Insights</p>
             <h2 data-reveal="up" className="display-2 max-w-xl">
               Notes from the workbench.
             </h2>
@@ -67,3 +65,4 @@ export default function InsightsPreview() {
     </section>
   );
 }
+

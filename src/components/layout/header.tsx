@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import type { Route } from "next";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { LogoLink } from "@/components/brand/logo";
+import Magnetic from "@/components/motion/magnetic";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { site } from "@/content/site";
@@ -142,9 +143,11 @@ export default function Header() {
               WhatsApp
             </a>
           </Button>
-          <Button asChild size="sm" className="hidden h-9 px-4 md:inline-flex">
-            <Link href="/contact">Start a project</Link>
-          </Button>
+          <Magnetic>
+            <Button asChild size="sm" className="hidden h-9 px-4 md:inline-flex">
+              <Link href="/contact">Start a project</Link>
+            </Button>
+          </Magnetic>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>

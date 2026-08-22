@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { JsonLd } from "@/components/seo/jsonld";
+import DeviceScene from "@/components/work/device-scene";
 import FinalCta from "@/components/home/final-cta";
 import { caseStudies, getCaseStudy } from "@/content/work";
 import { breadcrumbSchema, createMetadata } from "@/lib/seo";
@@ -52,6 +53,31 @@ export default async function CaseStudyPage(props: { params: Promise<{ slug: str
             </p>
           </div>
         </header>
+
+        <section className="relative overflow-hidden border-b border-border bg-card/20">
+          <div className="shell grid items-center gap-10 py-14 lg:grid-cols-[1.25fr_1fr]">
+            <DeviceScene variant="full" />
+            <div>
+              <p data-reveal="fade" className="eyebrow mb-4">The environment</p>
+              <h2 data-reveal="up" className="display-3">A public face for a regulated business.</h2>
+              <p data-reveal="up" data-reveal-delay="80" className="lede mt-4 text-sm">
+                The engagement covered the full arc — structure, design language,
+                engineering and deployment. The interface shown here is an illustrative
+                reconstruction of the system&apos;s character; visit the live site for the real thing.
+              </p>
+              <a
+                data-reveal="up"
+                data-reveal-delay="140"
+                href={cs.proof.links[0]?.href ?? "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-line mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary"
+              >
+                Open the live website <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </section>
 
         <section className="border-y border-border bg-card/30">
           <dl className="shell grid gap-8 py-12 sm:grid-cols-3">

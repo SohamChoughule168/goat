@@ -5,6 +5,8 @@ import { buildGraph } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/jsonld";
 import MotionProvider from "@/components/motion/motion-provider";
 import Cursor from "@/components/motion/cursor";
+import ScrollProgress from "@/components/home/scroll-progress";
+import Atmosphere from "@/components/atmosphere";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { site } from "@/content/site";
@@ -61,11 +63,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <MotionProvider>
           <Cursor />
+          <ScrollProgress />
           <Header />
           <main id="main" className="flex-1 pt-[4.25rem]">
             {children}
           </main>
           <Footer />
+          <Atmosphere />
         </MotionProvider>
         <JsonLd data={buildGraph()} />
       </body>

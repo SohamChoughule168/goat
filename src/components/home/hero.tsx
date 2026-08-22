@@ -1,16 +1,25 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowDown } from "lucide-react";
 import gsap from "gsap";
-import HeroCanvas from "@/components/three/hero-canvas";
+import HeroCanvas, { type HeroPhase } from "@/components/three/hero-canvas";
+import Magnetic from "@/components/motion/magnetic";
 import { Button } from "@/components/ui/button";
 
 const FACTS = ["Mumbai · Est. 2024", "Web · Mobile · AI", "Growth & Content"] as const;
 
+const PHASE_LABEL: Record<HeroPhase, string> = {
+  1: "Imagination",
+  2: "Engineering",
+  3: "Product",
+};
+
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null);
+  const [phase, setPhase] = useState<HeroPhase>(1);
+  const handlePhase = useCallback((p: HeroPhase) => setPhase(p), []);
 
   useEffect(() => {
     const el = rootRef.current;
@@ -42,13 +51,30 @@ export default function Hero() {
     <section
       ref={rootRef}
       className="relative flex min-h-[calc(100dvh-4.25rem)] flex-col justify-end overflow-hidden"
+      data-cursor=""
     >
-      <HeroCanvas />
+      <HeroCanvas onPhase={handlePhase} />
 
       <div className="shell relative z-10 pb-14 pt-28 sm:pb-20">
-        <p data-hero-fade className="eyebrow mb-6">
-          Digital studio — Mumbai, India
-        </p>
+        <div className="mb-8 flex items-end justify-between gap-6">
+          <p data-hero-fade className="eyebrow">
+            Digital studio — Mumbai, India
+          </p>
+          <div
+            data-hero-fade
+            aria-hidden="true"
+            className="hidden items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground sm:flex"
+          >
+            <span className="text-primary">◆</span>
+            <span>Phase</span>
+            <span className="text-foreground">0{phase}</span>
+            <span className="h-px w-6 bg-border" />
+            <span key={phase} style={{ animation: "rise-in 0.4s cubic-bezier(0.22,1,0.36,1) both" }}>
+              {PHASE_LABEL[phase]}
+            </span>
+          </div>
+        </div>
+
         <h1 className="display-1 max-w-5xl">
           <span className="block overflow-hidden pb-[0.08em]">
             <span data-hero-line className="block will-change-transform">
@@ -67,16 +93,20 @@ export default function Hero() {
             and growing them with search, ads and content that measurably perform.
           </p>
           <div data-hero-fade className="flex flex-wrap items-center gap-3">
-            <Button asChild size="lg" className="h-11 px-6 text-base">
-              <Link href="/contact">Start a project</Link>
-            </Button>
+            <Magnetic>
+              <Button asChild size="lg" className="h-11 px-6 text-base">
+                <Link href="/contact">Start a project</Link>
+              </Button>
+            </Magnetic>
             <Button
               asChild
               variant="outline"
               size="lg"
               className="h-11 px-6 text-base backdrop-blur-sm"
             >
-              <Link href="/work">See the work</Link>
+              <Link href="/work" data-cursor="View work">
+                See the work
+              </Link>
             </Button>
           </div>
         </div>
@@ -89,6 +119,7 @@ export default function Hero() {
           </ul>
           <a
             href="#manifesto"
+            data-cursor="Scroll"
             aria-label="Scroll to content"
             className="hidden items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground sm:flex"
           >

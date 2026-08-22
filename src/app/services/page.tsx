@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
+import PillarMotif from "@/components/services/pillar-motif";
 import { getServicesByPillar, pillars } from "@/content/services";
 
 export const metadata: Metadata = createMetadata({
@@ -48,8 +49,14 @@ export default function ServicesPage() {
       {pillars.map((pillar) => {
         const list = getServicesByPillar(pillar.slug);
         return (
-          <section key={pillar.slug} id={pillar.slug} className="section-y scroll-mt-32">
-            <div className="shell">
+          <section key={pillar.slug} id={pillar.slug} className="section-y relative scroll-mt-32 overflow-hidden">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 right-0 hidden w-[36%] items-center opacity-[0.14] lg:flex"
+            >
+              <PillarMotif pillar={pillar.slug} className="h-64 w-full text-primary" />
+            </div>
+            <div className="shell relative">
               <header className="mb-10 grid gap-6 md:grid-cols-[1fr_1.2fr] md:items-end">
                 <div data-reveal="up">
                   <span className="font-mono text-xs tracking-[0.35em] text-primary">

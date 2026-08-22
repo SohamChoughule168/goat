@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
+import DeviceScene from "@/components/work/device-scene";
 import { caseStudies } from "@/content/work";
 
 export const metadata: Metadata = createMetadata({
@@ -42,18 +43,11 @@ export default function WorkPage() {
               className="group block overflow-hidden rounded-xl border border-border bg-card transition-colors duration-300 hover:border-primary/40"
             >
               <article className="grid md:grid-cols-[1.15fr_1fr]">
-                <div className="hairline-grid relative min-h-56 bg-background p-8 md:min-h-80 md:p-10">
-                  <div
-                    className="absolute -left-16 -bottom-24 h-64 w-64 rounded-full bg-primary/20 blur-[100px]"
-                    aria-hidden="true"
-                  />
+                <div className="relative min-h-56 bg-background p-6 md:min-h-80 md:p-10">
                   <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
                     {cs.sector} · {cs.year}
                   </span>
-                  <p className="relative mt-6 font-display text-4xl font-medium tracking-tight md:text-6xl">
-                    {cs.client.split(" ")[0]}
-                    <span className="text-primary">.</span>
-                  </p>
+                  <DeviceScene variant="compact" className="mt-5" />
                 </div>
                 <div className="flex flex-col justify-between gap-8 border-t border-border p-8 md:border-l md:border-t-0 md:p-10">
                   <div>

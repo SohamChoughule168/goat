@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight } from "lucide-react";
+import PillarMotif from "@/components/services/pillar-motif";
 import { getServicesByPillar, type Pillar } from "@/content/services";
 
 export default function PillarView({ pillar }: { pillar: Pillar }) {
@@ -25,6 +26,13 @@ export default function PillarView({ pillar }: { pillar: Pillar }) {
           <p data-reveal="up" className="lede mt-7 max-w-2xl">
             {pillar.description}
           </p>
+        </div>
+      </section>
+
+      <section aria-hidden="true" className="relative overflow-hidden border-y border-border bg-card/20">
+        <div className="absolute inset-0 opacity-[0.16]" />
+        <div className="shell relative py-8 md:py-10">
+          <PillarMotif pillar={pillar.slug} className="h-36 text-primary md:h-48" />
         </div>
       </section>
 

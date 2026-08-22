@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Magnetic from "@/components/motion/magnetic";
+import KineticHeading from "@/components/motion/kinetic-heading";
 import { Button } from "@/components/ui/button";
 import { site } from "@/content/site";
 
@@ -12,15 +13,19 @@ export default function FinalCta() {
         className="pointer-events-none absolute left-1/2 top-1/2 h-[36rem] w-[64rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/15 blur-[140px]"
         aria-hidden="true"
       />
-      <div className="hairline-grid absolute inset-0 opacity-40" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] overflow-hidden" aria-hidden="true">
+        <div className="floor-grid absolute inset-0 opacity-40" />
+      </div>
       <div className="shell relative z-10 flex flex-col items-center text-center">
         <p data-reveal="fade" className="eyebrow mb-6">
-          Start the conversation
+          Chapter VI — Start the conversation
         </p>
-        <h2 data-reveal="up" className="display-1 max-w-4xl">
-          Let&apos;s build something
-          <span className="font-serif font-normal italic text-primary"> real.</span>
-        </h2>
+        <KineticHeading
+          text="Let's build something real."
+          as="h2"
+          className="display-1 max-w-4xl"
+          accentWords={[2, 3]}
+        />
         <p data-reveal="up" data-reveal-delay="100" className="lede mt-7 text-center">
           Tell us what you&apos;re trying to achieve. You&apos;ll get an honest assessment,
           a clear scope, and a reply within one business day.

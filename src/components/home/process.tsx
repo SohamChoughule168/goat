@@ -1,4 +1,4 @@
-const STEPS = [
+﻿const STEPS = [
   {
     n: "01",
     title: "Discovery",
@@ -34,9 +34,7 @@ export default function Process() {
     <section className="section-y border-t border-border">
       <div className="shell grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <p data-reveal="fade" className="eyebrow mb-4">
-            How we work
-          </p>
+          <p data-reveal="fade" className="eyebrow mb-4 flex items-center gap-3"><span className="text-primary">◆</span> Chapter IV — How we work</p>
           <h2 data-reveal="up" className="display-2">
             A process you can
             <span className="font-serif font-normal italic text-primary"> schedule </span>
@@ -74,3 +72,4 @@ export default function Process() {
     </section>
   );
 }
+
