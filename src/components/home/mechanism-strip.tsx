@@ -3,41 +3,48 @@ const STEPS = [
     n: "01",
     term: "Discovery",
     detail:
-      "One structured session plus a written audit. Audiences, success metrics and constraints agreed before anything is designed.",
+      "One structured session, one written audit. Audiences, metrics and constraints agreed before anything is designed.",
   },
   {
     n: "02",
     term: "Strategy",
     detail:
-      "A scoped plan with fixed milestones: sitemap, content model, technical approach — and a price that matches it.",
+      "Scoped plan, fixed milestones: sitemap, content model, technical approach — and a price that matches it.",
   },
   {
     n: "03",
     term: "Execution",
     detail:
-      "Reviewable increments on staging. You watch the product exist instead of waiting for a big reveal.",
+      "Reviewable increments on staging. You watch the product exist instead of waiting for a reveal.",
   },
   {
     n: "04",
     term: "Ownership",
     detail:
-      "Launch measured against discovery metrics, then full handover of code, accounts and pipelines. Leaving us is effortless.",
+      "Measured against discovery metrics at launch, then full handover of code, accounts and pipelines.",
   },
 ];
 
 export default function MechanismStrip() {
   return (
-    <section className="section-y border-t border-border" aria-label="How engagement works">
-      <div className="shell">
+    <section className="field" data-field="paper" aria-label="How engagement works">
+      <div className="container">
         <p className="micro">Mechanism</p>
-        <h2 className="display-2 mt-4 max-w-xl">How an engagement actually runs.</h2>
+        <h2 className="display mt-4 max-w-[18ch]">How an engagement runs.</h2>
 
-        <ol className="mt-12 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-14 border-t-[4px] border-current">
           {STEPS.map((s) => (
-            <li key={s.n} className="bg-background p-6">
-              <p className="micro">{s.n}</p>
-              <h3 className="mt-4 text-base font-medium text-[color:var(--text-1)]">{s.term}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.detail}</p>
+            <li
+              key={s.n}
+              className="grid gap-3 border-b-[2px] border-current/25 py-8 sm:grid-cols-[80px_1fr] sm:gap-10"
+            >
+              <span className="index pt-1">{s.n}</span>
+              <div>
+                <h3 className="display" style={{ fontSize: "var(--text-h2)" }}>
+                  {s.term}
+                </h3>
+                <p className="muted mt-3 max-w-[58ch]">{s.detail}</p>
+              </div>
             </li>
           ))}
         </ol>

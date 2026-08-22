@@ -59,7 +59,7 @@ export default function Header() {
   const linkCls = (href: string) =>
     `link-line rounded-sm py-1 text-sm font-medium transition-colors ${
       isActive(href)
-        ? "text-foreground underline decoration-[color:var(--accent-brand)] decoration-2 underline-offset-8"
+        ? "text-foreground underline decoration-current decoration-2 underline-offset-8"
         : "text-muted-foreground hover:text-foreground"
     }`;
 
@@ -210,5 +210,6 @@ export default function Header() {
     </header>
   );
 }
+
 
 

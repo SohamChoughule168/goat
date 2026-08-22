@@ -1,10 +1,10 @@
 ﻿import Hero from "@/components/home/hero";
 import ProofStrip from "@/components/home/proof-strip";
-import OfferingSplit from "@/components/home/offering-split";
+import SelectedWork from "@/components/home/selected-work";
+import PracticeAreas from "@/components/home/practice-areas";
 import WideStatement from "@/components/home/wide-statement";
 import MechanismStrip from "@/components/home/mechanism-strip";
-import SelectedWork from "@/components/home/selected-work";
-import InsightsPreview from "@/components/home/insights-preview";
+import Commitments from "@/components/home/commitments";
 import FinalCta from "@/components/home/final-cta";
 
 export default function HomePage() {
@@ -12,13 +12,12 @@ export default function HomePage() {
     <>
       <Hero />
       <ProofStrip />
-      <OfferingSplit />
+      <SelectedWork />
+      <PracticeAreas />
       <WideStatement />
       <MechanismStrip />
-      <SelectedWork />
-      <InsightsPreview />
+      <Commitments />
       <FinalCta />
     </>
   );
 }
-

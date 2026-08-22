@@ -78,7 +78,7 @@ export default function ServiceView({ service }: { service: Service }) {
         </div>
       </section>
 
-      <section className="border-y border-border bg-[color:var(--surface-1)]">
+      <section className="border-y border-border bg-[color:var(--paper-dim)]">
         <div className="shell grid gap-10 py-16 md:grid-cols-3 md:gap-8">
           {ENGAGEMENT.map((step, i) => (
             <div key={step.title} data-reveal="up" data-reveal-delay={String(i * 60)}>
@@ -160,4 +160,5 @@ export default function ServiceView({ service }: { service: Service }) {
     </>
   );
 }
+
 

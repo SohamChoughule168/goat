@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Route } from "next";
 import { LogoFull } from "@/components/brand/logo";
 import { site } from "@/content/site";
@@ -71,13 +71,13 @@ export default function Footer() {
               {site.address.city} {site.address.postalCode}
             </p>
             <p>
-              <a href={`tel:${site.phoneHref}`} className="transition-colors hover:text-foreground">
+              <a href={`tel:${site.phoneHref}`} className="inline-block py-1 transition-colors hover:text-foreground">
                 {site.phone}
               </a>
               <br />
               <a
                 href={`mailto:${site.email}`}
-                className="break-all transition-colors hover:text-foreground"
+                className="inline-block break-all py-1 transition-colors hover:text-foreground"
               >
                 {site.email}
               </a>
@@ -96,10 +96,10 @@ export default function Footer() {
           </p>
           <p className="font-mono uppercase tracking-[0.25em]">Designed &amp; built in Mumbai</p>
           <div className="flex gap-5">
-            <Link href="/legal/privacy" className="transition-colors hover:text-foreground">
+            <Link href="/legal/privacy" className="inline-block py-1 transition-colors hover:text-foreground">
               Privacy
             </Link>
-            <Link href="/legal/terms" className="transition-colors hover:text-foreground">
+            <Link href="/legal/terms" className="inline-block py-1 transition-colors hover:text-foreground">
               Terms
             </Link>
           </div>
@@ -108,3 +108,4 @@ export default function Footer() {
     </footer>
   );
 }
+

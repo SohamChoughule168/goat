@@ -100,7 +100,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-[color:var(--surface-1)]">
+      <section className="border-y border-border bg-[color:var(--paper-dim)]">
         <div className="shell py-16 md:py-20">
           <div className="mb-12 max-w-2xl">
             <p data-reveal="fade" className="eyebrow mb-4">
@@ -174,4 +174,5 @@ export default function AboutPage() {
     </>
   );
 }
+
 

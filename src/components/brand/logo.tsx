@@ -25,31 +25,25 @@ export function LogoMark({ className }: { className?: string }) {
   );
 }
 
-export function LogoFull({ compact = false }: { compact?: boolean }) {
+export function LogoFull() {
   return (
     <span className="flex items-center gap-3">
-      <LogoMark className={compact ? "h-7 w-7" : "h-9 w-9"} />
-      {!compact && (
-        <span className="flex flex-col leading-none">
-          <span className="font-display text-[15px] font-semibold tracking-[0.14em] uppercase">
-            ImaginarsClub
-          </span>
-          <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.42em] text-primary">
-            Services
-          </span>
+      <LogoMark className="h-9 w-9" />
+      <span className="flex flex-col leading-none">
+        <span className="font-display text-[15px] font-semibold tracking-[0.14em] uppercase">
+          ImaginarsClub
         </span>
-      )}
+        <span className="mt-1 font-mono text-[9px] font-medium tracking-[0.42em] text-muted-foreground">
+          Services
+        </span>
+      </span>
     </span>
   );
 }
 
 export function LogoLink() {
   return (
-    <Link
-      href="/"
-      aria-label="ImaginarsClub Services — home"
-      className="rounded-md transition-opacity hover:opacity-85"
-    >
+    <Link href="/" className="rounded-md transition-opacity hover:opacity-85">
       <LogoFull />
     </Link>
   );

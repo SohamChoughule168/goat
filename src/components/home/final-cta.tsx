@@ -3,21 +3,23 @@ import { site } from "@/content/site";
 
 export default function FinalCta() {
   return (
-    <section className="section-y border-t border-border" aria-label="Start a project">
-      <div className="shell">
-        <p className="micro">Next step</p>
-        <h2 className="display-2 mt-4 max-w-[22ch]">
+    <section className="field" data-field="ink" aria-label="Start a project">
+      <div className="container">
+        <p className="micro opacity-70">Next step</p>
+        <h2 className="display mt-6 max-w-[24ch]">
           Tell us what you&rsquo;re building. We&rsquo;ll tell you what it takes.
         </h2>
-        <p className="lede mt-5 text-sm">
-          An honest assessment, a clear scope, and a reply within one business day.
-        </p>
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div className="mt-10 flex flex-wrap items-center gap-4">
           <Link href="/contact" className="btn btn-primary">
             Start a project
           </Link>
-          <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-            Message on WhatsApp
+          <a
+            href={site.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-line font-medium underline-offset-4"
+          >
+            or message us on WhatsApp
           </a>
         </div>
       </div>
