@@ -1,10 +1,9 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { fontMono, fontSans } from "@/lib/fonts";
 import { buildGraph } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/jsonld";
 import MotionProvider from "@/components/motion/motion-provider";
-import Cursor from "@/components/motion/cursor";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { site } from "@/content/site";
@@ -60,7 +59,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <MotionProvider>
-          <Cursor />
           <Header />
           <main id="main" className="flex-1 pt-[4.25rem]">
             {children}
@@ -72,3 +70,4 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     </html>
   );
 }
+

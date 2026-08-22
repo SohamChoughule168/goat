@@ -1,38 +1,23 @@
-const FACTS = [
-  "Founded 2024 · Mumbai",
-  "4 practices · 18 services",
-  "Replies within one business day",
-  "Senior-led delivery",
-  "This site scores 95+ on Lighthouse",
-  "Zero fabricated numbers",
+const STATS = [
+  { value: "2024", label: "Founded in Mumbai" },
+  { value: "18", label: "Services across 4 practices" },
+  { value: "<24h", label: "First reply on every enquiry", accent: true },
 ];
 
-const HUES = ["#ff6a5c", "#e879c8", "#6a5cff", "#4fc3ff", "#e0b64f"];
-
 export default function ProofStrip() {
-  const row = [...FACTS, ...FACTS];
   return (
-    <section
-      aria-label="Studio facts"
-      className="overflow-hidden border-y border-border bg-card/40 py-5"
-      data-marquee-hover="pause"
-    >
-      <div className="marquee-track" style={{ ["--marquee-duration" as string]: "42s" }}>
-        {row.map((fact, i) => (
-          <span
-            key={`${fact}-${i}`}
-            aria-hidden={i >= FACTS.length}
-            className="flex items-center gap-14 whitespace-nowrap font-mono text-xs uppercase tracking-[0.24em] text-muted-foreground"
-          >
-            {fact}
-            <span
-              aria-hidden="true"
-              className="text-sm"
-              style={{ color: HUES[i % HUES.length], animation: `core-pulse ${2.4 + (i % 5) * 0.5}s ease-in-out infinite` }}
+    <section aria-label="Studio facts" className="border-y border-border">
+      <div className="shell grid grid-cols-1 divide-y divide-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+        {STATS.map((s) => (
+          <div key={s.label} className="py-10 sm:px-10 first:sm:pl-0 last:sm:pr-0">
+            <p
+              className="display-3"
+              style={s.accent ? { color: "var(--accent-brand)" } : undefined}
             >
-              ◆
-            </span>
-          </span>
+              {s.value}
+            </p>
+            <p className="micro mt-2">{s.label}</p>
+          </div>
         ))}
       </div>
     </section>

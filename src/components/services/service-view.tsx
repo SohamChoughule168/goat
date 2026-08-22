@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Route } from "next";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import {
@@ -78,7 +78,7 @@ export default function ServiceView({ service }: { service: Service }) {
         </div>
       </section>
 
-      <section className="theme-paper bg-background text-foreground border-y border-border">
+      <section className="border-y border-border bg-[color:var(--surface-1)]">
         <div className="shell grid gap-10 py-16 md:grid-cols-3 md:gap-8">
           {ENGAGEMENT.map((step, i) => (
             <div key={step.title} data-reveal="up" data-reveal-delay={String(i * 60)}>
@@ -160,3 +160,4 @@ export default function ServiceView({ service }: { service: Service }) {
     </>
   );
 }
+

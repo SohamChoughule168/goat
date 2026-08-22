@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
-import DeviceScene from "@/components/work/device-scene";
 import { caseStudies } from "@/content/work";
 
 export const metadata: Metadata = createMetadata({
@@ -47,7 +46,7 @@ export default function WorkPage() {
                   <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
                     {cs.sector} · {cs.year}
                   </span>
-                  <DeviceScene variant="compact" className="mt-5" />
+                  <p className="mt-8 font-display text-4xl font-medium tracking-tight md:text-5xl">PRV<span className="text-primary">.</span></p><p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">Live since April 2025</p>
                 </div>
                 <div className="flex flex-col justify-between gap-8 border-t border-border p-8 md:border-l md:border-t-0 md:p-10">
                   <div>
@@ -101,3 +100,4 @@ export default function WorkPage() {
     </>
   );
 }
+

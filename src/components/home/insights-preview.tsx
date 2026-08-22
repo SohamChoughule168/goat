@@ -1,6 +1,5 @@
 ﻿import Link from "next/link";
 import type { Route } from "next";
-import { ArrowUpRight } from "lucide-react";
 import { insights } from "@/content/insights";
 
 function formatDate(iso: string): string {
@@ -16,46 +15,37 @@ export default function InsightsPreview() {
   if (!latest.length) return null;
 
   return (
-    <section className="section-y border-t border-border">
-      <div className="shell">
-        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p data-reveal="fade" className="eyebrow mb-4 flex items-center gap-3"><span className="text-primary">◆</span> Chapter V — Insights</p>
-            <h2 data-reveal="up" className="display-2 max-w-xl">
-              Notes from the workbench.
-            </h2>
-          </div>
+    <section className="section-y border-t border-border" aria-label="Latest writing">
+      <div className="shell grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+        <div>
+          <p className="micro">Insights</p>
+          <h2 className="display-2 mt-4 max-w-sm">Notes from the workbench.</h2>
           <Link
-            data-reveal="up"
             href="/insights"
-            className="link-line hidden shrink-0 items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground md:inline-flex"
+            className="link-line mt-6 inline-block text-sm font-medium text-[color:var(--text-1)]"
           >
-            All articles <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            All articles
           </Link>
         </div>
 
-        <ul className="grid gap-6 md:grid-cols-3">
-          {latest.map((post, i) => (
-            <li key={post.slug} data-reveal="up" data-reveal-delay={String(i * 70)}>
+        <ul className="border-t border-border">
+          {latest.map((post) => (
+            <li key={post.slug} className="border-b border-border">
               <Link
                 href={`/insights/${post.slug}` as Route}
-                className="group flex h-full flex-col rounded-xl border border-border bg-card/40 p-7 transition-colors duration-300 hover:border-primary/50 hover:bg-card"
+                className="group -mx-2 flex items-baseline justify-between gap-6 rounded-md px-2 py-6 transition-colors duration-150 hover:bg-[color:var(--surface-2)]"
               >
-                <div className="flex items-baseline justify-between gap-4">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-                    {post.category}
+                <span className="min-w-0">
+                  <span className="micro">{post.category}</span>
+                  <span className="mt-1.5 block font-medium leading-snug text-[color:var(--text-1)]">
+                    {post.title}
                   </span>
-                  <time dateTime={post.date} className="text-xs text-muted-foreground">
-                    {formatDate(post.date)}
-                  </time>
-                </div>
-                <h3 className="mt-5 text-lg font-medium leading-snug">{post.title}</h3>
-                <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                  {post.excerpt}
-                </p>
-                <span className="mt-auto pt-6 inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors group-hover:text-foreground">
-                  {post.readingTime} read
-                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </span>
+                <span className="micro shrink-0 pt-1 text-right">
+                  {formatDate(post.date)}
+                  <span className="block pt-1 normal-case tracking-normal">
+                    {post.readingTime} read
+                  </span>
                 </span>
               </Link>
             </li>

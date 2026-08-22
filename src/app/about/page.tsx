@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import FinalCta from "@/components/home/final-cta";
 import { createMetadata } from "@/lib/seo";
@@ -100,7 +100,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="theme-paper bg-background text-foreground border-y border-border">
+      <section className="border-y border-border bg-[color:var(--surface-1)]">
         <div className="shell py-16 md:py-20">
           <div className="mb-12 max-w-2xl">
             <p data-reveal="fade" className="eyebrow mb-4">
@@ -174,3 +174,4 @@ export default function AboutPage() {
     </>
   );
 }
+

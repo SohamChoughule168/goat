@@ -5,7 +5,6 @@ import { ArrowUpRight } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 import PillarMotif from "@/components/services/pillar-motif";
 import { getServicesByPillar, pillars } from "@/content/services";
-import { PILLAR_HUES } from "@/lib/forge";
 
 export const metadata: Metadata = createMetadata({
   title: "Services — Web, Mobile, AI, Growth & Content",
@@ -55,7 +54,7 @@ export default function ServicesPage() {
               aria-hidden="true"
               className="pointer-events-none absolute inset-y-0 right-0 hidden w-[36%] items-center opacity-[0.16] lg:flex"
             >
-              <PillarMotif pillar={pillar.slug} className="h-64 w-full" hue={PILLAR_HUES[pillar.slug]} />
+              <PillarMotif pillar={pillar.slug} className="h-64 w-full" />
             </div>
             <div className="shell relative">
               <header className="mb-10 grid gap-6 md:grid-cols-[1fr_1.2fr] md:items-end">
@@ -103,4 +102,5 @@ export default function ServicesPage() {
     </>
   );
 }
+
 

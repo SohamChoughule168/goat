@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import type { Route } from "next";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { LogoLink } from "@/components/brand/logo";
-import Magnetic from "@/components/motion/magnetic";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { site } from "@/content/site";
@@ -59,7 +58,9 @@ export default function Header() {
 
   const linkCls = (href: string) =>
     `link-line rounded-sm py-1 text-sm font-medium transition-colors ${
-      isActive(href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+      isActive(href)
+        ? "text-foreground underline decoration-[color:var(--accent-brand)] decoration-2 underline-offset-8"
+        : "text-muted-foreground hover:text-foreground"
     }`;
 
   return (
@@ -143,11 +144,9 @@ export default function Header() {
               WhatsApp
             </a>
           </Button>
-          <Magnetic>
-            <Button asChild size="sm" className="hidden h-9 px-4 md:inline-flex">
-              <Link href="/contact">Start a project</Link>
-            </Button>
-          </Magnetic>
+          <Button asChild size="sm" className="hidden h-9 px-4 md:inline-flex">
+            <Link href="/contact">Start a project</Link>
+          </Button>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>
