@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -31,7 +31,6 @@ export default function FinalCta() {
           className="display-1 max-w-4xl"
           accentWords={[2, 3]}
         />
-        <div className="spectral-line mt-8" aria-hidden="true" />
         <p data-reveal="up" data-reveal-delay="100" className="lede mt-7 text-center">
           Tell us what you&apos;re trying to achieve. You&apos;ll get an honest assessment,
           a clear scope, and a reply within one business day.
@@ -42,7 +41,7 @@ export default function FinalCta() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <Magnetic>
-            <Button asChild size="lg" className="btn-forge h-12 px-8 text-base">
+            <Button asChild size="lg" className="h-12 px-8 text-base">
               <Link href="/contact">
                 Start a project
                 <ArrowRight className="transition-transform duration-300 group-hover/button:translate-x-1" aria-hidden="true" />
@@ -65,3 +64,5 @@ export default function FinalCta() {
     </section>
   );
 }
+
+

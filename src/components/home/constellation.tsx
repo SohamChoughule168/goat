@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -85,7 +85,6 @@ export default function CapabilityConstellation() {
               Four practices.
               <span className="font-serif font-normal italic text-primary"> One system.</span>
             </h2>
-            <div className="spectral-line mt-6" aria-hidden="true" />
           </div>
           <p data-reveal="up" className="lede max-w-sm text-sm">
             Hover a node to see how each practice works and what it ships. Every
@@ -166,7 +165,7 @@ export default function CapabilityConstellation() {
                         ? { borderColor: hue, color: hue, boxShadow: `0 0 36px ${hue}59, inset 0 0 16px ${hue}1f` }
                         : {}),
                     }}
-                    className={`group absolute z-10 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2.5 rounded-full border bg-background/85 px-4 py-2.5 backdrop-blur-md transition-all duration-300 ${
+                    className={`group absolute z-10 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2.5 rounded-full border bg-background/85 px-4 py-2.5 transition-all duration-300 ${
                       isActive ? "" : "border-border text-muted-foreground hover:border-primary/60 hover:text-foreground"
                     }`}
                   >
@@ -298,3 +297,6 @@ export default function CapabilityConstellation() {
     </section>
   );
 }
+
+
+

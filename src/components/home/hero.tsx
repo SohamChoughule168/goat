@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -97,7 +97,7 @@ export default function Hero() {
           </p>
           <div data-hero-fade className="flex flex-wrap items-center gap-3">
             <Magnetic>
-              <Button asChild size="lg" className="btn-forge h-11 px-6 text-base">
+              <Button asChild size="lg" className="h-11 px-6 text-base">
                 <Link href="/contact">
                   Start a project
                   <ArrowRight className="transition-transform duration-300 group-hover/button:translate-x-1" aria-hidden="true" />
@@ -108,7 +108,7 @@ export default function Hero() {
               asChild
               variant="outline"
               size="lg"
-              className="h-11 px-6 text-base backdrop-blur-sm"
+              className="h-11 px-6 text-base"
             >
               <Link href="/work" data-cursor="View work">
                 See the work
@@ -137,3 +137,5 @@ export default function Hero() {
     </section>
   );
 }
+
+

@@ -31,7 +31,7 @@ export default function SelectedWork() {
           data-reveal="scale"
           href={`/work/${featured.slug}` as Route}
           data-cursor="Read case"
-          className="group block overflow-hidden rounded-xl border border-border bg-card transition-colors duration-300 hover:border-primary/40 sheen"
+          className="group block overflow-hidden rounded-xl border border-border bg-card transition-colors duration-300 hover:border-primary/40"
         >
           <div className="relative grid md:grid-cols-[1.15fr_1fr]">
             <div className="hairline-grid relative bg-background p-7 md:p-10">
@@ -83,5 +83,6 @@ export default function SelectedWork() {
     </section>
   );
 }
+
 
 

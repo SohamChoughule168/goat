@@ -66,7 +66,7 @@ export default function DeviceScene({ variant = "full", className = "" }: Device
     <div ref={rootRef} className={`device-scene group/ds relative ${className}`} data-device>
       <div
         aria-hidden="true"
-        className="chip-fade absolute -left-3 top-8 z-10 rounded-full border border-border bg-card/90 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground backdrop-blur-md"
+        className="chip-fade absolute -left-3 top-8 z-10 rounded-full border border-border bg-card/90 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground "
         style={{ animation: "float-y 6s ease-in-out infinite" }}
       >
         Next.js
@@ -74,7 +74,7 @@ export default function DeviceScene({ variant = "full", className = "" }: Device
       {!compact && (
         <div
           aria-hidden="true"
-          className="chip-fade absolute -right-4 top-1/3 z-10 rounded-full border border-border bg-card/90 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground backdrop-blur-md"
+          className="chip-fade absolute -right-4 top-1/3 z-10 rounded-full border border-border bg-card/90 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground "
           style={{ animation: "float-y 7s ease-in-out infinite reverse" }}
         >
           WCAG AA · Responsive
@@ -176,4 +176,5 @@ export default function DeviceScene({ variant = "full", className = "" }: Device
     </div>
   );
 }
+
 

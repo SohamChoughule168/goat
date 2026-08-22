@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -66,7 +66,7 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-border bg-background/85 backdrop-blur-md"
+          ? "border-b border-border bg-background/90"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -144,7 +144,7 @@ export default function Header() {
             </a>
           </Button>
           <Magnetic>
-            <Button asChild size="sm" className="btn-forge hidden h-9 px-4 md:inline-flex">
+            <Button asChild size="sm" className="hidden h-9 px-4 md:inline-flex">
               <Link href="/contact">Start a project</Link>
             </Button>
           </Magnetic>
@@ -211,3 +211,5 @@ export default function Header() {
     </header>
   );
 }
+
+

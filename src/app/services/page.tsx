@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight } from "lucide-react";
@@ -33,7 +33,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <nav aria-label="Practice areas" className="sticky top-[4.25rem] z-30 border-y border-border bg-background/90 backdrop-blur-md">
+      <nav aria-label="Practice areas" className="sticky top-[4.25rem] z-30 border-y border-border bg-background/90 ">
         <div className="shell flex gap-2 overflow-x-auto py-3">
           {pillars.map((p) => (
             <a
@@ -103,3 +103,4 @@ export default function ServicesPage() {
     </>
   );
 }
+
