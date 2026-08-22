@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ImaginarsClub Services — Studio Website
 
-## Getting Started
+Production website for [ImaginarsClub Services](https://www.imaginarsclubservices.com), a senior-led digital studio in Mumbai. Dark-first editorial design, one signature WebGL hero, GSAP/Lenis motion system, and an honesty-first content model: every published claim must trace to a source.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router, RSC, Turbopack) · React 19 · TypeScript strict
+- Tailwind CSS v4 + shadcn/ui (Radix primitives)
+- GSAP + ScrollTrigger · Lenis smooth scroll
+- Three.js hero scene (lazy chunk, tiered fallbacks)
+- File-based typed content layer (`src/content`), zod-validated contact flow
+
+## Commands
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev        # develop at localhost:3000
+npm run build      # production build
+npm run start      # serve production build
+npm run lint       # eslint
+npm run typecheck  # tsc --noEmit
+npm test           # vitest (content + redirect integrity gates)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables (all optional)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | Purpose |
+| --- | --- |
+| `RESEND_API_KEY` | Enables transactional email delivery of contact leads. Without it, leads are logged to server console. |
+| `CONTACT_FROM_EMAIL` | Verified Resend sender address. |
+| `CONTACT_TO_EMAIL` | Inbox receiving enquiries (defaults to the studio Gmail). |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+No other credentials required; no database.
 
-## Learn More
+## Editing content
 
-To learn more about Next.js, take a look at the following resources:
+All copy lives in `src/content/` as typed modules — no CMS, no deploy-time surprises:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `site.ts` — name, contact details, hours, nav
+- `services.ts` — 4 practice pillars + 18 services (deliverables, FAQs, legacy URL slugs)
+- `work.ts` — case studies. **Every entry requires `status: "verified"` and real proof links**; the build's test suite enforces this policy.
+- `insights.ts` — articles (structured blocks, rendered statically)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`src/__tests__/redirects.test.ts` cross-checks every legacy URL in `next.config.ts` against the content layer, so retiring or renaming a service can never silently break an indexed URL.
 
-## Deploy on Vercel
+## Architecture notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Motion is coordinated by a single `MotionProvider`: Lenis instance, reveal registry (`data-reveal` attributes work from any server component), anchor scrolling, reduced-motion kill switch.
+- The Three.js hero mounts only after capability detection (`lib/three/support.ts`) and degrades to a static art fallback on low-end devices, reduced-motion, or WebGL failure. It never participates in LCP.
+- Fonts (Clash Display / Satoshi / Zodiak / JetBrains Mono) are self-hosted via `next/font/local`.
