@@ -374,23 +374,35 @@ p {
    MOTION — line mask, field wipe, reveal, one marquee
    ========================================================================= */
 
-.line-mask { display: block; overflow: hidden; }
-.line-mask > * {
+html.js .line-mask { display: block; overflow: hidden; }
+html.js .line-mask > * {
   display: block;
   transform: translateY(105%);
   transition: transform var(--dur-reveal) var(--ease-editorial);
   transition-delay: calc(var(--i, 0) * var(--stagger));
 }
-.is-in .line-mask > *,
-.line-mask.is-in > * { transform: translateY(0); }
+html.js .is-in .line-mask > *,
+html.js .line-mask.is-in > * { transform: translateY(0); }
 
 .field-wipe {
+  clip-path: none;
+}
+html.js .field-wipe {
   clip-path: inset(100% 0 0 0);
   transition: clip-path var(--dur-reveal) var(--ease-wipe);
 }
-.field-wipe.is-in { clip-path: inset(0 0 0 0); }
+.field-wipe.is-in,
+html.js .field-wipe.is-in,
+.is-in > .field-wipe,
+html.js .is-in > .field-wipe {
+  clip-path: inset(0 0 0 0);
+}
 
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+html.js .reveal {
   opacity: 0;
   transform: translateY(var(--reveal-y));
   transition:
@@ -398,7 +410,31 @@ p {
     transform var(--dur-base) var(--ease-editorial);
   transition-delay: calc(var(--i, 0) * var(--stagger));
 }
-.reveal.is-in { opacity: 1; transform: none; }
+.reveal.is-in,
+html.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.type-graphic-wrap {
+  overflow: hidden;
+  width: 100%;
+  line-height: 0.8;
+}
+
+.type-graphic {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: var(--weight-display);
+  font-size: clamp(6rem, 25vw, 26rem);
+  line-height: 0.8;
+  letter-spacing: var(--tracking-mega);
+  white-space: nowrap;
+  padding-left: max(var(--gutter), calc((100vw - var(--container-w)) / 2 + var(--gutter)));
+  transform: translateY(12%);
+  user-select: none;
+  pointer-events: none;
+}
 
 .marquee { overflow: hidden; white-space: nowrap; }
 .marquee > * {
@@ -426,3 +462,5 @@ p {
   .reveal { opacity: 1; transform: none; }
   .marquee > * { animation: none; }
 }
+
+
