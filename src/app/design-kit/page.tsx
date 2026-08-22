@@ -1,62 +1,85 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+﻿import Link from "next/link";
 
 export const metadata = {
-  title: "Design kit",
+  title: "Design kit — fields",
   robots: { index: false, follow: false },
 };
 
+const FIELDS = [
+  { name: "paper" },
+  { name: "ink" },
+  { name: "cobalt" },
+  { name: "violet" },
+  { name: "vermilion" },
+  { name: "chartreuse" },
+  { name: "jade" },
+] as const;
+
 export default function DesignKitPage() {
   return (
-    <main className="shell section-y space-y-10">
-      <header className="space-y-3">
-        <p className="micro">Internal · Token verification</p>
-        <h1 className="display-2">Token layer preview</h1>
-        <p className="lede">
-          One button, one input, one card — rendered against the installed token
-          layer. Not indexed; not linked from navigation.
-        </p>
-      </header>
-
-      <hr className="rule" />
-
-      <div className="grid max-w-md gap-8">
-        <div className="space-y-2">
-          <Label htmlFor="dk-email">Email</Label>
-          <Input id="dk-email" type="email" placeholder="you@company.com" />
+    <main>
+      <section className="field" data-field="paper">
+        <div className="container">
+          <p className="micro">Design kit · v2 field system</p>
+          <h1 className="display mt-6">Seven fields, one ink each.</h1>
+          <hr className="rule-heavy my-8" />
+          <div className="flex flex-wrap gap-3">
+            <Link href="/contact" className="btn btn-primary">
+              Start a project
+            </Link>
+            <Link href="/services" className="btn btn-secondary">
+              See services
+            </Link>
+          </div>
+          <div className="mt-10 max-w-md">
+            <label htmlFor="dk-email" className="micro">
+              Email
+            </label>
+            <input
+              id="dk-email"
+              type="email"
+              placeholder="you@company.com"
+              className="input mt-2"
+            />
+          </div>
         </div>
+      </section>
 
-        <div className="flex flex-wrap gap-3">
-          <Button asChild>
-            <Link href="/contact">Start a project</Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link href="/services">See services</Link>
-          </Button>
+      {FIELDS.slice(1).map((f) => (
+        <section key={f.name} className="field field-wipe" data-field={f.name}>
+          <div className="container">
+            <div className="flex items-baseline justify-between gap-6">
+              <p className="micro">{f.name} field</p>
+              <span className="index">
+                {String(FIELDS.findIndex((x) => x.name === f.name) + 1).padStart(2, "0")} / 07
+              </span>
+            </div>
+            <p className="mega mt-8">{f.name.toUpperCase()}</p>
+            <hr className="rule-heavy my-8" />
+            <p className="lede muted max-w-[46ch]">
+              Field ink inverts automatically. One flat colour, edge to edge.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <button type="button" className="btn btn-primary">
+                Primary on {f.name}
+              </button>
+              <button type="button" className="btn btn-secondary">
+                Secondary
+              </button>
+            </div>
+          </div>
+        </section>
+      ))}
+
+      <section className="field" data-field="ink" aria-label="Marquee demo">
+        <div className="marquee py-6">
+          <span className="mega">
+            Websites · Apps · AI · SEO · Content ·&nbsp;Websites · Apps · AI · SEO ·
+            Content ·&nbsp;
+          </span>
         </div>
-      </div>
-
-      <div className="surface--lit card-interactive max-w-md p-6">
-        <p className="micro">Practice 01 · Build</p>
-        <h2 className="mt-3 font-medium text-[color:var(--text-1)]">
-          Web Development
-        </h2>
-        <p className="mt-2 max-w-[46ch] text-sm leading-relaxed">
-          Fast, findable websites that carry your brand and convert visitors.
-        </p>
-        <Link
-          href="/services/web-development"
-          className="link-line mt-4 inline-block text-sm text-[color:var(--text-1)]"
-        >
-          Explore practice
-        </Link>
-      </div>
-
-      <div className="surface--raised max-w-md p-6">
-        <p className="micro">Raised surface</p>
-      </div>
+      </section>
     </main>
   );
 }
+

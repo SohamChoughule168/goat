@@ -1,6 +1,6 @@
 ﻿import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { fontMono, fontSans } from "@/lib/fonts";
+import { fontDisplay, fontMono, fontSans } from "@/lib/fonts";
 import { buildGraph } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/jsonld";
 import MotionProvider from "@/components/motion/motion-provider";
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${fontMono.variable}`}
+      className={`${fontDisplay.variable} ${fontSans.variable} ${fontMono.variable}`}
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col">
@@ -70,4 +70,5 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     </html>
   );
 }
+
 

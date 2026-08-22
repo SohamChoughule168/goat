@@ -8,7 +8,9 @@ export default function MotionProvider({ children }: { children: ReactNode }) {
     document.documentElement.classList.add("js");
 
     const els = Array.from(
-      document.querySelectorAll<HTMLElement>(".reveal:not(.is-in)")
+      document.querySelectorAll<HTMLElement>(
+        ".reveal:not(.is-in), .field-wipe:not(.is-in), [data-lines]:not(.is-in)"
+      )
     );
     if (!els.length || reduced) {
       els.forEach((el) => el.classList.add("is-in"));
