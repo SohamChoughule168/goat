@@ -1,4 +1,4 @@
-import Hero from "@/components/home/hero";
+﻿import Hero from "@/components/home/hero";
 import ProofStrip from "@/components/home/proof-strip";
 import OfferingSplit from "@/components/home/offering-split";
 import WideStatement from "@/components/home/wide-statement";
@@ -21,3 +21,4 @@ export default function HomePage() {
     </>
   );
 }
+

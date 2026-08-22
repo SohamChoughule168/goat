@@ -1,5 +1,4 @@
 ﻿import Link from "next/link";
-import type { Route } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/content/work";
 
@@ -8,71 +7,63 @@ export default function SelectedWork() {
   if (!cs) return null;
 
   return (
-    <section className="section-y border-t border-border" aria-label="Evidence">
-      <div className="shell">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-          <div>
-            <p className="micro">Evidence</p>
-            <h2 className="display-2 mt-4">Named work, verifiable.</h2>
-            <p className="lede mt-5 text-sm">
-              One case study published means one case study checked. Further
-              engagements sit under client confidentiality — ask for references.
-            </p>
-            <Link
-              href="/work"
-              className="link-line mt-8 inline-block text-sm font-medium text-[color:var(--text-1)]"
-            >
-              All case studies
-            </Link>
-          </div>
+    <section className="field" data-field="cobalt" aria-label="Selected work">
+      <div className="container">
+        <div className="flex items-baseline justify-between gap-6">
+          <p className="micro">Selected work</p>
+          <span className="index">01 / 01 published</span>
+        </div>
 
-          <div className="surface--lit card-interactive p-7 md:p-9">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-              <h3 className="font-medium text-[color:var(--text-1)]" style={{ fontSize: "var(--text-h3)" }}>
-                {cs.client}
-              </h3>
-              <p className="micro">
-                {cs.sector} · {cs.year}
-              </p>
+        <article>
+          <p className="index mt-12">{cs.sector} · {cs.year}</p>
+          <h2 className="mega mt-4" aria-label={cs.client}>
+            {cs.client.split(" ")[0]}
+            <span className="opacity-60">.</span>
+          </h2>
+          <p className="display mt-6 max-w-[24ch]" style={{ fontSize: "var(--text-h2)" }}>
+            A regulated business needed a public face it fully owned.
+          </p>
+
+          <hr className="rule-heavy my-10" />
+
+          <div className="grid gap-10 md:grid-cols-[1fr_1fr]">
+            <div>
+              <p className="micro">Problem</p>
+              <p className="lede mt-3 muted">{cs.challenge}</p>
             </div>
-            <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-muted-foreground">
-              {cs.summary}
-            </p>
-
-            <dl className="mt-6 grid gap-3 border-t border-border pt-5 text-sm">
-              {cs.results.map((r) => (
-                <div key={r.label} className="flex items-baseline justify-between gap-4">
-                  <dt className="micro">{r.label}</dt>
-                  <dd className="text-right text-muted-foreground">{r.value}</dd>
-                </div>
-              ))}
-            </dl>
-
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5">
-              <ul className="flex flex-wrap gap-2">
-                {cs.services.map((s) => (
-                  <li
-                    key={s}
-                    className="rounded-full border border-border px-3 py-0.5 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground"
-                  >
-                    {s}
+            <div>
+              <p className="micro">Outcome</p>
+              <ul className="mt-3 space-y-2">
+                {cs.results.map((r) => (
+                  <li key={r.label} className="flex items-baseline justify-between gap-4 border-b border-current/15 pb-2">
+                    <span className="text-sm">{r.value}</span>
+                    <span className="index">{r.label}</span>
                   </li>
                 ))}
               </ul>
-              <Link
-                href={`/work/${cs.slug}` as Route}
-                className="group inline-flex items-center gap-1.5 text-sm font-medium text-[color:var(--accent-brand)]"
+              <a
+                href={cs.proof.links[0]?.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-line mt-6 inline-flex items-center gap-2 text-sm font-medium"
               >
-                Read the case study
-                <ArrowUpRight
-                  className="h-4 w-4 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  aria-hidden="true"
-                />
-              </Link>
+                Visit the live site
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </a>
             </div>
           </div>
+        </article>
+
+        <div className="mt-16 flex flex-wrap items-baseline justify-between gap-4 border-t border-current/15 pt-6">
+          <p className="text-sm muted max-w-[52ch]">
+            Further engagements sit under client confidentiality.
+          </p>
+          <Link href="/contact" className="link-line text-sm font-medium">
+            Request references
+          </Link>
         </div>
       </div>
     </section>
   );
 }
+
