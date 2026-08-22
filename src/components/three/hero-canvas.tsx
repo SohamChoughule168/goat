@@ -14,6 +14,7 @@ uniform float uSize;
 uniform float uPr;
 uniform vec2 uMouse;
 uniform float uAspect;
+uniform float uBurst;
 varying float vMix;
 varying float vCrystal;
 
@@ -28,12 +29,18 @@ void main() {
   vec4 mv = modelViewMatrix * vec4(pos, 1.0);
   vec4 clip = projectionMatrix * mv;
 
-  vec2 d = clip.xy / clip.w - uMouse * vec2(uAspect, 1.0);
-  float fall = exp(-dot(d, d) * 16.0);
-  clip.xy -= d * fall * 0.16 * clip.w;
+  vec2 ndc = clip.xy / clip.w;
+  vec2 dMouse = ndc - uMouse * vec2(uAspect, 1.0);
+  float fall = exp(-dot(dMouse, dMouse) * 16.0);
+  clip.xy -= dMouse * fall * 0.16 * clip.w;
+
+  float dCenter = length(ndc);
+  float ring = uBurst > 0.001 ? exp(-pow((dCenter - uBurst * 1.45) / 0.16, 2.0)) : 0.0;
+  vec2 dirC = dCenter > 0.0001 ? ndc / dCenter : vec2(0.0);
+  clip.xy += dirC * ring * 0.09 * clip.w;
 
   gl_Position = clip;
-  gl_PointSize = uSize * (0.55 + aRand) * uPr * (30.0 / -mv.z) * (1.0 + fall * 1.2);
+  gl_PointSize = uSize * (0.55 + aRand) * uPr * (30.0 / -mv.z) * (1.0 + fall * 1.2 + ring * 1.4);
   vMix = aRand;
   vCrystal = m2 * step(0.35, aRand);
 }
@@ -244,6 +251,7 @@ export default function HeroCanvas({
         uOpacity: { value: 0 },
         uAspect: { value: width / height },
         uMouse: { value: new THREE.Vector2(10, 10) },
+        uBurst: { value: 0 },
         uColorA: { value: new THREE.Color("#6a5cff") },
         uColorB: { value: new THREE.Color("#cfc9ff") },
         uColorC: { value: new THREE.Color("#f4f1ea") },
@@ -301,12 +309,24 @@ export default function HeroCanvas({
 
       const morphState = { value: 0 };
       const introTween = gsap.to(morphState, {
-        value: 0.3,
-        duration: 2.1,
+        value: 0.42,
+        duration: 1.7,
         ease: "power2.out",
-        delay: 0.25,
+        delay: 0.2,
       });
       gsap.to(uniforms.uOpacity, { value: 0.9, duration: 1.4, ease: "power1.out" });
+
+      const fireBurst = () => {
+        if (inView && !document.hidden) {
+          gsap.fromTo(
+            uniforms.uBurst,
+            { value: 0 },
+            { value: 1, duration: 1.15, ease: "power2.out", overwrite: true }
+          );
+        }
+      };
+      container.addEventListener("pointerdown", fireBurst);
+      if (!fine) window.addEventListener("touchstart", fireBurst, { passive: true });
 
       const reportPhase = (p: HeroPhase) => {
         if (p !== lastPhase) {
@@ -320,7 +340,6 @@ export default function HeroCanvas({
         const progress = Math.min(Math.max(-rect.top / (rect.height * 0.92), 0), 1);
         const m = Math.min(2, morphState.value + progress * 2.1);
         uniforms.uMorph.value = m;
-        edgeMat.opacity = gsap.utils.clamp(0, 0.85, (m - 1.55) * 1.6);
         reportPhase(m < 0.85 ? 1 : m < 1.7 ? 2 : 3);
       };
       window.addEventListener("scroll", onScroll, { passive: true });
@@ -354,8 +373,14 @@ export default function HeroCanvas({
         const st = Math.min(Math.max((m - 1.35) / 0.65, 0), 1);
         const settle = st * st * (3 - 2 * st);
         spin += 0.0016 * (1 - settle);
-        group.rotation.y = (spin + pointer.x * 0.24) * (1 - settle);
+        group.rotation.y =
+          spin * (1 - settle) +
+          pointer.x * 0.24 * (1 - settle * 0.7) +
+          Math.sin(t * 0.32) * 0.05 * settle;
         group.rotation.x += (-pointer.y * 0.14 - group.rotation.x) * 0.04 * (1 - settle);
+        const breathe = Math.sin(t * 1.5) * 0.5 + 0.5;
+        group.scale.setScalar(1 + breathe * 0.02 * settle);
+        edgeMat.opacity = gsap.utils.clamp(0, 0.85, (m - 1.55) * 1.6) * (0.75 + breathe * 0.25);
         renderer.render(scene, camera);
       };
       tick();
@@ -365,6 +390,8 @@ export default function HeroCanvas({
         introTween.kill();
         ro.disconnect();
         io.disconnect();
+        container.removeEventListener("pointerdown", fireBurst);
+        window.removeEventListener("touchstart", fireBurst);
         window.removeEventListener("scroll", onScroll);
         window.removeEventListener("mousemove", onMouse);
         geometry.dispose();

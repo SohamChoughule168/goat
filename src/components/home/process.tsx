@@ -1,4 +1,6 @@
-﻿const STEPS = [
+﻿import KineticHeading from "@/components/motion/kinetic-heading";
+
+const STEPS = [
   {
     n: "01",
     title: "Discovery",
@@ -35,11 +37,11 @@ export default function Process() {
       <div className="shell grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p data-reveal="fade" className="eyebrow mb-4 flex items-center gap-3"><span className="text-primary">◆</span> Chapter IV — How we work</p>
-          <h2 data-reveal="up" className="display-2">
-            A process you can
-            <span className="font-serif font-normal italic text-primary"> schedule </span>
-            around.
-          </h2>
+          <KineticHeading
+            text="A process you can schedule around."
+            className="display-2"
+            accentWords={[4, 5]}
+          />
           <p data-reveal="up" className="lede mt-5 text-sm">
             Four phases with honest timeframes. No black boxes, no surprise invoices,
             no disappearing act after launch.

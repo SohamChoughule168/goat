@@ -79,7 +79,7 @@ export default async function CaseStudyPage(props: { params: Promise<{ slug: str
           </div>
         </section>
 
-        <section className="border-y border-border bg-card/30">
+        <section className="border-b border-border bg-card/30">
           <dl className="shell grid gap-8 py-12 sm:grid-cols-3">
             {cs.results.map((r, i) => (
               <div key={r.label} data-reveal="up" data-reveal-delay={String(i * 60)}>

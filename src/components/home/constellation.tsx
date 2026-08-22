@@ -27,18 +27,18 @@ const TOOL_TAGS = [
 
 export default function CapabilityConstellation() {
   const [active, setActive] = useState(0);
-  const [locked, setLocked] = useState(false);
+  const [interaction, setInteraction] = useState<"auto" | "hover" | "locked">("auto");
   const panelRef = useRef<HTMLDivElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (locked) return;
+    if (interaction !== "auto") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(() => {
       if (!document.hidden) setActive((a) => (a + 1) % pillars.length);
     }, 4600);
     return () => window.clearInterval(id);
-  }, [locked]);
+  }, [interaction]);
 
   useEffect(() => {
     const panel = panelRef.current;
@@ -50,7 +50,9 @@ export default function CapabilityConstellation() {
     );
   }, [active]);
 
-  const lock = () => setLocked(true);
+  const lock = () => setInteraction("locked");
+  const hoverOn = () => setInteraction((m) => (m === "locked" ? m : "hover"));
+  const hoverOff = () => setInteraction((m) => (m === "hover" ? "auto" : m));
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     let next: number | null = null;
@@ -93,7 +95,8 @@ export default function CapabilityConstellation() {
           <div
             ref={rootRef}
             className="relative mx-auto hidden h-[420px] w-full max-w-[540px] md:block"
-            onMouseEnter={lock}
+            onMouseEnter={hoverOn}
+            onMouseLeave={hoverOff}
             onFocus={lock}
             onPointerDown={lock}
           >
@@ -150,7 +153,7 @@ export default function CapabilityConstellation() {
                     aria-controls="constellation-panel"
                     tabIndex={isActive ? 0 : -1}
                     onClick={() => { lock(); setActive(i); }}
-                    onMouseEnter={() => { lock(); setActive(i); }}
+                    onMouseEnter={() => { setInteraction((m) => (m === "locked" ? m : "hover")); setActive(i); }}
                     style={{
                       left: `${NODE_POS[i].x}%`,
                       top: `${NODE_POS[i].y}%`,

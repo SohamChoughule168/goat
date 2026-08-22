@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import Magnetic from "@/components/motion/magnetic";
 import KineticHeading from "@/components/motion/kinetic-heading";
 import { Button } from "@/components/ui/button";
@@ -37,7 +38,10 @@ export default function FinalCta() {
         >
           <Magnetic>
             <Button asChild size="lg" className="h-12 px-8 text-base">
-              <Link href="/contact">Start a project</Link>
+              <Link href="/contact">
+                Start a project
+                <ArrowRight className="transition-transform duration-300 group-hover/button:translate-x-1" aria-hidden="true" />
+              </Link>
             </Button>
           </Magnetic>
           <Button asChild variant="outline" size="lg" className="h-12 px-8 text-base">

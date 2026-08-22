@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import HeroCanvas, { type HeroPhase } from "@/components/three/hero-canvas";
 import Magnetic from "@/components/motion/magnetic";
@@ -72,6 +72,8 @@ export default function Hero() {
             <span key={phase} style={{ animation: "rise-in 0.4s cubic-bezier(0.22,1,0.36,1) both" }}>
               {PHASE_LABEL[phase]}
             </span>
+            <span className="h-px w-6 bg-border" />
+            <span className="opacity-60">Click to charge</span>
           </div>
         </div>
 
@@ -95,7 +97,10 @@ export default function Hero() {
           <div data-hero-fade className="flex flex-wrap items-center gap-3">
             <Magnetic>
               <Button asChild size="lg" className="h-11 px-6 text-base">
-                <Link href="/contact">Start a project</Link>
+                <Link href="/contact">
+                  Start a project
+                  <ArrowRight className="transition-transform duration-300 group-hover/button:translate-x-1" aria-hidden="true" />
+                </Link>
               </Button>
             </Magnetic>
             <Button
