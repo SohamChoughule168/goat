@@ -7,6 +7,7 @@ import { ArrowUpRight, Braces, Clapperboard, Cpu, TrendingUp } from "lucide-reac
 import gsap from "gsap";
 import { LogoMark } from "@/components/brand/logo";
 import { getServicesByPillar, pillars } from "@/content/services";
+import { PILLAR_HUES } from "@/lib/forge";
 
 const NODE_POS = [
   { x: 15, y: 24 },
@@ -73,7 +74,7 @@ export default function CapabilityConstellation() {
   const ActiveIcon = ICONS[active];
 
   return (
-    <section className="section-y relative overflow-hidden">
+    <section className="section-y relative overflow-hidden" data-chapter="capabilities">
       <div className="shell">
         <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
@@ -84,6 +85,7 @@ export default function CapabilityConstellation() {
               Four practices.
               <span className="font-serif font-normal italic text-primary"> One system.</span>
             </h2>
+            <div className="spectral-line mt-6" aria-hidden="true" />
           </div>
           <p data-reveal="up" className="lede max-w-sm text-sm">
             Hover a node to see how each practice works and what it ships. Every
@@ -115,6 +117,7 @@ export default function CapabilityConstellation() {
                   y2={n.y + 5}
                   pathLength={100}
                   strokeDasharray={100}
+                  style={{ stroke: i === active ? PILLAR_HUES[pillars[i].slug] : undefined }}
                   className={`transition-opacity duration-500 ${i === active ? "constellation-line-active" : "constellation-line"}`}
                   vectorEffect="non-scaling-stroke"
                 />
@@ -144,6 +147,7 @@ export default function CapabilityConstellation() {
               {pillars.map((p, i) => {
                 const Icon = ICONS[i];
                 const isActive = i === active;
+                const hue = PILLAR_HUES[p.slug];
                 return (
                   <button
                     key={p.slug}
@@ -158,25 +162,19 @@ export default function CapabilityConstellation() {
                       left: `${NODE_POS[i].x}%`,
                       top: `${NODE_POS[i].y}%`,
                       transform: isActive ? "translate(-50%,-50%) scale(1.06)" : "translate(-50%,-50%)",
+                      ...(isActive
+                        ? { borderColor: hue, color: hue, boxShadow: `0 0 36px ${hue}59, inset 0 0 16px ${hue}1f` }
+                        : {}),
                     }}
-                    className={`group absolute z-10 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2.5 rounded-full border px-4 py-2.5 backdrop-blur-md transition-all duration-300 ${
-                      isActive
-                        ? "border-primary bg-primary text-primary-foreground shadow-[0_0_36px_rgba(108,99,232,0.45)]"
-                        : "border-border bg-card/70 text-muted-foreground hover:border-primary/60 hover:text-foreground"
+                    className={`group absolute z-10 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2.5 rounded-full border bg-background/85 px-4 py-2.5 backdrop-blur-md transition-all duration-300 ${
+                      isActive ? "" : "border-border text-muted-foreground hover:border-primary/60 hover:text-foreground"
                     }`}
                   >
                     <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
                     <span className="whitespace-nowrap text-sm font-medium">{p.title}</span>
-                    <span className={`font-mono text-[9px] tracking-[0.2em] ${isActive ? "opacity-80" : "text-primary"}`}>
+                    <span className="font-mono text-[9px] tracking-[0.2em]" style={{ color: isActive ? hue : undefined }}>
                       {p.index}
                     </span>
-                    <span
-                      aria-hidden="true"
-                      className={`absolute inset-0 -z-10 rounded-full transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"} ${
-                        i === 1 || i === 2 ? "-rotate-90" : ""
-                      }`}
-                      style={{ boxShadow: "0 0 22px rgba(108,99,232,0.35)" }}
-                    />
                   </button>
                 );
               })}
@@ -195,9 +193,14 @@ export default function CapabilityConstellation() {
           </div>
 
           <div ref={panelRef} id="constellation-panel" role="tabpanel" aria-labelledby={`ctab-${pillar.slug}`}>
-            <div className="glass rounded-xl p-7 md:p-9">
+            <div className="glass relative overflow-hidden rounded-xl p-7 md:p-9">
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-px"
+                style={{ background: `linear-gradient(90deg, transparent, ${PILLAR_HUES[pillar.slug]}, transparent)` }}
+              />
               <div className="flex items-center justify-between gap-4">
-                <span className="font-mono text-[11px] tracking-[0.32em] text-primary">
+                <span className="font-mono text-[11px] tracking-[0.32em]" style={{ color: PILLAR_HUES[pillar.slug] }}>
                   PRACTICE {pillar.index}
                 </span>
                 <ActiveIcon className="h-5 w-5 text-muted-foreground" aria-hidden="true" />
@@ -250,8 +253,9 @@ export default function CapabilityConstellation() {
                   key={`dot-${p.slug}`}
                   onClick={() => { lock(); setActive(i); }}
                   aria-label={`Show practice ${p.title}`}
+                  style={{ color: PILLAR_HUES[p.slug] }}
                   className={`transition-all duration-300 ${
-                    i === active ? "scale-125 text-primary" : "text-muted-foreground opacity-50 hover:opacity-100"
+                    i === active ? "scale-125" : "opacity-40 hover:opacity-90"
                   }`}
                 >
                   ◆

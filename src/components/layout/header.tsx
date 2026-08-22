@@ -144,7 +144,7 @@ export default function Header() {
             </a>
           </Button>
           <Magnetic>
-            <Button asChild size="sm" className="hidden h-9 px-4 md:inline-flex">
+            <Button asChild size="sm" className="btn-forge hidden h-9 px-4 md:inline-flex">
               <Link href="/contact">Start a project</Link>
             </Button>
           </Magnetic>

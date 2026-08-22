@@ -33,7 +33,7 @@ const STEPS = [
 
 export default function Process() {
   return (
-    <section className="section-y border-t border-border">
+    <section className="section-y border-t border-border" data-chapter="process">
       <div className="shell grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p data-reveal="fade" className="eyebrow mb-4 flex items-center gap-3"><span className="text-primary">◆</span> Chapter IV — How we work</p>
@@ -74,4 +74,5 @@ export default function Process() {
     </section>
   );
 }
+
 

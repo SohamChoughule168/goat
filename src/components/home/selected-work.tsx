@@ -9,7 +9,7 @@ export default function SelectedWork() {
   if (!featured) return null;
 
   return (
-    <section className="section-y border-t border-border">
+    <section className="section-y border-t border-border" data-chapter="work">
       <div className="shell">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
@@ -83,4 +83,5 @@ export default function SelectedWork() {
     </section>
   );
 }
+
 

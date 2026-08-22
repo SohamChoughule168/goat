@@ -52,6 +52,7 @@ export default function Hero() {
       ref={rootRef}
       className="relative flex min-h-[calc(100dvh-4.25rem)] flex-col justify-end overflow-hidden"
       data-cursor=""
+      data-chapter="hero"
     >
       <HeroCanvas onPhase={handlePhase} />
 
@@ -96,7 +97,7 @@ export default function Hero() {
           </p>
           <div data-hero-fade className="flex flex-wrap items-center gap-3">
             <Magnetic>
-              <Button asChild size="lg" className="h-11 px-6 text-base">
+              <Button asChild size="lg" className="btn-forge h-11 px-6 text-base">
                 <Link href="/contact">
                   Start a project
                   <ArrowRight className="transition-transform duration-300 group-hover/button:translate-x-1" aria-hidden="true" />

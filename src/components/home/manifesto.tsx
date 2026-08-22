@@ -5,12 +5,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const STATEMENTS = [
-  { text: "Most agencies sell you a department.", accent: false, tone: "#6a5cff" },
-  { text: "You get senior people who ship.", accent: false, tone: "#3d7bd6" },
+  { text: "Most agencies sell you a department.", accent: false, tone: "#ff6a5c" },
+  { text: "You get senior people who ship.", accent: false, tone: "#4fc3ff" },
   {
     text: "Strategy, design, engineering and growth — one accountable roof.",
     accent: true,
-    tone: "#8f5be0",
+    tone: "#e0b64f",
   },
 ];
 
@@ -90,7 +90,7 @@ export default function Manifesto() {
         data-tint
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 transition-[background,opacity] duration-700"
-        style={{ background: "radial-gradient(60% 55% at 50% 55%, #6a5cff26, transparent 70%)", opacity: 0.35 }}
+        style={{ background: "radial-gradient(60% 55% at 50% 55%, #ff6a5c26, transparent 70%)", opacity: 0.35 }}
       />
       <div className="shell relative z-10 w-full">
         <p className="eyebrow mb-10 flex items-center justify-center gap-3">

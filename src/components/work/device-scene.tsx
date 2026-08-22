@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -113,8 +113,8 @@ export default function DeviceScene({ variant = "full", className = "" }: Device
                   <svg viewBox="0 0 200 64" className="block h-20 w-full sm:h-24" preserveAspectRatio="none" aria-hidden="true">
                     <defs>
                       <linearGradient id="ds-fill" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#6a5cff" stopOpacity="0.35" />
-                        <stop offset="100%" stopColor="#6a5cff" stopOpacity="0" />
+                        <stop offset="0%" stopColor="#e0b64f" stopOpacity="0.35" />
+                        <stop offset="100%" stopColor="#e0b64f" stopOpacity="0" />
                       </linearGradient>
                     </defs>
                     {[16, 32, 48].map((y) => (
@@ -131,7 +131,7 @@ export default function DeviceScene({ variant = "full", className = "" }: Device
                       pathLength={100}
                       d="M0,52 C22,46 34,32 56,36 S96,18 120,26 S160,12 178,16 L200,10"
                       fill="none"
-                      stroke="#8f7bff"
+                      stroke="#e0b64f"
                       strokeWidth="1.6"
                       strokeLinecap="round"
                     />
@@ -145,7 +145,7 @@ export default function DeviceScene({ variant = "full", className = "" }: Device
                       <div
                         key={i}
                         style={{ height: `${h}%`, "--bd": `${0.55 + i * 0.09}s` } as React.CSSProperties}
-                        className={`flex-1 rounded-t-sm ${i === BARS.length - 1 ? "bg-primary/70" : "bg-white/12"}`}
+                        className={`flex-1 rounded-t-sm ${i === BARS.length - 1 ? "bg-[#e0b64f]/75" : "bg-white/12"}`}
                       />
                     ))}
                   </div>
@@ -176,3 +176,4 @@ export default function DeviceScene({ variant = "full", className = "" }: Device
     </div>
   );
 }
+

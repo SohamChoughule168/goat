@@ -3,6 +3,7 @@ import type { Route } from "next";
 import { ArrowUpRight } from "lucide-react";
 import PillarMotif from "@/components/services/pillar-motif";
 import { getServicesByPillar, type Pillar } from "@/content/services";
+import { PILLAR_HUES } from "@/lib/forge";
 
 export default function PillarView({ pillar }: { pillar: Pillar }) {
   const list = getServicesByPillar(pillar.slug);
@@ -30,9 +31,8 @@ export default function PillarView({ pillar }: { pillar: Pillar }) {
       </section>
 
       <section aria-hidden="true" className="relative overflow-hidden border-y border-border bg-card/20">
-        <div className="absolute inset-0 opacity-[0.16]" />
         <div className="shell relative py-8 md:py-10">
-          <PillarMotif pillar={pillar.slug} className="h-36 text-primary md:h-48" />
+          <PillarMotif pillar={pillar.slug} className="h-36 md:h-48" hue={PILLAR_HUES[pillar.slug]} />
         </div>
       </section>
 

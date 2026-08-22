@@ -7,6 +7,8 @@ const FACTS = [
   "Zero fabricated numbers",
 ];
 
+const HUES = ["#ff6a5c", "#e879c8", "#6a5cff", "#4fc3ff", "#e0b64f"];
+
 export default function ProofStrip() {
   const row = [...FACTS, ...FACTS];
   return (
@@ -23,7 +25,11 @@ export default function ProofStrip() {
             className="flex items-center gap-14 whitespace-nowrap font-mono text-xs uppercase tracking-[0.24em] text-muted-foreground"
           >
             {fact}
-            <span className="text-primary" aria-hidden="true">
+            <span
+              aria-hidden="true"
+              className="text-sm"
+              style={{ color: HUES[i % HUES.length], animation: `core-pulse ${2.4 + (i % 5) * 0.5}s ease-in-out infinite` }}
+            >
               ◆
             </span>
           </span>

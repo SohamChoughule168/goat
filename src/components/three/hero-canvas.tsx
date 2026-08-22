@@ -17,6 +17,8 @@ uniform float uAspect;
 uniform float uBurst;
 varying float vMix;
 varying float vCrystal;
+varying float vPhase;
+varying float vRing;
 
 void main() {
   float m1 = smoothstep(0.0, 0.72, uMorph);
@@ -40,8 +42,12 @@ void main() {
   clip.xy += dirC * ring * 0.09 * clip.w;
 
   gl_Position = clip;
-  gl_PointSize = uSize * (0.55 + aRand) * uPr * (30.0 / -mv.z) * (1.0 + fall * 1.2 + ring * 1.4);
+  gl_PointSize = uSize * (0.55 + aRand) * uPr * (30.0 / -mv.z)
+    * (1.0 + fall * 1.2 + ring * 1.4)
+    * (0.88 + 0.24 * sin(uTime * (2.0 + aRand * 3.0) + aRand * 80.0));
   vMix = aRand;
+  vPhase = m1 + m2;
+  vRing = ring;
   vCrystal = m2 * step(0.35, aRand);
 }
 `;
@@ -51,17 +57,31 @@ precision mediump float;
 uniform vec3 uColorA;
 uniform vec3 uColorB;
 uniform vec3 uColorC;
+uniform vec3 uHeat;
+uniform vec3 uCurrent;
+uniform vec3 uGold;
 uniform float uOpacity;
 varying float vMix;
 varying float vCrystal;
+varying float vPhase;
+varying float vRing;
 
 void main() {
   vec2 uv = gl_PointCoord - 0.5;
   float d = length(uv);
   float a = smoothstep(0.5, 0.12, d) * uOpacity;
-  vec3 col = mix(uColorA, uColorB, vMix * vMix);
-  col = mix(col, uColorC, vCrystal);
-  a += vCrystal * smoothstep(0.5, 0.2, d) * 0.35;
+
+  float p = clamp(vPhase + (vMix - 0.5) * 0.22, 0.0, 2.0);
+  vec3 imagination = mix(uColorA, uHeat, smoothstep(0.25, 0.8, vMix));
+  vec3 engineering = uCurrent;
+  vec3 product = mix(uGold, uColorB, step(0.85, vMix));
+  vec3 col = mix(imagination, engineering, smoothstep(0.55, 1.05, p));
+  col = mix(col, product, smoothstep(1.45, 1.95, p));
+  col = mix(col, uColorC, vCrystal * 0.45);
+  col += uHeat * vRing * 0.9;
+
+  a += smoothstep(0.5, 0.18, d) * vCrystal * 0.35;
+  a += vRing * 0.28;
   gl_FragColor = vec4(col, a);
 }
 `;
@@ -255,6 +275,9 @@ export default function HeroCanvas({
         uColorA: { value: new THREE.Color("#6a5cff") },
         uColorB: { value: new THREE.Color("#cfc9ff") },
         uColorC: { value: new THREE.Color("#f4f1ea") },
+        uHeat: { value: new THREE.Color("#ff6a5c") },
+        uCurrent: { value: new THREE.Color("#4fc3ff") },
+        uGold: { value: new THREE.Color("#e0b64f") },
       };
 
       const material = new THREE.ShaderMaterial({
@@ -272,7 +295,7 @@ export default function HeroCanvas({
       const edgeGeo = new THREE.BufferGeometry();
       edgeGeo.setAttribute("position", new THREE.BufferAttribute(buildMarkEdges(), 3));
       const edgeMat = new THREE.LineBasicMaterial({
-        color: new THREE.Color("#e8e4ff"),
+        color: new THREE.Color("#e0b64f"),
         transparent: true,
         opacity: 0,
         blending: THREE.AdditiveBlending,

@@ -108,9 +108,11 @@ const BODIES = {
 export default function PillarMotif({
   pillar,
   className = "",
+  hue,
 }: {
   pillar: PillarSlug;
   className?: string;
+  hue?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -133,7 +135,12 @@ export default function PillarMotif({
 
   const Body = BODIES[pillar];
   return (
-    <div ref={ref} aria-hidden="true" className={`motif ${className}`}>
+    <div
+      ref={ref}
+      aria-hidden="true"
+      className={`motif ${className}`}
+      style={hue ? { color: hue } : undefined}
+    >
       <Body />
     </div>
   );

@@ -280,6 +280,51 @@
   50% { transform: translate3d(8%, -5%, 0) scale(1.14); }
 }
 
+.aurora-stack {
+  transition: filter 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora-stack {
+    transition: none;
+  }
+}
+
+.btn-forge {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-forge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, var(--primary) 0%, #8f6bff 55%, #4fc3ff 120%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.btn-forge:hover::after,
+.btn-forge:focus-visible::after {
+  opacity: 1;
+}
+
+.spectral-line {
+  height: 2px;
+  width: 76px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff6a5c, #e879c8, #6a5cff, #4fc3ff, #e0b64f);
+  background-size: 220% 100%;
+  animation: spectral-slide 5s linear infinite;
+}
+@keyframes spectral-slide {
+  to { background-position: 220% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spectral-line {
+    animation: none;
+  }
+}
+
 @keyframes spin-slow {
   to { transform: rotate(360deg); }
 }
