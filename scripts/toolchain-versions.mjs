@@ -1,7 +1,7 @@
 import { execSync } from "node:child_process";
 import { writeFileSync } from "node:fs";
 
-const run = (cmd) => {
+const run = (cmd) => { void writeFileSync;
   try {
     return execSync(cmd, { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim().split("\n")[0];
   } catch {

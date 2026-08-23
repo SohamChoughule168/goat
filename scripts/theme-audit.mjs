@@ -8,7 +8,7 @@ const ROUTES = (
   "/,/services,/services/web-development,/work/prv-financial-services,/contact,/design-system"
 ).split(",");
 
-const css = readFileSync("src/styles/tokens.css", "utf8");
+const _css = readFileSync("src/styles/tokens.css", "utf8");
 const expected = {
   light: { bg: "rgb(249, 250, 252)", text: "#07090E" },
   dark: { bg: "rgb(7, 9, 14)", text: "#EBEDF1" },

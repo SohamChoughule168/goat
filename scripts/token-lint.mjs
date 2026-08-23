@@ -32,9 +32,7 @@ for (const root of ROOTS) {
     const src = readFileSync(file, "utf8");
 
     const hexKey = rel + ":hex";
-    let hexCount = 0;
-    for (const m of src.matchAll(HEX)) {
-      hexCount++;
+        for (const m of src.matchAll(HEX)) {
       if (!allowRaw.includes(hexKey))
         violations.push({ file: rel, rule: "hex", match: m[0] });
     }
