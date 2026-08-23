@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/seo/jsonld";
 import FinalCta from "@/components/home/final-cta";
 import PillarMotif from "@/components/services/pillar-motif";
 import {
+  PILLAR_SLUGS,
   getPillar,
   getServicesByPillar,
   getService,
@@ -15,7 +16,10 @@ import { breadcrumbSchema, createMetadata, faqSchema, serviceSchema } from "@/li
 import type { Service } from "@/content/services/types";
 
 export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return [
+    ...PILLAR_SLUGS.map((slug) => ({ slug })),
+    ...services.map((s) => ({ slug: s.slug })),
+  ];
 }
 
 export async function generateMetadata(props: {
@@ -31,6 +35,37 @@ export default async function ServiceDetailPage(props: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await props.params;
+
+  // Handle pillar routes (e.g. /services/build)
+  const pillarData = getPillar(slug);
+  if (pillarData) {
+    const pillarServices = getServicesByPillar(pillarData.slug);
+    return (
+      <main className="shell section-y">
+        <p className="micro mb-4">Practice {pillarData.index} — {pillarData.kicker}</p>
+        <h1 className="display max-w-3xl" style={{ fontSize: "var(--text-h1)", letterSpacing: "-0.03em", fontWeight: 600 }}>
+          {pillarData.title}
+        </h1>
+        <p className="lede mt-5">{pillarData.description}</p>
+        <ul className="mt-12 border-t-2 border-current">
+          {pillarServices.map((s, i) => (
+            <li key={s.slug} className="border-b-2 border-current/15">
+              <Link href={`/services/${s.slug}`} className="group -mx-2 flex items-baseline justify-between gap-6 rounded-md px-2 py-7 transition-colors hover:bg-[color:var(--color-surface-sunken)]">
+                <span className="min-w-0">
+                  <span className="index block">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="mt-1 block text-lg font-medium">{s.title}</span>
+                  <span className="mt-1 block text-sm text-muted-foreground">{s.tagline}</span>
+                </span>
+                <span className="micro shrink-0">{s.timeline}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </main>
+    );
+  }
+
+  // Handle individual service routes
   const service = getService(slug);
   if (!service) notFound();
   const pillar = getPillar(service.pillar);

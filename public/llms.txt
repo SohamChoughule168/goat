@@ -1,0 +1,20 @@
+﻿# ImaginarsClub Services
+A senior-led digital studio in Mumbai building websites, mobile apps and AI-driven products.
+
+## Services
+- [Services overview](https://www.imaginarsclubservices.com/services)
+- Web Development: Fast, findable websites on Next.js
+- Mobile App Development: iOS and Android via React Native or Flutter
+- AI-Driven Websites: Grounded AI assistants and smart search
+- SEO / GEO / AEO: Search, generative engine and answer optimization
+- Meta Ad Management: Facebook and Instagram campaigns
+- Brand & Content: Video editing, thumbnails, brand systems
+
+## Key Pages
+- [Case Studies](https://www.imaginarsclubservices.com/work)
+- [Pricing](https://www.imaginarsclubservices.com/pricing)
+- [Process](https://www.imaginarsclubservices.com/process)
+- [Contact](https://www.imaginarsclubservices.com/contact)
+
+## About
+Founded 2024, Mumbai. Senior-led studio. Reply within one business day.

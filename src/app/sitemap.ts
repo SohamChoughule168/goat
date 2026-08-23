@@ -19,17 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/faq`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${site.url}/careers`, changeFrequency: "monthly", priority: 0.4 },
   ];
-  for (const slug of PILLAR_SLUGS) {
+  for (const slug of PILLAR_SLUGS)
     entries.push({ url: `${site.url}/services/${slug}`, changeFrequency: "monthly", priority: 0.8 });
-  }
-  for (const s of services) {
+  for (const s of services)
     entries.push({ url: `${site.url}/services/${s.slug}`, changeFrequency: "monthly", priority: 0.75 });
-  }
-  for (const c of caseStudies) {
+  for (const c of caseStudies)
     entries.push({ url: `${site.url}/work/${c.slug}`, changeFrequency: "yearly", priority: 0.7 });
-  }
-  for (const i of insights) {
+  for (const i of insights)
     entries.push({ url: `${site.url}/insights/${i.slug}`, lastModified: new Date(`${i.date}T00:00:00`), changeFrequency: "yearly", priority: 0.6 });
-  }
   return entries.map((e) => ({ lastModified: e.lastModified ?? now, ...e }));
 }

@@ -8,7 +8,6 @@ import MotionProvider from "@/components/motion/motion-provider";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { site } from "@/content/site";
-import { THEME_COLOR_DARK, THEME_COLOR_LIGHT } from "@/lib/theme-colors";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -19,17 +18,13 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   robots: { index: true, follow: true },
-  openGraph: {
-    type: "website",
-    locale: "en_IN",
-    siteName: site.name,
-  },
+  openGraph: { type: "website", locale: "en_IN", siteName: site.name },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: THEME_COLOR_LIGHT },
-    { media: "(prefers-color-scheme: dark)", color: THEME_COLOR_DARK },
+    { media: "(prefers-color-scheme: light)", color: "#FAFAFB" },
+    { media: "(prefers-color-scheme: dark)", color: "#09090B" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -39,24 +34,13 @@ const themeScript = `(function(){try{var s=localStorage.getItem('imaginars-theme
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${fontSans.variable} ${fontMono.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={`${fontSans.variable} ${fontMono.variable}`} suppressHydrationWarning>
       <body className="flex min-h-dvh flex-col">
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
-        >
-          Skip to content
-        </a>
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-accent focus:px-4 focus:py-2 focus:text-sm">Skip to content</a>
         <MotionProvider>
           <Header />
-          <main id="main" className="flex-1 pt-[72px]">
-            {children}
-          </main>
+          <main id="main" className="flex-1 pt-[72px]">{children}</main>
           <Footer />
         </MotionProvider>
         <JsonLd data={buildGraph()} />

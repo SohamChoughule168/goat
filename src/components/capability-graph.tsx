@@ -108,17 +108,32 @@ export default function CapabilityGraph() {
           })
         )}
 
-        {/* Hub circles */}
+        {/* Hub circles + always-visible practice labels */}
         {HUBS.map((h, i) => (
-          <circle
-            key={"h-" + i}
-            cx={h.x}
-            cy={h.y}
-            r={activePillar === null || activePillar === i ? 7 : 5}
-            fill="var(--color-accent)"
-            opacity={activePillar === null || activePillar === i ? 1 : 0.3}
-            style={{ transition: "all 300ms var(--ease-decel)" }}
-          />
+          <g key={"h-" + i}>
+            <circle
+              cx={h.x}
+              cy={h.y}
+              r={activePillar === null || activePillar === i ? 7 : 5}
+              fill="var(--color-accent)"
+              opacity={activePillar === null || activePillar === i ? 1 : 0.4}
+              style={{ transition: "all 300ms var(--ease-decel)" }}
+            />
+            <text
+              x={h.x}
+              y={h.y - 16}
+              textAnchor="middle"
+              fontSize={11}
+              fontFamily="var(--font-mono)"
+              letterSpacing="0.1em"
+              fontWeight={500}
+              fill="var(--color-text)"
+              opacity={activePillar === null || activePillar === i ? 0.9 : 0.45}
+              style={{ transition: "opacity 300ms var(--ease-decel)" }}
+            >
+              {pillars[i].title.toUpperCase()}
+            </text>
+          </g>
         ))}
 
         {/* Centre wordmark */}
@@ -137,20 +152,35 @@ export default function CapabilityGraph() {
                   fill={isActive ? "var(--color-accent)" : "var(--color-surface)"}
                   stroke="var(--color-border-interactive)"
                   strokeWidth={1.5}
-                  opacity={isActive ? 1 : 0.35}
+                  opacity={isActive ? 1 : 0.45}
                   style={{ transition: "all 300ms var(--ease-decel)" }}
                 />
                 <text x={n.x} y={n.y - 12} textAnchor="middle" fontSize={11}
                   fontFamily="var(--font-mono)" letterSpacing="0.08em"
                   fill={isActive ? "var(--color-text)" : "var(--color-text-subtle)"}
                   opacity={isActive ? 1 : 0}
-                  style={{ transition: "opacity 300ms" }}>
+                  pointerEvents="none"
+                  style={{ transition: "opacity 300ms var(--ease-decel)" }}>
                   {n.title}
                 </text>
               </g>
             );
           })
         )}
+
+        {/* Legend row */}
+        <g transform={`translate(0, 700)`}>
+          {pillars.map((p, i) => (
+            <g key={"lg-" + p.slug} transform={`translate(${120 + i * 240}, 0)`}>
+              <circle r={4} cx={-14} cy={-4} fill="var(--color-accent)" opacity={activePillar === null || activePillar === i ? 1 : 0.35} />
+              <text fontSize={10} fontFamily="var(--font-mono)" letterSpacing="0.1em"
+                fill="var(--color-text-subtle)"
+                opacity={activePillar === null || activePillar === i ? 0.9 : 0.4}>
+                {p.title.toUpperCase()}
+              </text>
+            </g>
+          ))}
+        </g>
       </svg>
 
       {/* Accessible links overlay */}
