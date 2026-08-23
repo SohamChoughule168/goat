@@ -1,6 +1,6 @@
 import { chromium } from "@playwright/test";
 
-const base = process.env.URL || "http://localhost:3117";
+const base = process.env.URL || "http://localhost:3119";
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 await page.goto(base + "/", { waitUntil: "load" });
