@@ -2,7 +2,7 @@ import { chromium } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { readFileSync } from "node:fs";
 
-const base = process.env.URL || "http://localhost:3118";
+const base = process.env.URL || "http://localhost:3117";
 const ROUTES = (
   process.env.ROUTES ||
   "/,/services,/services/web-development,/work/prv-financial-services,/contact,/design-system"

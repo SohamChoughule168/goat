@@ -136,5 +136,33 @@
   max-width: 680px;
 }
 
+/* Hero reveal system */
+html.js section:not(.hero-done) [data-lines] .line-mask > span {
+  transform: translateY(105%);
+}
+html.js section:not(.hero-done) [data-hero-copy],
+html.js section:not(.hero-done) .micro.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Micro-interactions */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.12) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 600ms var(--ease-editorial);
+  pointer-events: none;
+}
+.btn-primary:hover::after {
+  transform: translateX(100%);
+}
+
 
 

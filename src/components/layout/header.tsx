@@ -134,13 +134,19 @@ export default function Header() {
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
+              <Button
+                variant="ghost"
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileOpen}
+                aria-controls="mobile-nav"
+                className="lg:hidden min-w-[44px] min-h-[44px]"
+              >
                 <svg viewBox="0 0 20 20" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
                   <path d="M2 5h16M2 10h16M2 15h10" strokeLinecap="round" />
                 </svg>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full overflow-y-auto sm:max-w-md">
+            <SheetContent side="right" id="mobile-nav" className="w-full overflow-y-auto sm:max-w-md">
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>
               <nav aria-label="Mobile" className="flex flex-col px-6 pt-4">
                 {site.nav.map((item) => (
