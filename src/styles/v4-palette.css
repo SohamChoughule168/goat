@@ -1,4 +1,4 @@
-/* Imaginars v4 — refined professional palette */
+/* Imaginars v4 — graphite canvas · electric blue · warm amber */
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -6,65 +6,26 @@
 @custom-variant dark (&:is([data-theme=dark] *));
 
 :root {
-  --bg: #09090B;
-  --surface: #0E0F13;
-  --surface-raised: #14161D;
+  --bg: #0B0C0F;
+  --surface: #111318;
+  --surface-raised: #191C24;
   --surface-sunken: #060708;
   --surface-hover: #12141B;
-
   --text-hi: #EDEEF2;
   --text-body: #A8ADB8;
   --text-subtle: #686D78;
-
   --line: rgba(255,255,255,0.06);
   --line-strong: rgba(255,255,255,0.12);
-
-  --blue: #5B8DEF;
-  --blue-hover: #7BA3F3;
-  --blue-dim: rgba(91,141,239,0.08);
+  --blue: #6B8AFF;
+  --blue-hover: #8CA9FF;
+  --blue-dim: rgba(107,138,255,0.07);
   --green: #3DD68C;
-  --gold: #E8A44C;
-  --gold-dim: rgba(232,164,76,0.10);
-
+  --gold: #E8B44C;
+  --gold-dim: rgba(232,180,76,0.09);
   --accent: var(--blue);
   --accent-hover: var(--blue-hover);
   --accent-fg: #FFFFFF;
   --focus-ring: var(--blue);
-
-  /* Type scale — ratio ~1.333 */
-  --text-caption: 0.75rem;
-  --text-small: 0.875rem;
-  --text-body: 1rem;
-  --text-body-lg: 1.3125rem;
-  --text-h4: 1.75rem;
-  --text-h3: 2.25rem;
-  --text-h2: 3rem;
-  --text-h1: 4rem;
-  --text-display: clamp(2.75rem, 6.5vw, 6.5rem);
-
-  --track-body: -0.005em;
-  --track-small: 0em;
-  --track-caption: 0.06em;
-  --track-heading: -0.025em;
-  --track-display: -0.035em;
-
-  --leading-body: 1.65;
-  --leading-tight: 1.08;
-  --leading-display: 1.0;
-
-  /* Space — 4px base */
-  --space-1: 0.25rem;  --space-2: 0.5rem;   --space-3: 0.75rem;
-  --space-4: 1rem;     --space-5: 1.5rem;   --space-6: 2rem;
-  --space-8: 3rem;     --space-10: 4rem;    --space-14: 5.5rem;
-  --space-16: 7rem;    --space-20: 9rem;    --space-28: 12rem;
-
-  --section-y: clamp(96px, 12vh, 160px);
-  --container-w: 1200px;
-  --gutter: clamp(24px, 4vw, 56px);
-
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
 }
 
 [data-theme="light"] {
@@ -80,8 +41,20 @@
   --line-strong: rgba(0,0,0,0.14);
   --blue: #3464E6;
   --blue-hover: #264FC2;
-  --blue-dim: rgba(52,100,230,0.07);
+  --blue-dim: rgba(52,100,230,0.06);
   --green: #087D4E;
   --gold: #C8891E;
   --gold-dim: rgba(200,137,30,0.08);
+  --accent: var(--blue);
+  --accent-hover: var(--blue-hover);
+  --accent-fg: #FFFFFF;
+  --focus-ring: var(--blue);
 }
+
+/* Space */
+--sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px;
+--sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+
+/* Type */
+--font-body-size: 15px;
+--track-body: -0.005em;
