@@ -154,7 +154,7 @@ export default function CapabilityGraph() {
       </svg>
 
       {/* Accessible links overlay */}
-      <div className="absolute inset-0 hidden md:block" aria-hidden="true">
+      <div className="absolute inset-0 hidden md:block">
         {ALL_NODES.map((group, gi) =>
           group.map((n) => (
             <a

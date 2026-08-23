@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -25,7 +25,7 @@ export default function Hero() {
       <div className="container relative pt-[var(--field-y)]">
         <p className="micro reveal">ImaginarsClub Services — Mumbai</p>
 
-        <h1 className="mega mt-10" data-lines aria-label="Imagination, engineered.">
+        <h1 className="mt-10" data-lines style={{ fontSize: "clamp(2.75rem, 6.2vw, 7rem)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.02 }} aria-label="Imagination, engineered.">
           <span className="line-mask" aria-hidden="true">
             <span style={{ "--i": 0 } as React.CSSProperties}>Imagination,</span>
           </span>

@@ -20,16 +20,17 @@ function resolve(choice: ThemeChoice): "dark" | "light" {
 
 function apply(choice: ThemeChoice) {
   const target = resolve(choice);
-  if (
-    !document.startViewTransition ||
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  ) {
-    document.documentElement.dataset.theme = target;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const vt = (
+    document as Document & { startViewTransition?: (cb: () => void) => void }
+  ).startViewTransition;
+  if (!reduced && typeof vt === "function") {
+    vt.call(document, () => {
+      document.documentElement.dataset.theme = target;
+    });
     return;
   }
-  document.startViewTransition(() => {
-    document.documentElement.dataset.theme = target;
-  });
+  document.documentElement.dataset.theme = target;
 }
 
 export default function ThemeToggle() {
