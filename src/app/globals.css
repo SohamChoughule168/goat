@@ -1,9 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "../styles/tokens.css";
 @import "./design-tokens.css";
+@import "../styles/transitional.css";
+@import "../styles/compat.css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is([data-theme=dark] *));
 
 @theme inline {
   --color-background: var(--background);
@@ -21,37 +24,37 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+
+  --color-text-muted: var(--color-text-muted);
+  --color-hairline: var(--color-border-hairline);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-sans: var(--font-satoshi), "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
-  --font-display: var(--font-sans);
-  --font-serif: var(--font-sans);
+  --font-sans: var(--font-sans-stack);
+  --font-mono: var(--font-mono-stack);
+  --font-newsreader: var(--font-newsreader);
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 16px;
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  --text-caption: var(--text-caption);
+  --text-small: var(--text-small);
+  --text-body: var(--text-body);
 }
 
 @layer base {
-  *,
-  *::before,
-  *::after {
-    border-color: var(--border);
-  }
   h1,
   h2,
   h3 {
     text-wrap: balance;
+    font-weight: 600;
   }
 }
 
-.hairline-grid {
-  background-image:
-    linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 56px 44px;
-}

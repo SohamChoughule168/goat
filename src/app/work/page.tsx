@@ -43,7 +43,7 @@ export default function WorkPage() {
             >
               <article className="grid md:grid-cols-[1.15fr_1fr]">
                 <div className="relative min-h-56 bg-background p-6 md:min-h-80 md:p-10">
-                  <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
+                  <span className="font-mono text-[length:var(--text-micro)] uppercase tracking-[0.3em] text-muted-foreground">
                     {cs.sector} · {cs.year}
                   </span>
                   <p className="mt-8 font-display text-4xl font-medium tracking-tight md:text-5xl">PRV<span className="text-primary">.</span></p><p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">Live since April 2025</p>
@@ -100,4 +100,5 @@ export default function WorkPage() {
     </>
   );
 }
+
 

@@ -38,7 +38,7 @@ export default function ServicesPage() {
             <a
               key={p.slug}
               href={`#${p.slug}`}
-              className="shrink-0 rounded-full border border-border px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+              className="shrink-0 rounded-full border border-border px-4 py-1.5 font-mono text-[length:var(--text-micro)] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
             >
               {p.index} · {p.title}
             </a>
@@ -102,5 +102,6 @@ export default function ServicesPage() {
     </>
   );
 }
+
 
 

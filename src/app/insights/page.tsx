@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight } from "lucide-react";
@@ -52,7 +52,7 @@ export default async function InsightsPage({
                 key={c}
                 href={c === "All" ? "/insights" : `/insights?category=${encodeURIComponent(c)}`}
                 aria-current={isActive ? "page" : undefined}
-                className={`shrink-0 rounded-full border px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                className={`shrink-0 rounded-full border px-4 py-1.5 font-mono text-[length:var(--text-micro)] uppercase tracking-[0.18em] transition-colors ${
                   isActive
                     ? "border-primary bg-primary text-primary-foreground"
                     : "border-border text-muted-foreground hover:border-primary hover:text-foreground"
@@ -97,3 +97,4 @@ export default async function InsightsPage({
     </>
   );
 }
+

@@ -1,15 +1,9 @@
-import { Geist_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { Geist, Geist_Mono } from "next/font/google";
 
-export const fontSans = localFont({
-  src: [
-    { path: "../fonts/Satoshi-400.woff2", weight: "400", style: "normal" },
-    { path: "../fonts/Satoshi-500.woff2", weight: "500", style: "normal" },
-    { path: "../fonts/Satoshi-700.woff2", weight: "700", style: "normal" },
-  ],
-  variable: "--font-satoshi",
+export const fontSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
   display: "swap",
-  fallback: ["Instrument Sans", "system-ui", "arial"],
 });
 
 export const fontMono = Geist_Mono({

@@ -42,7 +42,7 @@ export default async function InsightPage(props: { params: Promise<{ slug: strin
           <div className="shell max-w-3xl">
             <Link
               href="/insights"
-              className="link-line mb-8 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground hover:text-foreground"
+              className="link-line mb-8 inline-flex items-center gap-2 font-mono text-[length:var(--text-micro)] uppercase tracking-[0.24em] text-muted-foreground hover:text-foreground"
             >
               <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
               Insights

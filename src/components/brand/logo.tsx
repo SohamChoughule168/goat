@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export function LogoMark({ className }: { className?: string }) {
   return (
@@ -31,10 +31,10 @@ export function LogoFull({ compact = false }: { compact?: boolean }) {
       <LogoMark className={compact ? "h-7 w-7" : "h-9 w-9"} />
       {!compact && (
         <span className="flex flex-col leading-none">
-          <span className="font-display text-[15px] font-semibold tracking-[0.14em] uppercase">
+          <span className="font-display text-[length:var(--text-small)] font-semibold tracking-[0.14em] uppercase">
             ImaginarsClub
           </span>
-          <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.42em] text-primary">
+          <span className="mt-1 font-mono text-[length:var(--text-micro)] uppercase tracking-[0.42em] text-primary">
             Services
           </span>
         </span>
@@ -54,3 +54,4 @@ export function LogoLink() {
     </Link>
   );
 }
+

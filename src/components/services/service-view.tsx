@@ -37,7 +37,7 @@ export default function ServiceView({ service }: { service: Service }) {
         <div className="shell">
           <Link
             href={`/services/${service.pillar}` as Route}
-            className="link-line mb-8 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground hover:text-foreground"
+            className="link-line mb-8 inline-flex items-center gap-2 font-mono text-[length:var(--text-micro)] uppercase tracking-[0.24em] text-muted-foreground hover:text-foreground"
           >
             <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
             {pillar?.title} — practice {pillar?.index}
@@ -82,7 +82,7 @@ export default function ServiceView({ service }: { service: Service }) {
         <div className="shell grid gap-10 py-16 md:grid-cols-3 md:gap-8">
           {ENGAGEMENT.map((step, i) => (
             <div key={step.title} data-reveal="up" data-reveal-delay={String(i * 60)}>
-              <span className="font-mono text-[11px] tracking-[0.3em] text-muted-foreground">
+              <span className="font-mono text-[length:var(--text-micro)] tracking-[0.3em] text-muted-foreground">
                 Step {i + 1}
               </span>
               <h2 className="mt-2 display-3">{step.title}</h2>
@@ -160,4 +160,5 @@ export default function ServiceView({ service }: { service: Service }) {
     </>
   );
 }
+
 

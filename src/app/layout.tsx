@@ -1,4 +1,5 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
 import { fontMono, fontSans } from "@/lib/fonts";
 import { buildGraph } from "@/lib/seo";
@@ -7,6 +8,7 @@ import MotionProvider from "@/components/motion/motion-provider";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { site } from "@/content/site";
+import { THEME_COLOR_DARK, THEME_COLOR_LIGHT } from "@/lib/theme-colors";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -16,15 +18,6 @@ export const metadata: Metadata = {
   },
   description: site.description,
   applicationName: site.name,
-  keywords: [
-    "digital agency Mumbai",
-    "web development Mumbai",
-    "AI website development",
-    "mobile app development India",
-    "SEO GEO AEO services",
-    "Meta ads management",
-    "video editing services",
-  ],
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
@@ -34,12 +27,17 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08090A",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: THEME_COLOR_LIGHT },
+    { media: "(prefers-color-scheme: dark)", color: THEME_COLOR_DARK },
+  ],
   width: "device-width",
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+const themeScript = `(function(){try{var s=localStorage.getItem('imaginars-theme');var d=s==='dark'||((!s||s==='system')&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.dataset.theme=d?'dark':'light';}catch(e){}})()`;
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
@@ -47,20 +45,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col">
-        <script
-          dangerouslySetInnerHTML={{
-            __html: "document.documentElement.classList.add('js')",
-          }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
         >
           Skip to content
         </a>
         <MotionProvider>
           <Header />
-          <main id="main" className="flex-1 pt-[4.25rem]">
+          <main id="main" className="flex-1 pt-[72px]">
             {children}
           </main>
           <Footer />
@@ -70,4 +64,3 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     </html>
   );
 }
-

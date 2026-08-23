@@ -1,0 +1,8 @@
+[
+  "src/app/layout.tsx:hex",
+  "src/app/opengraph-image.tsx:hex",
+  "src/components/layout/header.tsx:px",
+  "src/components/layout/primitives.tsx:px",
+  "src/components/ui/badge.tsx:px",
+  "src/components/ui/tabs.tsx:px"
+]

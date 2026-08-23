@@ -6,20 +6,27 @@ const routes = (process.env.ROUTES || "/").split(",");
 const out = process.env.OUT || "docs/screenshots";
 mkdirSync(out, { recursive: true });
 
+const SIZES = [
+  [1440, 900, "1440"],
+  [390, 844, "390"],
+];
+
 const browser = await chromium.launch();
 for (const route of routes) {
-  for (const [w, h, name] of [
-    [1440, 900, "1440"],
-    [390, 844, "390"],
-  ]) {
-    const page = await browser.newPage({ viewport: { width: w, height: h } });
-    await page.goto(base + route, { waitUntil: "networkidle" });
-    await page.waitForTimeout(500);
-    const slug = route === "/" ? "home" : route.replace(/\//g, "-").replace(/^-/, "");
-    const file = `${out}/${slug}-${name}.png`;
+  for (const size of SIZES) {
+    const width = size[0];
+    const height = size[1];
+    const label = size[2];
+    const context = await browser.newContext({ viewport: { width: width, height: height } });
+    const page = await context.newPage();
+    await page.goto(base + route, { waitUntil: "load", timeout: 60000 });
+    await page.waitForTimeout(600);
+    let slug = route === "/" ? "home" : route.slice(1);
+    slug = slug.split("/").join("-");
+    const file = out + "/" + slug + "-" + label + ".png";
     await page.screenshot({ path: file, fullPage: true });
     console.log("SHOT", file);
-    await page.close();
+    await context.close();
   }
 }
 await browser.close();

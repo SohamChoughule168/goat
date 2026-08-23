@@ -1,21 +1,22 @@
-﻿"use client";
+"use client";
 
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { site } from "@/content/site";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Route } from "next";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { LogoLink } from "@/components/brand/logo";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { site } from "@/content/site";
-import { pillars } from "@/content/services";
+import ThemeToggle from "@/components/theme-toggle";
+import { getServicesByPillar, pillars } from "@/content/services";
 
 const NAV = [
   { label: "Work", href: "/work" },
-  { label: "About", href: "/about" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Insights", href: "/insights" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/about" },
 ] as const;
 
 export default function Header() {
@@ -57,21 +58,21 @@ export default function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   const linkCls = (href: string) =>
-    `link-line rounded-sm py-1 text-sm font-medium transition-colors ${
+    `link-line rounded-sm py-1 text-sm transition-colors ${
       isActive(href)
-        ? "text-foreground underline decoration-[color:var(--accent-brand)] decoration-2 underline-offset-8"
+        ? "text-foreground underline decoration-[2px] underline-offset-8"
         : "text-muted-foreground hover:text-foreground"
     }`;
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-border bg-background/90"
+      className={`fixed inset-x-0 top-0 z-50 h-[72px] transition-[background-color,border-color] duration-200 ${
+        scrolled || servicesOpen
+          ? "border-b border-[color:var(--color-border-hairline)] bg-[color:var(--color-bg)]/[0.88] backdrop-blur-[12px]"
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="shell flex h-[4.25rem] items-center justify-between gap-6">
+      <div className="shell flex h-[72px] items-center justify-between gap-6">
         <LogoLink />
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
@@ -81,48 +82,40 @@ export default function Header() {
               aria-expanded={servicesOpen}
               aria-haspopup="true"
               onClick={() => setServicesOpen((v) => !v)}
-              className={`flex items-center gap-1.5 rounded-sm py-1 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-1.5 rounded-sm py-1 text-sm transition-colors ${
                 isActive("/services")
-                  ? "text-foreground"
+                  ? "text-foreground underline decoration-2 underline-offset-8"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
               Services
               <ChevronDown
-                className={`h-3.5 w-3.5 transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`}
                 aria-hidden="true"
+                className={`h-3.5 w-3.5 transition-transform duration-150 ${servicesOpen ? "rotate-180" : ""}`}
               />
             </button>
             {servicesOpen && (
-              <div className="absolute left-1/2 top-full mt-3 w-[34rem] -translate-x-1/2 rounded-xl border border-border bg-popover p-2 shadow-2xl shadow-black/40">
-                <div className="grid grid-cols-2 gap-1">
-                  {pillars.map((p) => (
-                    <Link
-                      key={p.slug}
-                      href={`/services/${p.slug}` as Route}
-                      className="group rounded-lg p-4 transition-colors hover:bg-accent"
-                    >
-                      <span className="font-mono text-[10px] tracking-[0.3em] text-primary">
-                        {p.index}
-                      </span>
-                      <span className="mt-1 block font-display text-base font-medium">
-                        {p.title}
-                      </span>
-                      <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">
-                        {p.kicker}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-                <div className="mt-1 border-t border-border pt-2">
-                  <Link
-                    href="/services"
-                    className="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
-                  >
-                    All services
-                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-                </div>
+              <div
+                ref={dropdownRef}
+                className="absolute left-1/2 top-full mt-3 grid w-[720px] -translate-x-1/2 grid-cols-4 gap-6 rounded-lg border border-[color:var(--color-border-hairline)] bg-[color:var(--color-surface)] p-6 shadow-2xl"
+              >
+                {pillars.map((p, i) => (
+                  <div key={p.slug}>
+                    <p className="micro">{String(i + 1).padStart(2, "0")} · {p.title}</p>
+                    <ul className="mt-3 space-y-2">
+                      {getServicesByPillar(p.slug).map((s) => (
+                        <li key={s.slug}>
+                          <Link
+                            href={`/services/${s.slug}` as Route}
+                            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                          >
+                            {s.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             )}
           </div>
@@ -133,18 +126,9 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Button
-            asChild
-            variant="outline"
-            size="sm"
-            className="hidden h-9 px-4 font-mono text-xs uppercase tracking-widest md:inline-flex"
-          >
-            <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">
-              WhatsApp
-            </a>
-          </Button>
-          <Button asChild size="sm" className="hidden h-9 px-4 md:inline-flex">
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Button asChild size="sm" className="hidden md:inline-flex">
             <Link href="/contact">Start a project</Link>
           </Button>
 
@@ -156,52 +140,39 @@ export default function Header() {
                 </svg>
               </Button>
             </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="flex w-full flex-col gap-0 overflow-y-auto sm:max-w-md"
-            >
+            <SheetContent side="right" className="w-full overflow-y-auto sm:max-w-md">
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>
               <nav aria-label="Mobile" className="flex flex-col px-6 pt-4">
                 {site.nav.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href as Route}
-                    className="border-b border-border py-4 font-display text-2xl font-medium"
+                    className="border-b py-4 text-h4 font-medium"
                   >
                     {item.label}
                   </Link>
                 ))}
                 <div className="py-5">
-                  <p className="eyebrow mb-4">Practice areas</p>
-                  <ul className="grid gap-2.5">
+                  <p className="micro mb-3">Practices</p>
+                  <ul className="grid gap-2">
                     {pillars.map((p) => (
                       <li key={p.slug}>
                         <Link
                           href={`/services/${p.slug}` as Route}
-                          className="flex items-baseline gap-3 text-sm text-muted-foreground"
+                          className="text-sm text-muted-foreground"
                         >
-                          <span className="font-mono text-[10px] text-primary">{p.index}</span>
-                          {p.title}
-                          <span className="text-xs opacity-60">{p.kicker}</span>
+                          {p.index} · {p.title}
                         </Link>
                       </li>
                     ))}
                   </ul>
                 </div>
               </nav>
-              <div className="mt-auto space-y-4 border-t border-border p-6">
-                <Button asChild className="h-10 w-full">
+              <div className="mt-auto space-y-4 border-t p-6">
+                <Button asChild className="h-11 w-full">
                   <Link href="/contact">Start a project</Link>
                 </Button>
-                <div className="space-y-1 text-sm text-muted-foreground">
-                  <a href={`tel:${site.phoneHref}`} className="block hover:text-foreground">
-                    {site.phone}
-                  </a>
-                  <a href={`mailto:${site.email}`} className="block break-all hover:text-foreground">
-                    {site.email}
-                  </a>
-                  <p className="text-xs">{site.hours.days}, {site.hours.time}</p>
-                </div>
+                <ThemeToggle />
               </div>
             </SheetContent>
           </Sheet>
@@ -210,5 +181,6 @@ export default function Header() {
     </header>
   );
 }
+
 
 
