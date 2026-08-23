@@ -1,84 +1,52 @@
 ﻿"use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
-  const ruleRef = useRef<SVGLineElement>(null);
-  const rootRef = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    const finish = () => root.classList.add("hero-done");
+    const el = ref.current;
+    if (!el) return;
+    const finish = () => el.classList.add("hero-done");
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       finish();
       return;
     }
-    let cancelled = false;
-    let instance: { pause: () => void } | null = null;
-    import("animejs").then(({ default: anime }) => {
-      if (cancelled || !ruleRef.current) {
-        finish();
-        return;
-      }
-      instance = anime({
-        targets: ruleRef.current,
-        strokeDashoffset: [100, 0],
-        duration: 420,
-        easing: "cubicBezier(0.16, 1, 0.30, 1)",
-        complete: finish,
-      });
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(() => finish());
     });
-    return () => {
-      cancelled = true;
-      instance?.pause();
-    };
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   return (
-    <section ref={rootRef} data-chapter="hero" className="relative overflow-hidden">
-      <div className="hero-wash" aria-hidden="true" />
-      <div className="shell relative pt-[var(--section-y)] pb-[var(--section-y)]">
-        <p className="micro" data-hero="0">
-          ImaginarsClub Services — Mumbai
-        </p>
+    <section ref={ref} className={`field relative overflow-hidden ${""}`} data-field="paper" data-chapter="hero">
+      <div className="container relative pt-[var(--field-y)]">
+        <p className="micro reveal">ImaginarsClub Services — Mumbai</p>
 
-        <svg
-          viewBox="0 0 1000 2"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-          className="mt-6 h-px w-full"
-        >
-          <line
-            ref={ruleRef}
-            x1="0"
-            y1="1"
-            x2="1000"
-            y2="1"
-            pathLength={100}
-            strokeWidth="1"
-            className="hero-rule"
-          />
-        </svg>
-
-        <h1 className="display mt-8 max-w-[16ch]" data-hero="1">
-          Imagination, engineered.
+        <h1 className="mega mt-10" data-lines aria-label="Imagination, engineered.">
+          <span className="line-mask" aria-hidden="true">
+            <span style={{ "--i": 0 } as React.CSSProperties}>Imagination,</span>
+          </span>
+          <span className="line-mask" aria-hidden="true">
+            <span style={{ "--i": 1 } as React.CSSProperties}>engineered.</span>
+          </span>
         </h1>
 
-        <p className="lede mt-6" data-hero="2">
+        <p className="lede muted mt-8 reveal" style={{ "--i": 2 } as React.CSSProperties}>
           Websites, mobile apps and AI products built by a senior-led studio in
           Mumbai — grown with search, ads and content that performs.
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-3" data-hero="3">
-          <Link href="/contact" className="btn btn-primary">
-            Start a project
-          </Link>
-          <Link href="/work" className="btn btn-secondary">
-            See the work
-          </Link>
+        <div className="mt-10 flex flex-wrap gap-4 reveal" style={{ "--i": 3 } as React.CSSProperties}>
+          <Link href="/contact" className="btn btn-primary">Start a project</Link>
+          <Link href="/work" className="btn btn-secondary">See the work</Link>
         </div>
+      </div>
+
+      <div className="type-graphic-wrap" aria-hidden="true">
+        <span className="type-graphic">IMAGINARS</span>
       </div>
     </section>
   );
