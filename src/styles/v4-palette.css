@@ -1,31 +1,86 @@
-/* Imaginars v4 — graphite canvas · electric blue · warm amber */
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-
-@custom-variant dark (&:is([data-theme=dark] *));
+/* =========================================================================
+   IMAGINARS v4 — graphite canvas · electric blue · warm amber
+   Dark-first dual-mode. Rich surfaces. Precision motion tokens.
+   ========================================================================= */
 
 :root {
-  --bg: #0B0C0F;
-  --surface: #111318;
-  --surface-raised: #191C24;
+  /* Surfaces */
+  --bg: #0A0B0E;
+  --surface: #101218;
+  --surface-raised: #161922;
   --surface-sunken: #060708;
   --surface-hover: #12141B;
+
+  /* Text */
   --text-hi: #EDEEF2;
   --text-body: #A8ADB8;
   --text-subtle: #686D78;
+
+  /* Lines */
   --line: rgba(255,255,255,0.06);
   --line-strong: rgba(255,255,255,0.12);
+
+  /* Accents */
   --blue: #6B8AFF;
   --blue-hover: #8CA9FF;
   --blue-dim: rgba(107,138,255,0.07);
   --green: #3DD68C;
   --gold: #E8B44C;
+  --gold-hover: #F0C46E;
   --gold-dim: rgba(232,180,76,0.09);
+
   --accent: var(--blue);
   --accent-hover: var(--blue-hover);
   --accent-fg: #FFFFFF;
   --focus-ring: var(--blue);
+
+  /* Type scale */
+  --text-caption: 0.75rem;
+  --text-small: 0.875rem;
+  --text-body: 1rem;
+  --text-lede: 1.125rem;
+  --text-h4: 1.375rem;
+  --text-h3: 1.75rem;
+  --text-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --text-h1: clamp(2.25rem, 4.5vw, 3.5rem);
+  --text-display: clamp(2.75rem, 6.5vw, 7rem);
+
+  --track-body: -0.005em;
+  --track-small: 0em;
+  --track-micro: 0.08em;
+  --track-heading: -0.02em;
+  --track-display: -0.035em;
+
+  --leading-body: 1.65;
+  --leading-tight: 1.05;
+
+  /* Space — 4px base */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 3rem;
+  --sp-14: 4rem;
+  --sp-20: 6rem;
+
+  --section-y: clamp(96px, 12vh, 160px);
+  --container-w: 1200px;
+  --gutter: clamp(24px, 4vw, 56px);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* Motion */
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-reveal: 600ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-wipe: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 [data-theme="light"] {
@@ -44,17 +99,10 @@
   --blue-dim: rgba(52,100,230,0.06);
   --green: #087D4E;
   --gold: #C8891E;
+  --gold-hover: #D89A30;
   --gold-dim: rgba(200,137,30,0.08);
-  --accent: var(--blue);
-  --accent-hover: var(--blue-hover);
+  --accent: var(--gold);
+  --accent-hover: var(--gold-hover);
   --accent-fg: #FFFFFF;
   --focus-ring: var(--blue);
 }
-
-/* Space */
---sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px;
---sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
-
-/* Type */
---font-body-size: 15px;
---track-body: -0.005em;

@@ -1,7 +1,7 @@
 import { chromium } from "@playwright/test";
 import { mkdirSync } from "node:fs";
 
-const base = process.env.URL || "http://localhost:3117";
+const base = process.env.URL || "http://localhost:3119";
 const routes = (process.env.ROUTES || "/").split(",");
 const out = process.env.OUT || "docs/screenshots";
 mkdirSync(out, { recursive: true });
