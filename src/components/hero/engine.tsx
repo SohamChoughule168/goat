@@ -39,9 +39,10 @@ export default function ImaginationEngine({
 
     function getCol() {
       const cs = getComputedStyle(document.documentElement);
+      const isLight = document.documentElement.dataset.theme === "light";
       return {
-        line: cs.getPropertyValue("--color-border").trim() || "#393D45",
-        dot: cs.getPropertyValue("--color-accent").trim() || "#759EFD",
+        line: cs.getPropertyValue("--line-strong").trim() || (isLight ? "rgba(0,0,0,0.13)" : "rgba(255,255,255,0.12)"),
+        dot: cs.getPropertyValue("--blue").trim() || "#6366F1",
       };
     }
 
@@ -122,8 +123,8 @@ export default function ImaginationEngine({
           const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
           const d2 = dx * dx + dy * dy;
           if (d2 < CONNECT_DIST * CONNECT_DIST) {
-            const al = (1 - Math.sqrt(d2) / CONNECT_DIST) * 0.07;
-            ctx!.strokeStyle = cols.line.replace(")", `,${al})`).replace("rgb(", "rgba(");
+            ctx!.globalAlpha = (1 - Math.sqrt(d2) / CONNECT_DIST) * 0.35;
+            ctx!.strokeStyle = cols.line;
             ctx!.beginPath();
             ctx!.moveTo(pts[i].x, pts[i].y);
             ctx!.lineTo(pts[j].x, pts[j].y);
@@ -131,13 +132,16 @@ export default function ImaginationEngine({
           }
         }
       }
+      ctx!.globalAlpha = 1;
 
       for (const p of pts) {
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, p.s, 0, Math.PI * 2);
-        ctx!.fillStyle = cols.dot.replace(")", `,${p.a})`).replace("rgb(", "rgba(");
+        ctx!.globalAlpha = p.a;
+        ctx!.fillStyle = cols.dot;
         ctx!.fill();
       }
+      ctx!.globalAlpha = 1;
     }
     tick();
 

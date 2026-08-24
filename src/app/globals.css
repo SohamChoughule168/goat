@@ -34,6 +34,15 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
 
+  --text-caption: var(--text-caption);
+  --text-small: var(--text-small);
+  --text-lede: var(--text-lede);
+  --text-h4: var(--text-h4);
+  --text-h3: var(--text-h3);
+  --text-h2: var(--text-h2);
+  --text-h1: var(--text-h1);
+  --text-display: var(--text-display);
+
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
@@ -46,7 +55,7 @@
     background: var(--bg);
     color: var(--text-body);
     font-family: var(--font-sans-stack, var(--font-geist-sans));
-    font-size: var(--text-body);
+    font-size: 1rem;
     letter-spacing: -0.005em;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
@@ -70,6 +79,30 @@
     box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--focus-ring);
     border-radius: var(--radius-sm);
   }
+}
+
+/* ===== LEGACY BRIDGE (v2/v3 components → v4 tokens) ===== */
+:root {
+  --color-text: var(--text-hi);
+  --color-text-muted: var(--text-body);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-border-hairline: var(--line);
+  --color-border-interactive: var(--line-strong);
+  --color-accent-brand: var(--blue);
+  --color-accent-fg: #fff;
+  --text-1: var(--text-hi);
+  --text-micro: var(--text-caption);
+  --track-h2: -0.02em;
+  --ease-decel: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: clamp(24px, 4vw, 56px); }
+.display-2 {
+  font-weight: 600;
+  font-size: var(--text-h2, clamp(1.75rem, 3.2vw, 2.75rem));
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-hi);
 }
 
 /* ===== LAYOUT ===== */
@@ -207,7 +240,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   padding-left: var(--gutter, 24px);
   transform: translateY(10%);
   opacity: 0.05;
+  color: var(--text-hi);
 }
+[data-theme="light"] .type-graphic { opacity: 0.032; }
 
 /* ===== MARQUEE ===== */
 .marquee-track {
@@ -293,4 +328,113 @@ html.js section[data-chapter="hero"].hero-done [data-hero-staged] {
   font-size: 0.6875rem; font-weight: 500;
   letter-spacing: 0.1em; opacity: 0.7;
   font-variant-numeric: tabular-nums;
+}
+
+/* ===== V4 PREMIUM LAYER ===== */
+
+/* Gradient display type — reserved for one moment per page */
+.text-gradient {
+  background: linear-gradient(115deg, var(--text-hi) 30%, var(--blue-hover) 68%, var(--gold) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+/* Elevated artifact panel with lit edge + deep shadow */
+.artifact {
+  position: relative;
+  background: linear-gradient(180deg, var(--surface-raised), var(--surface) 60%);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.07),
+    0 1px 2px rgba(0,0,0,0.3),
+    0 32px 80px -24px rgba(0,0,0,0.55);
+}
+[data-theme="light"] .artifact {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    0 24px 64px -20px rgba(15,17,23,0.18);
+}
+.artifact::before {
+  content: ""; position: absolute; inset-inline: 12%; top: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(129,140,248,0.55), transparent);
+  pointer-events: none;
+}
+[data-theme="light"] .artifact::before {
+  background: linear-gradient(90deg, transparent, rgba(79,70,229,0.35), transparent);
+}
+
+/* Orbit system for capability graph */
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+.orbit-ring {
+  transform-origin: center;
+  animation: orbit-spin 120s linear infinite;
+}
+.orbit-ring.reverse { animation-direction: reverse; animation-duration: 90s; }
+@media (prefers-reduced-motion: reduce) {
+  .orbit-ring, .orbit-ring.reverse { animation: none; }
+}
+
+@keyframes core-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.06); }
+}
+.core-pulse { animation: core-pulse 5s ease-in-out infinite; transform-origin: center; }
+@media (prefers-reduced-motion: reduce) { .core-pulse { animation: none; } }
+
+/* Draw-in strokes */
+.cg-line {
+  stroke-dasharray: 640;
+  stroke-dashoffset: 640;
+  transition: stroke-dashoffset 1100ms var(--ease-out);
+}
+.is-in .cg-line { stroke-dashoffset: 0; }
+
+/* Node fade-in staggered */
+.cg-node { opacity: 0; transform-origin: center; transition: opacity 500ms ease, r 300ms ease; }
+.is-in .cg-node { opacity: 1; }
+
+/* Practice explorer rows (hero right panel) */
+.px-row { border-bottom: 1px solid var(--line); }
+.px-row:last-child { border-bottom: none; }
+.px-head {
+  display: flex; align-items: baseline; gap: 12px; width: 100%;
+  padding: 14px 16px; cursor: pointer; text-align: left;
+  background: transparent; border: 0; color: inherit;
+  transition: background var(--dur-fast) ease;
+}
+.px-head:hover { background: var(--surface-hover); }
+.px-services {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows 320ms var(--ease-out);
+}
+.px-row[data-open="true"] .px-services { grid-template-rows: 1fr; }
+.px-services > div { overflow: hidden; }
+.px-chip {
+  display: inline-flex; align-items: center;
+  padding: 4px 10px; border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-mono-stack, var(--font-mono));
+  font-size: 0.6875rem; color: var(--text-body);
+  text-decoration: none;
+  transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease, background var(--dur-fast) ease;
+}
+.px-chip:hover { border-color: var(--blue); color: var(--text-hi); background: var(--blue-dim); }
+
+/* Ticker bar */
+.ticker-mask { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.ticker-inner { display: flex; gap: 40px; width: max-content; animation: marquee 36s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .ticker-inner { animation: none; } }
+
+/* Browser artifact mockup */
+.mock-dot { width: 9px; height: 9px; border-radius: 999px; }
+.spark-bar { transform-origin: bottom; transform: scaleY(0); transition: transform 700ms var(--ease-out); }
+.is-in .spark-bar { transform: scaleY(1); }
+.is-in .spark-bar:nth-child(2n) { transition-delay: 120ms; }
+.is-in .spark-bar:nth-child(3n) { transition-delay: 240ms; }
+
+/* Section kicker rule */
+.kicker-rule {
+  display: inline-block; width: 32px; height: 1px; vertical-align: middle;
+  background: var(--blue); margin-right: 12px;
 }
