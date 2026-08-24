@@ -4,43 +4,49 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import ImaginationEngine from "@/components/hero/engine";
 
+const PRACTICES = [
+  { index: "01", title: "Build", count: "04", desc: "Websites · Apps · AI products", href: "/services/build" },
+  { index: "02", title: "Grow", count: "08", desc: "SEO · SEM · Social · Google Business", href: "/services/grow" },
+  { index: "03", title: "Content & Brand", count: "04", desc: "Video · Thumbnails · Brand systems", href: "/services/content" },
+  { index: "04", title: "Enable", count: "02", desc: "Google AI · Talent acquisition", href: "/services/enable" },
+];
+
 export default function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLElement>(null);
+  const consoleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
+    const el = rootRef.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       el.classList.add("hero-done");
       return;
     }
+    // Staged entrance: hairline → headline masks → lede → CTAs → console
     const raf = requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add("hero-done")));
     return () => cancelAnimationFrame(raf);
   }, []);
 
-  // Subtle parallax on module panel via cursor
+  // Console parallax — subtle depth response to cursor
   useEffect(() => {
-    const panel = panelRef.current;
+    const panel = consoleRef.current;
     if (!panel) return;
     if (!window.matchMedia("(pointer: fine)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const ry = { v: 0 };
-    const rx = { v: 0 };
-    let raf = 0;
+    let rafId = 0;
     function onMove(e: MouseEvent) {
       const rect = panel!.getBoundingClientRect();
       const px = (e.clientX - rect.left) / rect.width - 0.5;
       const py = (e.clientY - rect.top) / rect.height - 0.5;
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        panel!.style.transform = `perspective(1200px) rotateY(${px * 6}deg) rotateX(${py * -4}deg)`;
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        panel!.style.transform = `perspective(1200px) rotateY(${px * 5}deg) rotateX(${py * -3}deg)`;
       });
     }
     function reset() {
-      cancelAnimationFrame(raf);
-      panel!.style.transform = "perspective(1200px)";
+      cancelAnimationFrame(rafId);
+      panel!.style.transform = "";
     }
     window.addEventListener("mousemove", onMove, { passive: true });
     panel!.addEventListener("mouseleave", reset);
@@ -51,85 +57,145 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={ref} className="relative overflow-hidden min-h-[calc(100dvh-72px)]" data-chapter="hero">
-      <ImaginationEngine className="z-0" />
-
-      {/* Warm ambient glow */}
-      <div aria-hidden="true" className="absolute right-[10%] top-[20%] h-[500px] w-[500px] rounded-full opacity-[0.06] blur-[100px]"
+    <section ref={rootRef} className={`relative overflow-hidden min-h-[calc(100dvh-72px)] ${""}`} data-chapter="hero">
+      {/* Ambient layers */}
+      <ImaginationEngine className="z-0 opacity-[0.35]" />
+      <div aria-hidden="true" className="absolute inset-0 z-[1] opacity-[0.03]" style={{
+        backgroundImage: "linear-gradient(to right, var(--line) 1px, transparent 1px), linear-gradient(to bottom, var(--line) 1px, transparent 1px)",
+        backgroundSize: "80px 64px",
+      }} />
+      <div aria-hidden="true" className="absolute right-[5%] top-[15%] h-[420px] w-[420px] rounded-full opacity-[0.05] blur-[100px]"
         style={{ background: "var(--gold)" }} />
 
-      <div className="shell relative z-10 pt-[clamp(48px,8vh,96px)] pb-16">
-        <p className="micro reveal">ImaginarsClub Services — Mumbai</p>
+      <div className="shell relative z-10 pt-[clamp(48px,8vh,96px)] pb-[var(--space-10)]">
+        {/* Two-column: massive type left, capability console right */}
+        <div className="grid gap-16 lg:grid-cols-[1.2fr_1fr] lg:gap-12 items-start">
 
-        <h1 data-lines aria-label="Imagination, engineered."
-          className="mt-10"
-          style={{
-            fontWeight: 600,
-            fontSize: "clamp(2.75rem, 6.2vw, 7rem)",
-            letterSpacing: "-0.035em",
-            lineHeight: 1.02,
-            textWrap: "balance",
-            color: "var(--text-hi)",
-          }}
-        >
-          <span className="line-mask"><span style={{"--i":0} as React.CSSProperties}>Imagination,</span></span>
-          <span className="line-mask"><span style={{"--i":1} as React.CSSProperties}>engineered.</span></span>
-        </h1>
+          {/* LEFT — Voice */}
+          <div>
+            <p className="micro reveal" style={{ "--i": 0 } as React.CSSProperties}>
+              ImaginarsClub Services — Mumbai
+            </p>
 
-        <p className="lede mt-8 max-w-[48ch] reveal" style={{"--i":2} as React.CSSProperties}>
-          Websites, mobile apps and AI products built by a senior-led studio
-          in Mumbai — grown with search, ads and content that performs.
-        </p>
+            {/* Hairline draws across */}
+            <div className="mt-6 mb-8 h-px w-full overflow-hidden" aria-hidden="true">
+              <div className="hero-rule h-full w-full origin-left"
+                style={{
+                  background: "linear-gradient(90deg, var(--blue), transparent)",
+                  transform: "scaleX(0)",
+                  transition: "transform 600ms cubic-bezier(0.16,1,0.3,1) 200ms",
+                }}
+                data-hero-rule
+              />
+            </div>
 
-        <div className="mt-10 flex flex-wrap gap-4 reveal" style={{"--i":3} as React.CSSProperties}>
-          <Link href="/contact" className="btn btn-primary">Start a project</Link>
-          <Link href="/work" className="btn btn-secondary">See the work</Link>
+            <h1 data-lines aria-label="Imagination, engineered."
+              className="display max-w-[14ch] mt-0 pt-0"
+              style={{ fontSize: "clamp(3rem, 7vw, 7.5rem)", lineHeight: 0.95 }}
+            >
+              <span className="line-mask"><span style={{"--i":0} as React.CSSProperties}>Imagination,</span></span>
+              <span className="line-mask"><span style={{"--i":1} as React.CSSProperties}>engineered.</span></span>
+            </h1>
+
+            <p className="lede mt-8 reveal max-w-[48ch]" style={{"--i":4} as React.CSSProperties}>
+              Websites, mobile apps and AI products built by a senior-led
+              studio in Mumbai — grown with search, ads and content
+              that measurably performs.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-4 reveal" style={{"--i":5} as React.CSSProperties}>
+              <Link href="/contact" className="btn btn-primary group relative overflow-hidden">
+                Start a project
+              </Link>
+              <Link href="/work" className="btn btn-secondary">See the work</Link>
+            </div>
+          </div>
+
+          {/* RIGHT — Capability Console */}
+          <div ref={consoleRef} className="console-panel reveal hidden lg:block" style={{"--i":6} as React.CSSProperties}>
+            <ConsoleHeader />
+            <PracticeGrid />
+            <StatusBar />
+          </div>
+        </div>
+
+        {/* Proof metrics strip */}
+        <div className="reveal mt-20 grid grid-cols-3 gap-6 border-t border-[var(--line)] pt-8 max-w-xl" style={{"--i":7} as React.CSSProperties}>
+          {[
+            { v: "2024", l: "Founded" },
+            { v: "18", l: "Services" },
+            { v: "<24h", l: "Response time" },
+          ].map((s) => (
+            <div key={s.l}>
+              <p className="font-mono text-lg font-medium" style={{ color: "var(--blue)" }}>{s.v}</p>
+              <p className="micro mt-1">{s.l}</p>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Studio OS Module Panel — the visual centerpiece */}
-      <div className="shell relative z-10 pb-24">
-        <div ref={panelRef} className="module-panel mx-auto max-w-[780px]" aria-hidden="true">
-          <div className="module-bar">
-            <span className="dot bg-[#FF5F57]" /><span className="dot bg-[#FEBC2E]" /><span className="dot bg-[#28C840]" />
-            <span className="ml-auto font-mono text-[10px] tracking-[0.15em] text-muted-foreground">studio.os — live</span>
-          </div>
-          <div className="module-body grid grid-cols-4 gap-px">
-            <ModuleCell label="Build" count="04" items={["Next.js","React Native","Flutter"]} active />
-            <ModuleCell label="Grow" count="08" items={["SEO / GEO","Meta Ads","SEM"]} />
-            <ModuleCell label="Content" count="04" items={["Video","Thumbnails","Brand"]} />
-            <ModuleCell label="Enable" count="02" items={["Google AI","Talent"]} />
-          </div>
-          <div className="module-status">
-            <StatusDot label="Response time" value="<24h" />
-            <StatusDot label="Ownership" value="100%" />
-            <StatusDot label="Practices" value="04" />
-            <StatusDot label="Uptime" value="99.9%" pulse />
-          </div>
-        </div>
+      {/* Type-as-graphic cropped at right edge */}
+      <div className="type-graphic-wrap absolute bottom-0 left-0 right-0 pointer-events-none select-none z-[2]" aria-hidden="true">
+        <span className="type-graphic">IMAGINARS</span>
       </div>
     </section>
   );
 }
 
-function ModuleCell({ label, count, items, active }: { label: string; count: string; items: string[]; active?: boolean }) {
+function ConsoleHeader() {
   return (
-    <div className={`module-cell ${active ? "module-cell--active" : ""}`}>
-      <span className="index">{count}</span>
-      <span className="module-cell-title">{label}</span>
-      <ul>
-        {items.map((item) => <li key={item}>{item}</li>)}
-      </ul>
+    <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--line)] bg-[var(--surface-sunken)] rounded-t-lg">
+      <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
+      <span className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
+      <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
+      <span className="ml-auto font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground">
+        imaginars.os
+      </span>
     </div>
   );
 }
 
-function StatusDot({ label, value, pulse }: { label: string; value: string; pulse?: boolean }) {
+function PracticeGrid() {
+  const PRACTICES = [
+    { idx: "01", name: "Build", count: 4, desc: "Web · Apps · AI", href: "/services/build" },
+    { idx: "02", name: "Grow", count: 8, desc: "SEO · SEM · Meta · GEO", href: "/services/grow" },
+    { idx: "03", name: "Content", count: 4, desc: "Video · Brand · Events", href: "/services/content" },
+    { idx: "04", name: "Enable", count: 2, desc: "Google AI · Talent", href: "/services/enable" },
+  ];
   return (
-    <div className="status-item">
-      <span className={`status-dot ${pulse ? "pulse" : ""}`} />
-      <span className="micro">{label}</span>
-      <span className="font-mono text-xs">{value}</span>
+    <div className="grid grid-cols-2 gap-px p-1">
+      {PRACTICES.map((p) => (
+        <Link key={p.idx} href={p.href}
+          className="group block p-4 rounded-md border border-transparent transition-all duration-200 hover:border-[var(--line-strong)] hover:bg-[var(--surface-hover)]">
+          <span className="index">{p.idx}</span>
+          <span className="block mt-2 font-semibold text-sm">{p.name}</span>
+          <span className="block text-xs text-muted-foreground mt-0.5">{p.desc}</span>
+          <span className="inline-flex items-center gap-1 mt-3 text-[10px] font-mono text-accent">
+            {p.count} SERVICES
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M2 8L8 2M8 2H3M8 2V7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+function StatusBar() {
+  return (
+    <div className="grid grid-cols-4 gap-px border-t border-[var(--line)] bg-[var(--line)]">
+      {[
+        { label: "Response", value: "<24h", live: true },
+        { label: "Ownership", value: "100%", live: false },
+        { label: "Practices", value: "04", live: false },
+        { label: "Status", value: "ACTIVE", live: true },
+      ].map((s) => (
+        <div key={s.label} className="flex items-center gap-1.5 px-2 py-2 bg-[var(--surface-sunken)]">
+          <span className={`w-1.5 h-1.5 rounded-full ${s.live ? "bg-green-400 animate-pulse" : "bg-muted-foreground/40"}`} />
+          <span className="text-[9px] font-mono text-muted-foreground">{s.value}</span>
+        </div>
+      ))}
     </div>
   );
 }
