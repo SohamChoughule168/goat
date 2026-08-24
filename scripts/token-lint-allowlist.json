@@ -1,9 +1,11 @@
 [
-  "src/app/layout.tsx:hex",
-  "src/app/opengraph-image.tsx:hex",
-  "src/components/layout/header.tsx:px",
-  "src/components/layout/primitives.tsx:px",
-  "src/components/hero/engine.tsx:*",
-  "src/components/capability-graph.tsx:px",
-  "src/components/home/services-matrix.tsx:px"
+    "src/app/layout.tsx:hex",
+    "src/app/opengraph-image.tsx:hex",
+    "src/components/layout/header.tsx:px",
+    "src/components/layout/primitives.tsx:px",
+    "src/components/hero/engine.tsx:*",
+    "src/components/capability-graph.tsx:px",
+    "src/components/home/services-matrix.tsx:px",
+    "src/components/home/hero.tsx:hex",
+    "src/components/home/hero.tsx:px"
 ]
