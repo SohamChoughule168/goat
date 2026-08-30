@@ -1,0 +1,277 @@
+/* ===== V6 REFINED DESIGN TOKENS — "The Build Studio" ===== */
+
+:root {
+  /* === CORE PALETTE === */
+  /* Deep space base — near-black with subtle blue undertone */
+  --color-space-950: #030408;
+  --color-space-900: #060810;
+  --color-space-800: #0A0D18;
+  --color-space-700: #101420;
+  --color-space-600: #161B2A;
+  --color-space-500: #1E263A;
+  --color-space-400: #2A344C;
+  --color-space-300: #3D4A6A;
+  --color-space-200: #5A6B8E;
+  --color-space-100: #8B98B8;
+  --color-space-50: #C8CEE0;
+
+  /* Electric indigo — primary brand */
+  --color-indigo-600: #4F46E5;
+  --color-indigo-500: #6366F1;
+  --color-indigo-400: #818CF8;
+  --color-indigo-300: #A5B4FC;
+  --color-indigo-200: #C7D2FE;
+  --color-indigo-100: #E0E7FF;
+  --color-indigo-50: #EEF2FF;
+
+  /* Electric cyan — accent for AI/tech */
+  --color-cyan-500: #06B6D4;
+  --color-cyan-400: #22D3EE;
+  --color-cyan-300: #67E8F9;
+
+  /* Emerald — success/growth */
+  --color-emerald-500: #10B981;
+  --color-emerald-400: #34D399;
+  --color-emerald-300: #6EE7B7;
+
+  /* Amber — warning/CTA warmth */
+  --color-amber-500: #F59E0B;
+  --color-amber-400: #FBBF24;
+  --color-amber-300: #FCD34D;
+
+  /* Rose — error/destructive */
+  --color-rose-500: #F43F5E;
+  --color-rose-400: #FB7185;
+
+  /* === SEMANTIC MAPPINGS === */
+  --bg-primary: var(--color-space-950);
+  --bg-secondary: var(--color-space-900);
+  --bg-tertiary: var(--color-space-800);
+  --bg-card: var(--color-space-800);
+  --bg-card-hover: var(--color-space-700);
+  --bg-input: var(--color-space-700);
+  --bg-overlay: rgba(3, 4, 8, 0.85);
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-tertiary: #94A3B8;
+  --text-muted: #64748B;
+  --text-inverse: var(--color-space-950);
+
+  --border-subtle: rgba(148, 163, 184, 0.08);
+  --border-default: rgba(148, 163, 184, 0.16);
+  --border-strong: rgba(148, 163, 184, 0.24);
+  --border-focus: var(--color-indigo-500);
+
+  --brand-primary: var(--color-indigo-500);
+  --brand-primary-hover: var(--color-indigo-400);
+  --brand-secondary: var(--color-cyan-500);
+  --brand-accent: var(--color-amber-500);
+
+  --success: var(--color-emerald-500);
+  --warning: var(--color-amber-500);
+  --error: var(--color-rose-500);
+
+  /* === GRADIENTS === */
+  --gradient-brand: linear-gradient(135deg, var(--color-indigo-500) 0%, var(--color-cyan-500) 100%);
+  --gradient-brand-soft: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(6, 182, 212, 0.08) 100%);
+  --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+  --gradient-hero-secondary: radial-gradient(ellipse 100% 80% at 50% 50%, rgba(30, 40, 75, 0.4) 0%, transparent 60%);
+  --gradient-card: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 50%);
+  --gradient-glass: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 50%, transparent 100%);
+  --gradient-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --gradient-liquid: conic-gradient(from 180deg, #0a0d18 0%, #0f172a 50%, #1e293b 100%);
+  --gradient-orb: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 40%);
+  --gradient-radial-premium: radial-gradient(ellipse at 30% 20%, #1e293b 0%, #0f172a 50%, #0a0d18 100%);
+
+  /* === TYPOGRAPHY === */
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-display: var(--font-geist-sans), system-ui, sans-serif;
+
+  --text-xs: 0.7rem;
+  --text-sm: 0.8125rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3.5rem;
+  --text-6xl: 5rem;
+  --text-7xl: 7rem;
+  --text-8xl: clamp(5rem, 14vw, 12rem);
+
+  --leading-tight: 1.02;
+  --leading-snug: 1.15;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  --tracking-tight: -0.035em;
+  --tracking-normal: -0.01em;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.2em;
+
+  /* === SPACING === */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  --container-max: 1280px;
+  --gutter: clamp(24px, 5vw, 64px);
+
+  /* === RADIUS === */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+
+  /* === SHADOWS === */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.35);
+  --shadow-md: 0 8px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 16px 32px rgba(0,0,0,0.45);
+  --shadow-xl: 0 24px 48px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 60px rgba(99, 102, 241, 0.25);
+  --shadow-glow-strong: 0 0 100px rgba(99, 102, 241, 0.35);
+  --shadow-inner: inset 0 1px 0 rgba(255,255,255,0.06);
+
+  /* 3D / WebGL depth layers */
+  --depth-layer-1: 0px;
+  --depth-layer-2: 4px;
+  --depth-layer-3: 12px;
+  --depth-layer-4: 28px;
+  --depth-layer-5: 60px;
+
+  --shadow-3d: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --shadow-3d-strong: 0 35px 60px -15px rgba(0, 0, 0, 0.6);
+  --shadow-inner-glow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+
+  /* Liquid glass / spatial */
+  --glass-blur: 20px;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg-hover: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-focus: rgba(99, 102, 241, 0.3);
+
+  /* Spatial offsets */
+  --spatial-offset: 8px;
+  --spatial-z-default: 0;
+  --spatial-z-elevated: 4px;
+  --spatial-z-high: 12px;
+
+  /* === MOTION === */
+  --duration-instant: 50ms;
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 500ms;
+  --duration-hero: 800ms;
+  --duration-cinematic: 1200ms;
+  --duration-stagger: 150ms;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-scrub: linear;
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-elastic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Spring physics for GSAP */
+  --spring-stiffness: 150;
+  --spring-damping: 15;
+  --spring-mass: 1;
+
+  /* === Z-INDEX === */
+  --z-bg: 0;
+  --z-content: 10;
+  --z-sticky: 50;
+  --z-nav: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+  --z-cursor: 400;
+  --z-preloader: 500;
+
+  /* === BREAKPOINTS (for reference) === */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+}
+
+/* === LIGHT MODE (minimal — dark-first design) === */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #F1F5F9;
+    --bg-tertiary: #E2E8F0;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #F8FAFC;
+    --bg-input: #F1F5F9;
+    --bg-overlay: rgba(248, 250, 252, 0.9);
+
+    --text-primary: #0F172A;
+    --text-secondary: #334155;
+    --text-tertiary: #64748B;
+    --text-muted: #94A3B8;
+
+    --border-subtle: rgba(15, 23, 42, 0.06);
+    --border-default: rgba(15, 23, 42, 0.12);
+    --border-strong: rgba(15, 23, 42, 0.18);
+
+    --shadow-xs: 0 1px 2px rgba(15,23,42,0.08);
+    --shadow-sm: 0 2px 4px rgba(15,23,42,0.1);
+    --shadow-md: 0 8px 16px rgba(15,23,42,0.12);
+    --shadow-lg: 0 16px 32px rgba(15,23,42,0.15);
+    --shadow-xl: 0 24px 48px rgba(15,23,42,0.18);
+    --shadow-inner: inset 0 1px 0 rgba(255,255,255,0.5);
+
+    --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+    --gradient-glass: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, transparent 50%);
+  }
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --duration-slower: 0ms;
+    --duration-hero: 0ms;
+    --duration-cinematic: 0ms;
+    --duration-stagger: 0ms;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* === HIGH CONTRAST === */
+@media (prefers-contrast: more) {
+  :root {
+    --border-default: currentColor;
+    --border-strong: currentColor;
+    --text-secondary: var(--text-primary);
+    --text-tertiary: var(--text-secondary);
+  }
+}

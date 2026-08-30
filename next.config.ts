@@ -22,6 +22,34 @@ export const legacyServiceMap: Record<string, string> = {
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
+  reactStrictMode: true,
+
+  // Turbopack configuration for GLSL shader support
+  // This enables vite-plugin-glsl to import .glsl, .vert, .frag files
+  // and inject them as strings with #include support
+  turbopack: {
+    rules: {
+      "*.{glsl,vert,frag}": {
+        loaders: ["glsl-loader"],
+        as: "*.ts",
+      },
+    },
+  },
+
+  // Production optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn"] } : false,
+  },
+
+  // Image optimization
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31536000,
+  },
+
+  // Source maps in production for debugging
+  productionBrowserSourceMaps: process.env.NODE_ENV === "production" && process.env.SOURCE_MAPS === "true",
+
   async redirects() {
     return [
       { source: "/portfolio", destination: "/work", permanent: true },
@@ -34,6 +62,7 @@ const nextConfig: NextConfig = {
       })),
     ];
   },
+
   async headers() {
     return [
       {
@@ -50,6 +79,25 @@ const nextConfig: NextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
           },
+          // Performance hints
+          { key: "X-DNS-Prefetch-Control", value: "on" },
+          // CORS for 3D assets
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          { key: "Cross-Origin-Embedder-Policy", value: "credentialless" },
+        ],
+      },
+      // Cache static assets aggressively
+      {
+        source: "/_next/static/(.*)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      // Cache fonts
+      {
+        source: "/fonts/(.*)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
     ];

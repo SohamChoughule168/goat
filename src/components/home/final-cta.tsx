@@ -1,7 +1,7 @@
 ﻿import Link from "next/link";
 import { site } from "@/content/site";
 
-export default function FinalCta() {
+export function FooterCTA() {
   return (
     <section className="section-y border-t border-border" aria-label="Start a project">
       <div className="shell">
@@ -24,3 +24,5 @@ export default function FinalCta() {
     </section>
   );
 }
+
+export default FooterCTA;

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useActionState, useEffect, useRef } from "react";
 import { useFormStatus } from "react-dom";
@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   submitContact,
   type ContactState,
-} from "@/app/contact/actions";
+} from "@/app/(site)/contact/actions";
 
 const initialState: ContactState = { status: "idle" };
 

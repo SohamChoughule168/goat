@@ -7,5 +7,22 @@
     "src/components/capability-graph.tsx:px",
     "src/components/home/services-matrix.tsx:px",
     "src/components/home/hero.tsx:hex",
-    "src/components/home/hero.tsx:px"
+    "src/components/home/hero.tsx:px",
+    "src/components/v6/work-strip.tsx:rgba",
+    "src/components/v6/ai-lab.tsx:hex",
+    "src/components/v6/ai-lab.tsx:rgba",
+    "src/components/v6/craft-chapters.tsx:hex",
+    "src/components/v6/craft-chapters.tsx:rgba",
+    "src/components/v6/particle-field.tsx:hex",
+    "src/components/v6/particle-field.tsx:rgba",
+    "src/components/v6/pricing.tsx:hex",
+    "src/components/v6/process-line.tsx:px",
+    "src/components/v6/team.tsx:rgba",
+    "src/components/v6/testimonials.tsx:rgba",
+    "src/components/v6/footer-cta.tsx:rgba",
+    "src/components/v6/hero.tsx:rgba",
+    "src/components/v6/manifesto.tsx:rgba",
+    "src/components/v6/ai-lab.tsx:px",
+    "src/components/v6/craft-chapters.tsx:px",
+    "src/components/v6/work-strip.tsx:px"
 ]

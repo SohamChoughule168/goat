@@ -1,0 +1,688 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=e3]:
+    - status "Loading ImaginarsClub" [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: I
+        - generic [ref=e7]: M
+        - generic [ref=e8]: A
+        - generic [ref=e9]: G
+        - generic [ref=e10]: I
+        - generic [ref=e11]: "N"
+        - generic [ref=e12]: A
+        - generic [ref=e13]: R
+        - generic [ref=e14]: S
+      - paragraph [ref=e17]: 100%
+      - paragraph [ref=e18]: Initializing build environment...
+    - navigation "Primary":
+      - generic [ref=e19]:
+        - link "ImaginarsClub home" [ref=e20] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e24]: Imaginars
+        - link "Craft" [ref=e25] [cursor=pointer]:
+          - /url: /services/build
+        - link "Work" [ref=e26] [cursor=pointer]:
+          - /url: /work
+        - link "Process" [ref=e27] [cursor=pointer]:
+          - /url: /process
+        - link "Notes" [ref=e28] [cursor=pointer]:
+          - /url: /insights
+        - link "Start a project" [ref=e29] [cursor=pointer]:
+          - /url: /contact
+    - region "Hero" [ref=e30]:
+      - generic [ref=e36]:
+        - paragraph [ref=e37]:
+          - generic [ref=e38]: Digital Studio
+          - text: ImaginarsClub — Mumbai
+        - heading "We build digital products that scale." [level=1] [ref=e39]:
+          - generic [ref=e40]: We build digital
+          - generic [ref=e42]: products
+          - generic [ref=e44]: that scale.
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - paragraph [ref=e48]: Websites, mobile applications, and AI-powered platforms — engineered end-to-end by a senior-led studio. No departments. No handoffs. Just the people who ship.
+            - generic [ref=e49]:
+              - link "Start a Project" [ref=e50] [cursor=pointer]:
+                - /url: /contact
+              - link "View Our Work" [ref=e54] [cursor=pointer]:
+                - /url: /work
+          - generic [ref=e58]:
+            - generic [ref=e59]:
+              - paragraph [ref=e60]: 120+
+              - paragraph [ref=e61]: Projects Delivered
+            - generic [ref=e62]:
+              - paragraph [ref=e63]: 98%
+              - paragraph [ref=e64]: Client Retention
+            - generic [ref=e65]:
+              - paragraph [ref=e66]: 4.9/5
+              - paragraph [ref=e67]: Clutch Rating
+            - generic [ref=e68]:
+              - paragraph [ref=e69]: 24/7
+              - paragraph [ref=e70]: Support Coverage
+      - generic [ref=e71]: Scroll to explore
+    - region "Manifesto" [ref=e76]:
+      - generic [ref=e77]:
+        - paragraph [ref=e78]: The Manifesto
+        - blockquote [ref=e79]:
+          - generic [ref=e80]: Templates
+          - generic [ref=e81]: are
+          - generic [ref=e82]: cheap.
+          - generic [ref=e83]: Attention
+          - generic [ref=e84]: is
+          - generic [ref=e85]: expensive.
+          - generic [ref=e86]: We
+          - generic [ref=e87]: engineer
+          - generic [ref=e88]: websites,
+          - generic [ref=e89]: apps
+          - generic [ref=e90]: and
+          - generic [ref=e91]: AI
+          - generic [ref=e92]: systems
+          - generic [ref=e93]: that
+          - generic [ref=e94]: load
+          - generic [ref=e95]: in
+          - generic [ref=e96]: a
+          - generic [ref=e97]: blink,
+          - generic [ref=e98]: rank
+          - generic [ref=e99]: "on"
+          - generic [ref=e100]: their
+          - generic [ref=e101]: own,
+          - generic [ref=e102]: and
+          - generic [ref=e103]: turn
+          - generic [ref=e104]: visitors
+          - generic [ref=e105]: into
+          - generic [ref=e106]: believers.
+        - paragraph [ref=e107]:
+          - link "ImaginarsClub, Mumbai" [ref=e108] [cursor=pointer]:
+            - /url: /contact
+    - generic "Our Crafts" [ref=e109]:
+      - article [ref=e110]:
+        - generic [ref=e111]:
+          - generic [ref=e112]: "01"
+          - generic [ref=e117]:
+            - generic [ref=e118]: 01 Web Development
+            - heading "Web Development" [level=2] [ref=e120]
+            - paragraph [ref=e121]: We build Next.js platforms, e-commerce engines, and content-rich web applications that load in sub-second speeds and rank organically. Every line of code is written by senior engineers who own the outcome.
+            - list [ref=e122]:
+              - listitem [ref=e123]: Next.js 15 + React 19 platforms
+              - listitem [ref=e124]: Headless CMS (Sanity, Contentful, Strapi)
+              - listitem [ref=e125]: E-commerce (Shopify Plus, Medusa, BigCommerce)
+              - listitem [ref=e126]: Progressive Web Apps
+              - listitem [ref=e127]: Core Web Vitals optimization
+              - listitem [ref=e128]: SEO-first architecture
+            - generic [ref=e129]:
+              - paragraph [ref=e130]: Measured Outcomes
+              - list [ref=e131]:
+                - listitem [ref=e132]: Sub-1s LCP
+                - listitem [ref=e134]: 90+ Lighthouse
+                - listitem [ref=e136]: WCAG 2.2 AA
+                - listitem [ref=e138]: Zero-downtime deploys
+            - link "Explore Web Development" [ref=e140] [cursor=pointer]:
+              - /url: /services/web-development
+      - article [ref=e144]:
+        - generic [ref=e145]:
+          - generic [ref=e146]: "02"
+          - generic [ref=e150]:
+            - generic [ref=e151]: 02 Mobile App Development
+            - heading "Mobile App Development" [level=2] [ref=e153]
+            - paragraph [ref=e154]: React Native and Expo applications with offline-first architecture, push notifications, analytics, and App Store / Play Store deployment handled end-to-end. One codebase, two native experiences.
+            - list [ref=e155]:
+              - listitem [ref=e156]: React Native / Expo
+              - listitem [ref=e157]: iOS & Android from single codebase
+              - listitem [ref=e158]: Offline-first with WatermelonDB
+              - listitem [ref=e159]: Push notifications (FCM/APNs)
+              - listitem [ref=e160]: App Store & Play Store deployment
+              - listitem [ref=e161]: Analytics (Amplitude, Mixpanel)
+              - listitem [ref=e162]: OTA updates (CodePush)
+            - generic [ref=e163]:
+              - paragraph [ref=e164]: Measured Outcomes
+              - list [ref=e165]:
+                - listitem [ref=e166]: 4.8+ App Store rating
+                - listitem [ref=e168]: Sub-2s cold start
+                - listitem [ref=e170]: 99.9% crash-free
+                - listitem [ref=e172]: Featured placements
+            - link "Explore Mobile App Development" [ref=e174] [cursor=pointer]:
+              - /url: /services/mobile-app-development
+      - article [ref=e178]:
+        - generic [ref=e179]:
+          - generic [ref=e180]: "03"
+          - generic [ref=e185]:
+            - generic [ref=e186]: 03 AI-Driven Websites
+            - heading "AI-Driven Websites" [level=2] [ref=e188]
+            - paragraph [ref=e189]: We integrate LLMs, RAG pipelines, vector search, and fine-tuned models directly into your product — chat assistants, semantic search, personalized content, automated workflows. Measured lift, not demos.
+            - list [ref=e190]:
+              - listitem [ref=e191]: RAG with citations & guardrails
+              - listitem [ref=e192]: Semantic search (vector DB)
+              - listitem [ref=e193]: AI chat & support agents
+              - listitem [ref=e194]: Dynamic personalization
+              - listitem [ref=e195]: Content generation pipelines
+              - listitem [ref=e196]: GEO / AEO optimization
+              - listitem [ref=e197]: Model fine-tuning & hosting
+            - generic [ref=e198]:
+              - paragraph [ref=e199]: Measured Outcomes
+              - list [ref=e200]:
+                - listitem [ref=e201]: 40%+ support deflection
+                - listitem [ref=e203]: 3x search conversion
+                - listitem [ref=e205]: Sub-200ms latency
+                - listitem [ref=e207]: SOC2-ready data handling
+            - link "Explore AI-Driven Websites" [ref=e209] [cursor=pointer]:
+              - /url: /services/ai-driven-websites
+      - article [ref=e213]:
+        - generic [ref=e214]:
+          - generic [ref=e215]: "04"
+          - generic [ref=e220]:
+            - generic [ref=e221]: 04 Website Refurbishment
+            - heading "Website Refurbishment" [level=2] [ref=e223]
+            - paragraph [ref=e224]: Legacy migrations, design system implementation, Core Web Vitals rescue, SEO preservation, and technical debt elimination. We ship incremental improvements so your business never pauses.
+            - list [ref=e225]:
+              - listitem [ref=e226]: Legacy to Next.js migrations
+              - listitem [ref=e227]: Design system implementation
+              - listitem [ref=e228]: Core Web Vitals rescue
+              - listitem [ref=e229]: SEO preservation & growth
+              - listitem [ref=e230]: Accessibility remediation (WCAG 2.2)
+              - listitem [ref=e231]: Technical debt elimination
+              - listitem [ref=e232]: Zero-downtime cutover
+            - generic [ref=e233]:
+              - paragraph [ref=e234]: Measured Outcomes
+              - list [ref=e235]:
+                - listitem [ref=e236]: 50-80% LCP improvement
+                - listitem [ref=e238]: Zero traffic loss
+                - listitem [ref=e240]: WCAG 2.2 AA
+                - listitem [ref=e242]: Zero-downtime cutover
+            - link "Explore Website Refurbishment" [ref=e244] [cursor=pointer]:
+              - /url: /services/website-refurbishment
+    - region "AI and ML Capabilities" [ref=e248]:
+      - generic [ref=e249]:
+        - generic [ref=e250]:
+          - paragraph [ref=e251]: The AI Lab
+          - heading "We don’t just prompt models. We build them." [level=2] [ref=e252]: We don’t just prompt models.We build them.
+          - paragraph [ref=e253]: End-to-end ML systems engineered into real products — retrieval with citations, fine-tunes on your data, vision pipelines, agents that act safely. From architecture to hosting to automated evals.
+          - list [ref=e254]:
+            - listitem [ref=e255]:
+              - generic [ref=e256]:
+                - generic [ref=e257]: "01"
+                - generic [ref=e258]:
+                  - heading "RAG Systems" [level=3] [ref=e259]
+                  - paragraph [ref=e260]: Retrieval with citations & hallucination guardrails
+              - generic [ref=e261]: View Details
+            - listitem [ref=e262]:
+              - generic [ref=e263]:
+                - generic [ref=e264]: "02"
+                - generic [ref=e265]:
+                  - heading "Fine-tuning" [level=3] [ref=e266]
+                  - paragraph [ref=e267]: Models shaped on your proprietary data
+              - generic [ref=e268]: View Details
+            - listitem [ref=e269]:
+              - generic [ref=e270]:
+                - generic [ref=e271]: "03"
+                - generic [ref=e272]:
+                  - heading "Vision Pipelines" [level=3] [ref=e273]
+                  - paragraph [ref=e274]: Detection, OCR, inspection at scale
+              - generic [ref=e275]: View Details
+            - listitem [ref=e276]:
+              - generic [ref=e277]:
+                - generic [ref=e278]: "04"
+                - generic [ref=e279]:
+                  - heading "Agent Frameworks" [level=3] [ref=e280]
+                  - paragraph [ref=e281]: LLMs that plan, act, and self-correct
+              - generic [ref=e282]: View Details
+            - listitem [ref=e283]:
+              - generic [ref=e284]:
+                - generic [ref=e285]: "05"
+                - generic [ref=e286]:
+                  - heading "Model Serving" [level=3] [ref=e287]
+                  - paragraph [ref=e288]: Low-latency hosting with autoscaling
+              - generic [ref=e289]: View Details
+            - listitem [ref=e290]:
+              - generic [ref=e291]:
+                - generic [ref=e292]: "06"
+                - generic [ref=e293]:
+                  - heading "Evals & Observability" [level=3] [ref=e294]
+                  - paragraph [ref=e295]: Automated evals, drift detection, cost tracking
+              - generic [ref=e296]: View Details
+        - generic [ref=e297]:
+          - generic [ref=e301]: imaginars/ml — live
+          - generic [ref=e304]: inference ready
+    - region "Selected Work" [ref=e312]:
+      - generic [ref=e313]:
+        - generic [ref=e314]:
+          - paragraph [ref=e315]: Selected Work
+          - heading "Proof, not promises." [level=2] [ref=e316]
+          - paragraph [ref=e317]: Every project ships with measurable outcomes. Here are a few.
+        - paragraph [ref=e318]: Keep scrolling — drag-free
+      - generic [ref=e319]:
+        - 'link "Case Study — Verified PRV Financial Services Complete digital transformation: web platform, marketing infrastructure, and AI-powered analytics. Live, owned, measured. 68% LCP Improvement +240% Organic Traffic +42% Conversion Rate View Project" [ref=e320] [cursor=pointer]':
+          - /url: /work/prv-financial-services
+          - generic [ref=e321]: Case Study — Verified
+          - generic [ref=e325]:
+            - heading "PRV Financial Services" [level=3] [ref=e326]
+            - paragraph [ref=e327]: "Complete digital transformation: web platform, marketing infrastructure, and AI-powered analytics. Live, owned, measured."
+            - list [ref=e328]:
+              - listitem [ref=e329]:
+                - generic [ref=e330]: 68%
+                - generic [ref=e331]: LCP Improvement
+              - listitem [ref=e332]:
+                - generic [ref=e333]: +240%
+                - generic [ref=e334]: Organic Traffic
+              - listitem [ref=e335]:
+                - generic [ref=e336]: +42%
+                - generic [ref=e337]: Conversion Rate
+            - link "View Project" [ref=e339]:
+              - /url: /work/prv-financial-services
+        - link "Craft 01 Web Development Next.js platforms engineered for speed, search, and scale. < 0.9s Avg LCP 95+ Lighthouse Headless CMS View Project" [ref=e343] [cursor=pointer]:
+          - /url: /services/web-development
+          - generic [ref=e344]: Craft 01
+          - generic [ref=e348]:
+            - heading "Web Development" [level=3] [ref=e349]
+            - paragraph [ref=e350]: Next.js platforms engineered for speed, search, and scale.
+            - list [ref=e351]:
+              - listitem [ref=e352]:
+                - generic [ref=e353]: < 0.9s
+                - generic [ref=e354]: Avg LCP
+              - listitem [ref=e355]:
+                - generic [ref=e356]: 95+
+                - generic [ref=e357]: Lighthouse
+              - listitem [ref=e358]:
+                - generic [ref=e359]: Headless
+                - generic [ref=e360]: CMS
+            - link "View Project" [ref=e362]:
+              - /url: /services/web-development
+        - link "Craft 03 AI-Driven Websites Chat, search, and personalization wired into the product. 40%+ Support Deflection 3.2x Search CTR < 180ms Latency View Project" [ref=e366] [cursor=pointer]:
+          - /url: /services/ai-driven-websites
+          - generic [ref=e367]: Craft 03
+          - generic [ref=e371]:
+            - heading "AI-Driven Websites" [level=3] [ref=e372]
+            - paragraph [ref=e373]: Chat, search, and personalization wired into the product.
+            - list [ref=e374]:
+              - listitem [ref=e375]:
+                - generic [ref=e376]: 40%+
+                - generic [ref=e377]: Support Deflection
+              - listitem [ref=e378]:
+                - generic [ref=e379]: 3.2x
+                - generic [ref=e380]: Search CTR
+              - listitem [ref=e381]:
+                - generic [ref=e382]: < 180ms
+                - generic [ref=e383]: Latency
+            - link "View Project" [ref=e385]:
+              - /url: /services/ai-driven-websites
+        - link "Craft 02 Mobile Apps One senior team, iOS and Android, store launch handled. 4.8+ Store Rating 99.9% Crash Free 8 weeks Launch Time View Project" [ref=e389] [cursor=pointer]:
+          - /url: /services/mobile-app-development
+          - generic [ref=e390]: Craft 02
+          - generic [ref=e394]:
+            - heading "Mobile Apps" [level=3] [ref=e395]
+            - paragraph [ref=e396]: One senior team, iOS and Android, store launch handled.
+            - list [ref=e397]:
+              - listitem [ref=e398]:
+                - generic [ref=e399]: 4.8+
+                - generic [ref=e400]: Store Rating
+              - listitem [ref=e401]:
+                - generic [ref=e402]: 99.9%
+                - generic [ref=e403]: Crash Free
+              - listitem [ref=e404]:
+                - generic [ref=e405]: 8 weeks
+                - generic [ref=e406]: Launch Time
+            - link "View Project" [ref=e408]:
+              - /url: /services/mobile-app-development
+        - generic [ref=e412]:
+          - paragraph [ref=e413]: Next up
+          - paragraph [ref=e414]: Your project, right here.
+          - paragraph [ref=e415]: Let's build something measurable together.
+          - link "Start a Project" [ref=e416] [cursor=pointer]:
+            - /url: /contact
+    - region "Client Testimonials" [ref=e417]:
+      - generic [ref=e418]:
+        - generic [ref=e419]:
+          - generic [ref=e420]: Trusted by builders
+          - heading "Shipped with them. Trusted by them." [level=2] [ref=e421]
+          - paragraph [ref=e422]: Real outcomes from teams who shipped with us.
+        - generic [ref=e423]:
+          - generic [ref=e424]:
+            - article [ref=e425]:
+              - generic [ref=e434]:
+                - paragraph [ref=e435]: ImaginarsClub didn't just build our platform — they engineered our growth. The team's ability to translate complex requirements into a scalable architecture saved us 6 months of iteration.
+                - generic [ref=e436]:
+                  - generic [ref=e437]: PS
+                  - generic [ref=e438]:
+                    - paragraph [ref=e439]: Priya Sharma
+                    - paragraph [ref=e440]: CTO, FinTech Startup (Series B)
+              - generic [ref=e443]:
+                - generic [ref=e447]: 40% faster
+                - generic [ref=e448]: Time to Market
+            - article [ref=e451]:
+              - generic [ref=e460]:
+                - paragraph [ref=e461]: The AI search implementation reduced our support tickets by 40% in the first month. Their RAG implementation with citations is production-grade, not a demo.
+                - generic [ref=e462]:
+                  - generic [ref=e463]: RK
+                  - generic [ref=e464]:
+                    - paragraph [ref=e465]: Rajesh Kumar
+                    - paragraph [ref=e466]: VP Engineering, SaaS Platform (Series A)
+              - generic [ref=e469]:
+                - generic [ref=e473]: 42%
+                - generic [ref=e474]: Support Deflection
+            - article [ref=e477]:
+              - generic [ref=e486]:
+                - paragraph [ref=e487]: They migrated our legacy PHP monolith to a modern Next.js stack with zero downtime and zero traffic loss. The SEO preservation was flawless.
+                - generic [ref=e488]:
+                  - generic [ref=e489]: AM
+                  - generic [ref=e490]:
+                    - paragraph [ref=e491]: Anjali Mehta
+                    - paragraph [ref=e492]: VP Product, E-commerce Brand (₹500Cr+)
+              - generic [ref=e495]:
+                - generic [ref=e499]: 100%
+                - generic [ref=e500]: Traffic Preservation
+            - article [ref=e503]:
+              - generic [ref=e512]:
+                - paragraph [ref=e513]: The mobile app they built hit 4.9 stars on both stores within 3 months. Offline-first architecture means our field teams never lose data.
+                - generic [ref=e514]:
+                  - generic [ref=e515]: VS
+                  - generic [ref=e516]:
+                    - paragraph [ref=e517]: Vikram Singh
+                    - paragraph [ref=e518]: Founder, Logistics Platform
+              - generic [ref=e521]:
+                - generic [ref=e525]: 4.9/5
+                - generic [ref=e526]: App Store Rating
+          - button "Previous" [ref=e530]
+          - button "Next" [ref=e534]
+          - generic [ref=e537]:
+            - button "Go to testimonial 1" [ref=e538]
+            - button "Go to testimonial 2" [ref=e539]
+            - button "Go to testimonial 3" [ref=e540]
+            - button "Go to testimonial 4" [ref=e541]
+    - region "Pricing" [ref=e542]:
+      - generic [ref=e543]:
+        - generic [ref=e544]:
+          - generic [ref=e545]: Transparent pricing
+          - heading "Simple, predictable investment" [level=2] [ref=e546]
+          - paragraph [ref=e547]: No metered billing. No hidden fees. Fixed price, fixed scope, fixed timeline. Yearly plans include 2 months free.
+        - generic [ref=e548]:
+          - generic [ref=e549]: Monthly
+          - checkbox [checked] [ref=e551]
+          - generic [ref=e553]: Yearly
+          - generic [ref=e554]: Save 18%
+        - generic [ref=e555]:
+          - article [ref=e556]:
+            - generic [ref=e557]: Launch
+            - heading "Launch" [level=3] [ref=e559]
+            - paragraph [ref=e560]: For early-stage products validating market fit
+            - generic [ref=e561]:
+              - generic [ref=e562]:
+                - generic [ref=e563]: ₹6,500
+                - generic [ref=e564]: /mo
+              - paragraph [ref=e565]: Billed yearly — ₹8,000/mo monthly
+            - list [ref=e566]:
+              - listitem [ref=e567]:
+                - generic [ref=e571]: Next.js platform (up to 20 pages)
+              - listitem [ref=e572]:
+                - generic [ref=e576]: Headless CMS setup (Sanity/Contentful)
+              - listitem [ref=e577]:
+                - generic [ref=e581]: Core Web Vitals optimization
+              - listitem [ref=e582]:
+                - generic [ref=e586]: Basic SEO setup
+              - listitem [ref=e587]:
+                - generic [ref=e591]: Staging + production environments
+              - listitem [ref=e592]:
+                - generic [ref=e596]: 30-day hypercare
+            - link "Start Project" [ref=e597] [cursor=pointer]:
+              - /url: /contact?tier=launch
+          - article [ref=e598]:
+            - generic [ref=e599]: Most Popular
+            - generic [ref=e601]: Scale
+            - heading "Scale" [level=3] [ref=e603]
+            - paragraph [ref=e604]: For growing businesses needing performance & AI
+            - generic [ref=e605]:
+              - generic [ref=e606]:
+                - generic [ref=e607]: ₹15,000
+                - generic [ref=e608]: /mo
+              - paragraph [ref=e609]: Billed yearly — ₹18,000/mo monthly
+            - list [ref=e610]:
+              - listitem [ref=e611]:
+                - generic [ref=e615]: Everything in Launch
+              - listitem [ref=e616]:
+                - generic [ref=e620]: AI chat / search integration
+              - listitem [ref=e621]:
+                - generic [ref=e625]: RAG with citations
+              - listitem [ref=e626]:
+                - generic [ref=e630]: Personalization engine
+              - listitem [ref=e631]:
+                - generic [ref=e635]: Advanced analytics (GA4 + custom)
+              - listitem [ref=e636]:
+                - generic [ref=e640]: A/B testing framework
+              - listitem [ref=e641]:
+                - generic [ref=e645]: 99.9% uptime SLA
+              - listitem [ref=e646]:
+                - generic [ref=e650]: Priority support
+            - link "Start Project" [ref=e651] [cursor=pointer]:
+              - /url: /contact?tier=scale
+          - article [ref=e652]:
+            - generic [ref=e653]: Enterprise
+            - heading "Enterprise" [level=3] [ref=e655]
+            - paragraph [ref=e656]: For organizations needing custom architecture & compliance
+            - generic [ref=e657]:
+              - generic [ref=e658]:
+                - generic [ref=e659]: ₹38,000
+                - generic [ref=e660]: /mo
+              - paragraph [ref=e661]: Billed yearly — ₹45,000/mo monthly
+            - list [ref=e662]:
+              - listitem [ref=e663]:
+                - generic [ref=e667]: Everything in Scale
+              - listitem [ref=e668]:
+                - generic [ref=e672]: Custom AI model fine-tuning
+              - listitem [ref=e673]:
+                - generic [ref=e677]: Multi-region deployment
+              - listitem [ref=e678]:
+                - generic [ref=e682]: SOC2 / ISO 27001 readiness
+              - listitem [ref=e683]:
+                - generic [ref=e687]: Dedicated infrastructure
+              - listitem [ref=e688]:
+                - generic [ref=e692]: Custom SLA & penalties
+              - listitem [ref=e693]:
+                - generic [ref=e697]: On-premise deployment option
+              - listitem [ref=e698]:
+                - generic [ref=e702]: Dedicated success manager
+              - listitem [ref=e703]:
+                - generic [ref=e707]: Quarterly architecture reviews
+            - link "Contact Sales" [ref=e708] [cursor=pointer]:
+              - /url: /contact?tier=enterprise
+        - generic [ref=e709]:
+          - paragraph [ref=e710]:
+            - text: Need something different?
+            - link "Custom scope" [ref=e711] [cursor=pointer]:
+              - /url: /contact
+          - paragraph [ref=e712]: All prices in INR. GST extra. Custom scopes welcome.
+    - region "Our Team" [ref=e713]:
+      - generic [ref=e714]:
+        - generic [ref=e715]:
+          - generic [ref=e716]: The people who ship
+          - heading "Senior-led. No juniors learning on your dime." [level=2] [ref=e717]
+          - paragraph [ref=e718]: Every project is led by principals with 10+ years shipping at scale. You work directly with the people who architect and build.
+        - generic [ref=e719]:
+          - article [ref=e720]:
+            - generic [ref=e721]:
+              - generic [ref=e722]: AP
+              - generic [ref=e725]:
+                - link "LinkedIn" [ref=e726] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/arjunpatel
+                - link "Twitter" [ref=e729] [cursor=pointer]:
+                  - /url: https://twitter.com
+            - generic [ref=e732]:
+              - heading "Arjun Patel" [level=3] [ref=e733]
+              - paragraph [ref=e734]: Founder & CEO
+              - paragraph [ref=e735]: 15+ years building scalable web platforms. Ex-Google, ex-Stripe. Obsessed with Core Web Vitals and developer experience.
+              - generic [ref=e736]:
+                - generic [ref=e737]: Architecture
+                - generic [ref=e738]: Performance
+                - generic [ref=e739]: Strategy
+          - article [ref=e740]:
+            - generic [ref=e741]:
+              - generic [ref=e742]: MK
+              - generic [ref=e745]:
+                - link "LinkedIn" [ref=e746] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/meerakrishnan
+                - link "Twitter" [ref=e749] [cursor=pointer]:
+                  - /url: https://twitter.com
+            - generic [ref=e752]:
+              - heading "Meera Krishnan" [level=3] [ref=e753]
+              - paragraph [ref=e754]: CTO
+              - paragraph [ref=e755]: Ex-Meta, ex-Netflix. Distributed systems and ML infrastructure. Built recommendation systems serving 100M+ users.
+              - generic [ref=e756]:
+                - generic [ref=e757]: ML Systems
+                - generic [ref=e758]: Distributed Systems
+                - generic [ref=e759]: AI
+          - article [ref=e760]:
+            - generic [ref=e761]:
+              - generic [ref=e762]: RV
+              - generic [ref=e765]:
+                - link "LinkedIn" [ref=e766] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/rohitverma
+                - link "Twitter" [ref=e769] [cursor=pointer]:
+                  - /url: https://twitter.com
+            - generic [ref=e772]:
+              - heading "Rohit Verma" [level=3] [ref=e773]
+              - paragraph [ref=e774]: VP Engineering
+              - paragraph [ref=e775]: 12+ years shipping products at scale. Ex-Flipkart, ex-Razorpay. Obsessed with developer experience and shipping velocity.
+              - generic [ref=e776]:
+                - generic [ref=e777]: Platform Engineering
+                - generic [ref=e778]: DevEx
+                - generic [ref=e779]: Scale
+          - article [ref=e780]:
+            - generic [ref=e781]:
+              - generic [ref=e782]: SR
+              - generic [ref=e785]:
+                - link "LinkedIn" [ref=e786] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/snehareddy
+                - link "Twitter" [ref=e789] [cursor=pointer]:
+                  - /url: https://twitter.com
+            - generic [ref=e792]:
+              - heading "Sneha Reddy" [level=3] [ref=e793]
+              - paragraph [ref=e794]: Design Director
+              - paragraph [ref=e795]: Ex-Airbnb, ex-Figma. Design systems that scale. Champion of accessibility and design-engineering collaboration.
+              - generic [ref=e796]:
+                - generic [ref=e797]: Design Systems
+                - generic [ref=e798]: Accessibility
+                - generic [ref=e799]: Brand
+          - article [ref=e800]:
+            - generic [ref=e801]:
+              - generic [ref=e802]: KM
+              - generic [ref=e805]:
+                - link "LinkedIn" [ref=e806] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/karanmalhotra
+                - link "Twitter" [ref=e809] [cursor=pointer]:
+                  - /url: https://twitter.com
+            - generic [ref=e812]:
+              - heading "Karan Malhotra" [level=3] [ref=e813]
+              - paragraph [ref=e814]: AI Lead
+              - paragraph [ref=e815]: Ex-OpenAI, ex-Hugging Face. RAG, fine-tuning, and production ML. Published at NeurIPS, ICML. Building reliable AI products.
+              - generic [ref=e816]:
+                - generic [ref=e817]: LLMs
+                - generic [ref=e818]: RAG
+                - generic [ref=e819]: MLOps
+          - article [ref=e820]:
+            - generic [ref=e821]:
+              - generic [ref=e822]: AI
+              - generic [ref=e825]:
+                - link "LinkedIn" [ref=e826] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/ananyaiyer
+                - link "Twitter" [ref=e829] [cursor=pointer]:
+                  - /url: https://twitter.com
+            - generic [ref=e832]:
+              - heading "Ananya Iyer" [level=3] [ref=e833]
+              - paragraph [ref=e834]: Head of Delivery
+              - paragraph [ref=e835]: Ex-Thoughtworks, ex-Atlassian. Agile at scale. Ensures every project ships on time, on budget, with zero surprises.
+              - generic [ref=e836]:
+                - generic [ref=e837]: Delivery
+                - generic [ref=e838]: Agile
+                - generic [ref=e839]: Client Success
+    - region "Our Process" [ref=e840]:
+      - generic [ref=e841]:
+        - paragraph [ref=e842]: The Method
+        - heading "How an engagement actually runs." [level=2] [ref=e843]
+        - generic [ref=e844]:
+          - generic [ref=e846]:
+            - generic [ref=e847]: "01"
+            - generic [ref=e849]:
+              - heading "Discovery & Audit" [level=3] [ref=e850]
+              - paragraph [ref=e851]: Week 1
+            - generic [ref=e852]:
+              - paragraph [ref=e853]: "One structured session plus a written audit: audience, success metrics, constraints, and technical baseline agreed before anything is designed."
+              - list [ref=e854]:
+                - listitem [ref=e855]: Stakeholder interviews
+                - listitem [ref=e857]: Technical audit
+                - listitem [ref=e859]: Success metrics definition
+                - listitem [ref=e861]: Content audit
+          - generic [ref=e863]:
+            - generic [ref=e864]: "02"
+            - generic [ref=e866]:
+              - heading "Strategy & Scope" [level=3] [ref=e867]
+              - paragraph [ref=e868]: Week 1–2
+            - generic [ref=e869]:
+              - paragraph [ref=e870]: A scoped plan with fixed milestones, timeline, content model, and a price that matches it — no metered watching.
+              - list [ref=e871]:
+                - listitem [ref=e872]: Technical specification
+                - listitem [ref=e874]: Content model
+                - listitem [ref=e876]: Milestone calendar
+                - listitem [ref=e878]: Fixed-price proposal
+          - generic [ref=e880]:
+            - generic [ref=e881]: "03"
+            - generic [ref=e883]:
+              - heading "Execution & Delivery" [level=3] [ref=e884]
+              - paragraph [ref=e885]: Week 2–8
+            - generic [ref=e886]:
+              - paragraph [ref=e887]: Weekly builds on staging from day one. You watch the product exist instead of waiting for a big reveal.
+              - list [ref=e888]:
+                - listitem [ref=e889]: Weekly staging builds
+                - listitem [ref=e891]: Design system delivery
+                - listitem [ref=e893]: CMS configuration
+                - listitem [ref=e895]: QA & accessibility audit
+          - generic [ref=e897]:
+            - generic [ref=e898]: "04"
+            - generic [ref=e900]:
+              - heading "Launch & Ownership" [level=3] [ref=e901]
+              - paragraph [ref=e902]: Launch
+            - generic [ref=e903]:
+              - paragraph [ref=e904]: Launch measured against plan. Code, accounts, and pipelines handed over in your name, documented. Learning is effortless.
+              - list [ref=e905]:
+                - listitem [ref=e906]: Production deploy
+                - listitem [ref=e908]: Source code & repo transfer
+                - listitem [ref=e910]: Account ownership transfer
+                - listitem [ref=e912]: 30-day hypercare
+    - generic "Footer" [ref=e914]:
+      - generic [ref=e916]:
+        - generic [ref=e917]:
+          - generic [ref=e918]: Web Development
+          - generic [ref=e920]: Mobile Apps
+          - generic [ref=e922]: AI Websites
+          - generic [ref=e924]: Refurbishment
+          - generic [ref=e926]: AI / ML Models
+          - generic [ref=e928]: Mumbai
+        - generic [ref=e930]:
+          - generic [ref=e931]: Web Development
+          - generic [ref=e933]: Mobile Apps
+          - generic [ref=e935]: AI Websites
+          - generic [ref=e937]: Refurbishment
+          - generic [ref=e939]: AI / ML Models
+          - generic [ref=e941]: Mumbai
+      - generic [ref=e943]:
+        - paragraph [ref=e944]: Ready to build
+        - heading "Let's build something they remember." [level=2] [ref=e945]:
+          - generic [ref=e946]: Let’s build
+          - generic [ref=e948]: something remarkable.
+        - paragraph [ref=e950]: Tell us what you are building. You get an honest assessment, a clear scope, and a reply within one business day — in writing.
+        - link "Start a Project" [ref=e952] [cursor=pointer]:
+          - /url: /contact
+        - paragraph [ref=e953]: hello@imaginarsclub.com — replies within 24h, in writing
+      - generic [ref=e954]:
+        - generic [ref=e955]: ImaginarsClub
+        - navigation [ref=e960]:
+          - link "Twitter" [ref=e961] [cursor=pointer]:
+            - /url: https://twitter.com/imaginarsclub
+          - link "LinkedIn" [ref=e964] [cursor=pointer]:
+            - /url: https://linkedin.com/company/imaginarsclub
+          - link "GitHub" [ref=e967] [cursor=pointer]:
+            - /url: https://github.com/imaginarsclub
+          - link "Email" [ref=e970] [cursor=pointer]:
+            - /url: mailto:hello@imaginarsclub.com
+      - generic [ref=e974]:
+        - paragraph [ref=e975]: ImaginarsClub Services — Mumbai
+        - paragraph [ref=e976]: Designed & built in-house. No templates.
+        - paragraph [ref=e977]: © 2026
+  - alert [ref=e978]
