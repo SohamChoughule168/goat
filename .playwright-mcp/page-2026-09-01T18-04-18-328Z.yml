@@ -1,0 +1,609 @@
+- generic [ref=f24e2]:
+  - generic [ref=f24e3]:
+    - link "Skip to content" [ref=f24e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f24e9]:
+      - heading "Navigation Menu" [level=2] [ref=f24e10]
+      - generic [ref=f24e12]:
+        - button "Toggle navigation" [ref=f24e14] [cursor=pointer]
+        - link "Homepage" [ref=f24e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f24e21]:
+          - link "Sign in" [ref=f24e22] [cursor=pointer]:
+            - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fgetsentry%2Fsentry-mcp
+          - button "Appearance settings" [ref=f24e25] [cursor=pointer]
+  - main [ref=f24e32]:
+    - generic [ref=f24e33]:
+      - generic [ref=f24e36]:
+        - link "getsentry" [ref=f24e40] [cursor=pointer]:
+          - /url: /getsentry
+        - generic [ref=f24e41]: /
+        - strong [ref=f24e42]:
+          - link "sentry-mcp" [ref=f24e43] [cursor=pointer]:
+            - /url: /getsentry/sentry-mcp
+        - generic [ref=f24e44]: Public
+      - navigation "Repository" [ref=f24e45]:
+        - list [ref=f24e46]:
+          - listitem [ref=f24e47]:
+            - link "Code" [ref=f24e48] [cursor=pointer]:
+              - /url: /getsentry/sentry-mcp
+          - listitem [ref=f24e52]:
+            - link "Issues 71" [ref=f24e53] [cursor=pointer]:
+              - /url: /getsentry/sentry-mcp/issues
+              - generic [ref=f24e57]: Issues
+              - generic "71" [ref=f24e58]
+          - listitem [ref=f24e59]:
+            - link "Pull requests 33" [ref=f24e60] [cursor=pointer]:
+              - /url: /getsentry/sentry-mcp/pulls
+              - generic [ref=f24e63]: Pull requests
+              - generic "33" [ref=f24e64]
+          - listitem [ref=f24e65]:
+            - link "Actions" [ref=f24e66] [cursor=pointer]:
+              - /url: /getsentry/sentry-mcp/actions
+          - listitem [ref=f24e70]:
+            - link "Security and quality" [ref=f24e71] [cursor=pointer]:
+              - /url: /getsentry/sentry-mcp/security
+          - listitem [ref=f24e75]
+        - button "Additional navigation options" [ref=f24e79] [cursor=pointer]
+    - generic [ref=f24e93]:
+      - generic [ref=f24e96]:
+        - generic [ref=f24e97]:
+          - generic [ref=f24e98]:
+            - button "main branch" [ref=f24e100] [cursor=pointer]:
+              - generic [ref=f24e101]: main
+            - generic [ref=f24e105]:
+              - link "Go to Branches page" [ref=f24e106] [cursor=pointer]:
+                - /url: /getsentry/sentry-mcp/branches
+              - link "Go to Tags page" [ref=f24e109] [cursor=pointer]:
+                - /url: /getsentry/sentry-mcp/tags
+          - generic [ref=f24e112]:
+            - button "Go to file" [ref=f24e115] [cursor=pointer]
+            - button "Code" [ref=f24e118] [cursor=pointer]
+        - generic [ref=f24e121]:
+          - generic [ref=f24e122]:
+            - generic [ref=f24e124]:
+              - heading "Latest commit" [level=2] [ref=f24e125]
+              - generic [ref=f24e128]:
+                - heading "History" [level=2] [ref=f24e129]
+                - link "View commit history for this file." [ref=f24e131] [cursor=pointer]:
+                  - /url: /getsentry/sentry-mcp/commits/main/
+            - heading "Folders and files" [level=2] [ref=f24e133]
+            - table "Folders and files" [ref=f24e134]:
+              - rowgroup:
+                - row "Name Last commit message Last commit date":
+                  - columnheader "Name"
+                  - columnheader "Last commit message"
+                  - columnheader "Last commit date"
+              - rowgroup [ref=f24e135]:
+                - row ".agents/skills, (Directory)" [ref=f24e136]:
+                  - cell [ref=f24e137]:
+                    - link ".agents/skills, (Directory)" [ref=f24e144] [cursor=pointer]:
+                      - /url: /getsentry/sentry-mcp/tree/main/.agents/skills
+                      - text: .agents/skills
+                  - cell [ref=f24e145]
+                  - cell [ref=f24e147]
+                - row ".claude-plugin, (Directory)" [ref=f24e150]:
+                  - cell [ref=f24e151]:
+                    - link ".claude-plugin, (Directory)" [ref=f24e158] [cursor=pointer]:
+                      - /url: /getsentry/sentry-mcp/tree/main/.claude-plugin
+                      - text: .claude-plugin
+                  - cell [ref=f24e159]
+                  - cell [ref=f24e161]
+                - row ".claude, (Directory)" [ref=f24e164]:
+                  - cell [ref=f24e165]:
+                    - link ".claude, (Directory)" [ref=f24e172] [cursor=pointer]:
+                      - /url: /getsentry/sentry-mcp/tree/main/.claude
+                      - text: .claude
+                  - cell [ref=f24e173]
+                  - cell [ref=f24e175]
+                - row ".codex, (Directory)" [ref=f24e178]:
+                  - cell [ref=f24e179]:
+                    - link ".codex, (Directory)" [ref=f24e186] [cursor=pointer]:
+                      - /url: /getsentry/sentry-mcp/tree/main/.codex
+                      - text: .codex
+                  - cell [ref=f24e187]
+                  - cell [ref=f24e189]
+                - row ".cursor-plugin, (Directory)" [ref=f24e192]:
+                  - cell [ref=f24e193]:
+                    - link ".cursor-plugin, (Directory)" [ref=f24e200] [cursor=pointer]:
+                      - /url: /getsentry/sentry-mcp/tree/main/.cursor-plugin
+                      - text: .cursor-plugin
+                  - cell [ref=f24e201]
+                  - cell [ref=f24e203]
+                - row ".cursor, (Directory)" [ref=f24e206]:
+                  - cell [ref=f24e207]:
+                    - link ".cursor, (Directory)" [ref=f24e214] [cursor=pointer]:
+                      - /url: /getsentry/sentry-mcp/tree/main/.cursor
+                      - text: .cursor
+                  - cell [ref=f24e215]
+                  - cell [ref=f24e217]
+                - row ".github, (Directory)" [ref=f24e220]:
+                  - cell [ref=f24e221]:
+                    - link ".github, (Directory)" [ref=f24e228] [cursor=pointer]:
+                      - /url: /getsentry/sentry-mcp/tree/main/.github
+                      - text: .github
+                  - cell [ref=f24e229]
+                  - cell [ref=f24e231]
+                - row ".vscode, (Directory)" [ref=f24e234]:
+                  - cell [ref=f24e235]:
+                    - link ".vscode, (Directory)" [ref=f24e242] [cursor=pointer]:
+                      - /url: /getsentry/sentry-mcp/tree/main/.vscode
+                      - text: .vscode
+                  - cell [ref=f24e243]
+                  - cell [ref=f24e245]
+                - row "ast-grep-rule-tests, (Directory)" [ref=f24e248]:
+                  - cell [ref=f24e249]:
+                    - link "ast-grep-rule-tests, (Directory)" [ref=f24e256] [cursor=pointer]:
+                      - /url: /getsentry/sentry-mcp/tree/main/ast-grep-rule-tests
+                      - text: ast-grep-rule-tests
+                  - cell [ref=f24e257]
+                  - cell [ref=f24e259]
+                - row "ast-grep-rules, (Directory)" [ref=f24e262]:
+                  - cell [ref=f24e263]:
+                    - link "ast-grep-rules, (Directory)" [ref=f24e270] [cursor=pointer]:
+                      - /url: /getsentry/sentry-mcp/tree/main/ast-grep-rules
+                      - text: ast-grep-rules
+                  - cell [ref=f24e271]
+                  - cell [ref=f24e273]
+                - row [ref=f24e276]:
+                  - cell [ref=f24e277] [cursor=pointer]:
+                    - button "View all files" [ref=f24e279]
+          - generic [ref=f24e281]:
+            - generic [ref=f24e282]:
+              - heading "Repository files navigation" [level=2] [ref=f24e283]
+              - navigation "Repository files" [ref=f24e284]:
+                - list [ref=f24e285]:
+                  - listitem [ref=f24e286]:
+                    - link "README" [ref=f24e287] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=f24e289]:
+                    - link "Code of conduct" [ref=f24e290] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=f24e292]:
+                    - link "License" [ref=f24e293] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=f24e295]:
+                    - link "Security" [ref=f24e296] [cursor=pointer]:
+                      - /url: "#"
+              - button "Outline" [ref=f24e298] [cursor=pointer]
+            - article [ref=f24e302]:
+              - generic [ref=f24e303]:
+                - heading "sentry-mcp" [level=1] [ref=f24e304]
+                - 'link "Permalink: sentry-mcp" [ref=f24e305] [cursor=pointer]':
+                  - /url: "#sentry-mcp"
+              - paragraph [ref=f24e308]: Sentry's MCP service is primarily designed for human-in-the-loop coding agents. Our tool selection and priorities are focused on developer workflows and debugging use cases, rather than providing a general-purpose MCP server for all Sentry functionality.
+              - paragraph [ref=f24e309]:
+                - text: This remote MCP server acts as middleware to the upstream Sentry API, optimized for coding assistants like Cursor, Claude Code, and similar development tools. It's based on
+                - link "Cloudflare's work towards remote MCPs" [ref=f24e310] [cursor=pointer]:
+                  - /url: https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/
+                - text: .
+              - generic [ref=f24e311]:
+                - heading "Getting Started" [level=2] [ref=f24e312]
+                - 'link "Permalink: Getting Started" [ref=f24e313] [cursor=pointer]':
+                  - /url: "#getting-started"
+              - paragraph [ref=f24e316]: "You'll find everything you need to know by visiting the deployed service in production:"
+              - paragraph [ref=f24e317]:
+                - link "https://mcp.sentry.dev" [ref=f24e318] [cursor=pointer]:
+                  - /url: https://mcp.sentry.dev
+              - paragraph [ref=f24e319]: If you're looking to contribute, learn how it works, or to run this for self-hosted Sentry, continue below.
+              - generic [ref=f24e320]:
+                - heading "Claude Code Plugin" [level=3] [ref=f24e321]
+                - 'link "Permalink: Claude Code Plugin" [ref=f24e322] [cursor=pointer]':
+                  - /url: "#claude-code-plugin"
+              - paragraph [ref=f24e325]: "Install as a Claude Code plugin for automatic subagent delegation:"
+              - generic [ref=f24e326]:
+                - generic [ref=f24e327]: claude plugin marketplace add getsentry/sentry-mcp claude plugin install sentry-mcp@sentry-mcp
+                - button "Copy code to clipboard" [ref=f24e329] [cursor=pointer]
+              - paragraph [ref=f24e333]:
+                - text: This provides a
+                - code [ref=f24e334]: sentry-mcp
+                - text: subagent that Claude automatically delegates to when you ask about Sentry errors, issues, traces, or performance.
+              - paragraph [ref=f24e335]: "For forward-looking tool variants and features:"
+              - generic [ref=f24e336]:
+                - generic [ref=f24e337]: claude plugin install sentry-mcp@sentry-mcp-experimental
+                - button "Copy code to clipboard" [ref=f24e339] [cursor=pointer]
+              - generic [ref=f24e343]:
+                - heading "Stdio vs Remote" [level=3] [ref=f24e344]
+                - 'link "Permalink: Stdio vs Remote" [ref=f24e345] [cursor=pointer]':
+                  - /url: "#stdio-vs-remote"
+              - paragraph [ref=f24e348]:
+                - text: While this repository is focused on acting as an MCP service, we also support a
+                - code [ref=f24e349]: stdio
+                - text: transport. This is still a work in progress, but is the easiest way to adapt run the MCP against a self-hosted Sentry install.
+              - paragraph [ref=f24e350]:
+                - strong [ref=f24e351]: "Note:"
+                - text: The AI-powered search tools (
+                - code [ref=f24e352]: search_events
+                - text: ","
+                - code [ref=f24e353]: search_issues
+                - text: ", etc.) require an LLM provider (OpenAI, Azure OpenAI, Anthropic, or OpenRouter). These tools use natural language processing to translate queries into Sentry's query syntax. Without a configured provider, these specific tools will be unavailable, but all other tools will function normally."
+              - paragraph [ref=f24e354]:
+                - text: To utilize the
+                - code [ref=f24e355]: stdio
+                - text: "transport, you'll need to create an User Auth Token in Sentry with the necessary scopes. As of writing this is:"
+              - generic [ref=f24e356]:
+                - code [ref=f24e358]: org:read project:read project:write team:read team:write event:write
+                - button "Copy code to clipboard" [ref=f24e360] [cursor=pointer]
+              - paragraph [ref=f24e364]: "Launch the transport:"
+              - generic [ref=f24e365]:
+                - generic [ref=f24e366]: npx @sentry/mcp-server@latest --access-token=sentry-user-token
+                - button "Copy code to clipboard" [ref=f24e368] [cursor=pointer]
+              - paragraph [ref=f24e372]:
+                - text: Need to connect to a self-hosted deployment? Add
+                - code [ref=f24e373]: "--host"
+                - text: (hostname only, e.g.
+                - code [ref=f24e374]: "--host=sentry.example.com"
+                - text: ) when you run the command. For isolated internal deployments that only expose plain HTTP, also add
+                - code [ref=f24e375]: "--insecure-http"
+                - text: .
+              - paragraph [ref=f24e376]: "Some features (like Seer) may not be available on self-hosted instances. You can disable specific skills to prevent unsupported tools from being exposed:"
+              - generic [ref=f24e377]:
+                - generic [ref=f24e378]: npx @sentry/mcp-server@latest --access-token=TOKEN --host=sentry.example.com --disable-skills=seer
+                - button "Copy code to clipboard" [ref=f24e380] [cursor=pointer]
+              - paragraph [ref=f24e384]: "For self-hosted instances without TLS:"
+              - generic [ref=f24e385]:
+                - generic [ref=f24e386]: npx @sentry/mcp-server@latest --access-token=TOKEN --host=sentry.internal:9000 --insecure-http
+                - button "Copy code to clipboard" [ref=f24e388] [cursor=pointer]
+              - generic [ref=f24e392]:
+                - heading "Remote with an Explicit Sentry Token" [level=4] [ref=f24e393]
+                - 'link "Permalink: Remote with an Explicit Sentry Token" [ref=f24e394] [cursor=pointer]':
+                  - /url: "#remote-with-an-explicit-sentry-token"
+              - paragraph [ref=f24e397]: "Remote clients that support custom HTTP headers can pass an upstream Sentry API token directly to the Cloudflare transport:"
+              - generic [ref=f24e398]:
+                - generic [ref=f24e399]:
+                  - text: "{ \"mcpServers\": { \"sentry\": { \"url\":"
+                  - generic [ref=f24e400]: "\"https://mcp.sentry.dev/mcp\""
+                  - text: ", \"headers\": { \"Authorization\":"
+                  - generic [ref=f24e401]: "\"Sentry-Bearer ${SENTRY_ACCESS_TOKEN}\""
+                  - text: "} } } }"
+                - button "Copy code to clipboard" [ref=f24e403] [cursor=pointer]
+              - paragraph [ref=f24e407]:
+                - code [ref=f24e408]: Sentry-Bearer
+                - text: is intentionally separate from
+                - code [ref=f24e409]: Bearer
+                - text: ":"
+                - code [ref=f24e410]: Bearer
+                - text: is reserved for MCP OAuth access tokens. With
+                - code [ref=f24e411]: Sentry-Bearer
+                - text: ", the worker does not store, validate, exchange, or refresh the upstream token. It forwards the token through the same Sentry API calls used by OAuth-backed sessions, and the client or upstream provider remains responsible for token lifetime and refresh."
+              - paragraph [ref=f24e412]:
+                - text: Direct remote auth defaults to all active MCP skills. You can narrow the exposed tools with
+                - code [ref=f24e413]: "?skills=inspect,triage"
+                - text: or
+                - code [ref=f24e414]: "?disable-skills=seer"
+                - text: .
+              - generic [ref=f24e415]:
+                - heading "Environment Variables" [level=4] [ref=f24e416]
+                - 'link "Permalink: Environment Variables" [ref=f24e417] [cursor=pointer]':
+                  - /url: "#environment-variables"
+              - generic [ref=f24e420]:
+                - generic [ref=f24e421]:
+                  - text: SENTRY_ACCESS_TOKEN=
+                  - generic [ref=f24e422]: "# Required: Your Sentry auth token"
+                  - generic [ref=f24e423]: "# LLM Provider Configuration (required for AI-powered search tools)"
+                  - text: EMBEDDED_AGENT_PROVIDER=
+                  - generic [ref=f24e424]: "# Required when multiple provider keys are set: 'openai', 'azure-openai', 'anthropic', or 'openrouter'"
+                  - text: OPENAI_API_KEY=
+                  - generic [ref=f24e425]: "# Required if using OpenAI"
+                  - text: ANTHROPIC_API_KEY=
+                  - generic [ref=f24e426]: "# Required if using Anthropic"
+                  - text: OPENROUTER_API_KEY=
+                  - generic [ref=f24e427]: "# Required if using OpenRouter"
+                  - text: OPENROUTER_MODEL=
+                  - generic [ref=f24e428]: "# Optional OpenRouter model, defaults to 'openai/gpt-5.6-luna'"
+                  - text: OPENROUTER_REASONING_EFFORT=
+                  - generic [ref=f24e429]: "# Optional OpenRouter reasoning effort, defaults to 'high'"
+                  - generic [ref=f24e430]: "# Optional overrides"
+                  - text: SENTRY_HOST=
+                  - generic [ref=f24e431]: "# For self-hosted deployments"
+                  - text: MCP_DISABLE_SKILLS=
+                  - generic [ref=f24e432]: "# Disable specific skills (comma-separated, e.g. 'seer')"
+                - button "Copy code to clipboard" [ref=f24e434] [cursor=pointer]
+              - paragraph [ref=f24e438]:
+                - strong [ref=f24e439]: "Important:"
+                - text: Always set
+                - code [ref=f24e440]: EMBEDDED_AGENT_PROVIDER
+                - text: to explicitly specify your LLM provider. Auto-detection based on API keys alone is deprecated and will be removed in a future release. See
+                - link "docs/operations/embedded-agents.md" [ref=f24e441] [cursor=pointer]:
+                  - /url: /getsentry/sentry-mcp/blob/main/docs/operations/embedded-agents.md
+                - text: for detailed configuration options.
+              - generic [ref=f24e442]:
+                - heading "Example MCP Configuration" [level=4] [ref=f24e443]
+                - 'link "Permalink: Example MCP Configuration" [ref=f24e444] [cursor=pointer]':
+                  - /url: "#example-mcp-configuration"
+              - generic [ref=f24e447]:
+                - generic [ref=f24e448]:
+                  - text: "{ \"mcpServers\": { \"sentry\": { \"command\":"
+                  - generic [ref=f24e449]: "\"npx\""
+                  - text: ", \"args\": ["
+                  - generic [ref=f24e450]: "\"@sentry/mcp-server\""
+                  - text: "], \"env\": { \"SENTRY_ACCESS_TOKEN\":"
+                  - generic [ref=f24e451]: "\"your-token\""
+                  - text: ", \"EMBEDDED_AGENT_PROVIDER\":"
+                  - generic [ref=f24e452]: "\"openai\""
+                  - text: ", \"OPENAI_API_KEY\":"
+                  - generic [ref=f24e453]: "\"sk-...\""
+                  - text: "} } } }"
+                - button "Copy code to clipboard" [ref=f24e455] [cursor=pointer]
+              - paragraph [ref=f24e459]: If you leave the host variable unset, the CLI automatically targets the Sentry SaaS service. Only set the override when you operate self-hosted Sentry.
+              - paragraph [ref=f24e460]: "For self-hosted instances that don't support Seer:"
+              - generic [ref=f24e461]:
+                - generic [ref=f24e462]:
+                  - text: "{ \"mcpServers\": { \"sentry\": { \"command\":"
+                  - generic [ref=f24e463]: "\"npx\""
+                  - text: ", \"args\": ["
+                  - generic [ref=f24e464]: "\"@sentry/mcp-server\""
+                  - text: "], \"env\": { \"SENTRY_ACCESS_TOKEN\":"
+                  - generic [ref=f24e465]: "\"your-token\""
+                  - text: ", \"SENTRY_HOST\":"
+                  - generic [ref=f24e466]: "\"sentry.example.com\""
+                  - text: ", \"MCP_DISABLE_SKILLS\":"
+                  - generic [ref=f24e467]: "\"seer\""
+                  - text: "} } } }"
+                - button "Copy code to clipboard" [ref=f24e469] [cursor=pointer]
+              - generic [ref=f24e473]:
+                - heading "MCP Inspector" [level=3] [ref=f24e474]
+                - 'link "Permalink: MCP Inspector" [ref=f24e475] [cursor=pointer]':
+                  - /url: "#mcp-inspector"
+              - paragraph [ref=f24e478]:
+                - text: MCP includes an
+                - link "Inspector" [ref=f24e479] [cursor=pointer]:
+                  - /url: https://modelcontextprotocol.io/docs/tools/inspector
+                - text: ", to easily test the service:"
+              - generic [ref=f24e480]:
+                - generic [ref=f24e481]: pnpm inspector
+                - button "Copy code to clipboard" [ref=f24e483] [cursor=pointer]
+              - paragraph [ref=f24e487]:
+                - text: Enter the MCP server URL (
+                - link "http://localhost:5173" [ref=f24e488] [cursor=pointer]:
+                  - /url: http://localhost:5173
+                - text: ) and hit connect. This should trigger the authentication flow for you.
+              - paragraph [ref=f24e489]:
+                - text: "Note: If you have issues with your OAuth flow when accessing the inspector on"
+                - code [ref=f24e490]: 127.0.0.1
+                - text: ", try using"
+                - code [ref=f24e491]: localhost
+                - text: instead by visiting
+                - code [ref=f24e492]: http://localhost:6274
+                - text: .
+              - generic [ref=f24e493]:
+                - heading "Local Development" [level=2] [ref=f24e494]
+                - 'link "Permalink: Local Development" [ref=f24e495] [cursor=pointer]':
+                  - /url: "#local-development"
+              - paragraph [ref=f24e498]: "To contribute changes, you'll need to set up your local environment:"
+              - list [ref=f24e499]:
+                - listitem [ref=f24e500]:
+                  - paragraph [ref=f24e501]:
+                    - strong [ref=f24e502]: "Set up environment and agent skills:"
+                  - generic [ref=f24e503]:
+                    - generic [ref=f24e504]:
+                      - text: make setup-env
+                      - generic [ref=f24e505]: "# Creates .env files and installs shared agent skills"
+                    - button "Copy code to clipboard" [ref=f24e507] [cursor=pointer]
+                  - paragraph [ref=f24e511]:
+                    - text: This also runs
+                    - code [ref=f24e512]: npx @sentry/dotagents install
+                    - text: to install shared skills from
+                    - link "getsentry/skills" [ref=f24e513] [cursor=pointer]:
+                      - /url: https://github.com/getsentry/skills
+                    - text: into
+                    - code [ref=f24e514]: .agents/skills/
+                    - text: (symlinked into
+                    - code [ref=f24e515]: .claude/skills
+                    - text: and
+                    - code [ref=f24e516]: .cursor/skills
+                    - text: "). If you need to update skills later, run it directly:"
+                  - generic [ref=f24e517]:
+                    - generic [ref=f24e518]: npx @sentry/dotagents install
+                    - button "Copy code to clipboard" [ref=f24e520] [cursor=pointer]
+                - listitem [ref=f24e524]:
+                  - paragraph [ref=f24e525]:
+                    - strong [ref=f24e526]: Create an OAuth App in Sentry
+                    - text: (Settings => API =>
+                    - link "Applications" [ref=f24e527] [cursor=pointer]:
+                      - /url: https://sentry.io/settings/account/api/applications/
+                    - text: "):"
+                  - list [ref=f24e528]:
+                    - listitem [ref=f24e529]:
+                      - text: "Homepage URL:"
+                      - code [ref=f24e530]: http://localhost:5173
+                    - listitem [ref=f24e531]:
+                      - text: "Authorized Redirect URIs:"
+                      - code [ref=f24e532]: http://localhost:5173/oauth/callback
+                    - listitem [ref=f24e533]: Note your Client ID and generate a Client secret
+                - listitem [ref=f24e534]:
+                  - paragraph [ref=f24e535]:
+                    - strong [ref=f24e536]: "Configure your credentials:"
+                  - list [ref=f24e537]:
+                    - listitem [ref=f24e538]:
+                      - text: Edit
+                      - code [ref=f24e539]: .env
+                      - text: in the root directory and add either
+                      - code [ref=f24e540]: OPENAI_API_KEY
+                      - text: or
+                      - code [ref=f24e541]: OPENROUTER_API_KEY
+                    - listitem [ref=f24e542]:
+                      - text: Edit
+                      - code [ref=f24e543]: packages/mcp-cloudflare/.env
+                      - text: "and add:"
+                      - list [ref=f24e544]:
+                        - listitem [ref=f24e545]:
+                          - code [ref=f24e546]: SENTRY_CLIENT_ID=your_development_sentry_client_id
+                        - listitem [ref=f24e547]:
+                          - code [ref=f24e548]: SENTRY_CLIENT_SECRET=your_development_sentry_client_secret
+                        - listitem [ref=f24e549]:
+                          - code [ref=f24e550]: COOKIE_SECRET=my-super-secret-cookie
+                - listitem [ref=f24e551]:
+                  - paragraph [ref=f24e552]:
+                    - strong [ref=f24e553]: "Start the development server:"
+                  - generic [ref=f24e554]:
+                    - generic [ref=f24e555]: pnpm dev
+                    - button "Copy code to clipboard" [ref=f24e557] [cursor=pointer]
+              - generic [ref=f24e561]:
+                - heading "Verify" [level=3] [ref=f24e562]
+                - 'link "Permalink: Verify" [ref=f24e563] [cursor=pointer]':
+                  - /url: "#verify"
+              - paragraph [ref=f24e566]:
+                - text: Run the server locally to make it available at
+                - code [ref=f24e567]: http://localhost:5173
+              - generic [ref=f24e568]:
+                - generic [ref=f24e569]: pnpm dev
+                - button "Copy code to clipboard" [ref=f24e571] [cursor=pointer]
+              - paragraph [ref=f24e575]:
+                - text: To test the local server, enter
+                - code [ref=f24e576]: http://localhost:5173/mcp
+                - text: into Inspector and hit connect. Once you follow the prompts, you'll be able to "List Tools".
+              - generic [ref=f24e577]:
+                - heading "Tests" [level=3] [ref=f24e578]
+                - 'link "Permalink: Tests" [ref=f24e579] [cursor=pointer]':
+                  - /url: "#tests"
+              - paragraph [ref=f24e582]: "There are three test suites included: unit tests, evaluations, and manual testing."
+              - paragraph [ref=f24e583]:
+                - strong [ref=f24e584]: Unit tests
+                - text: "can be run using:"
+              - generic [ref=f24e585]:
+                - generic [ref=f24e586]: pnpm test
+                - button "Copy code to clipboard" [ref=f24e588] [cursor=pointer]
+              - paragraph [ref=f24e592]:
+                - strong [ref=f24e593]: Evaluations
+                - text: require a
+                - code [ref=f24e594]: .env
+                - text: "file in the project root with some config:"
+              - generic [ref=f24e595]:
+                - generic [ref=f24e596]:
+                  - generic [ref=f24e597]: "# .env (in project root)"
+                  - text: OPENAI_API_KEY=
+                  - generic [ref=f24e598]: "# Use OpenAI-backed AI-powered tools"
+                  - text: OPENROUTER_API_KEY=
+                  - generic [ref=f24e599]: "# Or use OpenRouter-backed AI-powered tools"
+                - button "Copy code to clipboard" [ref=f24e601] [cursor=pointer]
+              - paragraph [ref=f24e605]:
+                - text: "Note: The root"
+                - code [ref=f24e606]: .env
+                - text: file provides defaults for all packages. Individual packages can have their own
+                - code [ref=f24e607]: .env
+                - text: files to override these defaults during development.
+              - paragraph [ref=f24e608]: "Once that's done you can run them using:"
+              - generic [ref=f24e609]:
+                - generic [ref=f24e610]: pnpm eval
+                - button "Copy code to clipboard" [ref=f24e612] [cursor=pointer]
+              - paragraph [ref=f24e616]:
+                - strong [ref=f24e617]: Manual testing
+                - text: "(preferred for testing MCP changes):"
+              - generic [ref=f24e618]:
+                - generic [ref=f24e619]:
+                  - generic [ref=f24e620]: "# Test with local dev server (default: http://localhost:5173)"
+                  - text: pnpm -w run cli
+                  - generic [ref=f24e621]: "\"who am I?\""
+                  - generic [ref=f24e622]: "# Test against production"
+                  - text: pnpm -w run cli --mcp-host=https://mcp.sentry.dev
+                  - generic [ref=f24e623]: "\"query\""
+                  - generic [ref=f24e624]: "# Test with local stdio mode (requires SENTRY_ACCESS_TOKEN)"
+                  - text: pnpm -w run cli --access-token=TOKEN
+                  - generic [ref=f24e625]: "\"query\""
+                - button "Copy code to clipboard" [ref=f24e627] [cursor=pointer]
+              - paragraph [ref=f24e631]:
+                - text: "Note: The CLI defaults to"
+                - code [ref=f24e632]: http://localhost:5173
+                - text: . Override with
+                - code [ref=f24e633]: "--mcp-host"
+                - text: or set
+                - code [ref=f24e634]: MCP_URL
+                - text: environment variable.
+              - paragraph [ref=f24e635]:
+                - strong [ref=f24e636]: "Comprehensive testing playbooks:"
+              - list [ref=f24e637]:
+                - listitem [ref=f24e638]:
+                  - strong [ref=f24e639]: "Stdio testing:"
+                  - text: See
+                  - code [ref=f24e640]: docs/testing/stdio.md
+                  - text: for complete guide on building, running, and testing the stdio implementation (IDEs, MCP Inspector)
+                - listitem [ref=f24e641]:
+                  - strong [ref=f24e642]: "Remote testing:"
+                  - text: See
+                  - code [ref=f24e643]: docs/testing/remote.md
+                  - text: for complete guide on testing the remote server (OAuth, web UI, CLI client)
+              - generic [ref=f24e644]:
+                - heading "Development Notes" [level=2] [ref=f24e645]
+                - 'link "Permalink: Development Notes" [ref=f24e646] [cursor=pointer]':
+                  - /url: "#development-notes"
+              - generic [ref=f24e649]:
+                - heading "Automated Code Review" [level=3] [ref=f24e650]
+                - 'link "Permalink: Automated Code Review" [ref=f24e651] [cursor=pointer]':
+                  - /url: "#automated-code-review"
+              - paragraph [ref=f24e654]:
+                - text: This repository uses automated code review tools (like Cursor BugBot) to help identify potential issues in pull requests. These tools provide helpful feedback and suggestions, but
+                - strong [ref=f24e655]: we do not recommend making these checks required
+                - text: as the accuracy is still evolving and can produce false positives.
+              - paragraph [ref=f24e656]: "The automated reviews should be treated as:"
+              - list [ref=f24e657]:
+                - listitem [ref=f24e658]:
+                  - text: ✅
+                  - strong [ref=f24e659]: Helpful suggestions
+                  - text: to consider during code review
+                - listitem [ref=f24e660]:
+                  - text: ✅
+                  - strong [ref=f24e661]: Starting points
+                  - text: for discussion and improvement
+                - listitem [ref=f24e662]:
+                  - text: ❌
+                  - strong [ref=f24e663]: Not blocking requirements
+                  - text: for merging PRs
+                - listitem [ref=f24e664]:
+                  - text: ❌
+                  - strong [ref=f24e665]: Not replacements
+                  - text: for human code review
+              - paragraph [ref=f24e666]: When addressing automated feedback, focus on the underlying concerns rather than strictly following every suggestion.
+              - generic [ref=f24e667]:
+                - heading "Contributor Documentation" [level=3] [ref=f24e668]
+                - 'link "Permalink: Contributor Documentation" [ref=f24e669] [cursor=pointer]':
+                  - /url: "#contributor-documentation"
+              - paragraph [ref=f24e672]:
+                - text: Looking to contribute or explore the full documentation map? See
+                - code [ref=f24e673]: CLAUDE.md
+                - text: (also available as
+                - code [ref=f24e674]: AGENTS.md
+                - text: ) for contributor workflows and the complete docs index. The
+                - code [ref=f24e675]: docs/
+                - text: folder contains the per-topic guides and tool-integrated
+                - code [ref=f24e676]: .md
+                - text: files.
+      - generic [ref=f24e679]:
+        - heading "Used by" [level=2] [ref=f24e681]
+        - heading "Contributors" [level=2] [ref=f24e684]
+        - heading "Languages" [level=2] [ref=f24e687]
+  - contentinfo [ref=f24e690]:
+    - heading "Footer" [level=2] [ref=f24e691]
+    - generic [ref=f24e692]:
+      - generic [ref=f24e693]:
+        - link "GitHub Homepage" [ref=f24e694] [cursor=pointer]:
+          - /url: https://github.com
+        - generic [ref=f24e697]: © 2026 GitHub, Inc.
+      - navigation "Footer" [ref=f24e698]:
+        - heading "Footer navigation" [level=3] [ref=f24e699]
+        - list "Footer navigation" [ref=f24e700]:
+          - listitem [ref=f24e701]:
+            - link "Terms" [ref=f24e702] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=f24e703]:
+            - link "Privacy" [ref=f24e704] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+          - listitem [ref=f24e705]:
+            - link "Security" [ref=f24e706] [cursor=pointer]:
+              - /url: https://github.com/security
+          - listitem [ref=f24e707]:
+            - link "Status" [ref=f24e708] [cursor=pointer]:
+              - /url: https://www.githubstatus.com/
+          - listitem [ref=f24e709]:
+            - link "Community" [ref=f24e710] [cursor=pointer]:
+              - /url: https://github.community/
+          - listitem [ref=f24e711]:
+            - link "Docs" [ref=f24e712] [cursor=pointer]:
+              - /url: https://docs.github.com/
+          - listitem [ref=f24e713]:
+            - link "Contact" [ref=f24e714] [cursor=pointer]:
+              - /url: https://support.github.com?tags=dotcom-footer
+          - listitem [ref=f24e715]:
+            - button "Manage cookies" [ref=f24e717] [cursor=pointer]
+          - listitem [ref=f24e718]:
+            - button "Do not share my personal information" [ref=f24e720] [cursor=pointer]

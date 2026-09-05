@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import dynamic from "next/dynamic";
+import { useGlobalScrollProgress, useSectionProgress } from "@/components/canvas/Tunnel";
+import { usePerformanceMonitor, useAdaptiveQuality } from "@/components/v6/performance-optimizer";
 
 const STEPS = [
   {
@@ -41,9 +44,35 @@ const STEPS = [
 export function ProcessLine() {
   const lineRef = useRef<SVGPathElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [hero3DHovered, setHero3DHovered] = useState(false);
+
+  const globalProgress = useGlobalScrollProgress();
+  const sectionProgress = useSectionProgress("process");
+  const { quality } = usePerformanceMonitor();
+  const { shouldReduceParticles } = useAdaptiveQuality();
+  const intensity = quality === "high" ? 1.0 : quality === "medium" ? 0.7 : 0.4;
+
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start 65%", "end 50%"] });
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const springPathLength = useSpring(pathLength, { stiffness: 100, damping: 20 });
+
+  // Mouse tracking for 3D parallax
+  useEffect(() => {
+    const handleMouse = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = -(e.clientY / window.innerHeight) * 2 + 1;
+      setMousePos({ x, y });
+    };
+    window.addEventListener("mousemove", handleMouse);
+    return () => window.removeEventListener("mousemove", handleMouse);
+  }, []);
+
+  // Dynamic import for the 3D scene
+  const ProcessLineScene3D = dynamic(
+    () => import("@/components/canvas/scenes/ProcessLineScene").then(m => m.ProcessLineScene),
+    { ssr: false, loading: () => null }
+  );
 
   return (
     <section
@@ -52,7 +81,17 @@ export function ProcessLine() {
       className="process-section relative section-y"
       data-component="process"
     >
-      <div className="shell">
+      {/* 3D Background Scene */}
+      <div className="hero-3d-canvas absolute inset-0 z-0 pointer-events-none">
+        <ProcessLineScene3D
+          scrollProgress={globalProgress}
+          mousePos={mousePos}
+          hovered={hero3DHovered}
+          intensity={intensity}
+        />
+      </div>
+
+      <div className="shell relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <div>
             <p className="micro text-[var(--color-brand-500)]">The Method</p>

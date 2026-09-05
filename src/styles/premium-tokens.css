@@ -102,39 +102,50 @@
   --gradient-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --gradient-radial-premium: radial-gradient(ellipse at 30% 20%, #1a1a1f 0%, #0d0d10 50%, #020203 100%);
   
-  /* ========================================
-     TYPOGRAPHY SYSTEM - Apple/Linear precision
-     ======================================== */
-  --font-sans: 'Geist', 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-mono: 'Geist Mono', 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-display: 'Geist', 'SF Pro Display', -apple-system, sans-serif;
-  
-  /* Fluid type scale (clamp for fluid responsiveness) */
-  --text-xs: 0.7rem;           /* 11.2px */
-  --text-sm: 0.8125rem;        /* 13px */
-  --text-base: 1rem;           /* 16px */
-  --text-lg: 1.125rem;         /* 18px */
-  --text-xl: 1.25rem;          /* 20px */
-  --text-2xl: 1.5rem;          /* 24px */
-  --text-3xl: 2rem;            /* 32px */
-  --text-4xl: 2.5rem;          /* 40px */
-  --text-5xl: 3.5rem;          /* 56px */
-  --text-6xl: 5rem;            /* 80px */
-  --text-7xl: 7rem;            /* 112px */
-  --text-8xl: clamp(5rem, 14vw, 12rem); /* Hero display */
-  
-  /* Line heights */
-  --leading-tight: 1.02;
-  --leading-snug: 1.15;
-  --leading-normal: 1.6;
-  --leading-relaxed: 1.75;
-  
-  /* Letter spacing */
-  --tracking-tight: -0.035em;
-  --tracking-normal: -0.01em;
-  --tracking-wide: 0.02em;
-  --tracking-wider: 0.1em;
-  --tracking-widest: 0.2em;
+/* ========================================
+   TYPOGRAPHY SYSTEM - Apple/Linear precision
+   ======================================== */
+--font-sans: 'Geist', 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+--font-mono: 'Geist Mono', 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+--font-display: 'Geist', 'SF Pro Display', -apple-system, sans-serif;
+
+/* Optical sizing axis for variable fonts (Geist supports opsz) */
+--font-optical-sizing: auto;
+
+/* Fluid type scale (clamp for fluid responsiveness) */
+--text-xs: 0.7rem;           /* 11.2px */
+--text-sm: 0.8125rem;        /* 13px */
+--text-base: 1rem;           /* 16px */
+--text-lg: 1.125rem;         /* 18px */
+--text-xl: 1.25rem;          /* 20px */
+--text-2xl: 1.5rem;          /* 24px */
+--text-3xl: 2rem;            /* 32px */
+--text-4xl: 2.5rem;          /* 40px */
+--text-5xl: 3.5rem;          /* 56px */
+--text-6xl: 5rem;            /* 80px */
+--text-7xl: 7rem;            /* 112px */
+--text-8xl: clamp(5rem, 14vw, 12rem); /* Hero display */
+
+/* Fluid display headings */
+--display-xs: clamp(1.5rem, 3vw, 2.5rem);
+--display-sm: clamp(2rem, 4vw, 3.5rem);
+--display-md: clamp(2.5rem, 5vw, 4.5rem);
+--display-lg: clamp(3.5rem, 7vw, 6rem);
+--display-xl: clamp(4.5rem, 10vw, 8rem);
+--display-2xl: clamp(5.5rem, 12vw, 10rem);
+
+/* Line heights */
+--leading-tight: 1.02;
+--leading-snug: 1.15;
+--leading-normal: 1.6;
+--leading-relaxed: 1.75;
+
+/* Letter spacing */
+--tracking-tight: -0.035em;
+--tracking-normal: -0.01em;
+--tracking-wide: 0.02em;
+--tracking-wider: 0.1em;
+--tracking-widest: 0.2em;
   
   /* ========================================
      SPACING SYSTEM - 8pt grid, fluid
@@ -161,17 +172,17 @@
   --gutter: clamp(24px, 5vw, 64px);
   --gutter-wide: clamp(32px, 8vw, 96px);
   
-  /* ========================================
-     RADIUS SYSTEM
-     ======================================== */
-  --radius-none: 0;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
-  --radius-2xl: 28px;
-  --radius-3xl: 40px;
-  --radius-full: 9999px;
+/* ========================================
+   CONTAINER QUERIES & SUBGRID
+   ======================================== */
+--container-main: main;
+--container-card: .card;
+--container-section: section;
+
+/* Subgrid column definitions */
+--grid-cols-12: subgrid;
+--grid-cols-6: subgrid;
+--grid-cols-4: subgrid;
   
   /* ========================================
      SHADOW SYSTEM - Apple-style depth
@@ -191,6 +202,66 @@
   --shadow-3d: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   --shadow-3d-strong: 0 35px 60px -15px rgba(0, 0, 0, 0.6);
   --shadow-3d-card: 0 12px 24px -8px rgba(0, 0, 0, 0.4);
+  
+  /* ========================================
+     3D / SHADER DESIGN TOKENS
+     ======================================== */
+  /* Camera */
+  --camera-fov: 45;
+  --camera-near: 0.1;
+  --camera-far: 1000;
+  --camera-default-distance: 8;
+  
+  /* Particles */
+  --particle-count-low: 100;
+  --particle-count-medium: 500;
+  --particle-count-high: 2000;
+  --particle-size-base: 0.05;
+  
+  /* Shader uniforms */
+  --shader-time-speed: 1.0;
+  --shader-displacement: 0.05;
+  --shader-chromatic-aberration: 0.0008;
+  --shader-bloom-threshold: 0.85;
+  --shader-bloom-radius: 0.8;
+  --shader-vignette-darkness: 0.4;
+  
+  /* Quality tiers */
+  --quality-low-dpr: 1;
+  --quality-low-particles: 0.4;
+  --quality-medium-dpr: 1.5;
+  --quality-medium-particles: 0.7;
+  --quality-high-dpr: 2.5;
+  --quality-high-particles: 1.0;
+  
+  /* ========================================
+     ACCENT CATEGORY COLORS (Semantic)
+     ======================================== */
+  --accent-primary: var(--color-brand-500);
+  --accent-primary-hover: var(--color-brand-400);
+  --accent-primary-fg: var(--color-neutral-950);
+  
+  --accent-secondary: var(--color-accent-500);
+  --accent-secondary-hover: var(--color-accent-400);
+  --accent-secondary-fg: var(--color-neutral-950);
+  
+  --accent-success: var(--color-success-500);
+  --accent-success-hover: var(--color-success-400);
+  --accent-success-fg: var(--color-neutral-950);
+  
+  --accent-warning: var(--color-warning-500);
+  --accent-warning-hover: var(--color-warning-400);
+  --accent-warning-fg: var(--color-neutral-950);
+  
+  --accent-error: var(--color-error-500);
+  --accent-error-hover: var(--color-error-400);
+  --accent-error-fg: var(--color-neutral-950);
+  
+  /* Focus ring colors per category */
+  --focus-primary: var(--accent-primary);
+  --focus-success: var(--accent-success);
+  --focus-warning: var(--accent-warning);
+  --focus-error: var(--accent-error);
   
   /* ========================================
      MOTION SYSTEM - Stripe/Linear precision

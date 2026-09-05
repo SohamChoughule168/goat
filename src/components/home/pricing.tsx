@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MagneticButton } from "@/components/v6/magnetic-cursor";
+import dynamic from "next/dynamic";
+import { useGlobalScrollProgress } from "@/components/canvas/Tunnel";
+import { usePerformanceMonitor, useAdaptiveQuality } from "@/components/v6/performance-optimizer";
 
 const TIERS = [
   {
@@ -63,10 +66,44 @@ const TIERS = [
 
 export function Pricing() {
   const [yearly, setYearly] = useState(true);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [hero3DHovered, setHero3DHovered] = useState(false);
+
+  const globalProgress = useGlobalScrollProgress();
+  const { quality } = usePerformanceMonitor();
+  const { shouldReduceParticles } = useAdaptiveQuality();
+  const intensity = quality === "high" ? 1.0 : quality === "medium" ? 0.7 : 0.4;
+
+  // Mouse tracking for 3D parallax
+  useEffect(() => {
+    const handleMouse = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = -(e.clientY / window.innerHeight) * 2 + 1;
+      setMousePos({ x, y });
+    };
+    window.addEventListener("mousemove", handleMouse);
+    return () => window.removeEventListener("mousemove", handleMouse);
+  }, []);
+
+  // Dynamic import for the 3D scene
+  const PricingScene3D = dynamic(
+    () => import("@/components/canvas/scenes/PricingScene").then(m => m.PricingScene),
+    { ssr: false, loading: () => null }
+  );
 
   return (
     <section id="pricing" className="pricing-section relative section-y" data-component="pricing">
-      <div className="shell">
+      {/* 3D Background Scene */}
+      <div className="hero-3d-canvas absolute inset-0 z-0 pointer-events-none">
+        <PricingScene3D
+          scrollProgress={globalProgress}
+          mousePos={mousePos}
+          hovered={hero3DHovered}
+          intensity={intensity}
+        />
+      </div>
+
+      <div className="shell relative z-10">
         <div className="section-header text-center">
           <span className="section-badge">Transparent pricing</span>
           <h2 className="section-title">Simple, predictable investment</h2>

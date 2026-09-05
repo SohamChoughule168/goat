@@ -1,0 +1,1812 @@
+- generic [active] [ref=f9e1]:
+  - generic [ref=f9e2]:
+    - generic [ref=f9e3]:
+      - link "Skip to content" [ref=f9e4] [cursor=pointer]:
+        - /url: "#start-of-content"
+      - banner [ref=f9e9]:
+        - heading "Navigation Menu" [level=2] [ref=f9e10]
+        - generic [ref=f9e12]:
+          - button "Toggle navigation" [ref=f9e14] [cursor=pointer]
+          - link "Homepage" [ref=f9e18] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f9e21]:
+            - link "Sign in" [ref=f9e22] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Ffirecrawl%2Ffirecrawl-mcp-server
+            - button "Appearance settings" [ref=f9e25] [cursor=pointer]
+    - main [ref=f9e32]:
+      - generic [ref=f9e33]:
+        - generic [ref=f9e36]:
+          - link "firecrawl" [ref=f9e40] [cursor=pointer]:
+            - /url: /firecrawl
+          - generic [ref=f9e41]: /
+          - strong [ref=f9e42]:
+            - link "firecrawl-mcp-server" [ref=f9e43] [cursor=pointer]:
+              - /url: /firecrawl/firecrawl-mcp-server
+          - generic [ref=f9e44]: Public
+        - navigation "Repository" [ref=f9e45]:
+          - list [ref=f9e46]:
+            - listitem [ref=f9e47]:
+              - link "Code" [ref=f9e48] [cursor=pointer]:
+                - /url: /firecrawl/firecrawl-mcp-server
+            - listitem [ref=f9e52]:
+              - link "Issues 81" [ref=f9e53] [cursor=pointer]:
+                - /url: /firecrawl/firecrawl-mcp-server/issues
+                - generic [ref=f9e57]: Issues
+                - generic "81" [ref=f9e58]
+            - listitem [ref=f9e59]:
+              - link "Pull requests 43" [ref=f9e60] [cursor=pointer]:
+                - /url: /firecrawl/firecrawl-mcp-server/pulls
+                - generic [ref=f9e63]: Pull requests
+                - generic "43" [ref=f9e64]
+            - listitem [ref=f9e65]:
+              - link "Discussions" [ref=f9e66] [cursor=pointer]:
+                - /url: /firecrawl/firecrawl-mcp-server/discussions
+            - listitem [ref=f9e70]:
+              - link "Actions" [ref=f9e71] [cursor=pointer]:
+                - /url: /firecrawl/firecrawl-mcp-server/actions
+            - listitem [ref=f9e75]:
+              - link "Projects" [ref=f9e76] [cursor=pointer]:
+                - /url: /firecrawl/firecrawl-mcp-server/projects
+            - listitem [ref=f9e80]
+            - listitem [ref=f9e81]
+          - button "Additional navigation options" [ref=f9e85] [cursor=pointer]
+      - generic [ref=f9e99]:
+        - generic [ref=f9e102]:
+          - generic [ref=f9e103]:
+            - generic [ref=f9e104]:
+              - button "main branch" [ref=f9e106] [cursor=pointer]:
+                - generic [ref=f9e107]: main
+              - generic [ref=f9e111]:
+                - link "Go to Branches page" [ref=f9e112] [cursor=pointer]:
+                  - /url: /firecrawl/firecrawl-mcp-server/branches
+                - link "Go to Tags page" [ref=f9e115] [cursor=pointer]:
+                  - /url: /firecrawl/firecrawl-mcp-server/tags
+            - generic [ref=f9e118]:
+              - button "Go to file" [ref=f9e121] [cursor=pointer]
+              - button "Code" [ref=f9e124] [cursor=pointer]
+          - generic [ref=f9e127]:
+            - generic [ref=f9e128]:
+              - generic [ref=f9e130]:
+                - heading "Latest commit" [level=2] [ref=f9e131]
+                - generic [ref=f9e132]:
+                  - generic [ref=f9e134]:
+                    - link [ref=f9e135] [cursor=pointer]:
+                      - /url: /Chadha93
+                      - img "Chadha93" [ref=f9e136]
+                    - link "commits by Chadha93" [ref=f9e137] [cursor=pointer]:
+                      - /url: /firecrawl/firecrawl-mcp-server/commits?author=Chadha93
+                      - text: Chadha93
+                  - generic [ref=f9e138]:
+                    - generic [ref=f9e140]:
+                      - link "Merge pull request" [ref=f9e141] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/commit/089748bed6883725f926e922657865b1eb812e27
+                      - link "#378" [ref=f9e142] [cursor=pointer]:
+                        - /url: https://github.com/firecrawl/firecrawl-mcp-server/pull/378
+                      - link "from lokicik/fix/search-limit-schema" [ref=f9e143] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/commit/089748bed6883725f926e922657865b1eb812e27
+                    - button "Open commit details" [ref=f9e144] [cursor=pointer]
+                    - button "success" [ref=f9e147] [cursor=pointer]
+                - generic [ref=f9e150]:
+                  - generic [ref=f9e152]:
+                    - link "Commit 089748b" [ref=f9e153] [cursor=pointer]:
+                      - /url: /firecrawl/firecrawl-mcp-server/commit/089748bed6883725f926e922657865b1eb812e27
+                      - text: 089748b
+                    - text: ·
+                    - generic "Aug 31, 2026, 12:33 PM GMT+5:30" [ref=f9e154]: Aug 31, 2026yesterday
+                  - generic [ref=f9e155]:
+                    - heading "History" [level=2] [ref=f9e156]
+                    - link "View commit history for this file." [ref=f9e158] [cursor=pointer]:
+                      - /url: /firecrawl/firecrawl-mcp-server/commits/main/
+              - heading "Folders and files" [level=2] [ref=f9e160]
+              - table "Folders and files" [ref=f9e161]:
+                - rowgroup:
+                  - row "Name Last commit message Last commit date":
+                    - columnheader "Name"
+                    - columnheader "Last commit message"
+                    - columnheader "Last commit date"
+                - rowgroup [ref=f9e162]:
+                  - row ".github/workflows, (Directory)" [ref=f9e163]:
+                    - cell [ref=f9e164]:
+                      - link ".github/workflows, (Directory)" [ref=f9e171] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/tree/main/.github/workflows
+                        - text: .github/workflows
+                    - cell [ref=f9e172]
+                    - cell [ref=f9e174]
+                  - row "docker, (Directory)" [ref=f9e177]:
+                    - cell [ref=f9e178]:
+                      - link "docker, (Directory)" [ref=f9e185] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/tree/main/docker
+                        - text: docker
+                    - cell [ref=f9e186]
+                    - cell [ref=f9e188]
+                  - row "docs, (Directory)" [ref=f9e191]:
+                    - cell [ref=f9e192]:
+                      - link "docs, (Directory)" [ref=f9e199] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/tree/main/docs
+                        - text: docs
+                    - cell [ref=f9e200]
+                    - cell [ref=f9e202]
+                  - row "img, (Directory)" [ref=f9e205]:
+                    - cell [ref=f9e206]:
+                      - link "img, (Directory)" [ref=f9e213] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/tree/main/img
+                        - text: img
+                    - cell [ref=f9e214]
+                    - cell [ref=f9e216]
+                  - row "patches, (Directory)" [ref=f9e219]:
+                    - cell [ref=f9e220]:
+                      - link "patches, (Directory)" [ref=f9e227] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/tree/main/patches
+                        - text: patches
+                    - cell [ref=f9e228]
+                    - cell [ref=f9e230]
+                  - row "scripts, (Directory)" [ref=f9e233]:
+                    - cell [ref=f9e234]:
+                      - link "scripts, (Directory)" [ref=f9e241] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/tree/main/scripts
+                        - text: scripts
+                    - cell [ref=f9e242]
+                    - cell [ref=f9e244]
+                  - row "src, (Directory)" [ref=f9e247]:
+                    - cell [ref=f9e248]:
+                      - link "src, (Directory)" [ref=f9e255] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/tree/main/src
+                        - text: src
+                    - cell [ref=f9e256]
+                    - cell [ref=f9e258]
+                  - row "tests, (Directory)" [ref=f9e261]:
+                    - cell [ref=f9e262]:
+                      - link "tests, (Directory)" [ref=f9e269] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/tree/main/tests
+                        - text: tests
+                    - cell [ref=f9e270]
+                    - cell [ref=f9e272]
+                  - row ".dockerignore, (File)" [ref=f9e275]:
+                    - cell [ref=f9e276]:
+                      - link ".dockerignore, (File)" [ref=f9e283] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/blob/main/.dockerignore
+                        - text: .dockerignore
+                    - cell [ref=f9e284]
+                    - cell [ref=f9e286]
+                  - row ".eslintrc.json, (File)" [ref=f9e289]:
+                    - cell [ref=f9e290]:
+                      - link ".eslintrc.json, (File)" [ref=f9e297] [cursor=pointer]:
+                        - /url: /firecrawl/firecrawl-mcp-server/blob/main/.eslintrc.json
+                        - text: .eslintrc.json
+                    - cell [ref=f9e298]
+                    - cell [ref=f9e300]
+                  - row [ref=f9e303]:
+                    - cell [ref=f9e304] [cursor=pointer]:
+                      - button "View all files" [ref=f9e306]
+            - generic [ref=f9e308]:
+              - generic [ref=f9e309]:
+                - heading "Repository files navigation" [level=2] [ref=f9e310]
+                - navigation "Repository files" [ref=f9e311]:
+                  - list [ref=f9e312]:
+                    - listitem [ref=f9e313]:
+                      - link "README" [ref=f9e314] [cursor=pointer]:
+                        - /url: "#"
+                    - listitem [ref=f9e316]:
+                      - link "MIT license" [ref=f9e317] [cursor=pointer]:
+                        - /url: "#"
+                - button "Outline" [ref=f9e319] [cursor=pointer]
+              - article [ref=f9e323]:
+                - link [ref=f9e325] [cursor=pointer]:
+                  - /url: https://raw.githubusercontent.com/firecrawl/firecrawl-mcp-server/main/img/fire.png
+                - generic [ref=f9e327]:
+                  - heading "Firecrawl MCP Server" [level=1] [ref=f9e328]
+                  - 'link "Permalink: Firecrawl MCP Server" [ref=f9e329] [cursor=pointer]':
+                    - /url: "#firecrawl-mcp-server"
+                - paragraph [ref=f9e332]:
+                  - text: A Model Context Protocol (MCP) server that brings
+                  - link "Firecrawl" [ref=f9e333] [cursor=pointer]:
+                    - /url: https://github.com/firecrawl/firecrawl
+                  - text: to MCP-compatible AI agents — search, scrape, and interact with the live web for clean, agent-ready context.
+                - blockquote [ref=f9e334]:
+                  - paragraph [ref=f9e335]:
+                    - text: Big thanks to
+                    - link "@vrknetha" [ref=f9e336] [cursor=pointer]:
+                      - /url: https://github.com/vrknetha
+                    - text: ","
+                    - link "@knacklabs" [ref=f9e337] [cursor=pointer]:
+                      - /url: https://www.knacklabs.ai
+                    - text: for the initial implementation!
+                - generic [ref=f9e338]:
+                  - heading "Features" [level=2] [ref=f9e339]
+                  - 'link "Permalink: Features" [ref=f9e340] [cursor=pointer]':
+                    - /url: "#features"
+                - list [ref=f9e343]:
+                  - listitem [ref=f9e344]: Search the web and get full page content
+                  - listitem [ref=f9e345]: "Search an index built for coding agents: GitHub issues, merged pull requests, READMEs, and docs"
+                  - listitem [ref=f9e346]: Scrape any URL into clean, structured data
+                  - listitem [ref=f9e347]: Interact with pages — click, navigate, and operate
+                  - listitem [ref=f9e348]: Deep research with autonomous agent
+                  - listitem [ref=f9e349]: Automatic retries and rate limiting
+                  - listitem [ref=f9e350]: Cloud and self-hosted support
+                  - listitem [ref=f9e351]: SSE support
+                - blockquote [ref=f9e352]:
+                  - paragraph [ref=f9e353]:
+                    - text: Play around with
+                    - link "our MCP Server on MCP.so's playground" [ref=f9e354] [cursor=pointer]:
+                      - /url: https://mcp.so/playground?server=firecrawl-mcp-server
+                    - text: or on
+                    - link "Klavis AI" [ref=f9e355] [cursor=pointer]:
+                      - /url: https://www.klavis.ai/mcp-servers
+                    - text: .
+                - generic [ref=f9e356]:
+                  - heading "Installation" [level=2] [ref=f9e357]
+                  - 'link "Permalink: Installation" [ref=f9e358] [cursor=pointer]':
+                    - /url: "#installation"
+                - generic [ref=f9e361]:
+                  - heading "Hosted MCP (keyless free tier)" [level=3] [ref=f9e362]
+                  - 'link "Permalink: Hosted MCP (keyless free tier)" [ref=f9e363] [cursor=pointer]':
+                    - /url: "#hosted-mcp-keyless-free-tier"
+                - paragraph [ref=f9e366]: "Connect to the remote hosted server with no setup:"
+                - generic [ref=f9e367]:
+                  - code [ref=f9e369]: https://mcp.firecrawl.dev/v2/mcp
+                  - button "Copy code to clipboard" [ref=f9e371] [cursor=pointer]
+                - paragraph [ref=f9e375]:
+                  - text: On the keyless free tier,
+                  - code [ref=f9e376]: scrape
+                  - text: ","
+                  - code [ref=f9e377]: search
+                  - text: ", and"
+                  - code [ref=f9e378]: parse
+                  - text: work without an API key (rate-limited). Other tools such as
+                  - code [ref=f9e379]: crawl
+                  - text: ","
+                  - code [ref=f9e380]: map
+                  - text: ", and"
+                  - code [ref=f9e381]: agent
+                  - text: still need a key.
+                - paragraph [ref=f9e382]: Prefer OAuth or an API key whenever the human can sign up. It unlocks the full tool set and higher limits.
+                - paragraph [ref=f9e383]:
+                  - text: For an interactive account connection, configure your MCP client to use this server URL. This is an MCP endpoint,
+                  - strong [ref=f9e384]: not a browser page
+                  - text: "; use the client's account-connection flow and do not add a second Firecrawl server entry when reconnecting:"
+                - generic [ref=f9e385]:
+                  - code [ref=f9e387]: https://mcp.firecrawl.dev/v2/mcp-oauth
+                  - button "Copy code to clipboard" [ref=f9e389] [cursor=pointer]
+                - paragraph [ref=f9e393]: "For an API-key connection (for example, an unattended integration), keep the server URL as:"
+                - generic [ref=f9e394]:
+                  - code [ref=f9e396]: https://mcp.firecrawl.dev/v2/mcp
+                  - button "Copy code to clipboard" [ref=f9e398] [cursor=pointer]
+                - paragraph [ref=f9e402]: "Then configure the client's secure header or secret setting with:"
+                - generic [ref=f9e403]:
+                  - code [ref=f9e405]: "Authorization: Bearer <FIRECRAWL_API_KEY>"
+                  - button "Copy code to clipboard" [ref=f9e407] [cursor=pointer]
+                - paragraph [ref=f9e411]:
+                  - text: Never put an API key in the server URL. Never put an API key in an agent chat. Configure it directly in the client or secret manager. See the
+                  - link "hosted MCP setup guide" [ref=f9e412] [cursor=pointer]:
+                    - /url: https://docs.firecrawl.dev/mcp-server
+                  - text: and the
+                  - link "agent onboarding guide" [ref=f9e413] [cursor=pointer]:
+                    - /url: https://www.firecrawl.dev/agent-onboarding/SKILL.md
+                  - text: for client-specific instructions.
+                - generic [ref=f9e414]:
+                  - heading "Search-only endpoint" [level=4] [ref=f9e415]
+                  - 'link "Permalink: Search-only endpoint" [ref=f9e416] [cursor=pointer]':
+                    - /url: "#search-only-endpoint"
+                - paragraph [ref=f9e419]: "A read-only, search-only surface is also hosted at:"
+                - generic [ref=f9e420]:
+                  - code [ref=f9e422]: https://mcp.firecrawl.dev/v2/mcp-search
+                  - button "Copy code to clipboard" [ref=f9e424] [cursor=pointer]
+                - paragraph [ref=f9e428]:
+                  - text: "It exposes a fixed set of seven read-only tools:"
+                  - code [ref=f9e429]: firecrawl_search
+                  - text: ","
+                  - code [ref=f9e430]: firecrawl_developer_search
+                  - text: ", and the five"
+                  - code [ref=f9e431]: firecrawl_research_*
+                  - text: tools. It performs no page-content fetching and has its own OAuth identity; the full endpoint above is unchanged. See
+                  - link "docs/search-profile.md" [ref=f9e432] [cursor=pointer]:
+                    - /url: /firecrawl/firecrawl-mcp-server/blob/main/docs/search-profile.md
+                  - text: for the full contract.
+                - generic [ref=f9e433]:
+                  - heading "Running with npx" [level=3] [ref=f9e434]
+                  - 'link "Permalink: Running with npx" [ref=f9e435] [cursor=pointer]':
+                    - /url: "#running-with-npx"
+                - generic [ref=f9e438]:
+                  - generic [ref=f9e439]: env FIRECRAWL_API_KEY=fc-YOUR_API_KEY npx -y firecrawl-mcp
+                  - button "Copy code to clipboard" [ref=f9e441] [cursor=pointer]
+                - generic [ref=f9e445]:
+                  - heading "Manual Installation" [level=3] [ref=f9e446]
+                  - 'link "Permalink: Manual Installation" [ref=f9e447] [cursor=pointer]':
+                    - /url: "#manual-installation"
+                - generic [ref=f9e450]:
+                  - generic [ref=f9e451]: npm install -g firecrawl-mcp
+                  - button "Copy code to clipboard" [ref=f9e453] [cursor=pointer]
+                - generic [ref=f9e457]:
+                  - heading "Running on Cursor" [level=3] [ref=f9e458]
+                  - 'link "Permalink: Running on Cursor" [ref=f9e459] [cursor=pointer]':
+                    - /url: "#running-on-cursor"
+                - paragraph [ref=f9e462]:
+                  - text: "Configuring Cursor 🖥️ Note: Requires Cursor version 0.45.6+ For the most up-to-date configuration instructions, please refer to the official Cursor documentation on configuring MCP servers:"
+                  - link "Cursor MCP Server Configuration Guide" [ref=f9e463] [cursor=pointer]:
+                    - /url: https://docs.cursor.com/context/model-context-protocol#configuring-mcp-servers
+                - paragraph [ref=f9e464]:
+                  - text: To configure Firecrawl MCP in Cursor
+                  - strong [ref=f9e465]: v0.48.6
+                - list [ref=f9e466]:
+                  - listitem [ref=f9e467]: Open Cursor Settings
+                  - listitem [ref=f9e468]: Go to Features > MCP Servers
+                  - listitem [ref=f9e469]: Click "+ Add new global MCP server"
+                  - listitem [ref=f9e470]:
+                    - text: "Enter the following code:"
+                    - generic [ref=f9e471]:
+                      - generic [ref=f9e472]:
+                        - text: "{ \"mcpServers\": { \"firecrawl-mcp\": { \"command\":"
+                        - generic [ref=f9e473]: "\"npx\""
+                        - text: ", \"args\": ["
+                        - generic [ref=f9e474]: "\"-y\""
+                        - text: ","
+                        - generic [ref=f9e475]: "\"firecrawl-mcp\""
+                        - text: "], \"env\": { \"FIRECRAWL_API_KEY\":"
+                        - generic [ref=f9e476]: "\"YOUR-API-KEY\""
+                        - text: "} } } }"
+                      - button "Copy code to clipboard" [ref=f9e478] [cursor=pointer]
+                - paragraph [ref=f9e482]:
+                  - text: To configure Firecrawl MCP in Cursor
+                  - strong [ref=f9e483]: v0.45.6
+                - list [ref=f9e484]:
+                  - listitem [ref=f9e485]: Open Cursor Settings
+                  - listitem [ref=f9e486]: Go to Features > MCP Servers
+                  - listitem [ref=f9e487]: Click "+ Add New MCP Server"
+                  - listitem [ref=f9e488]:
+                    - text: "Enter the following:"
+                    - list [ref=f9e489]:
+                      - listitem [ref=f9e490]: "Name: \"firecrawl-mcp\" (or your preferred name)"
+                      - listitem [ref=f9e491]: "Type: \"command\""
+                      - listitem [ref=f9e492]:
+                        - text: "Command:"
+                        - code [ref=f9e493]: env FIRECRAWL_API_KEY=your-api-key npx -y firecrawl-mcp
+                - blockquote [ref=f9e494]:
+                  - paragraph [ref=f9e495]:
+                    - text: If you are using Windows and are running into issues, try
+                    - code [ref=f9e496]: cmd /c "set FIRECRAWL_API_KEY=your-api-key && npx -y firecrawl-mcp"
+                - paragraph [ref=f9e497]:
+                  - text: Replace
+                  - code [ref=f9e498]: your-api-key
+                  - text: with your Firecrawl API key. If you don't have one yet, you can create an account and get it from
+                  - link "https://www.firecrawl.dev/app/api-keys" [ref=f9e499] [cursor=pointer]:
+                    - /url: https://www.firecrawl.dev/app/api-keys
+                - paragraph [ref=f9e500]: After adding, refresh the MCP server list to see the new tools. The Composer Agent will automatically use Firecrawl MCP when appropriate, but you can explicitly request it by describing your web scraping needs. Access the Composer via Command+L (Mac), select "Agent" next to the submit button, and enter your query.
+                - generic [ref=f9e501]:
+                  - heading "Running on Windsurf" [level=3] [ref=f9e502]
+                  - 'link "Permalink: Running on Windsurf" [ref=f9e503] [cursor=pointer]':
+                    - /url: "#running-on-windsurf"
+                - paragraph [ref=f9e506]:
+                  - text: Add this to your
+                  - code [ref=f9e507]: ./codeium/windsurf/model_config.json
+                  - text: ":"
+                - generic [ref=f9e508]:
+                  - generic [ref=f9e509]:
+                    - text: "{ \"mcpServers\": { \"mcp-server-firecrawl\": { \"command\":"
+                    - generic [ref=f9e510]: "\"npx\""
+                    - text: ", \"args\": ["
+                    - generic [ref=f9e511]: "\"-y\""
+                    - text: ","
+                    - generic [ref=f9e512]: "\"firecrawl-mcp\""
+                    - text: "], \"env\": { \"FIRECRAWL_API_KEY\":"
+                    - generic [ref=f9e513]: "\"YOUR_API_KEY\""
+                    - text: "} } } }"
+                  - button "Copy code to clipboard" [ref=f9e515] [cursor=pointer]
+                - generic [ref=f9e519]:
+                  - heading "Running with Streamable HTTP Local Mode" [level=3] [ref=f9e520]
+                  - 'link "Permalink: Running with Streamable HTTP Local Mode" [ref=f9e521] [cursor=pointer]':
+                    - /url: "#running-with-streamable-http-local-mode"
+                - paragraph [ref=f9e524]: "To run the server using Streamable HTTP locally instead of the default stdio transport:"
+                - generic [ref=f9e525]:
+                  - generic [ref=f9e526]: env HTTP_STREAMABLE_SERVER=true FIRECRAWL_API_KEY=fc-YOUR_API_KEY npx -y firecrawl-mcp
+                  - button "Copy code to clipboard" [ref=f9e528] [cursor=pointer]
+                - paragraph [ref=f9e532]:
+                  - text: "Use the url:"
+                  - link "http://localhost:3000/mcp" [ref=f9e533] [cursor=pointer]:
+                    - /url: http://localhost:3000/mcp
+                - generic [ref=f9e534]:
+                  - heading "Installing via Smithery (Legacy)" [level=3] [ref=f9e535]
+                  - 'link "Permalink: Installing via Smithery (Legacy)" [ref=f9e536] [cursor=pointer]':
+                    - /url: "#installing-via-smithery-legacy"
+                - paragraph [ref=f9e539]:
+                  - text: To install Firecrawl for Claude Desktop automatically via
+                  - link "Smithery" [ref=f9e540] [cursor=pointer]:
+                    - /url: https://smithery.ai/server/@mendableai/mcp-server-firecrawl
+                  - text: ":"
+                - generic [ref=f9e541]:
+                  - generic [ref=f9e542]: npx -y @smithery/cli install @mendableai/mcp-server-firecrawl --client claude
+                  - button "Copy code to clipboard" [ref=f9e544] [cursor=pointer]
+                - generic [ref=f9e548]:
+                  - heading "Running on VS Code" [level=3] [ref=f9e549]
+                  - 'link "Permalink: Running on VS Code" [ref=f9e550] [cursor=pointer]':
+                    - /url: "#running-on-vs-code"
+                - paragraph [ref=f9e553]: For one-click installation, click one of the install buttons below...
+                - paragraph [ref=f9e554]:
+                  - link [ref=f9e555] [cursor=pointer]:
+                    - /url: https://insiders.vscode.dev/redirect/mcp/install?name=firecrawl&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22apiKey%22%2C%22description%22%3A%22Firecrawl%20API%20Key%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22firecrawl-mcp%22%5D%2C%22env%22%3A%7B%22FIRECRAWL_API_KEY%22%3A%22%24%7Binput%3AapiKey%7D%22%7D%7D
+                    - img "Install with NPX in VS Code" [ref=f9e556]
+                  - link [ref=f9e557] [cursor=pointer]:
+                    - /url: https://insiders.vscode.dev/redirect/mcp/install?name=firecrawl&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22apiKey%22%2C%22description%22%3A%22Firecrawl%20API%20Key%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22firecrawl-mcp%22%5D%2C%22env%22%3A%7B%22FIRECRAWL_API_KEY%22%3A%22%24%7Binput%3AapiKey%7D%22%7D%7D&quality=insiders
+                    - img "Install with NPX in VS Code Insiders" [ref=f9e558]
+                - paragraph [ref=f9e559]:
+                  - text: For manual installation, add the following JSON block to your User Settings (JSON) file in VS Code. You can do this by pressing
+                  - code [ref=f9e560]: Ctrl + Shift + P
+                  - text: and typing
+                  - code [ref=f9e561]: "Preferences: Open User Settings (JSON)"
+                  - text: .
+                - generic [ref=f9e562]:
+                  - generic [ref=f9e563]:
+                    - text: "{ \"mcp\": { \"inputs\": [ { \"type\":"
+                    - generic [ref=f9e564]: "\"promptString\""
+                    - text: ", \"id\":"
+                    - generic [ref=f9e565]: "\"apiKey\""
+                    - text: ", \"description\":"
+                    - generic [ref=f9e566]: "\"Firecrawl API Key\""
+                    - text: ", \"password\": true } ], \"servers\": { \"firecrawl\": { \"command\":"
+                    - generic [ref=f9e567]: "\"npx\""
+                    - text: ", \"args\": ["
+                    - generic [ref=f9e568]: "\"-y\""
+                    - text: ","
+                    - generic [ref=f9e569]: "\"firecrawl-mcp\""
+                    - text: "], \"env\": { \"FIRECRAWL_API_KEY\":"
+                    - generic [ref=f9e570]: "\"${input:apiKey}\""
+                    - text: "} } } } }"
+                  - button "Copy code to clipboard" [ref=f9e572] [cursor=pointer]
+                - paragraph [ref=f9e576]:
+                  - text: Optionally, you can add it to a file called
+                  - code [ref=f9e577]: .vscode/mcp.json
+                  - text: "in your workspace. This will allow you to share the configuration with others:"
+                - generic [ref=f9e578]:
+                  - generic [ref=f9e579]:
+                    - text: "{ \"inputs\": [ { \"type\":"
+                    - generic [ref=f9e580]: "\"promptString\""
+                    - text: ", \"id\":"
+                    - generic [ref=f9e581]: "\"apiKey\""
+                    - text: ", \"description\":"
+                    - generic [ref=f9e582]: "\"Firecrawl API Key\""
+                    - text: ", \"password\": true } ], \"servers\": { \"firecrawl\": { \"command\":"
+                    - generic [ref=f9e583]: "\"npx\""
+                    - text: ", \"args\": ["
+                    - generic [ref=f9e584]: "\"-y\""
+                    - text: ","
+                    - generic [ref=f9e585]: "\"firecrawl-mcp\""
+                    - text: "], \"env\": { \"FIRECRAWL_API_KEY\":"
+                    - generic [ref=f9e586]: "\"${input:apiKey}\""
+                    - text: "} } } }"
+                  - button "Copy code to clipboard" [ref=f9e588] [cursor=pointer]
+                - generic [ref=f9e592]:
+                  - heading "Configuration" [level=2] [ref=f9e593]
+                  - 'link "Permalink: Configuration" [ref=f9e594] [cursor=pointer]':
+                    - /url: "#configuration"
+                - generic [ref=f9e597]:
+                  - heading "Environment Variables" [level=3] [ref=f9e598]
+                  - 'link "Permalink: Environment Variables" [ref=f9e599] [cursor=pointer]':
+                    - /url: "#environment-variables"
+                - generic [ref=f9e602]:
+                  - heading "Required for Cloud API" [level=4] [ref=f9e603]
+                  - 'link "Permalink: Required for Cloud API" [ref=f9e604] [cursor=pointer]':
+                    - /url: "#required-for-cloud-api"
+                - list [ref=f9e607]:
+                  - listitem [ref=f9e608]:
+                    - code [ref=f9e609]: FIRECRAWL_API_KEY
+                    - text: ": Your Firecrawl API key"
+                    - list [ref=f9e610]:
+                      - listitem [ref=f9e611]: Required when using cloud API (default)
+                      - listitem [ref=f9e612]:
+                        - text: Optional when using self-hosted instance with
+                        - code [ref=f9e613]: FIRECRAWL_API_URL
+                  - listitem [ref=f9e614]:
+                    - code [ref=f9e615]: FIRECRAWL_API_URL
+                    - text: "(Optional): Custom API endpoint for self-hosted instances"
+                    - list [ref=f9e616]:
+                      - listitem [ref=f9e617]:
+                        - text: "Example:"
+                        - code [ref=f9e618]: https://firecrawl.your-domain.com
+                      - listitem [ref=f9e619]: If not provided, the cloud API will be used (requires API key)
+                - generic [ref=f9e620]:
+                  - heading "MCP OAuth (Bearer access tokens)" [level=4] [ref=f9e621]
+                  - 'link "Permalink: MCP OAuth (Bearer access tokens)" [ref=f9e622] [cursor=pointer]':
+                    - /url: "#mcp-oauth-bearer-access-tokens"
+                - paragraph [ref=f9e625]:
+                  - text: Hosted Firecrawl can issue OAuth
+                  - strong [ref=f9e626]: access tokens
+                  - text: (
+                  - code [ref=f9e627]: fco_…
+                  - text: ) via the authorization server on
+                  - link "firecrawl.dev" [ref=f9e628] [cursor=pointer]:
+                    - /url: https://firecrawl.dev
+                  - text: . This MCP server forwards whichever credential it resolves to the Firecrawl API as
+                  - code [ref=f9e629]: "Authorization: Bearer …"
+                  - text: .
+                - list [ref=f9e630]:
+                  - listitem [ref=f9e631]:
+                    - strong [ref=f9e632]: HTTP stream transports
+                    - text: (
+                    - code [ref=f9e633]: CLOUD_SERVICE=true
+                    - text: ","
+                    - code [ref=f9e634]: HTTP_STREAMABLE_SERVER=true
+                    - text: ", or"
+                    - code [ref=f9e635]: SSE_LOCAL=true
+                    - text: "): Clients should send"
+                    - code [ref=f9e636]: "Authorization: Bearer <fco_access_token>"
+                    - text: on MCP requests. An OAuth bearer token takes precedence over
+                    - code [ref=f9e637]: x-firecrawl-api-key
+                    - text: /
+                    - code [ref=f9e638]: x-api-key
+                    - text: when both are present.
+                  - listitem [ref=f9e639]:
+                    - strong [ref=f9e640]: "stdio:"
+                    - text: Use
+                    - code [ref=f9e641]: FIRECRAWL_OAUTH_TOKEN
+                    - text: for a static access token, or keep using
+                    - code [ref=f9e642]: FIRECRAWL_API_KEY
+                    - text: for an API key.
+                - paragraph [ref=f9e643]:
+                  - text: Use
+                  - strong [ref=f9e644]: access
+                  - text: tokens (
+                  - code [ref=f9e645]: fco_…
+                  - text: ) only. Refresh tokens (
+                  - code [ref=f9e646]: fcr_…
+                  - text: ) must be exchanged at the token endpoint, not passed to the scrape/search API.
+                - generic [ref=f9e647]:
+                  - heading "Search-only surface (hosted)" [level=4] [ref=f9e648]
+                  - 'link "Permalink: Search-only surface (hosted)" [ref=f9e649] [cursor=pointer]':
+                    - /url: "#search-only-surface-hosted"
+                - paragraph [ref=f9e652]:
+                  - text: In hosted mode (
+                  - code [ref=f9e653]: CLOUD_SERVICE=true
+                  - text: ) a second in-process instance serves the
+                  - link "search-only endpoint" [ref=f9e654] [cursor=pointer]:
+                    - /url: "#search-only-endpoint"
+                  - text: ". The bundled service has a fixed deployment contract: nginx routes"
+                  - code [ref=f9e655]: /v2/mcp-search
+                  - text: to the instance on local port
+                  - code [ref=f9e656]: "3001"
+                  - text: ", and the OAuth protected-resource identifier is"
+                  - code [ref=f9e657]: https://mcp.firecrawl.dev/v2/mcp-search
+                  - text: .
+                - paragraph [ref=f9e658]:
+                  - code [ref=f9e659]: FIRECRAWL_MCP_SEARCH_ENABLED
+                  - text: (default
+                  - code [ref=f9e660]: "true"
+                  - text: ) is the supported operational toggle; set it to
+                  - code [ref=f9e661]: "false"
+                  - text: to prevent the search instance from starting. The Node process also accepts
+                  - code [ref=f9e662]: FIRECRAWL_MCP_SEARCH_PORT
+                  - text: ","
+                  - code [ref=f9e663]: FIRECRAWL_MCP_SEARCH_ENDPOINT
+                  - text: ", and"
+                  - code [ref=f9e664]: FIRECRAWL_MCP_SEARCH_RESOURCE_URL
+                  - text: for isolated tests. Those overrides do not reconfigure the bundled nginx routes or the authorization server allowlist and must not be used independently in the hosted deployment.
+                - paragraph [ref=f9e665]:
+                  - text: The search instance requires authentication for every request (including
+                  - code [ref=f9e666]: tools/list
+                  - text: ) and rejects OAuth tokens whose audience does not match its own resource.
+                - generic [ref=f9e667]:
+                  - heading "Configuration Examples" [level=3] [ref=f9e668]
+                  - 'link "Permalink: Configuration Examples" [ref=f9e669] [cursor=pointer]':
+                    - /url: "#configuration-examples"
+                - paragraph [ref=f9e672]: "For cloud API usage:"
+                - generic [ref=f9e673]:
+                  - generic [ref=f9e674]: export FIRECRAWL_API_KEY=your-api-key
+                  - button "Copy code to clipboard" [ref=f9e676] [cursor=pointer]
+                - paragraph [ref=f9e680]: "For self-hosted instance:"
+                - generic [ref=f9e681]:
+                  - generic [ref=f9e682]:
+                    - generic [ref=f9e683]: "# Required for self-hosted"
+                    - text: export FIRECRAWL_API_URL=https://firecrawl.your-domain.com
+                    - generic [ref=f9e684]: "# Optional authentication for self-hosted"
+                    - text: export FIRECRAWL_API_KEY=your-api-key
+                    - generic [ref=f9e685]: "# If your instance requires auth"
+                  - button "Copy code to clipboard" [ref=f9e687] [cursor=pointer]
+                - generic [ref=f9e691]:
+                  - heading "Usage with Claude Desktop" [level=3] [ref=f9e692]
+                  - 'link "Permalink: Usage with Claude Desktop" [ref=f9e693] [cursor=pointer]':
+                    - /url: "#usage-with-claude-desktop"
+                - paragraph [ref=f9e696]:
+                  - text: Add this to your
+                  - code [ref=f9e697]: claude_desktop_config.json
+                  - text: ":"
+                - generic [ref=f9e698]:
+                  - generic [ref=f9e699]:
+                    - text: "{ \"mcpServers\": { \"mcp-server-firecrawl\": { \"command\":"
+                    - generic [ref=f9e700]: "\"npx\""
+                    - text: ", \"args\": ["
+                    - generic [ref=f9e701]: "\"-y\""
+                    - text: ","
+                    - generic [ref=f9e702]: "\"firecrawl-mcp\""
+                    - text: "], \"env\": { \"FIRECRAWL_API_KEY\":"
+                    - generic [ref=f9e703]: "\"YOUR_API_KEY_HERE\""
+                    - text: "} } } }"
+                  - button "Copy code to clipboard" [ref=f9e705] [cursor=pointer]
+                - generic [ref=f9e709]:
+                  - heading "How to Choose a Tool" [level=2] [ref=f9e710]
+                  - 'link "Permalink: How to Choose a Tool" [ref=f9e711] [cursor=pointer]':
+                    - /url: "#how-to-choose-a-tool"
+                - paragraph [ref=f9e714]: "Use this guide to select the right tool for your task:"
+                - list [ref=f9e715]:
+                  - listitem [ref=f9e716]:
+                    - strong [ref=f9e717]: "If you know the exact URL you want:"
+                    - text: use
+                    - strong [ref=f9e718]: scrape
+                    - text: (with JSON format for structured data)
+                  - listitem [ref=f9e719]:
+                    - strong [ref=f9e720]: "If you have multiple known URLs:"
+                    - text: call
+                    - strong [ref=f9e721]: scrape
+                    - text: for each URL. If you specifically need one bulk API operation, use the Firecrawl API batch endpoint outside MCP.
+                  - listitem [ref=f9e722]:
+                    - strong [ref=f9e723]: "If you need to discover URLs on a site:"
+                    - text: use
+                    - strong [ref=f9e724]: map
+                  - listitem [ref=f9e725]:
+                    - strong [ref=f9e726]: "If you want to search the web for info:"
+                    - text: use
+                    - strong [ref=f9e727]: search
+                  - listitem [ref=f9e728]:
+                    - strong [ref=f9e729]: If you have a programming question
+                    - text: "(a library, an API contract, an error message, a known bug): use"
+                    - strong [ref=f9e730]: developer search
+                  - listitem [ref=f9e731]:
+                    - strong [ref=f9e732]: If you need scientific papers
+                    - text: "(biomedical, life-science, clinical, or arXiv literature): use"
+                    - strong [ref=f9e733]: research tools
+                    - text: — they search paper abstracts and full text.
+                    - code [ref=f9e734]: search
+                    - text: with
+                    - code [ref=f9e735]: "categories: [\"research\"]"
+                    - text: "is a different thing: a website filter over ordinary web results."
+                  - listitem [ref=f9e736]:
+                    - strong [ref=f9e737]: "If you need complex research across multiple unknown sources:"
+                    - text: use
+                    - strong [ref=f9e738]: agent
+                  - listitem [ref=f9e739]:
+                    - strong [ref=f9e740]: "If you want to analyze a whole site or section:"
+                    - text: use
+                    - strong [ref=f9e741]: crawl
+                    - text: (with limits!)
+                  - listitem [ref=f9e742]:
+                    - strong [ref=f9e743]: If you need interactive browser automation
+                    - text: "(click, type, navigate): use"
+                    - strong [ref=f9e744]: interact
+                    - text: with a URL for a fresh page, or
+                    - strong [ref=f9e745]: scrape
+                    - text: +
+                    - strong [ref=f9e746]: interact
+                    - text: when you already scraped the page or need tighter scrape control
+                - generic [ref=f9e747]:
+                  - heading "Quick Reference Table" [level=3] [ref=f9e748]
+                  - 'link "Permalink: Quick Reference Table" [ref=f9e749] [cursor=pointer]':
+                    - /url: "#quick-reference-table"
+                - table [ref=f9e753]:
+                  - rowgroup [ref=f9e754]:
+                    - row [ref=f9e755]:
+                      - columnheader "Tool" [ref=f9e756]
+                      - columnheader "Best for" [ref=f9e757]
+                      - columnheader "Returns" [ref=f9e758]
+                  - rowgroup [ref=f9e759]:
+                    - row [ref=f9e760]:
+                      - cell "scrape" [ref=f9e761]
+                      - cell "Single page content" [ref=f9e762]
+                      - cell "JSON (preferred) or markdown" [ref=f9e763]
+                    - row [ref=f9e764]:
+                      - cell "interact" [ref=f9e765]
+                      - cell "Interact with a URL or scraped page" [ref=f9e766]
+                      - cell "Execution result + scrapeId for URL mode" [ref=f9e767]
+                    - row [ref=f9e768]:
+                      - cell "map" [ref=f9e769]
+                      - cell "Discovering URLs on a site" [ref=f9e770]
+                      - cell "URL[]" [ref=f9e771]
+                    - row [ref=f9e772]:
+                      - cell "crawl" [ref=f9e773]
+                      - cell "Multi-page extraction (with limits)" [ref=f9e774]
+                      - cell "final crawl status/data after internal polling" [ref=f9e775]
+                    - row [ref=f9e776]:
+                      - cell "parse" [ref=f9e777]
+                      - cell "Files and hosted upload refs" [ref=f9e778]
+                      - cell "markdown, JSON, or document output" [ref=f9e779]
+                    - row [ref=f9e780]:
+                      - cell "search" [ref=f9e781]
+                      - cell "Web search for info" [ref=f9e782]
+                      - cell "results[]" [ref=f9e783]
+                    - row [ref=f9e784]:
+                      - cell "developer" [ref=f9e785]
+                      - cell "Programming questions over developer sources" [ref=f9e786]
+                      - cell "results[] with passages" [ref=f9e787]
+                    - row [ref=f9e788]:
+                      - cell "agent" [ref=f9e789]
+                      - cell "Complex multi-source research" [ref=f9e790]
+                      - cell "JSON (structured data)" [ref=f9e791]
+                    - row [ref=f9e792]:
+                      - cell "monitor" [ref=f9e793]
+                      - cell "Recurring page checks" [ref=f9e794]
+                      - cell "monitor/check metadata and diffs" [ref=f9e795]
+                    - row [ref=f9e796]:
+                      - cell "research" [ref=f9e797]
+                      - cell "Paper and GitHub repository research" [ref=f9e798]
+                      - cell "research results and repo matches" [ref=f9e799]
+                - generic [ref=f9e800]:
+                  - heading "Format Selection Guide" [level=3] [ref=f9e801]
+                  - 'link "Permalink: Format Selection Guide" [ref=f9e802] [cursor=pointer]':
+                    - /url: "#format-selection-guide"
+                - paragraph [ref=f9e805]:
+                  - text: When using
+                  - code [ref=f9e806]: scrape
+                  - text: ", choose the right format:"
+                - list [ref=f9e807]:
+                  - listitem [ref=f9e808]:
+                    - strong [ref=f9e809]: "JSON format (recommended for most cases):"
+                    - text: Use when you need specific data from a page. Define a schema based on what you need to extract. This keeps responses small and avoids context window overflow.
+                  - listitem [ref=f9e810]:
+                    - strong [ref=f9e811]: "Markdown format (use sparingly):"
+                    - text: Only when you genuinely need the full page content, such as reading an entire article for summarization or analyzing page structure.
+                - generic [ref=f9e812]:
+                  - heading "Available Tools" [level=2] [ref=f9e813]
+                  - 'link "Permalink: Available Tools" [ref=f9e814] [cursor=pointer]':
+                    - /url: "#available-tools"
+                - generic [ref=f9e817]:
+                  - heading [level=3] [ref=f9e818]:
+                    - text: 1. Scrape Tool (
+                    - code [ref=f9e819]: firecrawl_scrape
+                    - text: )
+                  - 'link "Permalink: 1. Scrape Tool (firecrawl_scrape)" [ref=f9e820] [cursor=pointer]':
+                    - /url: "#1-scrape-tool-firecrawl_scrape"
+                - paragraph [ref=f9e823]: Scrape content from a single URL with advanced options.
+                - paragraph [ref=f9e824]:
+                  - strong [ref=f9e825]: "Best for:"
+                - list [ref=f9e826]:
+                  - listitem [ref=f9e827]: Single page content extraction, when you know exactly which page contains the information.
+                - paragraph [ref=f9e828]:
+                  - strong [ref=f9e829]: "Not recommended for:"
+                - list [ref=f9e830]:
+                  - listitem [ref=f9e831]: Extracting content from multiple pages (use repeated scrape calls for known URLs, or map + scrape to discover URLs first, or crawl for full page content)
+                  - listitem [ref=f9e832]: When you're unsure which page contains the information (use search)
+                - paragraph [ref=f9e833]:
+                  - strong [ref=f9e834]: "Common mistakes:"
+                - list [ref=f9e835]:
+                  - listitem [ref=f9e836]: Passing a list of URLs to one scrape call. Call scrape once per URL in MCP. If you specifically need one bulk API operation, use the Firecrawl API batch endpoint outside MCP.
+                  - listitem [ref=f9e837]: Using markdown format by default (use JSON format to extract only what you need).
+                - paragraph [ref=f9e838]:
+                  - strong [ref=f9e839]: "Choosing the right format:"
+                - list [ref=f9e840]:
+                  - listitem [ref=f9e841]:
+                    - strong [ref=f9e842]: "JSON format (preferred):"
+                    - text: For most use cases, use JSON format with a schema to extract only the specific data needed. This keeps responses focused and prevents context window overflow.
+                  - listitem [ref=f9e843]:
+                    - strong [ref=f9e844]: "Markdown format:"
+                    - text: Only when the task genuinely requires full page content (e.g., summarizing an entire article, analyzing page structure).
+                - paragraph [ref=f9e845]:
+                  - strong [ref=f9e846]: "Prompt Example:"
+                - blockquote [ref=f9e847]:
+                  - paragraph [ref=f9e848]:
+                    - text: "\"Get the product details from"
+                    - link "https://example.com/product" [ref=f9e849] [cursor=pointer]:
+                      - /url: https://example.com/product
+                    - text: ."
+                - paragraph [ref=f9e850]:
+                  - strong [ref=f9e851]: "Usage Example (JSON format - preferred):"
+                - generic [ref=f9e852]:
+                  - generic [ref=f9e853]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e854]: "\"firecrawl_scrape\""
+                    - text: ", \"arguments\": { \"url\":"
+                    - generic [ref=f9e855]: "\"https://example.com/product\""
+                    - text: ", \"formats\": [ { \"type\":"
+                    - generic [ref=f9e856]: "\"json\""
+                    - text: ", \"prompt\":"
+                    - generic [ref=f9e857]: "\"Extract the product information\""
+                    - text: ", \"schema\": { \"type\":"
+                    - generic [ref=f9e858]: "\"object\""
+                    - text: ", \"properties\": { \"name\": { \"type\":"
+                    - generic [ref=f9e859]: "\"string\""
+                    - text: "}, \"price\": { \"type\":"
+                    - generic [ref=f9e860]: "\"number\""
+                    - text: "}, \"description\": { \"type\":"
+                    - generic [ref=f9e861]: "\"string\""
+                    - text: "} }, \"required\": ["
+                    - generic [ref=f9e862]: "\"name\""
+                    - text: ","
+                    - generic [ref=f9e863]: "\"price\""
+                    - text: "] } } ] } }"
+                  - button "Copy code to clipboard" [ref=f9e865] [cursor=pointer]
+                - paragraph [ref=f9e869]:
+                  - strong [ref=f9e870]: "Usage Example (markdown format - when full content needed):"
+                - generic [ref=f9e871]:
+                  - generic [ref=f9e872]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e873]: "\"firecrawl_scrape\""
+                    - text: ", \"arguments\": { \"url\":"
+                    - generic [ref=f9e874]: "\"https://example.com/article\""
+                    - text: ", \"formats\": ["
+                    - generic [ref=f9e875]: "\"markdown\""
+                    - text: "], \"onlyMainContent\": true } }"
+                  - button "Copy code to clipboard" [ref=f9e877] [cursor=pointer]
+                - paragraph [ref=f9e881]:
+                  - strong [ref=f9e882]: "Usage Example (branding format - extract brand identity):"
+                - generic [ref=f9e883]:
+                  - generic [ref=f9e884]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e885]: "\"firecrawl_scrape\""
+                    - text: ", \"arguments\": { \"url\":"
+                    - generic [ref=f9e886]: "\"https://example.com\""
+                    - text: ", \"formats\": ["
+                    - generic [ref=f9e887]: "\"branding\""
+                    - text: "] } }"
+                  - button "Copy code to clipboard" [ref=f9e889] [cursor=pointer]
+                - paragraph [ref=f9e893]:
+                  - strong [ref=f9e894]: "Branding format:"
+                  - text: Extracts comprehensive brand identity (colors, fonts, typography, spacing, logo, UI components) for design analysis or style replication.
+                  - strong [ref=f9e895]: "Privacy:"
+                  - text: Set
+                  - code [ref=f9e896]: "redactPII: true"
+                  - text: to return content with personally identifiable information redacted.
+                - paragraph [ref=f9e897]:
+                  - strong [ref=f9e898]: "Returns:"
+                - list [ref=f9e899]:
+                  - listitem [ref=f9e900]: JSON structured data, markdown, branding profile, or other formats as specified.
+                - generic [ref=f9e901]:
+                  - heading [level=3] [ref=f9e902]:
+                    - text: 2. Map Tool (
+                    - code [ref=f9e903]: firecrawl_map
+                    - text: )
+                  - 'link "Permalink: 2. Map Tool (firecrawl_map)" [ref=f9e904] [cursor=pointer]':
+                    - /url: "#2-map-tool-firecrawl_map"
+                - paragraph [ref=f9e907]: Map a website to discover all indexed URLs on the site.
+                - paragraph [ref=f9e908]:
+                  - strong [ref=f9e909]: "Best for:"
+                - list [ref=f9e910]:
+                  - listitem [ref=f9e911]: Discovering URLs on a website before deciding what to scrape
+                  - listitem [ref=f9e912]: Finding specific sections of a website
+                - paragraph [ref=f9e913]:
+                  - strong [ref=f9e914]: "Not recommended for:"
+                - list [ref=f9e915]:
+                  - listitem [ref=f9e916]: When you already know which specific URL you need (use scrape)
+                  - listitem [ref=f9e917]: When you need the content of the pages (use scrape after mapping)
+                - paragraph [ref=f9e918]:
+                  - strong [ref=f9e919]: "Common mistakes:"
+                - list [ref=f9e920]:
+                  - listitem [ref=f9e921]: Using crawl to discover URLs instead of map
+                - paragraph [ref=f9e922]:
+                  - strong [ref=f9e923]: "Prompt Example:"
+                - blockquote [ref=f9e924]:
+                  - paragraph [ref=f9e925]: "\"List all URLs on example.com.\""
+                - paragraph [ref=f9e926]:
+                  - strong [ref=f9e927]: "Usage Example:"
+                - generic [ref=f9e928]:
+                  - generic [ref=f9e929]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e930]: "\"firecrawl_map\""
+                    - text: ", \"arguments\": { \"url\":"
+                    - generic [ref=f9e931]: "\"https://example.com\""
+                    - text: "} }"
+                  - button "Copy code to clipboard" [ref=f9e933] [cursor=pointer]
+                - paragraph [ref=f9e937]:
+                  - strong [ref=f9e938]: "Returns:"
+                - list [ref=f9e939]:
+                  - listitem [ref=f9e940]: Array of URLs found on the site
+                - generic [ref=f9e941]:
+                  - heading [level=3] [ref=f9e942]:
+                    - text: 3. Search Tool (
+                    - code [ref=f9e943]: firecrawl_search
+                    - text: )
+                  - 'link "Permalink: 3. Search Tool (firecrawl_search)" [ref=f9e944] [cursor=pointer]':
+                    - /url: "#3-search-tool-firecrawl_search"
+                - paragraph [ref=f9e947]: Search the web and optionally extract content from search results.
+                - paragraph [ref=f9e948]:
+                  - strong [ref=f9e949]: "Best for:"
+                - list [ref=f9e950]:
+                  - listitem [ref=f9e951]: Finding specific information across multiple websites, when you don't know which website has the information.
+                  - listitem [ref=f9e952]: When you need the most relevant content for a query
+                - paragraph [ref=f9e953]:
+                  - strong [ref=f9e954]: "Not recommended for:"
+                - list [ref=f9e955]:
+                  - listitem [ref=f9e956]: When you already know which website to scrape (use scrape)
+                  - listitem [ref=f9e957]: When you need comprehensive coverage of a single website (use map or crawl)
+                - paragraph [ref=f9e958]:
+                  - strong [ref=f9e959]: "Common mistakes:"
+                - list [ref=f9e960]:
+                  - listitem [ref=f9e961]: Using crawl or map for open-ended questions (use search instead)
+                - paragraph [ref=f9e962]:
+                  - strong [ref=f9e963]: "Usage Example:"
+                - generic [ref=f9e964]:
+                  - generic [ref=f9e965]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e966]: "\"firecrawl_search\""
+                    - text: ", \"arguments\": { \"query\":"
+                    - generic [ref=f9e967]: "\"remote work stipend policies at tech companies\""
+                    - text: ", \"highlights\": true, \"limit\": 5, \"lang\":"
+                    - generic [ref=f9e968]: "\"en\""
+                    - text: ", \"country\":"
+                    - generic [ref=f9e969]: "\"us\""
+                    - text: ", \"scrapeOptions\": { \"formats\": ["
+                    - generic [ref=f9e970]: "\"markdown\""
+                    - text: "], \"onlyMainContent\": true, \"redactPII\": true } } }"
+                  - button "Copy code to clipboard" [ref=f9e972] [cursor=pointer]
+                - paragraph [ref=f9e976]:
+                  - text: Set
+                  - code [ref=f9e977]: highlights
+                  - text: to
+                  - code [ref=f9e978]: "true"
+                  - text: to request query-relevant highlights or
+                  - code [ref=f9e979]: "false"
+                  - text: to keep the original search snippets. Omit it to use the API's default behavior.
+                - paragraph [ref=f9e980]:
+                  - text: For scientific papers, see
+                  - link "Research Tools" [ref=f9e981] [cursor=pointer]:
+                    - /url: "#12-research-tools-firecrawl_research_"
+                  - text: ": they search paper abstracts and full text, while"
+                  - code [ref=f9e982]: "categories: [\"research\"]"
+                  - text: here filters ordinary web results to research-affiliated websites.
+                - paragraph [ref=f9e983]:
+                  - strong [ref=f9e984]: "Returns:"
+                - list [ref=f9e985]:
+                  - listitem [ref=f9e986]:
+                    - text: Array of search results (with optional scraped content), plus an
+                    - code [ref=f9e987]: id
+                    - text: field. Pass that
+                    - code [ref=f9e988]: id
+                    - text: to
+                    - code [ref=f9e989]: firecrawl_search_feedback
+                    - text: after you've used the results to refund 1 credit (search costs 2) and improve search quality.
+                - paragraph [ref=f9e990]:
+                  - strong [ref=f9e991]: "Prompt Example:"
+                - blockquote [ref=f9e992]:
+                  - paragraph [ref=f9e993]: "\"Compare remote work stipend policies across tech companies.\""
+                - generic [ref=f9e994]:
+                  - heading [level=3] [ref=f9e995]:
+                    - text: 3b. Search Feedback Tool (
+                    - code [ref=f9e996]: firecrawl_search_feedback
+                    - text: )
+                  - 'link "Permalink: 3b. Search Feedback Tool (firecrawl_search_feedback)" [ref=f9e997] [cursor=pointer]':
+                    - /url: "#3b-search-feedback-tool-firecrawl_search_feedback"
+                - paragraph [ref=f9e1000]:
+                  - text: Sends structured feedback on a previous
+                  - code [ref=f9e1001]: firecrawl_search
+                  - text: result. The first feedback per search id refunds 1 credit and improves Firecrawl's search quality. Idempotent per search id.
+                - paragraph [ref=f9e1002]:
+                  - strong [ref=f9e1003]: Call this after every search you actually use
+                  - text: (or that didn't help). Bad/partial feedback with
+                  - code [ref=f9e1004]: missingContent
+                  - text: is just as valuable as good feedback.
+                - paragraph [ref=f9e1005]:
+                  - strong [ref=f9e1006]: "Opt out:"
+                  - text: set
+                  - code [ref=f9e1007]: FIRECRAWL_NO_SEARCH_FEEDBACK=1
+                  - text: (or
+                  - code [ref=f9e1008]: FIRECRAWL_DISABLE_SEARCH_FEEDBACK=1
+                  - text: ) in the environment when starting the MCP server. The
+                  - code [ref=f9e1009]: firecrawl_search_feedback
+                  - text: tool will not be registered, so agents can't call it. Team admins can also disable feedback server-side; in that case the tool is registered but always returns
+                  - code [ref=f9e1010]: "feedbackErrorCode: \"TEAM_OPTED_OUT\""
+                  - text: .
+                - paragraph [ref=f9e1011]:
+                  - strong [ref=f9e1012]: "Most important field:"
+                  - code [ref=f9e1013]: missingContent
+                  - text: . It's an array of specific pieces of content the agent expected to find but did not. One entry per missing topic — these aggregate across teams and tell us what to index next.
+                - paragraph [ref=f9e1014]:
+                  - strong [ref=f9e1015]: Daily refund cap (per team, per UTC day, default 100 credits).
+                  - text: Once a team's
+                  - code [ref=f9e1016]: creditsRefundedToday
+                  - text: reaches
+                  - code [ref=f9e1017]: dailyRefundCap
+                  - text: ", further submissions still record feedback but no longer refund credits. The response sets"
+                  - code [ref=f9e1018]: "dailyCapReached: true"
+                  - text: . Agents should stop calling this tool for the rest of the UTC day when they see that flag.
+                - paragraph [ref=f9e1019]:
+                  - strong [ref=f9e1020]: "Usage Example:"
+                - generic [ref=f9e1021]:
+                  - generic [ref=f9e1022]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1023]: "\"firecrawl_search_feedback\""
+                    - text: ", \"arguments\": { \"searchId\":"
+                    - generic [ref=f9e1024]: "\"0193f6c5-1234-7890-abcd-1234567890ab\""
+                    - text: ", \"rating\":"
+                    - generic [ref=f9e1025]: "\"good\""
+                    - text: ", \"valuableSources\": [ { \"url\":"
+                    - generic [ref=f9e1026]: "\"https://docs.firecrawl.dev/features/search\""
+                    - text: ", \"reason\":"
+                    - generic [ref=f9e1027]: "\"Most up-to-date description of /search.\""
+                    - text: "} ], \"missingContent\": [ { \"topic\":"
+                    - generic [ref=f9e1028]: "\"Pricing for the search endpoint\""
+                    - text: ", \"description\":"
+                    - generic [ref=f9e1029]: "\"No pricing tier table for /search specifically.\""
+                    - text: "}, { \"topic\":"
+                    - generic [ref=f9e1030]: "\"Per-team rate limits\""
+                    - text: "} ], \"querySuggestions\":"
+                    - generic [ref=f9e1031]: "\"Boost docs.firecrawl.dev for queries that mention 'firecrawl'\""
+                    - text: "} }"
+                  - button "Copy code to clipboard" [ref=f9e1033] [cursor=pointer]
+                - paragraph [ref=f9e1037]:
+                  - strong [ref=f9e1038]: "Returns:"
+                - list [ref=f9e1039]:
+                  - listitem [ref=f9e1040]:
+                    - code [ref=f9e1041]: "{ success, feedbackId, creditsRefunded, alreadySubmitted? }"
+                    - text: JSON.
+                - generic [ref=f9e1042]:
+                  - heading [level=3] [ref=f9e1043]:
+                    - text: 3c. Generic Feedback Tool (
+                    - code [ref=f9e1044]: firecrawl_feedback
+                    - text: )
+                  - 'link "Permalink: 3c. Generic Feedback Tool (firecrawl_feedback)" [ref=f9e1045] [cursor=pointer]':
+                    - /url: "#3c-generic-feedback-tool-firecrawl_feedback"
+                - paragraph [ref=f9e1048]:
+                  - text: Sends structured feedback for a completed v2 endpoint job through
+                  - code [ref=f9e1049]: /v2/feedback
+                  - text: . Use this for endpoint-level feedback on
+                  - code [ref=f9e1050]: scrape
+                  - text: ","
+                  - code [ref=f9e1051]: parse
+                  - text: ","
+                  - code [ref=f9e1052]: map
+                  - text: ", or"
+                  - code [ref=f9e1053]: search
+                  - text: jobs. For search-result quality specifically, prefer
+                  - code [ref=f9e1054]: firecrawl_search_feedback
+                  - text: because it includes search-specific guidance.
+                - paragraph [ref=f9e1055]: "Keep feedback concise: use issue codes, tags, short notes, URLs, page numbers, and small metadata objects. Do not include raw scrape/parse outputs."
+                - paragraph [ref=f9e1056]:
+                  - strong [ref=f9e1057]: "Opt out:"
+                  - text: set
+                  - code [ref=f9e1058]: FIRECRAWL_NO_ENDPOINT_FEEDBACK=1
+                  - text: (or
+                  - code [ref=f9e1059]: FIRECRAWL_DISABLE_ENDPOINT_FEEDBACK=1
+                  - text: ) in the environment when starting the MCP server. The
+                  - code [ref=f9e1060]: firecrawl_feedback
+                  - text: tool will not be registered, so agents cannot call it.
+                - paragraph [ref=f9e1061]:
+                  - strong [ref=f9e1062]: "Usage Example:"
+                - generic [ref=f9e1063]:
+                  - generic [ref=f9e1064]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1065]: "\"firecrawl_feedback\""
+                    - text: ", \"arguments\": { \"endpoint\":"
+                    - generic [ref=f9e1066]: "\"scrape\""
+                    - text: ", \"jobId\":"
+                    - generic [ref=f9e1067]: "\"0193f6c5-1234-7890-abcd-1234567890ab\""
+                    - text: ", \"rating\":"
+                    - generic [ref=f9e1068]: "\"partial\""
+                    - text: ", \"issues\": ["
+                    - generic [ref=f9e1069]: "\"missing_markdown\""
+                    - text: "], \"tags\": ["
+                    - generic [ref=f9e1070]: "\"docs\""
+                    - text: "], \"note\":"
+                    - generic [ref=f9e1071]: "\"The pricing table was missing from the markdown output.\""
+                    - text: ", \"url\":"
+                    - generic [ref=f9e1072]: "\"https://example.com/pricing\""
+                    - text: ", \"pageNumbers\": [1], \"metadata\": { \"format\":"
+                    - generic [ref=f9e1073]: "\"markdown\""
+                    - text: "} } }"
+                  - button "Copy code to clipboard" [ref=f9e1075] [cursor=pointer]
+                - paragraph [ref=f9e1079]:
+                  - strong [ref=f9e1080]: "Returns:"
+                - list [ref=f9e1081]:
+                  - listitem [ref=f9e1082]:
+                    - code [ref=f9e1083]: "{ success, feedbackId, creditsRefunded, creditsRefundedToday?, dailyRefundCap?, dailyCapReached?, alreadySubmitted?, warning? }"
+                    - text: JSON.
+                - generic [ref=f9e1084]:
+                  - heading [level=3] [ref=f9e1085]:
+                    - text: 4. Crawl Tool (
+                    - code [ref=f9e1086]: firecrawl_crawl
+                    - text: )
+                  - 'link "Permalink: 4. Crawl Tool (firecrawl_crawl)" [ref=f9e1087] [cursor=pointer]':
+                    - /url: "#4-crawl-tool-firecrawl_crawl"
+                - paragraph [ref=f9e1090]: Starts a crawl job, polls until it reaches a terminal state, and returns the final crawl status/data.
+                - paragraph [ref=f9e1091]:
+                  - strong [ref=f9e1092]: "Best for:"
+                - list [ref=f9e1093]:
+                  - listitem [ref=f9e1094]: Extracting content from multiple related pages, when you need comprehensive coverage.
+                - paragraph [ref=f9e1095]:
+                  - strong [ref=f9e1096]: "Not recommended for:"
+                - list [ref=f9e1097]:
+                  - listitem [ref=f9e1098]: Extracting content from a single page (use scrape)
+                  - listitem [ref=f9e1099]: When token limits are a concern (use map + scrape for tighter control)
+                  - listitem [ref=f9e1100]: When you need fast results (crawling can be slow)
+                - paragraph [ref=f9e1101]:
+                  - strong [ref=f9e1102]: "Warning:"
+                  - text: Crawl responses can be very large and may exceed token limits. Limit the crawl depth and number of pages, or use map + scrape for tighter control.
+                - paragraph [ref=f9e1103]:
+                  - strong [ref=f9e1104]: "Common mistakes:"
+                - list [ref=f9e1105]:
+                  - listitem [ref=f9e1106]: Setting limit or maxDiscoveryDepth too high (causes token overflow)
+                  - listitem [ref=f9e1107]: Using crawl for a single page (use scrape instead)
+                - paragraph [ref=f9e1108]:
+                  - strong [ref=f9e1109]: "Prompt Example:"
+                - blockquote [ref=f9e1110]:
+                  - paragraph [ref=f9e1111]: "\"Get all blog posts from the first two levels of example.com/blog.\""
+                - paragraph [ref=f9e1112]:
+                  - strong [ref=f9e1113]: "Usage Example:"
+                - generic [ref=f9e1114]:
+                  - generic [ref=f9e1115]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1116]: "\"firecrawl_crawl\""
+                    - text: ", \"arguments\": { \"url\":"
+                    - generic [ref=f9e1117]: "\"https://example.com/blog/*\""
+                    - text: ", \"maxDiscoveryDepth\": 2, \"limit\": 100, \"allowExternalLinks\": false, \"deduplicateSimilarURLs\": true } }"
+                  - button "Copy code to clipboard" [ref=f9e1119] [cursor=pointer]
+                - paragraph [ref=f9e1123]:
+                  - strong [ref=f9e1124]: "Returns:"
+                - list [ref=f9e1125]:
+                  - listitem [ref=f9e1126]:
+                    - text: Final crawl status and data after internal polling, including
+                    - code [ref=f9e1127]: id
+                    - text: ","
+                    - code [ref=f9e1128]: status
+                    - text: ","
+                    - code [ref=f9e1129]: completed
+                    - text: ","
+                    - code [ref=f9e1130]: total
+                    - text: ","
+                    - code [ref=f9e1131]: creditsUsed
+                    - text: ","
+                    - code [ref=f9e1132]: expiresAt
+                    - text: ","
+                    - code [ref=f9e1133]: next
+                    - text: ", and"
+                    - code [ref=f9e1134]: data
+                    - text: . Use the returned
+                    - code [ref=f9e1135]: id
+                    - text: with
+                    - code [ref=f9e1136]: firecrawl_check_crawl_status
+                    - text: if you need to re-check the job later.
+                - generic [ref=f9e1137]:
+                  - heading [level=3] [ref=f9e1138]:
+                    - text: 5. Check Crawl Status (
+                    - code [ref=f9e1139]: firecrawl_check_crawl_status
+                    - text: )
+                  - 'link "Permalink: 5. Check Crawl Status (firecrawl_check_crawl_status)" [ref=f9e1140] [cursor=pointer]':
+                    - /url: "#5-check-crawl-status-firecrawl_check_crawl_status"
+                - paragraph [ref=f9e1143]: Check the status and results of an existing crawl job by ID.
+                - generic [ref=f9e1144]:
+                  - generic [ref=f9e1145]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1146]: "\"firecrawl_check_crawl_status\""
+                    - text: ", \"arguments\": { \"id\":"
+                    - generic [ref=f9e1147]: "\"550e8400-e29b-41d4-a716-446655440000\""
+                    - text: "} }"
+                  - button "Copy code to clipboard" [ref=f9e1149] [cursor=pointer]
+                - paragraph [ref=f9e1153]:
+                  - strong [ref=f9e1154]: "Returns:"
+                - list [ref=f9e1155]:
+                  - listitem [ref=f9e1156]: "Response includes the status of the crawl job:"
+                - generic [ref=f9e1157]:
+                  - heading [level=3] [ref=f9e1158]:
+                    - text: 6. Parse Tool (
+                    - code [ref=f9e1159]: firecrawl_parse
+                    - text: )
+                  - 'link "Permalink: 6. Parse Tool (firecrawl_parse)" [ref=f9e1160] [cursor=pointer]':
+                    - /url: "#6-parse-tool-firecrawl_parse"
+                - paragraph [ref=f9e1163]:
+                  - text: Parse local files or hosted upload references with Firecrawl's
+                  - code [ref=f9e1164]: /v2/parse
+                  - text: endpoint.
+                - paragraph [ref=f9e1165]:
+                  - strong [ref=f9e1166]: "Best for:"
+                  - text: PDFs, Word documents, spreadsheets, HTML files, and other documents that need markdown or structured JSON output. Hosted MCP supports a two-step upload-ref flow; local direct file reads require a self-hosted
+                  - code [ref=f9e1167]: FIRECRAWL_API_URL
+                  - text: .
+                - paragraph [ref=f9e1168]:
+                  - strong [ref=f9e1169]: "Not recommended for:"
+                  - text: Remote URLs (use scrape), multiple files in one call (call parse once per file), or browser-only actions such as screenshots and clicks.
+                - paragraph [ref=f9e1170]:
+                  - strong [ref=f9e1171]: "Hosted MCP flow:"
+                  - text: Hosted MCP cannot read the caller's filesystem directly. Call
+                  - code [ref=f9e1172]: firecrawl_parse
+                  - text: with
+                  - code [ref=f9e1173]: filePath
+                  - text: to receive a short-lived upload command and
+                  - code [ref=f9e1174]: nextToolCall
+                  - text: ", upload the file locally, then call"
+                  - code [ref=f9e1175]: firecrawl_parse
+                  - text: again with the returned
+                  - code [ref=f9e1176]: uploadRef
+                  - text: . Minting the hosted upload URL requires Firecrawl auth or keyless eligibility. In local
+                  - code [ref=f9e1177]: npx firecrawl-mcp
+                  - text: mode, direct file parsing currently requires
+                  - code [ref=f9e1178]: FIRECRAWL_API_URL
+                  - text: pointing to a self-hosted Firecrawl API; a plain cloud API-key-only local server cannot read and upload files through this tool.
+                - paragraph [ref=f9e1179]:
+                  - strong [ref=f9e1180]: "Usage Example:"
+                - generic [ref=f9e1181]:
+                  - generic [ref=f9e1182]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1183]: "\"firecrawl_parse\""
+                    - text: ", \"arguments\": { \"filePath\":"
+                    - generic [ref=f9e1184]: "\"/absolute/path/to/document.pdf\""
+                    - text: ", \"formats\": ["
+                    - generic [ref=f9e1185]: "\"markdown\""
+                    - text: "], \"parsers\": ["
+                    - generic [ref=f9e1186]: "\"pdf\""
+                    - text: "], \"zeroDataRetention\": true } }"
+                  - button "Copy code to clipboard" [ref=f9e1188] [cursor=pointer]
+                - paragraph [ref=f9e1192]:
+                  - strong [ref=f9e1193]: "Returns:"
+                  - text: Parsed document content or hosted upload instructions with a
+                  - code [ref=f9e1194]: nextToolCall
+                  - text: .
+                - generic [ref=f9e1195]:
+                  - heading "7. Structured data with Scrape JSON" [level=3] [ref=f9e1196]
+                  - 'link "Permalink: 7. Structured data with Scrape JSON" [ref=f9e1197] [cursor=pointer]':
+                    - /url: "#7-structured-data-with-scrape-json"
+                - paragraph [ref=f9e1200]:
+                  - text: For structured data from a known page, call
+                  - code [ref=f9e1201]: firecrawl_scrape
+                  - text: once per URL with
+                  - code [ref=f9e1202]: "formats: [\"json\"]"
+                  - text: . Put the extraction prompt and JSON schema in
+                  - code [ref=f9e1203]: jsonOptions
+                  - text: .
+                - generic [ref=f9e1204]:
+                  - generic [ref=f9e1205]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1206]: "\"firecrawl_scrape\""
+                    - text: ", \"arguments\": { \"url\":"
+                    - generic [ref=f9e1207]: "\"https://example.com/product\""
+                    - text: ", \"formats\": ["
+                    - generic [ref=f9e1208]: "\"json\""
+                    - text: "], \"jsonOptions\": { \"prompt\":"
+                    - generic [ref=f9e1209]: "\"Extract the product name, price, and description.\""
+                    - text: ", \"schema\": { \"type\":"
+                    - generic [ref=f9e1210]: "\"object\""
+                    - text: ", \"properties\": { \"name\": { \"type\":"
+                    - generic [ref=f9e1211]: "\"string\""
+                    - text: "}, \"price\": { \"type\":"
+                    - generic [ref=f9e1212]: "\"number\""
+                    - text: "}, \"description\": { \"type\":"
+                    - generic [ref=f9e1213]: "\"string\""
+                    - text: "} }, \"required\": ["
+                    - generic [ref=f9e1214]: "\"name\""
+                    - text: ","
+                    - generic [ref=f9e1215]: "\"price\""
+                    - text: "] } } } }"
+                  - button "Copy code to clipboard" [ref=f9e1217] [cursor=pointer]
+                - paragraph [ref=f9e1221]:
+                  - text: For unknown URLs or multi-source research, use
+                  - code [ref=f9e1222]: firecrawl_search
+                  - text: or
+                  - code [ref=f9e1223]: firecrawl_agent
+                  - text: before Scrape.
+                - generic [ref=f9e1224]:
+                  - heading [level=3] [ref=f9e1225]:
+                    - text: 8. Agent Tool (
+                    - code [ref=f9e1226]: firecrawl_agent
+                    - text: )
+                  - 'link "Permalink: 8. Agent Tool (firecrawl_agent)" [ref=f9e1227] [cursor=pointer]':
+                    - /url: "#8-agent-tool-firecrawl_agent"
+                - paragraph [ref=f9e1230]: Autonomous web research agent. This is a separate AI agent layer that independently browses the internet, searches for information, navigates through pages, and extracts structured data based on your query.
+                - paragraph [ref=f9e1231]:
+                  - strong [ref=f9e1232]: "How it works:"
+                - paragraph [ref=f9e1233]:
+                  - text: The agent performs web searches, follows links, reads pages, and gathers data autonomously. This runs
+                  - strong [ref=f9e1234]: asynchronously
+                  - text: "- it returns a job ID immediately, and you poll"
+                  - code [ref=f9e1235]: firecrawl_agent_status
+                  - text: to check when complete and retrieve results.
+                - paragraph [ref=f9e1236]:
+                  - strong [ref=f9e1237]: "Async workflow:"
+                - list [ref=f9e1238]:
+                  - listitem [ref=f9e1239]:
+                    - text: Call
+                    - code [ref=f9e1240]: firecrawl_agent
+                    - text: with your prompt/schema → returns job ID
+                  - listitem [ref=f9e1241]: Do other work while the agent researches (can take minutes for complex queries)
+                  - listitem [ref=f9e1242]:
+                    - text: Poll
+                    - code [ref=f9e1243]: firecrawl_agent_status
+                    - text: with the job ID to check progress
+                  - listitem [ref=f9e1244]: When status is "completed", the response includes the extracted data
+                - paragraph [ref=f9e1245]:
+                  - strong [ref=f9e1246]: "Best for:"
+                - list [ref=f9e1247]:
+                  - listitem [ref=f9e1248]: Complex research tasks where you don't know the exact URLs
+                  - listitem [ref=f9e1249]: Multi-source data gathering
+                  - listitem [ref=f9e1250]: Finding information scattered across the web
+                  - listitem [ref=f9e1251]: Tasks where you can do other work while waiting for results
+                - paragraph [ref=f9e1252]:
+                  - strong [ref=f9e1253]: "Not recommended for:"
+                - list [ref=f9e1254]:
+                  - listitem [ref=f9e1255]: Simple single-page scraping where you know the URL (use scrape with JSON format - faster and cheaper)
+                - paragraph [ref=f9e1256]:
+                  - strong [ref=f9e1257]: "Arguments:"
+                - list [ref=f9e1258]:
+                  - listitem [ref=f9e1259]:
+                    - code [ref=f9e1260]: prompt
+                    - text: ": Natural language description of the data you want (required, max 10,000 characters)"
+                  - listitem [ref=f9e1261]:
+                    - code [ref=f9e1262]: urls
+                    - text: ": Optional array of URLs to focus the agent on specific pages"
+                  - listitem [ref=f9e1263]:
+                    - code [ref=f9e1264]: schema
+                    - text: ": Optional JSON schema for structured output"
+                - paragraph [ref=f9e1265]:
+                  - strong [ref=f9e1266]: "Prompt Example:"
+                - blockquote [ref=f9e1267]:
+                  - paragraph [ref=f9e1268]: "\"Find the founders of Firecrawl and their backgrounds\""
+                - paragraph [ref=f9e1269]:
+                  - strong [ref=f9e1270]: "Usage Example (start agent, then poll for results):"
+                - generic [ref=f9e1271]:
+                  - generic [ref=f9e1272]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1273]: "\"firecrawl_agent\""
+                    - text: ", \"arguments\": { \"prompt\":"
+                    - generic [ref=f9e1274]: "\"Find the top 5 AI startups founded in 2024 and their funding amounts\""
+                    - text: ", \"schema\": { \"type\":"
+                    - generic [ref=f9e1275]: "\"object\""
+                    - text: ", \"properties\": { \"startups\": { \"type\":"
+                    - generic [ref=f9e1276]: "\"array\""
+                    - text: ", \"items\": { \"type\":"
+                    - generic [ref=f9e1277]: "\"object\""
+                    - text: ", \"properties\": { \"name\": { \"type\":"
+                    - generic [ref=f9e1278]: "\"string\""
+                    - text: "}, \"funding\": { \"type\":"
+                    - generic [ref=f9e1279]: "\"string\""
+                    - text: "}, \"founded\": { \"type\":"
+                    - generic [ref=f9e1280]: "\"string\""
+                    - text: "} } } } } } } }"
+                  - button "Copy code to clipboard" [ref=f9e1282] [cursor=pointer]
+                - paragraph [ref=f9e1286]:
+                  - text: Then poll with
+                  - code [ref=f9e1287]: firecrawl_agent_status
+                  - text: using the returned job ID.
+                - paragraph [ref=f9e1288]:
+                  - strong [ref=f9e1289]: "Usage Example (with URLs - agent focuses on specific pages):"
+                - generic [ref=f9e1290]:
+                  - generic [ref=f9e1291]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1292]: "\"firecrawl_agent\""
+                    - text: ", \"arguments\": { \"urls\": ["
+                    - generic [ref=f9e1293]: "\"https://docs.firecrawl.dev\""
+                    - text: ","
+                    - generic [ref=f9e1294]: "\"https://firecrawl.dev/pricing\""
+                    - text: "], \"prompt\":"
+                    - generic [ref=f9e1295]: "\"Compare the features and pricing information from these pages\""
+                    - text: "} }"
+                  - button "Copy code to clipboard" [ref=f9e1297] [cursor=pointer]
+                - paragraph [ref=f9e1301]:
+                  - strong [ref=f9e1302]: "Returns:"
+                - list [ref=f9e1303]:
+                  - listitem [ref=f9e1304]:
+                    - text: Job ID for status checking. Use
+                    - code [ref=f9e1305]: firecrawl_agent_status
+                    - text: to poll for results.
+                - generic [ref=f9e1306]:
+                  - heading [level=3] [ref=f9e1307]:
+                    - text: 9. Check Agent Status (
+                    - code [ref=f9e1308]: firecrawl_agent_status
+                    - text: )
+                  - 'link "Permalink: 9. Check Agent Status (firecrawl_agent_status)" [ref=f9e1309] [cursor=pointer]':
+                    - /url: "#9-check-agent-status-firecrawl_agent_status"
+                - paragraph [ref=f9e1312]: Check the status of an agent job and retrieve results when complete. Use this to poll for results after starting an agent.
+                - paragraph [ref=f9e1313]:
+                  - strong [ref=f9e1314]: "Polling pattern:"
+                  - text: Agent research can take minutes for complex queries. Poll this endpoint periodically (e.g., every 10-30 seconds) until status is "completed" or "failed".
+                - generic [ref=f9e1315]:
+                  - generic [ref=f9e1316]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1317]: "\"firecrawl_agent_status\""
+                    - text: ", \"arguments\": { \"id\":"
+                    - generic [ref=f9e1318]: "\"550e8400-e29b-41d4-a716-446655440000\""
+                    - text: "} }"
+                  - button "Copy code to clipboard" [ref=f9e1320] [cursor=pointer]
+                - paragraph [ref=f9e1324]:
+                  - strong [ref=f9e1325]: "Possible statuses:"
+                - list [ref=f9e1326]:
+                  - listitem [ref=f9e1327]:
+                    - code [ref=f9e1328]: processing
+                    - text: ": Agent is still researching - check back later"
+                  - listitem [ref=f9e1329]:
+                    - code [ref=f9e1330]: completed
+                    - text: ": Research finished - response includes the extracted data"
+                  - listitem [ref=f9e1331]:
+                    - code [ref=f9e1332]: failed
+                    - text: ": An error occurred"
+                - generic [ref=f9e1333]:
+                  - heading [level=3] [ref=f9e1334]:
+                    - text: 10. Interact Tool (
+                    - code [ref=f9e1335]: firecrawl_interact
+                    - text: )
+                  - 'link "Permalink: 10. Interact Tool (firecrawl_interact)" [ref=f9e1336] [cursor=pointer]':
+                    - /url: "#10-interact-tool-firecrawl_interact"
+                - paragraph [ref=f9e1339]:
+                  - text: Interact with a fresh URL or with a page that was already opened by
+                  - code [ref=f9e1340]: firecrawl_scrape
+                  - text: .
+                - paragraph [ref=f9e1341]:
+                  - strong [ref=f9e1342]: "Best for:"
+                  - text: Clicking, typing, navigating, and extracting state from dynamic pages without restoring the deprecated browser tools.
+                - paragraph [ref=f9e1343]:
+                  - strong [ref=f9e1344]: "Usage options:"
+                - list [ref=f9e1345]:
+                  - listitem [ref=f9e1346]:
+                    - text: Pass
+                    - code [ref=f9e1347]: url
+                    - text: to scrape and open a page for interaction in one MCP call.
+                  - listitem [ref=f9e1348]:
+                    - text: Pass
+                    - code [ref=f9e1349]: scrapeId
+                    - text: to continue interacting with an existing scraped page.
+                  - listitem [ref=f9e1350]:
+                    - text: Pass exactly one of
+                    - code [ref=f9e1351]: url
+                    - text: or
+                    - code [ref=f9e1352]: scrapeId
+                    - text: ", plus either"
+                    - code [ref=f9e1353]: prompt
+                    - text: or
+                    - code [ref=f9e1354]: code
+                    - text: .
+                - paragraph [ref=f9e1355]:
+                  - strong [ref=f9e1356]: "Usage Example:"
+                - generic [ref=f9e1357]:
+                  - generic [ref=f9e1358]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1359]: "\"firecrawl_interact\""
+                    - text: ", \"arguments\": { \"url\":"
+                    - generic [ref=f9e1360]: "\"https://example.com\""
+                    - text: ", \"prompt\":"
+                    - generic [ref=f9e1361]: "\"Click the pricing link and summarize the visible plans\""
+                    - text: "} }"
+                  - button "Copy code to clipboard" [ref=f9e1363] [cursor=pointer]
+                - paragraph [ref=f9e1367]:
+                  - strong [ref=f9e1368]: "Returns:"
+                  - text: Interaction result and, for URL mode, the derived
+                  - code [ref=f9e1369]: scrapeId
+                  - text: for follow-up or cleanup.
+                - generic [ref=f9e1370]:
+                  - heading [level=3] [ref=f9e1371]:
+                    - text: 11. Stop Interact Tool (
+                    - code [ref=f9e1372]: firecrawl_interact_stop
+                    - text: )
+                  - 'link "Permalink: 11. Stop Interact Tool (firecrawl_interact_stop)" [ref=f9e1373] [cursor=pointer]':
+                    - /url: "#11-stop-interact-tool-firecrawl_interact_stop"
+                - paragraph [ref=f9e1376]: Stop an interact session for a scraped page when you are done interacting.
+                - generic [ref=f9e1377]:
+                  - generic [ref=f9e1378]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1379]: "\"firecrawl_interact_stop\""
+                    - text: ", \"arguments\": { \"scrapeId\":"
+                    - generic [ref=f9e1380]: "\"scrape-id-here\""
+                    - text: "} }"
+                  - button "Copy code to clipboard" [ref=f9e1382] [cursor=pointer]
+                - generic [ref=f9e1386]:
+                  - heading [level=3] [ref=f9e1387]:
+                    - text: 12. Research Tools (
+                    - code [ref=f9e1388]: firecrawl_research_*
+                    - text: )
+                  - 'link "Permalink: 12. Research Tools (firecrawl_research_*)" [ref=f9e1389] [cursor=pointer]':
+                    - /url: "#12-research-tools-firecrawl_research_"
+                - paragraph [ref=f9e1392]: Search and inspect papers and GitHub repositories through the research MCP tools.
+                - paragraph [ref=f9e1393]:
+                  - strong [ref=f9e1394]: "Covers:"
+                  - text: paper abstracts and full text across biomedical, life-science, and clinical literature (PubMed, bioRxiv, medRxiv) alongside arXiv and other scientific sources.
+                - paragraph [ref=f9e1395]:
+                  - strong [ref=f9e1396]: "Available research tools:"
+                - list [ref=f9e1397]:
+                  - listitem [ref=f9e1398]:
+                    - code [ref=f9e1399]: firecrawl_research_search_papers
+                    - text: ": search paper metadata and abstracts with a natural-language query, with optional author, category, and date filters."
+                  - listitem [ref=f9e1400]:
+                    - code [ref=f9e1401]: firecrawl_research_inspect_paper
+                    - text: ": retrieve canonical metadata for one paper ID (arXiv, PMC, PMID, or DOI)."
+                  - listitem [ref=f9e1402]:
+                    - code [ref=f9e1403]: firecrawl_research_related_papers
+                    - text: ": expand from one or more anchor papers through the citation graph."
+                  - listitem [ref=f9e1404]:
+                    - code [ref=f9e1405]: firecrawl_research_read_paper
+                    - text: ": read full-text passages from a specific paper."
+                  - listitem [ref=f9e1406]:
+                    - code [ref=f9e1407]: firecrawl_research_search_github
+                    - text: ": search indexed public GitHub issue, pull-request, and README content."
+                - paragraph [ref=f9e1408]:
+                  - strong [ref=f9e1409]: "Best for:"
+                  - text: Literature review, paper lookup, and repository discovery workflows where the agent needs a focused research surface instead of general web scraping.
+                - paragraph [ref=f9e1410]:
+                  - code [ref=f9e1411]: firecrawl_search
+                  - text: with
+                  - code [ref=f9e1412]: "categories: [\"research\"]"
+                  - text: "is a different surface: it filters ordinary web results to research-affiliated websites and returns page snippets, not paper records. Use these tools when the question is about the literature itself, and pass several distinct framings of the same question — they surface different papers than a single query does."
+                - generic [ref=f9e1413]:
+                  - heading [level=3] [ref=f9e1414]:
+                    - text: 13. Monitor Tools (
+                    - code [ref=f9e1415]: firecrawl_monitor_*
+                    - text: )
+                  - 'link "Permalink: 13. Monitor Tools (firecrawl_monitor_*)" [ref=f9e1416] [cursor=pointer]':
+                    - /url: "#13-monitor-tools-firecrawl_monitor_"
+                - paragraph [ref=f9e1419]: Create and manage recurring page monitors. Monitors run scheduled scrapes or crawls, diff each result against the last retained snapshot, and can notify by webhook or email.
+                - paragraph [ref=f9e1420]:
+                  - strong [ref=f9e1421]: "Best for:"
+                - list [ref=f9e1422]:
+                  - listitem [ref=f9e1423]: Watching one page or a few pages over time
+                  - listitem [ref=f9e1424]: Alerting on meaningful changes using a plain-English goal
+                  - listitem [ref=f9e1425]: Tracking check history and page-level diffs
+                - paragraph [ref=f9e1426]:
+                  - strong [ref=f9e1427]: "Recommended create pattern:"
+                - paragraph [ref=f9e1428]:
+                  - text: Use
+                  - code [ref=f9e1429]: page
+                  - text: or
+                  - code [ref=f9e1430]: pages
+                  - text: plus
+                  - code [ref=f9e1431]: goal
+                  - text: . The MCP server builds the monitor request with a 30-minute schedule and the API enables meaningful-change judging automatically.
+                - paragraph [ref=f9e1432]:
+                  - text: Meaningful-change judging runs automatically when
+                  - code [ref=f9e1433]: goal
+                  - text: is set. Page webhooks expose
+                  - code [ref=f9e1434]: isMeaningful
+                  - text: and
+                  - code [ref=f9e1435]: judgment
+                  - text: "on"
+                  - code [ref=f9e1436]: monitor.page
+                  - text: events.
+                - paragraph [ref=f9e1437]: Write goals as concise 2-3 sentence monitor instructions. Say what should trigger an alert, preserve any scope the user gave, and include intent-specific exclusions only when obvious from the request. Generic noise such as whitespace, formatting-only changes, request IDs, tracking params, generic metadata, and unrelated page chrome is already handled by the judge, so do not repeat it in every goal. If the user is vague, keep the goal broad; if they ask for broad monitoring or "any change", preserve that. If the user says they do not care about something, include that explicitly.
+                - generic [ref=f9e1438]:
+                  - generic [ref=f9e1439]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1440]: "\"firecrawl_monitor_create\""
+                    - text: ", \"arguments\": { \"page\":"
+                    - generic [ref=f9e1441]: "\"https://example.com/pricing\""
+                    - text: ", \"goal\":"
+                    - generic [ref=f9e1442]: "\"Alert when pricing, packaging, or launch messaging changes.\""
+                    - text: "} }"
+                  - button "Copy code to clipboard" [ref=f9e1444] [cursor=pointer]
+                - paragraph [ref=f9e1448]:
+                  - strong [ref=f9e1449]: "Multiple pages with webhooks:"
+                - generic [ref=f9e1450]:
+                  - generic [ref=f9e1451]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1452]: "\"firecrawl_monitor_create\""
+                    - text: ", \"arguments\": { \"pages\": ["
+                    - generic [ref=f9e1453]: "\"https://example.com/pricing\""
+                    - text: ","
+                    - generic [ref=f9e1454]: "\"https://example.com/changelog\""
+                    - text: "], \"goal\":"
+                    - generic [ref=f9e1455]: "\"Alert when pricing, packaging, or launch messaging changes.\""
+                    - text: ", \"webhookUrl\":"
+                    - generic [ref=f9e1456]: "\"https://example.com/webhooks/firecrawl\""
+                    - text: "} }"
+                  - button "Copy code to clipboard" [ref=f9e1458] [cursor=pointer]
+                - paragraph [ref=f9e1462]:
+                  - strong [ref=f9e1463]: "Advanced create requests:"
+                - paragraph [ref=f9e1464]:
+                  - text: Pass
+                  - code [ref=f9e1465]: body
+                  - text: when you need crawl targets, JSON change tracking, custom retention, or explicit
+                  - code [ref=f9e1466]: judgeEnabled
+                  - text: control.
+                - generic [ref=f9e1467]:
+                  - generic [ref=f9e1468]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1469]: "\"firecrawl_monitor_create\""
+                    - text: ", \"arguments\": { \"body\": { \"name\":"
+                    - generic [ref=f9e1470]: "\"Docs monitor\""
+                    - text: ", \"schedule\": { \"text\":"
+                    - generic [ref=f9e1471]: "\"hourly\""
+                    - text: ", \"timezone\":"
+                    - generic [ref=f9e1472]: "\"UTC\""
+                    - text: "}, \"goal\":"
+                    - generic [ref=f9e1473]: "\"Alert when docs pages add, remove, or materially change API behavior.\""
+                    - text: ", \"targets\": [{ \"type\":"
+                    - generic [ref=f9e1474]: "\"crawl\""
+                    - text: ", \"url\":"
+                    - generic [ref=f9e1475]: "\"https://example.com/docs\""
+                    - text: "}] } } }"
+                  - button "Copy code to clipboard" [ref=f9e1477] [cursor=pointer]
+                - paragraph [ref=f9e1481]:
+                  - strong [ref=f9e1482]: "Other monitor tools:"
+                - list [ref=f9e1483]:
+                  - listitem [ref=f9e1484]:
+                    - code [ref=f9e1485]: firecrawl_monitor_list
+                    - text: ": list monitors."
+                  - listitem [ref=f9e1486]:
+                    - code [ref=f9e1487]: firecrawl_monitor_get
+                    - text: ": get one monitor."
+                  - listitem [ref=f9e1488]:
+                    - code [ref=f9e1489]: firecrawl_monitor_update
+                    - text: ": update fields including"
+                    - code [ref=f9e1490]: goal
+                    - text: ","
+                    - code [ref=f9e1491]: judgeEnabled
+                    - text: ","
+                    - code [ref=f9e1492]: webhook
+                    - text: ", and"
+                    - code [ref=f9e1493]: notification
+                    - text: .
+                  - listitem [ref=f9e1494]:
+                    - code [ref=f9e1495]: firecrawl_monitor_run
+                    - text: ": trigger a check now."
+                  - listitem [ref=f9e1496]:
+                    - code [ref=f9e1497]: firecrawl_monitor_delete
+                    - text: ": delete a monitor (destructive; only call when the user intends to remove it)."
+                  - listitem [ref=f9e1498]:
+                    - code [ref=f9e1499]: firecrawl_monitor_checks
+                    - text: ": list checks, optionally filtered by status."
+                  - listitem [ref=f9e1500]:
+                    - code [ref=f9e1501]: firecrawl_monitor_check
+                    - text: ": get page-level results, including"
+                    - code [ref=f9e1502]: diff
+                    - text: ","
+                    - code [ref=f9e1503]: snapshot
+                    - text: ","
+                    - code [ref=f9e1504]: judgment.meaningful
+                    - text: ", and"
+                    - code [ref=f9e1505]: judgment.meaningfulChanges
+                    - text: .
+                - generic [ref=f9e1506]:
+                  - heading [level=3] [ref=f9e1507]:
+                    - text: 14. Developer Search Tool (
+                    - code [ref=f9e1508]: firecrawl_developer_search
+                    - text: )
+                  - 'link "Permalink: 14. Developer Search Tool (firecrawl_developer_search)" [ref=f9e1509] [cursor=pointer]':
+                    - /url: "#14-developer-search-tool-firecrawl_developer_search"
+                - paragraph [ref=f9e1512]: Search an index built for coding agents. The index covers GitHub issues, merged pull requests, repository READMEs, and curated documentation sites.
+                - paragraph [ref=f9e1513]:
+                  - strong [ref=f9e1514]: "Best for:"
+                  - text: A programming question — code behaviour, a library or framework, an API contract, an error message, or a known bug.
+                - paragraph [ref=f9e1515]:
+                  - strong [ref=f9e1516]: "Arguments:"
+                - generic [ref=f9e1517]:
+                  - generic [ref=f9e1518]:
+                    - text: "{ \"name\":"
+                    - generic [ref=f9e1519]: "\"firecrawl_developer_search\""
+                    - text: ", \"arguments\": { \"query\":"
+                    - generic [ref=f9e1520]: "\"how do I configure retries\""
+                    - text: ", \"k\": 10, \"skills\":"
+                    - generic [ref=f9e1521]: "\"only\""
+                    - text: "} }"
+                  - button "Copy code to clipboard" [ref=f9e1523] [cursor=pointer]
+                - list [ref=f9e1527]:
+                  - listitem [ref=f9e1528]:
+                    - code [ref=f9e1529]: query
+                    - text: "(required): the developer question or search phrase."
+                  - listitem [ref=f9e1530]:
+                    - code [ref=f9e1531]: k
+                    - text: ": number of ranked results. The default is 10 and the maximum is 100."
+                  - listitem [ref=f9e1532]:
+                    - code [ref=f9e1533]: skills
+                    - text: ": set to"
+                    - code [ref=f9e1534]: "\"only\""
+                    - text: to search agent-skill files alone.
+                - paragraph [ref=f9e1535]:
+                  - strong [ref=f9e1536]: "Returns:"
+                  - text: Ranked results. Each result carries an ID, a source type (
+                  - code [ref=f9e1537]: issue
+                  - text: ","
+                  - code [ref=f9e1538]: pull_request
+                  - text: ","
+                  - code [ref=f9e1539]: readme
+                  - text: ", or"
+                  - code [ref=f9e1540]: doc
+                  - text: ), a URL, a title, and the matched passages in markdown.
+                - paragraph [ref=f9e1541]:
+                  - code [ref=f9e1542]: firecrawl_search
+                  - text: with
+                  - code [ref=f9e1543]: "categories: [\"developer\"]"
+                  - text: searches the same index beside the web results. Use this tool instead when you want the matched passages, the
+                  - code [ref=f9e1544]: skills
+                  - text: filter, or no web results in the response. The search-only endpoint exposes both tools, and the same choice applies there.
+                - generic [ref=f9e1545]:
+                  - heading "Logging System" [level=2] [ref=f9e1546]
+                  - 'link "Permalink: Logging System" [ref=f9e1547] [cursor=pointer]':
+                    - /url: "#logging-system"
+                - paragraph [ref=f9e1550]: "The server includes comprehensive logging:"
+                - list [ref=f9e1551]:
+                  - listitem [ref=f9e1552]: Operation status and progress
+                  - listitem [ref=f9e1553]: Performance metrics
+                  - listitem [ref=f9e1554]: Rate limit tracking
+                  - listitem [ref=f9e1555]: Error conditions
+                - paragraph [ref=f9e1556]: "Example log messages:"
+                - generic [ref=f9e1557]:
+                  - code [ref=f9e1559]: "[INFO] Firecrawl MCP Server initialized successfully [INFO] Starting scrape for URL: https://example.com [ERROR] Rate limit exceeded"
+                  - button "Copy code to clipboard" [ref=f9e1561] [cursor=pointer]
+                - generic [ref=f9e1565]:
+                  - heading "Error Handling" [level=2] [ref=f9e1566]
+                  - 'link "Permalink: Error Handling" [ref=f9e1567] [cursor=pointer]':
+                    - /url: "#error-handling"
+                - paragraph [ref=f9e1570]: "The server provides robust error handling:"
+                - list [ref=f9e1571]:
+                  - listitem [ref=f9e1572]: API rate-limit errors surfaced to the MCP client
+                  - listitem [ref=f9e1573]: Detailed error messages
+                  - listitem [ref=f9e1574]: Network resilience
+                - paragraph [ref=f9e1575]: "Example error response:"
+                - generic [ref=f9e1576]:
+                  - generic [ref=f9e1577]:
+                    - text: "{ \"content\": [ { \"type\":"
+                    - generic [ref=f9e1578]: "\"text\""
+                    - text: ", \"text\":"
+                    - generic [ref=f9e1579]: "\"Error: Rate limit exceeded\""
+                    - text: "} ], \"isError\": true }"
+                  - button "Copy code to clipboard" [ref=f9e1581] [cursor=pointer]
+                - generic [ref=f9e1585]:
+                  - heading "Development" [level=2] [ref=f9e1586]
+                  - 'link "Permalink: Development" [ref=f9e1587] [cursor=pointer]':
+                    - /url: "#development"
+                - generic [ref=f9e1590]:
+                  - generic [ref=f9e1591]:
+                    - generic [ref=f9e1592]: "# Install dependencies"
+                    - text: npm install
+                    - generic [ref=f9e1593]: "# Build"
+                    - text: npm run build
+                    - generic [ref=f9e1594]: "# Run tests"
+                    - text: npm test
+                  - button "Copy code to clipboard" [ref=f9e1596] [cursor=pointer]
+                - generic [ref=f9e1600]:
+                  - heading "Contributing" [level=3] [ref=f9e1601]
+                  - 'link "Permalink: Contributing" [ref=f9e1602] [cursor=pointer]':
+                    - /url: "#contributing"
+                - list [ref=f9e1605]:
+                  - listitem [ref=f9e1606]: Fork the repository
+                  - listitem [ref=f9e1607]: Create your feature branch
+                  - listitem [ref=f9e1608]:
+                    - text: "Run tests:"
+                    - code [ref=f9e1609]: npm test
+                  - listitem [ref=f9e1610]: Submit a pull request
+                - generic [ref=f9e1611]:
+                  - heading "Thanks to contributors" [level=3] [ref=f9e1612]
+                  - 'link "Permalink: Thanks to contributors" [ref=f9e1613] [cursor=pointer]':
+                    - /url: "#thanks-to-contributors"
+                - paragraph [ref=f9e1616]:
+                  - text: Thanks to
+                  - link "@vrknetha" [ref=f9e1617] [cursor=pointer]:
+                    - /url: https://github.com/vrknetha
+                  - text: ","
+                  - link "@cawstudios" [ref=f9e1618] [cursor=pointer]:
+                    - /url: https://caw.tech
+                  - text: for the initial implementation!
+                - paragraph [ref=f9e1619]:
+                  - text: Thanks to MCP.so and Klavis AI for hosting and
+                  - link "@gstarwd" [ref=f9e1620] [cursor=pointer]:
+                    - /url: https://github.com/gstarwd
+                  - text: ","
+                  - link "@xiangkaiz" [ref=f9e1621] [cursor=pointer]:
+                    - /url: https://github.com/xiangkaiz
+                  - text: and
+                  - link "@zihaolin96" [ref=f9e1622] [cursor=pointer]:
+                    - /url: https://github.com/zihaolin96
+                  - text: for integrating our server.
+                - generic [ref=f9e1623]:
+                  - heading "License" [level=2] [ref=f9e1624]
+                  - 'link "Permalink: License" [ref=f9e1625] [cursor=pointer]':
+                    - /url: "#license"
+                - paragraph [ref=f9e1628]: MIT License - see LICENSE file for details
+        - generic [ref=f9e1631]:
+          - heading "Releases" [level=2] [ref=f9e1633]
+          - heading "Packages" [level=2] [ref=f9e1637]
+          - heading "Used by" [level=2] [ref=f9e1640]
+          - heading "Contributors" [level=2] [ref=f9e1643]
+          - heading "Languages" [level=2] [ref=f9e1646]
+    - contentinfo [ref=f9e1649]:
+      - heading "Footer" [level=2] [ref=f9e1650]
+      - generic [ref=f9e1651]:
+        - generic [ref=f9e1652]:
+          - link "GitHub Homepage" [ref=f9e1653] [cursor=pointer]:
+            - /url: https://github.com
+          - generic [ref=f9e1656]: © 2026 GitHub, Inc.
+        - navigation "Footer" [ref=f9e1657]:
+          - heading "Footer navigation" [level=3] [ref=f9e1658]
+          - list "Footer navigation" [ref=f9e1659]:
+            - listitem [ref=f9e1660]:
+              - link "Terms" [ref=f9e1661] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+            - listitem [ref=f9e1662]:
+              - link "Privacy" [ref=f9e1663] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+            - listitem [ref=f9e1664]:
+              - link "Security" [ref=f9e1665] [cursor=pointer]:
+                - /url: https://github.com/security
+            - listitem [ref=f9e1666]:
+              - link "Status" [ref=f9e1667] [cursor=pointer]:
+                - /url: https://www.githubstatus.com/
+            - listitem [ref=f9e1668]:
+              - link "Community" [ref=f9e1669] [cursor=pointer]:
+                - /url: https://github.community/
+            - listitem [ref=f9e1670]:
+              - link "Docs" [ref=f9e1671] [cursor=pointer]:
+                - /url: https://docs.github.com/
+            - listitem [ref=f9e1672]:
+              - link "Contact" [ref=f9e1673] [cursor=pointer]:
+                - /url: https://support.github.com?tags=dotcom-footer
+            - listitem [ref=f9e1674]:
+              - button "Manage cookies" [ref=f9e1676] [cursor=pointer]
+            - listitem [ref=f9e1677]:
+              - button "Do not share my personal information" [ref=f9e1679] [cursor=pointer]
+  - alert [ref=f9e1682]

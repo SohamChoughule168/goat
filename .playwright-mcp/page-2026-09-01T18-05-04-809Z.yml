@@ -1,0 +1,1360 @@
+- generic [active] [ref=f25e1]:
+  - generic [ref=f25e2]:
+    - generic [ref=f25e3]:
+      - link "Skip to content" [ref=f25e4] [cursor=pointer]:
+        - /url: "#start-of-content"
+      - banner [ref=f25e9]:
+        - heading "Navigation Menu" [level=2] [ref=f25e10]
+        - generic [ref=f25e12]:
+          - button "Toggle navigation" [ref=f25e14] [cursor=pointer]
+          - link "Homepage" [ref=f25e18] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f25e21]:
+            - link "Sign in" [ref=f25e22] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fneondatabase%2Fmcp-server-neon
+            - button "Appearance settings" [ref=f25e25] [cursor=pointer]
+    - main [ref=f25e32]:
+      - generic [ref=f25e33]:
+        - generic [ref=f25e36]:
+          - link "neondatabase" [ref=f25e40] [cursor=pointer]:
+            - /url: /neondatabase
+          - generic [ref=f25e41]: /
+          - strong [ref=f25e42]:
+            - link "mcp-server-neon" [ref=f25e43] [cursor=pointer]:
+              - /url: /neondatabase/mcp-server-neon
+          - generic [ref=f25e44]: Public
+        - navigation "Repository" [ref=f25e45]:
+          - list [ref=f25e46]:
+            - listitem [ref=f25e47]:
+              - link "Code" [ref=f25e48] [cursor=pointer]:
+                - /url: /neondatabase/mcp-server-neon
+            - listitem [ref=f25e52]:
+              - link "Issues 12" [ref=f25e53] [cursor=pointer]:
+                - /url: /neondatabase/mcp-server-neon/issues
+                - generic [ref=f25e57]: Issues
+                - generic "12" [ref=f25e58]
+            - listitem [ref=f25e59]:
+              - link "Pull requests 24" [ref=f25e60] [cursor=pointer]:
+                - /url: /neondatabase/mcp-server-neon/pulls
+                - generic [ref=f25e63]: Pull requests
+                - generic "24" [ref=f25e64]
+            - listitem [ref=f25e65]:
+              - link "Actions" [ref=f25e66] [cursor=pointer]:
+                - /url: /neondatabase/mcp-server-neon/actions
+            - listitem [ref=f25e70]:
+              - link "Security and quality" [ref=f25e71] [cursor=pointer]:
+                - /url: /neondatabase/mcp-server-neon/security
+            - listitem [ref=f25e75]
+          - button "Additional navigation options" [ref=f25e79] [cursor=pointer]
+      - generic [ref=f25e93]:
+        - generic [ref=f25e96]:
+          - generic [ref=f25e97]:
+            - generic [ref=f25e98]:
+              - button "main branch" [ref=f25e100] [cursor=pointer]:
+                - generic [ref=f25e101]: main
+              - generic [ref=f25e105]:
+                - link "Go to Branches page" [ref=f25e106] [cursor=pointer]:
+                  - /url: /neondatabase/mcp-server-neon/branches
+                - link "Go to Tags page" [ref=f25e109] [cursor=pointer]:
+                  - /url: /neondatabase/mcp-server-neon/tags
+            - generic [ref=f25e112]:
+              - button "Go to file" [ref=f25e115] [cursor=pointer]
+              - button "Code" [ref=f25e118] [cursor=pointer]
+          - generic [ref=f25e121]:
+            - generic [ref=f25e122]:
+              - generic [ref=f25e124]:
+                - heading "Latest commit" [level=2] [ref=f25e125]
+                - generic [ref=f25e128]:
+                  - heading "History" [level=2] [ref=f25e129]
+                  - link "View commit history for this file." [ref=f25e131] [cursor=pointer]:
+                    - /url: /neondatabase/mcp-server-neon/commits/main/
+              - heading "Folders and files" [level=2] [ref=f25e133]
+              - table "Folders and files" [ref=f25e134]:
+                - rowgroup:
+                  - row "Name Last commit message Last commit date":
+                    - columnheader "Name"
+                    - columnheader "Last commit message"
+                    - columnheader "Last commit date"
+                - rowgroup [ref=f25e135]:
+                  - row ".agents/skills, (Directory)" [ref=f25e136]:
+                    - cell [ref=f25e137]:
+                      - link ".agents/skills, (Directory)" [ref=f25e144] [cursor=pointer]:
+                        - /url: /neondatabase/mcp-server-neon/tree/main/.agents/skills
+                        - text: .agents/skills
+                    - cell [ref=f25e145]
+                    - cell [ref=f25e147]
+                  - row ".claude/skills, (Directory)" [ref=f25e150]:
+                    - cell [ref=f25e151]:
+                      - link ".claude/skills, (Directory)" [ref=f25e158] [cursor=pointer]:
+                        - /url: /neondatabase/mcp-server-neon/tree/main/.claude/skills
+                        - text: .claude/skills
+                    - cell [ref=f25e159]
+                    - cell [ref=f25e161]
+                  - row ".github, (Directory)" [ref=f25e164]:
+                    - cell [ref=f25e165]:
+                      - link ".github, (Directory)" [ref=f25e172] [cursor=pointer]:
+                        - /url: /neondatabase/mcp-server-neon/tree/main/.github
+                        - text: .github
+                    - cell [ref=f25e173]
+                    - cell [ref=f25e175]
+                  - row "ai-notes, (Directory)" [ref=f25e178]:
+                    - cell [ref=f25e179]:
+                      - link "ai-notes, (Directory)" [ref=f25e186] [cursor=pointer]:
+                        - /url: /neondatabase/mcp-server-neon/tree/main/ai-notes
+                        - text: ai-notes
+                    - cell [ref=f25e187]
+                    - cell [ref=f25e189]
+                  - row "app, (Directory)" [ref=f25e192]:
+                    - cell [ref=f25e193]:
+                      - link "app, (Directory)" [ref=f25e200] [cursor=pointer]:
+                        - /url: /neondatabase/mcp-server-neon/tree/main/app
+                        - text: app
+                    - cell [ref=f25e201]
+                    - cell [ref=f25e203]
+                  - row "e2e, (Directory)" [ref=f25e206]:
+                    - cell [ref=f25e207]:
+                      - link "e2e, (Directory)" [ref=f25e214] [cursor=pointer]:
+                        - /url: /neondatabase/mcp-server-neon/tree/main/e2e
+                        - text: e2e
+                    - cell [ref=f25e215]
+                    - cell [ref=f25e217]
+                  - row "lib, (Directory)" [ref=f25e220]:
+                    - cell [ref=f25e221]:
+                      - link "lib, (Directory)" [ref=f25e228] [cursor=pointer]:
+                        - /url: /neondatabase/mcp-server-neon/tree/main/lib
+                        - text: lib
+                    - cell [ref=f25e229]
+                    - cell [ref=f25e231]
+                  - row "mcp, (Directory)" [ref=f25e234]:
+                    - cell [ref=f25e235]:
+                      - link "mcp, (Directory)" [ref=f25e242] [cursor=pointer]:
+                        - /url: /neondatabase/mcp-server-neon/tree/main/mcp
+                        - text: mcp
+                    - cell [ref=f25e243]
+                    - cell [ref=f25e245]
+                  - row "public, (Directory)" [ref=f25e248]:
+                    - cell [ref=f25e249]:
+                      - link "public, (Directory)" [ref=f25e256] [cursor=pointer]:
+                        - /url: /neondatabase/mcp-server-neon/tree/main/public
+                        - text: public
+                    - cell [ref=f25e257]
+                    - cell [ref=f25e259]
+                  - row "scripts, (Directory)" [ref=f25e262]:
+                    - cell [ref=f25e263]:
+                      - link "scripts, (Directory)" [ref=f25e270] [cursor=pointer]:
+                        - /url: /neondatabase/mcp-server-neon/tree/main/scripts
+                        - text: scripts
+                    - cell [ref=f25e271]
+                    - cell [ref=f25e273]
+                  - row [ref=f25e276]:
+                    - cell [ref=f25e277] [cursor=pointer]:
+                      - button "View all files" [ref=f25e279]
+            - generic [ref=f25e281]:
+              - generic [ref=f25e282]:
+                - heading "Repository files navigation" [level=2] [ref=f25e283]
+                - navigation "Repository files" [ref=f25e284]:
+                  - list [ref=f25e285]:
+                    - listitem [ref=f25e286]:
+                      - link "README" [ref=f25e287] [cursor=pointer]:
+                        - /url: "#"
+                    - listitem [ref=f25e289]:
+                      - link "Contributing" [ref=f25e290] [cursor=pointer]:
+                        - /url: "#"
+                    - listitem [ref=f25e292]:
+                      - link "MIT license" [ref=f25e293] [cursor=pointer]:
+                        - /url: "#"
+                - button "Outline" [ref=f25e295] [cursor=pointer]
+              - article [ref=f25e299]:
+                - img "Neon Logo fallback" [ref=f25e302]
+                - generic [ref=f25e303]:
+                  - heading "Neon MCP Server" [level=1] [ref=f25e304]
+                  - 'link "Permalink: Neon MCP Server" [ref=f25e305] [cursor=pointer]':
+                    - /url: "#neon-mcp-server"
+                - paragraph [ref=f25e308]:
+                  - link [ref=f25e309] [cursor=pointer]:
+                    - /url: https://cursor.com/en-US/install-mcp?name=Neon&config=eyJ1cmwiOiJodHRwczovL21jcC5uZW9uLnRlY2gvbWNwP2NhdGVnb3J5PXByb2plY3RzJmNhdGVnb3J5PWJyYW5jaGVzJmNhdGVnb3J5PWVuZHBvaW50cyZjYXRlZ29yeT1xdWVyeWluZyZjYXRlZ29yeT1zY2hlbWEifQ%3D%3D
+                    - img "Install MCP Server in Cursor" [ref=f25e310]
+                  - link [ref=f25e311] [cursor=pointer]:
+                    - /url: https://kiro.dev/launch/mcp/add?name=Neon&config=%7B%22url%22%3A%22https%3A%2F%2Fmcp.neon.tech%2Fmcp%3Fcategory%3Dprojects%26category%3Dbranches%26category%3Dendpoints%26category%3Dquerying%26category%3Dschema%22%7D
+                    - img "Add to Kiro" [ref=f25e312]
+                - paragraph [ref=f25e313]:
+                  - strong [ref=f25e314]: Neon MCP Server
+                  - text: is an open-source tool that lets you interact with your Lakebase Postgres databases on Neon in
+                  - strong [ref=f25e315]: natural language
+                  - text: .
+                - paragraph [ref=f25e316]:
+                  - link [ref=f25e317] [cursor=pointer]:
+                    - /url: https://opensource.org/licenses/MIT
+                    - 'img "License: MIT" [ref=f25e318]'
+                - paragraph [ref=f25e319]:
+                  - text: The Model Context Protocol (MCP) is a
+                  - link "standardized protocol" [ref=f25e320] [cursor=pointer]:
+                    - /url: https://modelcontextprotocol.io
+                  - text: designed to manage context between large language models (LLMs) and external systems. This repository provides a remote MCP Server for
+                  - link "Neon" [ref=f25e321] [cursor=pointer]:
+                    - /url: https://neon.com
+                  - text: .
+                - paragraph [ref=f25e322]:
+                  - text: Neon's MCP server acts as a bridge between natural language requests and the
+                  - link "Neon API" [ref=f25e323] [cursor=pointer]:
+                    - /url: https://neon.com/docs/reference/api
+                  - text: . Built upon MCP, it translates your requests into the necessary API calls, enabling you to manage tasks such as creating projects and branches, running queries, and performing database migrations seamlessly.
+                - paragraph [ref=f25e324]: "Some of the key features of the Neon MCP server include:"
+                - list [ref=f25e325]:
+                  - listitem [ref=f25e326]:
+                    - strong [ref=f25e327]: "Natural language interaction:"
+                    - text: Manage Neon databases using intuitive, conversational commands.
+                  - listitem [ref=f25e328]:
+                    - strong [ref=f25e329]: "Simplified database management:"
+                    - text: Perform complex actions without writing SQL or directly using the Neon API.
+                  - listitem [ref=f25e330]:
+                    - strong [ref=f25e331]: "Accessibility for non-developers:"
+                    - text: Empower users with varying technical backgrounds to interact with Neon databases.
+                  - listitem [ref=f25e332]:
+                    - strong [ref=f25e333]: "Database migration support:"
+                    - text: Leverage Neon's branching capabilities for database schema changes initiated via natural language.
+                - paragraph [ref=f25e334]: "For example, in Claude Code, or any MCP Client, you can use natural language to accomplish things with Neon, such as:"
+                - list [ref=f25e335]:
+                  - listitem [ref=f25e336]:
+                    - code [ref=f25e337]: "Let's create a new Postgres database, and call it \"my-database\". Let's then create a table called users with the following columns: id, name, email, and password."
+                  - listitem [ref=f25e338]:
+                    - code [ref=f25e339]: I want to run a migration on my project called "my-project" that alters the users table to add a new column called "created_at".
+                  - listitem [ref=f25e340]:
+                    - code [ref=f25e341]: Can you give me a summary of all of my Neon projects and what data is in each one?
+                - generic [ref=f25e342]:
+                  - paragraph [ref=f25e343]: Warning
+                  - paragraph [ref=f25e346]:
+                    - strong [ref=f25e347]: Neon MCP Server Security Considerations
+                    - text: The Neon MCP Server grants powerful database management capabilities through natural language requests.
+                    - strong [ref=f25e348]: Always review and authorize actions requested by the LLM before execution.
+                    - text: Ensure that only authorized users and applications have access to the Neon MCP Server.
+                  - paragraph [ref=f25e349]:
+                    - text: The Neon MCP Server is intended for local development and IDE integrations only.
+                    - strong [ref=f25e350]: We do not recommend using the Neon MCP Server in production environments.
+                    - text: It can execute powerful operations that may lead to accidental or unauthorized changes.
+                  - paragraph [ref=f25e351]:
+                    - text: For more information, see
+                    - link "MCP security guidance →" [ref=f25e352] [cursor=pointer]:
+                      - /url: https://neon.com/docs/ai/neon-mcp-server#mcp-security-guidance
+                    - text: .
+                - generic [ref=f25e353]:
+                  - heading "Setting up Neon MCP Server" [level=2] [ref=f25e354]
+                  - 'link "Permalink: Setting up Neon MCP Server" [ref=f25e355] [cursor=pointer]':
+                    - /url: "#setting-up-neon-mcp-server"
+                - paragraph [ref=f25e358]: "There are a few options for setting up the Neon MCP Server:"
+                - list [ref=f25e359]:
+                  - listitem [ref=f25e360]:
+                    - strong [ref=f25e361]: "Quick Setup with API Key (Cursor, VS Code, and Claude Code):"
+                    - text: Run
+                    - link [ref=f25e362] [cursor=pointer]:
+                      - /url: https://neon.com/docs/cli/init
+                      - code [ref=f25e363]: neon@latest init
+                    - text: to automatically configure Neon's MCP Server,
+                    - link "agent skills" [ref=f25e364] [cursor=pointer]:
+                      - /url: https://github.com/neondatabase/agent-skills
+                    - text: ", and VS Code extension with one command."
+                  - listitem [ref=f25e365]:
+                    - strong [ref=f25e366]: "Remote MCP Server (OAuth Based Authentication):"
+                    - text: Connect to Neon's managed MCP server using OAuth for authentication. This method is more convenient as it eliminates the need to manage API keys. Additionally, you will automatically receive the latest features and improvements as soon as they are released.
+                  - listitem [ref=f25e367]:
+                    - strong [ref=f25e368]: "Remote MCP Server (API Key Based Authentication):"
+                    - text: Connect to Neon's managed MCP server using API key for authentication. This method is useful if you want to connect a remote agent to Neon where OAuth is not available. Additionally, you will automatically receive the latest features and improvements as soon as they are released.
+                - generic [ref=f25e369]:
+                  - heading "Prerequisites" [level=3] [ref=f25e370]
+                  - 'link "Permalink: Prerequisites" [ref=f25e371] [cursor=pointer]':
+                    - /url: "#prerequisites"
+                - list [ref=f25e374]:
+                  - listitem [ref=f25e375]: An MCP Client application.
+                  - listitem [ref=f25e376]:
+                    - text: A
+                    - link "Neon account" [ref=f25e377] [cursor=pointer]:
+                      - /url: https://console.neon.tech/signup
+                    - text: .
+                  - listitem [ref=f25e378]:
+                    - strong [ref=f25e379]: "Node.js (>= v18.0.0):"
+                    - text: Download from
+                    - link "nodejs.org" [ref=f25e380] [cursor=pointer]:
+                      - /url: https://nodejs.org
+                    - text: .
+                  - listitem [ref=f25e381]:
+                    - text: If
+                    - link "IP Allow" [ref=f25e382] [cursor=pointer]:
+                      - /url: https://neon.com/docs/introduction/ip-allow
+                    - text: is enabled, add
+                    - code [ref=f25e383]: 34.192.103.46
+                    - text: and
+                    - code [ref=f25e384]: 23.22.233.166
+                    - text: to your allowlist (
+                    - code [ref=f25e385]: mcp.neon.tech
+                    - text: static IPs).
+                - paragraph [ref=f25e386]:
+                  - text: For development, you'll need Node.js 22+ (pnpm is provided via Corepack — run
+                  - code [ref=f25e387]: corepack enable
+                  - text: to activate it).
+                - generic [ref=f25e388]:
+                  - heading "Option 1. Quick Setup with API Key" [level=3] [ref=f25e389]
+                  - 'link "Permalink: Option 1. Quick Setup with API Key" [ref=f25e390] [cursor=pointer]':
+                    - /url: "#option-1-quick-setup-with-api-key"
+                - paragraph [ref=f25e393]:
+                  - strong [ref=f25e394]: Don't want to manually create an API key?
+                - paragraph [ref=f25e395]:
+                  - text: Run
+                  - link [ref=f25e396] [cursor=pointer]:
+                    - /url: https://neon.com/docs/cli/init
+                    - code [ref=f25e397]: neon@latest init
+                  - text: "to automatically configure Neon's MCP Server with one command:"
+                - generic [ref=f25e398]:
+                  - generic [ref=f25e399]: npx neon@latest init
+                  - button "Copy code to clipboard" [ref=f25e401] [cursor=pointer]
+                - paragraph [ref=f25e405]: This works with Cursor, VS Code (GitHub Copilot), and Claude Code. It will authenticate via OAuth, create a Neon API key for you, and configure your editor automatically.
+                - generic [ref=f25e406]:
+                  - heading "Option 2. Remote Hosted MCP Server (OAuth Based Authentication)" [level=3] [ref=f25e407]
+                  - 'link "Permalink: Option 2. Remote Hosted MCP Server (OAuth Based Authentication)" [ref=f25e408] [cursor=pointer]':
+                    - /url: "#option-2-remote-hosted-mcp-server-oauth-based-authentication"
+                - paragraph [ref=f25e411]: Connect to Neon's managed MCP server using OAuth for authentication. This is the easiest setup, requires no local installation of this server, and doesn't need a Neon API key configured in the client.
+                - paragraph [ref=f25e412]: "Run the following command to add the Neon MCP Server for all detected agents and editors in your workspace:"
+                - generic [ref=f25e413]:
+                  - generic [ref=f25e414]:
+                    - text: npx add-mcp
+                    - generic [ref=f25e415]: "\"https://mcp.neon.tech/mcp?category=projects&category=branches&category=endpoints&category=querying&category=schema\""
+                  - button "Copy code to clipboard" [ref=f25e417] [cursor=pointer]
+                - paragraph [ref=f25e421]:
+                  - text: That URL publishes projects, branches, compute endpoints, querying, and schema. Preview it with
+                  - code [ref=f25e422]: /api/list-tools?category=projects&category=branches&category=endpoints&category=querying&category=schema
+                  - text: ". The unfiltered URL publishes every category:"
+                - generic [ref=f25e423]:
+                  - generic [ref=f25e424]: npx add-mcp https://mcp.neon.tech/mcp
+                  - button "Copy code to clipboard" [ref=f25e426] [cursor=pointer]
+                - paragraph [ref=f25e430]:
+                  - text: Add the
+                  - code [ref=f25e431]: "-g"
+                  - text: flag to add the Neon MCP Server to the global MCP server list instead of project-scoped.
+                - paragraph [ref=f25e432]:
+                  - text: Alternatively, you can add the following "Neon" entry to your client's MCP server configuration file (e.g.,
+                  - code [ref=f25e433]: mcp.json
+                  - text: ","
+                  - code [ref=f25e434]: mcp_config.json
+                  - text: "):"
+                - generic [ref=f25e435]:
+                  - generic [ref=f25e436]:
+                    - text: "{ \"mcpServers\": { \"Neon\": { \"type\":"
+                    - generic [ref=f25e437]: "\"http\""
+                    - text: ", \"url\":"
+                    - generic [ref=f25e438]: "\"https://mcp.neon.tech/mcp?category=projects&category=branches&category=endpoints&category=querying&category=schema\""
+                    - text: "} } }"
+                  - button "Copy code to clipboard" [ref=f25e440] [cursor=pointer]
+                - paragraph [ref=f25e444]:
+                  - strong [ref=f25e445]: "Kiro:"
+                  - text: Add the following to your Kiro MCP config file (
+                  - code [ref=f25e446]: ~/.kiro/settings/mcp.json
+                  - text: for global, or
+                  - code [ref=f25e447]: .kiro/settings/mcp.json
+                  - text: "for project-scoped):"
+                - generic [ref=f25e448]:
+                  - generic [ref=f25e449]:
+                    - text: "{ \"mcpServers\": { \"Neon\": { \"url\":"
+                    - generic [ref=f25e450]: "\"https://mcp.neon.tech/mcp?category=projects&category=branches&category=endpoints&category=querying&category=schema\""
+                    - text: "} } }"
+                  - button "Copy code to clipboard" [ref=f25e452] [cursor=pointer]
+                - paragraph [ref=f25e456]:
+                  - text: Or use the one-click install button at the top of this README. For more information, see the
+                  - link "Kiro MCP documentation" [ref=f25e457] [cursor=pointer]:
+                    - /url: https://kiro.dev/docs/mcp/
+                  - text: .
+                - list [ref=f25e458]:
+                  - listitem [ref=f25e459]: Restart or refresh your MCP client.
+                  - listitem [ref=f25e460]: An OAuth window will open in your browser. Follow the prompts to authorize your MCP client to access your Neon account.
+                - blockquote [ref=f25e461]:
+                  - paragraph [ref=f25e462]:
+                    - text: With OAuth-based authentication, the MCP server will, by default, operate on projects under your personal Neon account. To access or manage projects that belong to an organization, you must explicitly provide either the
+                    - code [ref=f25e463]: org_id
+                    - text: or the
+                    - code [ref=f25e464]: project_id
+                    - text: in your prompt to MCP client.
+                - generic [ref=f25e465]:
+                  - heading "Option 3. Remote Hosted MCP Server (API Key Based Authentication)" [level=3] [ref=f25e466]
+                  - 'link "Permalink: Option 3. Remote Hosted MCP Server (API Key Based Authentication)" [ref=f25e467] [cursor=pointer]':
+                    - /url: "#option-3-remote-hosted-mcp-server-api-key-based-authentication"
+                - paragraph [ref=f25e470]:
+                  - text: Remote MCP Server also supports authentication using an API key in the
+                  - code [ref=f25e471]: Authorization
+                  - text: header if your client supports it.
+                - paragraph [ref=f25e472]:
+                  - link "Create a Neon API key" [ref=f25e473] [cursor=pointer]:
+                    - /url: https://console.neon.tech/app/settings?modal=create_api_key
+                  - text: "in the Neon Console. Next, run the following command to add the Neon MCP Server for all detected agents and editors in your workspace:"
+                - generic [ref=f25e474]:
+                  - generic [ref=f25e475]:
+                    - text: npx add-mcp
+                    - generic [ref=f25e476]: "\"https://mcp.neon.tech/mcp?category=projects&category=branches&category=endpoints&category=querying&category=schema\""
+                    - text: "--header"
+                    - generic [ref=f25e477]: "\"Authorization: Bearer <$NEON_API_KEY>\""
+                  - button "Copy code to clipboard" [ref=f25e479] [cursor=pointer]
+                - paragraph [ref=f25e483]:
+                  - text: Alternatively, you can add the following "Neon" entry to your client's MCP server configuration file (e.g.,
+                  - code [ref=f25e484]: mcp.json
+                  - text: ","
+                  - code [ref=f25e485]: mcp_config.json
+                  - text: "):"
+                - generic [ref=f25e486]:
+                  - generic [ref=f25e487]:
+                    - text: "{ \"mcpServers\": { \"Neon\": { \"type\":"
+                    - generic [ref=f25e488]: "\"http\""
+                    - text: ", \"url\":"
+                    - generic [ref=f25e489]: "\"https://mcp.neon.tech/mcp?category=projects&category=branches&category=endpoints&category=querying&category=schema\""
+                    - text: ", \"headers\": { \"Authorization\":"
+                    - generic [ref=f25e490]: "\"Bearer <$NEON_API_KEY>\""
+                    - text: "} } } }"
+                  - button "Copy code to clipboard" [ref=f25e492] [cursor=pointer]
+                - blockquote [ref=f25e496]:
+                  - paragraph [ref=f25e497]: Provide an organization's API key to limit access to projects under the organization only.
+                - generic [ref=f25e498]:
+                  - heading "Scopes and Read-Only Mode" [level=3] [ref=f25e499]
+                  - 'link "Permalink: Scopes and Read-Only Mode" [ref=f25e500] [cursor=pointer]':
+                    - /url: "#scopes-and-read-only-mode"
+                - paragraph [ref=f25e503]:
+                  - text: Neon MCP supports OAuth scopes
+                  - code [ref=f25e504]: read
+                  - text: ","
+                  - code [ref=f25e505]: write
+                  - text: ", and"
+                  - code [ref=f25e506]: "*"
+                  - text: (
+                  - code [ref=f25e507]: "*"
+                  - text: means both). Your MCP client can request these scopes directly, or you can make the selection in the OAuth permissions UI.
+                - paragraph [ref=f25e508]:
+                  - strong [ref=f25e509]: Read-only mode
+                  - text: restricts which tools are available, disabling write operations like creating projects, branches, or running migrations. Read-only tools include listing projects, describing schemas, querying data, and viewing performance metrics.
+                - paragraph [ref=f25e510]: "You can set read-only mode in two ways:"
+                - list [ref=f25e511]:
+                  - listitem [ref=f25e512]:
+                    - strong [ref=f25e513]: "OAuth scope selection (recommended):"
+                    - text: In OAuth, select read-only by unchecking
+                    - strong [ref=f25e514]: Full access
+                    - text: in the authorization UI.
+                  - listitem [ref=f25e515]:
+                    - strong [ref=f25e516]:
+                      - code [ref=f25e517]: readonly
+                      - text: "query param:"
+                    - text: Add
+                    - code [ref=f25e518]: "?readonly=true"
+                    - text: "to your MCP server URL:"
+                - generic [ref=f25e519]:
+                  - generic [ref=f25e520]:
+                    - text: "{ \"mcpServers\": { \"Neon\": { \"url\":"
+                    - generic [ref=f25e521]: "\"https://mcp.neon.tech/mcp?readonly=true\""
+                    - text: "} } }"
+                  - button "Copy code to clipboard" [ref=f25e523] [cursor=pointer]
+                - paragraph [ref=f25e527]: "How the query param behaves:"
+                - list [ref=f25e528]:
+                  - listitem [ref=f25e529]:
+                    - strong [ref=f25e530]: "API key flow:"
+                    - code [ref=f25e531]: readonly=true
+                    - text: is the way to enable read-only mode (there is no OAuth scope exchange in this flow).
+                  - listitem [ref=f25e532]:
+                    - strong [ref=f25e533]: "OAuth flow:"
+                    - code [ref=f25e534]: readonly=true
+                    - text: overrides the OAuth scope. Without it, read-only is determined by the scope selected in the OAuth consent UI.
+                - paragraph [ref=f25e535]:
+                  - text: Legacy HTTP header
+                  - code [ref=f25e536]: x-read-only
+                  - text: is also supported as a fallback (lower priority than the query param).
+                - blockquote [ref=f25e537]:
+                  - paragraph [ref=f25e538]:
+                    - strong [ref=f25e539]: "Note:"
+                    - text: Read-only mode restricts which
+                    - emphasis [ref=f25e540]: tools
+                    - text: are available. Further, the
+                    - code [ref=f25e541]: run_sql
+                    - text: tool remains available only for read-only queries.
+                - generic [ref=f25e542]:
+                  - heading "URL Query Params for Access Control" [level=3] [ref=f25e543]
+                  - 'link "Permalink: URL Query Params for Access Control" [ref=f25e544] [cursor=pointer]':
+                    - /url: "#url-query-params-for-access-control"
+                - paragraph [ref=f25e547]: Grant context (scope categories, project scoping, read-only mode) is configured via URL query params on the MCP server URL. Config travels with every request and takes effect immediately — no re-auth needed.
+                - table [ref=f25e549]:
+                  - rowgroup [ref=f25e550]:
+                    - row [ref=f25e551]:
+                      - columnheader "Param" [ref=f25e552]
+                      - columnheader "Description" [ref=f25e553]
+                      - columnheader "Example" [ref=f25e554]
+                  - rowgroup [ref=f25e555]:
+                    - row [ref=f25e556]:
+                      - cell [ref=f25e557]:
+                        - code [ref=f25e558]: readonly
+                      - cell [ref=f25e559]:
+                        - text: Enable read-only mode (
+                        - code [ref=f25e560]: "true"
+                        - text: /
+                        - code [ref=f25e561]: "false"
+                        - text: )
+                      - cell [ref=f25e562]:
+                        - code [ref=f25e563]: "?readonly=true"
+                    - row [ref=f25e564]:
+                      - cell [ref=f25e565]:
+                        - code [ref=f25e566]: category
+                      - cell "Restrict to specific tool categories (repeated or CSV)" [ref=f25e567]
+                      - cell [ref=f25e568]:
+                        - code [ref=f25e569]: "?category=querying&category=schema"
+                    - row [ref=f25e570]:
+                      - cell [ref=f25e571]:
+                        - code [ref=f25e572]: projectId
+                      - cell "Scope all operations to a single project" [ref=f25e573]
+                      - cell [ref=f25e574]:
+                        - code [ref=f25e575]: "?projectId=proj-123"
+                - paragraph [ref=f25e576]:
+                  - strong [ref=f25e577]: "Read-only + project-scoped example:"
+                - generic [ref=f25e578]:
+                  - generic [ref=f25e579]:
+                    - text: "{ \"mcpServers\": { \"Neon\": { \"url\":"
+                    - generic [ref=f25e580]: "\"https://mcp.neon.tech/mcp?readonly=true&projectId=my-project-id\""
+                    - text: "} } }"
+                  - button "Copy code to clipboard" [ref=f25e582] [cursor=pointer]
+                - paragraph [ref=f25e586]:
+                  - strong [ref=f25e587]: "Category-filtered example (only querying and schema tools):"
+                - generic [ref=f25e588]:
+                  - generic [ref=f25e589]:
+                    - text: "{ \"mcpServers\": { \"Neon\": { \"url\":"
+                    - generic [ref=f25e590]: "\"https://mcp.neon.tech/mcp?category=querying&category=schema\""
+                    - text: "} } }"
+                  - button "Copy code to clipboard" [ref=f25e592] [cursor=pointer]
+                - paragraph [ref=f25e596]:
+                  - text: You can preview which tools are visible for any configuration using the
+                  - code [ref=f25e597]: /api/list-tools
+                  - text: "endpoint (no auth required):"
+                - generic [ref=f25e598]:
+                  - generic [ref=f25e599]:
+                    - text: curl
+                    - generic [ref=f25e600]: "\"https://mcp.neon.tech/api/list-tools?readonly=true&category=querying\""
+                  - button "Copy code to clipboard" [ref=f25e602] [cursor=pointer]
+                - group [ref=f25e606]:
+                  - strong [ref=f25e608] [cursor=pointer]: Tools available in read-only mode
+                - generic [ref=f25e609]:
+                  - heading "Server-Sent Events (SSE) Transport (Deprecated)" [level=3] [ref=f25e610]
+                  - 'link "Permalink: Server-Sent Events (SSE) Transport (Deprecated)" [ref=f25e611] [cursor=pointer]':
+                    - /url: "#server-sent-events-sse-transport-deprecated"
+                - paragraph [ref=f25e614]:
+                  - text: "MCP supports two remote server transports: the deprecated Server-Sent Events (SSE) and the newer, recommended Streamable HTTP. If your LLM client doesn't support Streamable HTTP yet, you can switch the endpoint from"
+                  - code [ref=f25e615]: https://mcp.neon.tech/mcp
+                  - text: to
+                  - code [ref=f25e616]: https://mcp.neon.tech/sse
+                  - text: to use SSE instead.
+                - paragraph [ref=f25e617]: "Run the following command to add the Neon MCP Server for all detected agents and editors in your workspace using the SSE transport:"
+                - generic [ref=f25e618]:
+                  - generic [ref=f25e619]: npx add-mcp https://mcp.neon.tech/sse --type sse
+                  - button "Copy code to clipboard" [ref=f25e621] [cursor=pointer]
+                - generic [ref=f25e625]:
+                  - heading "Remote Server Architecture" [level=2] [ref=f25e626]
+                  - 'link "Permalink: Remote Server Architecture" [ref=f25e627] [cursor=pointer]':
+                    - /url: "#remote-server-architecture"
+                - paragraph [ref=f25e630]:
+                  - text: The remote server runs as a Next.js App Router application on Vercel at
+                  - code [ref=f25e631]: mcp.neon.tech
+                  - text: .
+                - generic [ref=f25e632]:
+                  - paragraph [ref=f25e633]: Note
+                  - paragraph [ref=f25e636]:
+                    - text: The root
+                    - code [ref=f25e637]: /
+                    - text: path redirects to
+                    - link "Neon MCP Server docs" [ref=f25e638] [cursor=pointer]:
+                      - /url: https://neon.com/docs/ai/neon-mcp-server
+                    - text: . There is no landing page.
+                - paragraph [ref=f25e639]: "Core implementation areas:"
+                - list [ref=f25e640]:
+                  - listitem [ref=f25e641]:
+                    - code [ref=f25e642]: app/api/[transport]/route.ts
+                    - text: ": MCP transport endpoint for Streamable HTTP ("
+                    - code [ref=f25e643]: /mcp
+                    - text: ) and SSE (
+                    - code [ref=f25e644]: /sse
+                    - text: )
+                  - listitem [ref=f25e645]:
+                    - code [ref=f25e646]: app/api/authorize/
+                    - text: ","
+                    - code [ref=f25e647]: app/callback/
+                    - text: ","
+                    - code [ref=f25e648]: app/api/token/
+                    - text: ","
+                    - code [ref=f25e649]: app/api/revoke/
+                    - text: ": OAuth flow endpoints"
+                  - listitem [ref=f25e650]:
+                    - code [ref=f25e651]: app/.well-known/
+                    - text: ": OAuth discovery metadata endpoints"
+                  - listitem [ref=f25e652]:
+                    - code [ref=f25e653]: mcp/
+                    - text: ": MCP server, tools, handlers, analytics, and Sentry integration"
+                  - listitem [ref=f25e654]:
+                    - code [ref=f25e655]: lib/
+                    - text: ": Next.js-compatible helpers (OAuth, configuration, error handling)"
+                  - listitem [ref=f25e656]:
+                    - code [ref=f25e657]: mcp/utils/read-only.ts
+                    - text: ": read-only mode and scope handling"
+                - generic [ref=f25e658]:
+                  - heading "Guides" [level=2] [ref=f25e659]
+                  - 'link "Permalink: Guides" [ref=f25e660] [cursor=pointer]':
+                    - /url: "#guides"
+                - list [ref=f25e663]:
+                  - listitem [ref=f25e664]:
+                    - link "Neon MCP Server Guide" [ref=f25e665] [cursor=pointer]:
+                      - /url: https://neon.com/docs/ai/neon-mcp-server
+                  - listitem [ref=f25e666]:
+                    - link "Connect MCP Clients to Neon" [ref=f25e667] [cursor=pointer]:
+                      - /url: https://neon.com/docs/ai/connect-mcp-clients-to-neon
+                  - listitem [ref=f25e668]:
+                    - link "Cursor with Neon MCP Server" [ref=f25e669] [cursor=pointer]:
+                      - /url: https://neon.com/guides/cursor-mcp-neon
+                  - listitem [ref=f25e670]:
+                    - link "Claude Code with Neon MCP Server" [ref=f25e671] [cursor=pointer]:
+                      - /url: https://neon.com/guides/claude-code-mcp-neon
+                  - listitem [ref=f25e672]:
+                    - link "Claude Desktop with Neon MCP Server" [ref=f25e673] [cursor=pointer]:
+                      - /url: https://neon.com/guides/neon-mcp-server
+                  - listitem [ref=f25e674]:
+                    - link "Cline with Neon MCP Server" [ref=f25e675] [cursor=pointer]:
+                      - /url: https://neon.com/guides/cline-mcp-neon
+                  - listitem [ref=f25e676]:
+                    - link "Windsurf with Neon MCP Server" [ref=f25e677] [cursor=pointer]:
+                      - /url: https://neon.com/guides/windsurf-mcp-neon
+                  - listitem [ref=f25e678]:
+                    - link "Zed with Neon MCP Server" [ref=f25e679] [cursor=pointer]:
+                      - /url: https://neon.com/guides/zed-mcp-neon
+                - generic [ref=f25e680]:
+                  - heading "Features" [level=2] [ref=f25e681]
+                  - 'link "Permalink: Features" [ref=f25e682] [cursor=pointer]':
+                    - /url: "#features"
+                - generic [ref=f25e685]:
+                  - heading "Supported Tools" [level=3] [ref=f25e686]
+                  - 'link "Permalink: Supported Tools" [ref=f25e687] [cursor=pointer]':
+                    - /url: "#supported-tools"
+                - paragraph [ref=f25e690]: The Neon MCP Server provides the following actions, which are exposed as "tools" to MCP Clients. You can use these tools to interact with your Neon projects and databases using natural language commands.
+                - generic [ref=f25e691]:
+                  - heading "Tool Scope Metadata" [level=4] [ref=f25e692]
+                  - 'link "Permalink: Tool Scope Metadata" [ref=f25e693] [cursor=pointer]':
+                    - /url: "#tool-scope-metadata"
+                - paragraph [ref=f25e696]:
+                  - text: Each tool definition includes a
+                  - code [ref=f25e697]: scope
+                  - text: "category used for grant-based tool filtering and consent UX. Current categories are:"
+                - list [ref=f25e698]:
+                  - listitem [ref=f25e699]:
+                    - code [ref=f25e700]: projects
+                  - listitem [ref=f25e701]:
+                    - code [ref=f25e702]: branches
+                  - listitem [ref=f25e703]:
+                    - code [ref=f25e704]: endpoints
+                  - listitem [ref=f25e705]:
+                    - code [ref=f25e706]: snapshots
+                  - listitem [ref=f25e707]:
+                    - code [ref=f25e708]: schema
+                  - listitem [ref=f25e709]:
+                    - code [ref=f25e710]: querying
+                  - listitem [ref=f25e711]:
+                    - code [ref=f25e712]: neon_auth
+                  - listitem [ref=f25e713]:
+                    - code [ref=f25e714]: data_api
+                  - listitem [ref=f25e715]:
+                    - code [ref=f25e716]: observability
+                  - listitem [ref=f25e717]:
+                    - code [ref=f25e718]: docs
+                  - listitem [ref=f25e719]:
+                    - code [ref=f25e720]: functions
+                  - listitem [ref=f25e721]:
+                    - code [ref=f25e722]: storage
+                  - listitem [ref=f25e723]:
+                    - code [ref=f25e724]: "null"
+                    - text: (tools without a scope category)
+                - paragraph [ref=f25e725]: "Notes:"
+                - list [ref=f25e726]:
+                  - listitem [ref=f25e727]:
+                    - text: Management API tools come from
+                    - code [ref=f25e728]: "@neon/tools"
+                    - text: . Selectors are SDK paths (
+                    - code [ref=f25e729]: projects.list
+                    - text: ); published MCP names are verb-first (
+                    - code [ref=f25e730]: list_projects
+                    - text: ","
+                    - code [ref=f25e731]: delete_project
+                    - text: ","
+                    - code [ref=f25e732]: query_logs
+                    - text: ). Historical names stay where they already existed (
+                    - code [ref=f25e733]: describe_project
+                    - text: ","
+                    - code [ref=f25e734]: create_branch
+                    - text: ","
+                    - code [ref=f25e735]: reset_from_parent
+                    - text: ","
+                    - code [ref=f25e736]: compare_database_schema
+                    - text: ","
+                    - code [ref=f25e737]: provision_neon_auth
+                    - text: ","
+                    - code [ref=f25e738]: provision_neon_data_api
+                    - text: ","
+                    - code [ref=f25e739]: list_branch_computes
+                    - text: ).
+                  - listitem [ref=f25e740]:
+                    - code [ref=f25e741]: "?category=branches"
+                    - text: includes branch, role, and database tools (
+                    - code [ref=f25e742]: list_postgres_roles
+                    - text: ","
+                    - code [ref=f25e743]: create_postgres_database
+                    - text: ", …). A token already issued for"
+                    - code [ref=f25e744]: branches
+                    - text: gains those writes. Compute listing is
+                    - code [ref=f25e745]: "?category=endpoints"
+                    - text: . Snapshot restore is
+                    - code [ref=f25e746]: "?category=snapshots"
+                    - text: .
+                  - listitem [ref=f25e747]:
+                    - text: Project member and permission writes are not published.
+                    - code [ref=f25e748]: list_project_members
+                    - text: and
+                    - code [ref=f25e749]: list_project_permissions
+                    - text: are reads.
+                  - listitem [ref=f25e750]:
+                    - text: Schema tools (
+                    - code [ref=f25e751]: "?category=schema"
+                    - text: ) are the host tools
+                    - code [ref=f25e752]: get_database_tables
+                    - text: and
+                    - code [ref=f25e753]: describe_table_schema
+                    - text: ", plus generated"
+                    - code [ref=f25e754]: compare_database_schema
+                    - text: .
+                  - listitem [ref=f25e755]:
+                    - text: Read-only enforcement still relies on
+                    - code [ref=f25e756]: readOnlySafe
+                    - text: and server-side read-only logic;
+                    - code [ref=f25e757]: scope
+                    - text: is category metadata, not a standalone read/write switch.
+                  - listitem [ref=f25e758]:
+                    - text: In project-scoped mode (
+                    - code [ref=f25e759]: "?projectId=..."
+                    - text: ), tools without a project path (
+                    - code [ref=f25e760]: list_projects
+                    - text: ","
+                    - code [ref=f25e761]: create_project
+                    - text: ","
+                    - code [ref=f25e762]: list_organizations
+                    - text: ","
+                    - code [ref=f25e763]: list_regions
+                    - text: ","
+                    - code [ref=f25e764]: search
+                    - text: ","
+                    - code [ref=f25e765]: fetch
+                    - text: ", …) are hidden."
+                    - code [ref=f25e766]: delete_project
+                    - text: is also hidden.
+                - paragraph [ref=f25e767]:
+                  - strong [ref=f25e768]: "Project Management:"
+                - list [ref=f25e769]:
+                  - listitem [ref=f25e770]:
+                    - strong [ref=f25e771]:
+                      - code [ref=f25e772]: list_projects
+                    - text: ": Lists Neon projects."
+                    - code [ref=f25e773]: limit
+                    - text: caps how many items come back.
+                  - listitem [ref=f25e774]:
+                    - strong [ref=f25e775]:
+                      - code [ref=f25e776]: describe_project
+                    - text: ": Fetches a Neon project by id ("
+                    - code [ref=f25e777]: "{ \"project_id\": \"…\" }"
+                    - text: ).
+                  - listitem [ref=f25e778]:
+                    - strong [ref=f25e779]:
+                      - code [ref=f25e780]: create_project
+                    - text: ": Creates a Neon project and waits for the default compute. Does not return a connection string. Arguments are"
+                    - code [ref=f25e781]: "{ \"name\": \"…\", \"org_id\": \"…\", \"region_id\": \"…\" }"
+                    - text: . Call
+                    - code [ref=f25e782]: get_connection_string
+                    - text: after it succeeds.
+                  - listitem [ref=f25e783]:
+                    - strong [ref=f25e784]:
+                      - code [ref=f25e785]: delete_project
+                    - text: ": Deletes an existing Neon project. Arguments are"
+                    - code [ref=f25e786]: "{ \"project_id\": \"…\" }"
+                    - text: .
+                  - listitem [ref=f25e787]:
+                    - strong [ref=f25e788]:
+                      - code [ref=f25e789]: list_organizations
+                    - text: ": Lists all organizations that the current user has access to. Optionally filter by organization name or ID using the search parameter."
+                - paragraph [ref=f25e790]:
+                  - strong [ref=f25e791]: "Branch Management:"
+                - list [ref=f25e792]:
+                  - listitem [ref=f25e793]:
+                    - strong [ref=f25e794]:
+                      - code [ref=f25e795]: list_branches
+                    - text: ": Lists branches in a project. Use it to resolve a branch name to a"
+                    - code [ref=f25e796]: br-…
+                    - text: id.
+                  - listitem [ref=f25e797]:
+                    - strong [ref=f25e798]:
+                      - code [ref=f25e799]: create_branch
+                    - text: ": Creates a branch with a read-write compute and waits until it is ready. Does not return a connection string. Arguments are"
+                    - code [ref=f25e800]: "{ \"project_id\": \"…\", \"name\": \"feature-x\" }"
+                    - text: . Pass
+                    - code [ref=f25e801]: "no_compute: true"
+                    - text: to skip the endpoint. Call
+                    - code [ref=f25e802]: get_connection_string
+                    - text: after it succeeds.
+                  - listitem [ref=f25e803]:
+                    - strong [ref=f25e804]:
+                      - code [ref=f25e805]: reset_from_parent
+                    - text: ": Resets a branch to its parent's current HEAD ("
+                    - code [ref=f25e806]: "{ \"project_id\": \"…\", \"branch_id\": \"br-…\" }"
+                    - text: ). Discards writes since the branch diverged.
+                    - code [ref=f25e807]: preserve_under_name
+                    - text: is required when the branch has children; those children move to the new branch. Parent HEAD only; point-in-time restore is
+                    - code [ref=f25e808]: restore_snapshot
+                    - text: .
+                  - listitem [ref=f25e809]:
+                    - strong [ref=f25e810]:
+                      - code [ref=f25e811]: delete_branch
+                    - text: ": Deletes a branch ("
+                    - code [ref=f25e812]: "{ \"project_id\": \"…\", \"branch_id\": \"br-…\" }"
+                    - text: ).
+                  - listitem [ref=f25e813]:
+                    - strong [ref=f25e814]:
+                      - code [ref=f25e815]: describe_branch
+                    - text: ": Retrieves a tree of databases, schemas, tables, views, and functions on a branch."
+                  - listitem [ref=f25e816]:
+                    - text: Generated branch tools take
+                    - code [ref=f25e817]: branch_id
+                    - text: as a branch id (
+                    - code [ref=f25e818]: br-...
+                    - text: ), not a name.
+                  - listitem [ref=f25e819]:
+                    - strong [ref=f25e820]:
+                      - code [ref=f25e821]: restore_snapshot
+                    - text: ": Restores a snapshot. Pass"
+                    - code [ref=f25e822]: target_branch_id
+                    - text: to restore onto an existing branch; omit it to create a new one.
+                - paragraph [ref=f25e823]:
+                  - strong [ref=f25e824]: Compute endpoints
+                  - text: (
+                  - code [ref=f25e825]: "?category=endpoints"
+                  - text: "):"
+                - list [ref=f25e826]:
+                  - listitem [ref=f25e827]:
+                    - strong [ref=f25e828]:
+                      - code [ref=f25e829]: list_postgres_endpoints
+                    - text: ","
+                    - strong [ref=f25e830]:
+                      - code [ref=f25e831]: list_branch_computes
+                    - text: ","
+                    - strong [ref=f25e832]:
+                      - code [ref=f25e833]: get_postgres_endpoint
+                    - text: ","
+                    - strong [ref=f25e834]:
+                      - code [ref=f25e835]: create_postgres_endpoint
+                    - text: ","
+                    - strong [ref=f25e836]:
+                      - code [ref=f25e837]: update_postgres_endpoint
+                    - text: ","
+                    - strong [ref=f25e838]:
+                      - code [ref=f25e839]: delete_postgres_endpoint
+                    - text: ","
+                    - strong [ref=f25e840]:
+                      - code [ref=f25e841]: start_postgres_endpoint
+                    - text: ","
+                    - strong [ref=f25e842]:
+                      - code [ref=f25e843]: suspend_postgres_endpoint
+                    - text: ","
+                    - strong [ref=f25e844]:
+                      - code [ref=f25e845]: restart_postgres_endpoint
+                - paragraph [ref=f25e846]:
+                  - strong [ref=f25e847]: Snapshots
+                  - text: (
+                  - code [ref=f25e848]: "?category=snapshots"
+                  - text: "):"
+                - list [ref=f25e849]:
+                  - listitem [ref=f25e850]:
+                    - strong [ref=f25e851]:
+                      - code [ref=f25e852]: list_snapshots
+                    - text: ","
+                    - strong [ref=f25e853]:
+                      - code [ref=f25e854]: get_snapshot_schedule
+                    - text: ","
+                    - strong [ref=f25e855]:
+                      - code [ref=f25e856]: set_snapshot_schedule
+                    - text: ","
+                    - strong [ref=f25e857]:
+                      - code [ref=f25e858]: create_snapshot
+                    - text: ","
+                    - strong [ref=f25e859]:
+                      - code [ref=f25e860]: update_snapshot
+                    - text: ","
+                    - strong [ref=f25e861]:
+                      - code [ref=f25e862]: delete_snapshot
+                    - text: ","
+                    - strong [ref=f25e863]:
+                      - code [ref=f25e864]: restore_snapshot
+                - paragraph [ref=f25e865]:
+                  - strong [ref=f25e866]: Schema
+                  - text: (
+                  - code [ref=f25e867]: "?category=schema"
+                  - text: "):"
+                - list [ref=f25e868]:
+                  - listitem [ref=f25e869]:
+                    - strong [ref=f25e870]:
+                      - code [ref=f25e871]: get_database_tables
+                    - text: ","
+                    - strong [ref=f25e872]:
+                      - code [ref=f25e873]: describe_table_schema
+                  - listitem [ref=f25e874]:
+                    - strong [ref=f25e875]:
+                      - code [ref=f25e876]: compare_database_schema
+                    - text: ": SQL schema diff of one database against another branch."
+                    - code [ref=f25e877]: database_name
+                    - text: is required. Omitting
+                    - code [ref=f25e878]: base_branch_id
+                    - text: compares against the parent. Optional
+                    - code [ref=f25e879]: lsn
+                    - text: ","
+                    - code [ref=f25e880]: timestamp
+                    - text: ","
+                    - code [ref=f25e881]: base_lsn
+                    - text: ","
+                    - code [ref=f25e882]: base_timestamp
+                    - text: are point-in-time only.
+                - paragraph [ref=f25e883]:
+                  - strong [ref=f25e884]: "SQL Query Execution:"
+                - list [ref=f25e885]:
+                  - listitem [ref=f25e886]:
+                    - strong [ref=f25e887]:
+                      - code [ref=f25e888]: get_connection_string
+                    - text: ": Returns your database connection string."
+                  - listitem [ref=f25e889]:
+                    - strong [ref=f25e890]:
+                      - code [ref=f25e891]: run_sql
+                    - text: ": Executes a single SQL query against a specified Neon database. Supports both read and write operations."
+                  - listitem [ref=f25e892]:
+                    - strong [ref=f25e893]:
+                      - code [ref=f25e894]: run_sql_transaction
+                    - text: ": Executes a series of SQL queries within a single transaction against a Neon database."
+                  - listitem [ref=f25e895]:
+                    - strong [ref=f25e896]:
+                      - code [ref=f25e897]: get_database_tables
+                    - text: ": Lists all tables within a specified Neon database."
+                  - listitem [ref=f25e898]:
+                    - strong [ref=f25e899]:
+                      - code [ref=f25e900]: describe_table_schema
+                    - text: ": Retrieves the schema definition of a specific table, detailing columns, data types, and constraints."
+                - paragraph [ref=f25e901]:
+                  - strong [ref=f25e902]: "Database Migrations (Schema Changes):"
+                - list [ref=f25e903]:
+                  - listitem [ref=f25e904]:
+                    - strong [ref=f25e905]:
+                      - code [ref=f25e906]: prepare_database_migration
+                    - text: ": Initiates a database migration process. Critically, it creates a temporary branch to apply and test the migration safely before affecting the main branch."
+                  - listitem [ref=f25e907]:
+                    - strong [ref=f25e908]:
+                      - code [ref=f25e909]: complete_database_migration
+                    - text: ": Finalizes and applies a prepared database migration to the main branch. This action merges changes from the temporary migration branch and cleans up temporary resources."
+                - paragraph [ref=f25e910]:
+                  - strong [ref=f25e911]: "SQL Querying and Optimization:"
+                - list [ref=f25e912]:
+                  - listitem [ref=f25e913]:
+                    - strong [ref=f25e914]:
+                      - code [ref=f25e915]: inspect_database
+                    - text: ": Runs one of 15 predefined read-only Postgres diagnostics against a branch — relation and index sizes, index and sequential-scan usage, active queries and locks, the heaviest and most frequent queries, cache hit rate and working-set size, autovacuum and bloat estimates, and replication state. Same checks as the"
+                    - code [ref=f25e916]: neon inspect db
+                    - text: CLI command. Omit
+                    - code [ref=f25e917]: database_name
+                    - text: to cover every database on the branch; pass a name to inspect one. Four of them need the
+                    - code [ref=f25e918]: pg_stat_statements
+                    - text: or
+                    - code [ref=f25e919]: neon
+                    - text: extension.
+                  - listitem [ref=f25e920]:
+                    - strong [ref=f25e921]:
+                      - code [ref=f25e922]: list_slow_queries
+                    - text: ": Identifies performance bottlenecks by finding the slowest queries in a database. Requires the pg_stat_statements extension."
+                  - listitem [ref=f25e923]:
+                    - strong [ref=f25e924]:
+                      - code [ref=f25e925]: explain_sql_statement
+                    - text: ": Provides detailed execution plans for SQL queries to help identify performance bottlenecks."
+                  - listitem [ref=f25e926]:
+                    - strong [ref=f25e927]:
+                      - code [ref=f25e928]: prepare_query_tuning
+                    - text: ": Analyzes query performance and suggests optimizations, like index creation. Creates a temporary branch for safely testing these optimizations."
+                  - listitem [ref=f25e929]:
+                    - strong [ref=f25e930]:
+                      - code [ref=f25e931]: complete_query_tuning
+                    - text: ": Finalizes query tuning by either applying optimizations to the main branch or discarding them. Cleans up the temporary tuning branch."
+                - paragraph [ref=f25e932]:
+                  - strong [ref=f25e933]: Neon Auth
+                  - text: (
+                  - code [ref=f25e934]: "?category=neon_auth"
+                  - text: "):"
+                - list [ref=f25e935]:
+                  - listitem [ref=f25e936]:
+                    - strong [ref=f25e937]:
+                      - code [ref=f25e938]: provision_neon_auth
+                    - text: ","
+                    - strong [ref=f25e939]:
+                      - code [ref=f25e940]: get_auth
+                    - text: ","
+                    - strong [ref=f25e941]:
+                      - code [ref=f25e942]: disable_auth
+                    - text: ","
+                    - strong [ref=f25e943]:
+                      - code [ref=f25e944]: update_auth_config
+                  - listitem [ref=f25e945]:
+                    - strong [ref=f25e946]:
+                      - code [ref=f25e947]: get_neon_auth_config
+                    - text: ": host tool; secrets redacted. Use generated Auth write tools to change settings."
+                  - listitem [ref=f25e948]:
+                    - strong [ref=f25e949]:
+                      - code [ref=f25e950]: list_auth_oauth_providers
+                    - text: ","
+                    - strong [ref=f25e951]:
+                      - code [ref=f25e952]: add_auth_oauth_provider
+                    - text: ","
+                    - strong [ref=f25e953]:
+                      - code [ref=f25e954]: update_auth_oauth_provider
+                    - text: ","
+                    - strong [ref=f25e955]:
+                      - code [ref=f25e956]: delete_auth_oauth_provider
+                  - listitem [ref=f25e957]:
+                    - strong [ref=f25e958]:
+                      - code [ref=f25e959]: list_auth_trusted_domains
+                    - text: ","
+                    - strong [ref=f25e960]:
+                      - code [ref=f25e961]: add_auth_trusted_domain
+                    - text: ","
+                    - strong [ref=f25e962]:
+                      - code [ref=f25e963]: delete_auth_trusted_domain
+                  - listitem [ref=f25e964]:
+                    - strong [ref=f25e965]:
+                      - code [ref=f25e966]: create_auth_user
+                    - text: ","
+                    - strong [ref=f25e967]:
+                      - code [ref=f25e968]: delete_auth_user
+                    - text: ","
+                    - strong [ref=f25e969]:
+                      - code [ref=f25e970]: update_auth_user_role
+                - paragraph [ref=f25e971]:
+                  - strong [ref=f25e972]: Neon Data API
+                  - text: (
+                  - code [ref=f25e973]: "?category=data_api"
+                  - text: "):"
+                - list [ref=f25e974]:
+                  - listitem [ref=f25e975]:
+                    - strong [ref=f25e976]:
+                      - code [ref=f25e977]: provision_neon_data_api
+                    - text: ","
+                    - strong [ref=f25e978]:
+                      - code [ref=f25e979]: get_data_api
+                    - text: ","
+                    - strong [ref=f25e980]:
+                      - code [ref=f25e981]: update_data_api
+                    - text: ","
+                    - strong [ref=f25e982]:
+                      - code [ref=f25e983]: delete_data_api
+                    - text: ": Manage the Data API for a branch database."
+                - paragraph [ref=f25e984]:
+                  - strong [ref=f25e985]: "Search and Discovery:"
+                - list [ref=f25e986]:
+                  - listitem [ref=f25e987]:
+                    - strong [ref=f25e988]:
+                      - code [ref=f25e989]: search
+                    - text: ": Searches across organizations, projects, and branches matching a query. Returns IDs, titles, and direct links to the Neon Console."
+                  - listitem [ref=f25e990]:
+                    - strong [ref=f25e991]:
+                      - code [ref=f25e992]: fetch
+                    - text: ": Fetches detailed information about a specific organization, project, or branch using an ID (typically from the search tool)."
+                - paragraph [ref=f25e993]:
+                  - strong [ref=f25e994]: Observability
+                  - text: (
+                  - code [ref=f25e995]: "?category=observability"
+                  - text: "): these tools require the Neon Platform Beta and are currently only available for projects in the"
+                  - code [ref=f25e996]: aws-us-east-2
+                  - text: region. A branch without logs access returns HTTP 404 with reason
+                  - code [ref=f25e997]: telemetry_not_enabled
+                  - text: .
+                - list [ref=f25e998]:
+                  - listitem [ref=f25e999]:
+                    - strong [ref=f25e1000]:
+                      - code [ref=f25e1001]: query_logs
+                    - text: ": Queries OpenTelemetry logs for a branch. POST in the Management API; treated as read-only by this server."
+                  - listitem [ref=f25e1002]:
+                    - strong [ref=f25e1003]:
+                      - code [ref=f25e1004]: list_log_fields
+                    - text: ": Lists the log fields you can enumerate values for on a branch."
+                  - listitem [ref=f25e1005]:
+                    - strong [ref=f25e1006]:
+                      - code [ref=f25e1007]: list_log_field_values
+                    - text: ": Lists the distinct values of a log field within a branch and time window."
+                - paragraph [ref=f25e1008]:
+                  - strong [ref=f25e1009]: Documentation and Resources
+                  - text: (
+                  - code [ref=f25e1010]: "?category=docs"
+                  - text: "):"
+                - list [ref=f25e1011]:
+                  - listitem [ref=f25e1012]:
+                    - strong [ref=f25e1013]:
+                      - code [ref=f25e1014]: list_docs_resources
+                    - text: ": Lists all available Neon documentation pages by fetching the index from"
+                    - code [ref=f25e1015]: https://neon.com/docs/llms.txt
+                    - text: . Returns page URLs and titles that can be fetched individually using the
+                    - code [ref=f25e1016]: get_doc_resource
+                    - text: tool.
+                  - listitem [ref=f25e1017]:
+                    - strong [ref=f25e1018]:
+                      - code [ref=f25e1019]: get_doc_resource
+                    - text: ": Fetches a specific Neon documentation page as markdown content. Use the"
+                    - code [ref=f25e1020]: list_docs_resources
+                    - text: tool first to discover available page slugs, then pass the slug to this tool.
+                - paragraph [ref=f25e1021]:
+                  - strong [ref=f25e1022]: Functions
+                  - text: (
+                  - code [ref=f25e1023]: "?category=functions"
+                  - text: "):"
+                - list [ref=f25e1024]:
+                  - listitem [ref=f25e1025]:
+                    - strong [ref=f25e1026]:
+                      - code [ref=f25e1027]: list_functions
+                    - text: ","
+                    - strong [ref=f25e1028]:
+                      - code [ref=f25e1029]: get_function
+                    - text: ","
+                    - strong [ref=f25e1030]:
+                      - code [ref=f25e1031]: update_function
+                    - text: ","
+                    - strong [ref=f25e1032]:
+                      - code [ref=f25e1033]: delete_function
+                    - text: ","
+                    - strong [ref=f25e1034]:
+                      - code [ref=f25e1035]: deploy_function
+                - paragraph [ref=f25e1036]:
+                  - strong [ref=f25e1037]: Storage
+                  - text: (
+                  - code [ref=f25e1038]: "?category=storage"
+                  - text: "):"
+                - list [ref=f25e1039]:
+                  - listitem [ref=f25e1040]:
+                    - strong [ref=f25e1041]:
+                      - code [ref=f25e1042]: list_storage_buckets
+                    - text: ","
+                    - strong [ref=f25e1043]:
+                      - code [ref=f25e1044]: create_storage_bucket
+                    - text: ","
+                    - strong [ref=f25e1045]:
+                      - code [ref=f25e1046]: delete_storage_bucket
+                  - listitem [ref=f25e1047]:
+                    - strong [ref=f25e1048]:
+                      - code [ref=f25e1049]: list_storage_objects
+                    - text: ","
+                    - strong [ref=f25e1050]:
+                      - code [ref=f25e1051]: delete_storage_object
+                    - text: ","
+                    - strong [ref=f25e1052]:
+                      - code [ref=f25e1053]: delete_storage_objects_by_prefix
+                  - listitem [ref=f25e1054]:
+                    - strong [ref=f25e1055]:
+                      - code [ref=f25e1056]: presign_storage_object
+                    - text: ","
+                    - strong [ref=f25e1057]:
+                      - code [ref=f25e1058]: get_storage
+                - generic [ref=f25e1059]:
+                  - heading "Migrations" [level=3] [ref=f25e1060]
+                  - 'link "Permalink: Migrations" [ref=f25e1061] [cursor=pointer]':
+                    - /url: "#migrations"
+                - paragraph [ref=f25e1064]:
+                  - text: Migrations are a way to manage changes to your database schema over time. With the Neon MCP server, LLMs are empowered to do migrations safely with separate "Start" (
+                  - code [ref=f25e1065]: prepare_database_migration
+                  - text: ) and "Commit" (
+                  - code [ref=f25e1066]: complete_database_migration
+                  - text: ) commands.
+                - paragraph [ref=f25e1067]: The "Start" command accepts a migration and runs it in a new temporary branch. Upon returning, this command hints to the LLM that it should test the migration on this branch. The LLM can then run the "Commit" command to apply the migration to the original branch.
+                - generic [ref=f25e1068]:
+                  - heading "Development" [level=2] [ref=f25e1069]
+                  - 'link "Permalink: Development" [ref=f25e1070] [cursor=pointer]':
+                    - /url: "#development"
+                - paragraph [ref=f25e1073]:
+                  - text: This project uses
+                  - link "pnpm" [ref=f25e1074] [cursor=pointer]:
+                    - /url: https://pnpm.io
+                  - text: as the package manager, pinned via Corepack.
+                - generic [ref=f25e1075]:
+                  - heading "Project Structure" [level=3] [ref=f25e1076]
+                  - 'link "Permalink: Project Structure" [ref=f25e1077] [cursor=pointer]':
+                    - /url: "#project-structure"
+                - paragraph [ref=f25e1080]:
+                  - text: The MCP server code lives at the repository root, a Next.js application deployed to Vercel at
+                  - code [ref=f25e1081]: mcp.neon.tech
+                  - text: .
+                - generic [ref=f25e1082]:
+                  - generic [ref=f25e1083]: corepack enable pnpm install
+                  - button "Copy code to clipboard" [ref=f25e1085] [cursor=pointer]
+                - paragraph [ref=f25e1089]:
+                  - text: See
+                  - link "CONTRIBUTING.md" [ref=f25e1090] [cursor=pointer]:
+                    - /url: /neondatabase/mcp-server-neon/blob/main/CONTRIBUTING.md
+                  - text: for how to add tools. Tool arguments are
+                  - code [ref=f25e1091]: snake_case
+                  - text: .
+                - generic [ref=f25e1092]:
+                  - heading "Local Development" [level=3] [ref=f25e1093]
+                  - 'link "Permalink: Local Development" [ref=f25e1094] [cursor=pointer]':
+                    - /url: "#local-development"
+                - generic [ref=f25e1097]:
+                  - generic [ref=f25e1098]:
+                    - generic [ref=f25e1099]: "# Start the Next.js dev server (for the remote MCP server)"
+                    - text: pnpm dev
+                  - button "Copy code to clipboard" [ref=f25e1101] [cursor=pointer]
+                - generic [ref=f25e1105]:
+                  - heading "Linting and Type Checking" [level=3] [ref=f25e1106]
+                  - 'link "Permalink: Linting and Type Checking" [ref=f25e1107] [cursor=pointer]':
+                    - /url: "#linting-and-type-checking"
+                - generic [ref=f25e1110]:
+                  - generic [ref=f25e1111]: pnpm lint pnpm typecheck
+                  - button "Copy code to clipboard" [ref=f25e1113] [cursor=pointer]
+                - generic [ref=f25e1117]:
+                  - heading "Environment Variables" [level=3] [ref=f25e1118]
+                  - 'link "Permalink: Environment Variables" [ref=f25e1119] [cursor=pointer]':
+                    - /url: "#environment-variables"
+                - paragraph [ref=f25e1122]: "Required for remote server runtime:"
+                - table [ref=f25e1124]:
+                  - rowgroup [ref=f25e1125]:
+                    - row [ref=f25e1126]:
+                      - columnheader "Variable" [ref=f25e1127]
+                      - columnheader "Description" [ref=f25e1128]
+                  - rowgroup [ref=f25e1129]:
+                    - row [ref=f25e1130]:
+                      - cell [ref=f25e1131]:
+                        - code [ref=f25e1132]: SERVER_HOST
+                      - cell [ref=f25e1133]:
+                        - text: Server URL (defaults to
+                        - code [ref=f25e1134]: VERCEL_URL
+                        - text: )
+                    - row [ref=f25e1135]:
+                      - cell [ref=f25e1136]:
+                        - code [ref=f25e1137]: UPSTREAM_OAUTH_HOST
+                      - cell "Neon OAuth provider URL" [ref=f25e1138]
+                    - row [ref=f25e1139]:
+                      - cell [ref=f25e1140]:
+                        - code [ref=f25e1141]: CLIENT_ID
+                      - cell "OAuth client ID" [ref=f25e1142]
+                    - row [ref=f25e1143]:
+                      - cell [ref=f25e1144]:
+                        - code [ref=f25e1145]: CLIENT_SECRET
+                      - cell "OAuth client secret" [ref=f25e1146]
+                    - row [ref=f25e1147]:
+                      - cell [ref=f25e1148]:
+                        - code [ref=f25e1149]: COOKIE_SECRET
+                      - cell "Secret for signed cookies" [ref=f25e1150]
+                    - row [ref=f25e1151]:
+                      - cell [ref=f25e1152]:
+                        - code [ref=f25e1153]: KV_URL
+                      - cell "Vercel KV (Upstash Redis) URL" [ref=f25e1154]
+                    - row [ref=f25e1155]:
+                      - cell [ref=f25e1156]:
+                        - code [ref=f25e1157]: OAUTH_DATABASE_URL
+                      - cell "Postgres URL for token storage" [ref=f25e1158]
+                - paragraph [ref=f25e1159]: "Optional:"
+                - table [ref=f25e1161]:
+                  - rowgroup [ref=f25e1162]:
+                    - row [ref=f25e1163]:
+                      - columnheader "Variable" [ref=f25e1164]
+                      - columnheader "Description" [ref=f25e1165]
+                  - rowgroup [ref=f25e1166]:
+                    - row [ref=f25e1167]:
+                      - cell [ref=f25e1168]:
+                        - code [ref=f25e1169]: LOG_LEVEL
+                      - cell [ref=f25e1170]:
+                        - text: "Winston log level:"
+                        - code [ref=f25e1171]: error
+                        - text: ","
+                        - code [ref=f25e1172]: warn
+                        - text: ","
+                        - code [ref=f25e1173]: info
+                        - text: (default),
+                        - code [ref=f25e1174]: debug
+                        - text: ","
+                        - code [ref=f25e1175]: verbose
+                        - text: ","
+                        - code [ref=f25e1176]: silly
+                - generic [ref=f25e1177]:
+                  - heading "Testing Pyramid" [level=3] [ref=f25e1178]
+                  - 'link "Permalink: Testing Pyramid" [ref=f25e1179] [cursor=pointer]':
+                    - /url: "#testing-pyramid"
+                - paragraph [ref=f25e1182]: All tests run from the repository root.
+                - generic [ref=f25e1183]:
+                  - generic [ref=f25e1184]:
+                    - generic [ref=f25e1185]: "# Unit tests"
+                    - text: pnpm test:unit
+                    - generic [ref=f25e1186]: "# Integration tests"
+                    - text: pnpm test:integration
+                    - generic [ref=f25e1187]: "# MCP protocol end-to-end tests (real MCP client/server tool calls)"
+                    - text: pnpm test:e2e:mcp
+                    - generic [ref=f25e1188]: "# Website end-to-end tests (Playwright; provisions/validates ephemeral DB first)"
+                    - text: pnpm test:e2e:web
+                    - generic [ref=f25e1189]: "# Full end-to-end suite"
+                    - text: pnpm test:e2e
+                    - generic [ref=f25e1190]: "# Full test pyramid (unit + integration + e2e; used in CI)"
+                    - text: pnpm test
+                  - button "Copy code to clipboard" [ref=f25e1192] [cursor=pointer]
+                - paragraph [ref=f25e1196]: "Testing strategy:"
+                - list [ref=f25e1197]:
+                  - listitem [ref=f25e1198]:
+                    - text: Prefer
+                    - strong [ref=f25e1199]: E2E
+                    - text: for transport/protocol and user-visible behavior.
+                  - listitem [ref=f25e1200]:
+                    - text: Use
+                    - strong [ref=f25e1201]: integration
+                    - text: tests for deterministic tool contracts and workflow behavior.
+                  - listitem [ref=f25e1202]:
+                    - text: Use
+                    - strong [ref=f25e1203]: unit
+                    - text: tests for pure logic and edge cases.
+                  - listitem [ref=f25e1204]: Avoid relying on third-party uptime in merge-gating tests; mock external dependencies in integration/unit tiers.
+                - generic [ref=f25e1205]:
+                  - heading "Deployment" [level=3] [ref=f25e1206]
+                  - 'link "Permalink: Deployment" [ref=f25e1207] [cursor=pointer]':
+                    - /url: "#deployment"
+                - paragraph [ref=f25e1210]: Vercel deploys the remote server automatically from the repository branch configuration. Preview environments are available for pull requests.
+        - generic [ref=f25e1213]:
+          - heading "Releases" [level=2] [ref=f25e1215]
+          - heading "Packages" [level=2] [ref=f25e1219]
+          - heading "Used by" [level=2] [ref=f25e1222]
+          - heading "Contributors" [level=2] [ref=f25e1225]
+          - heading "Languages" [level=2] [ref=f25e1228]
+    - contentinfo [ref=f25e1231]:
+      - heading "Footer" [level=2] [ref=f25e1232]
+      - generic [ref=f25e1233]:
+        - generic [ref=f25e1234]:
+          - link "GitHub Homepage" [ref=f25e1235] [cursor=pointer]:
+            - /url: https://github.com
+          - generic [ref=f25e1238]: © 2026 GitHub, Inc.
+        - navigation "Footer" [ref=f25e1239]:
+          - heading "Footer navigation" [level=3] [ref=f25e1240]
+          - list "Footer navigation" [ref=f25e1241]:
+            - listitem [ref=f25e1242]:
+              - link "Terms" [ref=f25e1243] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+            - listitem [ref=f25e1244]:
+              - link "Privacy" [ref=f25e1245] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+            - listitem [ref=f25e1246]:
+              - link "Security" [ref=f25e1247] [cursor=pointer]:
+                - /url: https://github.com/security
+            - listitem [ref=f25e1248]:
+              - link "Status" [ref=f25e1249] [cursor=pointer]:
+                - /url: https://www.githubstatus.com/
+            - listitem [ref=f25e1250]:
+              - link "Community" [ref=f25e1251] [cursor=pointer]:
+                - /url: https://github.community/
+            - listitem [ref=f25e1252]:
+              - link "Docs" [ref=f25e1253] [cursor=pointer]:
+                - /url: https://docs.github.com/
+            - listitem [ref=f25e1254]:
+              - link "Contact" [ref=f25e1255] [cursor=pointer]:
+                - /url: https://support.github.com?tags=dotcom-footer
+            - listitem [ref=f25e1256]:
+              - button "Manage cookies" [ref=f25e1258] [cursor=pointer]
+            - listitem [ref=f25e1259]:
+              - button "Do not share my personal information" [ref=f25e1261] [cursor=pointer]
+  - alert [ref=f25e1264]

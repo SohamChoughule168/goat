@@ -1,0 +1,447 @@
+- generic [active] [ref=f27e1]:
+  - generic [ref=f27e2]:
+    - generic [ref=f27e3]:
+      - link "Skip to content" [ref=f27e4] [cursor=pointer]:
+        - /url: "#start-of-content"
+      - banner [ref=f27e9]:
+        - heading "Navigation Menu" [level=2] [ref=f27e10]
+        - generic [ref=f27e12]:
+          - button "Toggle navigation" [ref=f27e14] [cursor=pointer]
+          - link "Homepage" [ref=f27e18] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f27e21]:
+            - link "Sign in" [ref=f27e22] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Flangfuse%2Fmcp-server-langfuse
+            - button "Appearance settings" [ref=f27e25] [cursor=pointer]
+    - main [ref=f27e32]:
+      - generic [ref=f27e33]:
+        - generic [ref=f27e36]:
+          - link "langfuse" [ref=f27e40] [cursor=pointer]:
+            - /url: /langfuse
+          - generic [ref=f27e41]: /
+          - strong [ref=f27e42]:
+            - link "mcp-server-langfuse" [ref=f27e43] [cursor=pointer]:
+              - /url: /langfuse/mcp-server-langfuse
+          - generic [ref=f27e44]: Public
+        - navigation "Repository" [ref=f27e45]:
+          - list [ref=f27e46]:
+            - listitem [ref=f27e47]:
+              - link "Code" [ref=f27e48] [cursor=pointer]:
+                - /url: /langfuse/mcp-server-langfuse
+            - listitem [ref=f27e52]:
+              - link "Issues 7" [ref=f27e53] [cursor=pointer]:
+                - /url: /langfuse/mcp-server-langfuse/issues
+                - generic [ref=f27e57]: Issues
+                - generic "7" [ref=f27e58]
+            - listitem [ref=f27e59]:
+              - link "Pull requests 6" [ref=f27e60] [cursor=pointer]:
+                - /url: /langfuse/mcp-server-langfuse/pulls
+                - generic [ref=f27e63]: Pull requests
+                - generic "6" [ref=f27e64]
+            - listitem [ref=f27e65]:
+              - link "Actions" [ref=f27e66] [cursor=pointer]:
+                - /url: /langfuse/mcp-server-langfuse/actions
+            - listitem [ref=f27e70]:
+              - link "Security and quality" [ref=f27e71] [cursor=pointer]:
+                - /url: /langfuse/mcp-server-langfuse/security
+            - listitem [ref=f27e75]
+          - button "Additional navigation options" [ref=f27e79] [cursor=pointer]
+      - generic [ref=f27e93]:
+        - generic [ref=f27e96]:
+          - generic [ref=f27e97]:
+            - generic [ref=f27e98]:
+              - button "main branch" [ref=f27e100] [cursor=pointer]:
+                - generic [ref=f27e101]: main
+              - generic [ref=f27e105]:
+                - link "Go to Branches page" [ref=f27e106] [cursor=pointer]:
+                  - /url: /langfuse/mcp-server-langfuse/branches
+                - link "Go to Tags page" [ref=f27e109] [cursor=pointer]:
+                  - /url: /langfuse/mcp-server-langfuse/tags
+            - generic [ref=f27e112]:
+              - button "Go to file" [ref=f27e115] [cursor=pointer]
+              - button "Code" [ref=f27e118] [cursor=pointer]
+          - generic [ref=f27e121]:
+            - generic [ref=f27e122]:
+              - generic [ref=f27e124]:
+                - heading "Latest commit" [level=2] [ref=f27e125]
+                - generic [ref=f27e126]:
+                  - generic [ref=f27e128]:
+                    - link [ref=f27e129] [cursor=pointer]:
+                      - /url: /marcklingen
+                      - img "marcklingen" [ref=f27e130]
+                    - link "commits by marcklingen" [ref=f27e131] [cursor=pointer]:
+                      - /url: /langfuse/mcp-server-langfuse/commits?author=marcklingen
+                      - text: marcklingen
+                  - 'link "chore: add limitations to readme" [ref=f27e135] [cursor=pointer]':
+                    - /url: /langfuse/mcp-server-langfuse/commit/a534b5a995d50c21ba45f14419246ef64d3ca6f4
+                - generic [ref=f27e136]:
+                  - generic [ref=f27e138]:
+                    - link "Commit a534b5a" [ref=f27e139] [cursor=pointer]:
+                      - /url: /langfuse/mcp-server-langfuse/commit/a534b5a995d50c21ba45f14419246ef64d3ca6f4
+                      - text: a534b5a
+                    - text: ·
+                    - generic "Feb 16, 2025, 4:43 AM GMT+5:30" [ref=f27e140]: Feb 15, 2025last year
+                  - generic [ref=f27e141]:
+                    - heading "History" [level=2] [ref=f27e142]
+                    - link "View commit history for this file." [ref=f27e144] [cursor=pointer]:
+                      - /url: /langfuse/mcp-server-langfuse/commits/main/
+              - heading "Folders and files" [level=2] [ref=f27e146]
+              - table "Folders and files" [ref=f27e147]:
+                - rowgroup:
+                  - row "Name Last commit message Last commit date":
+                    - columnheader "Name"
+                    - columnheader "Last commit message"
+                    - columnheader "Last commit date"
+                - rowgroup [ref=f27e148]:
+                  - row [ref=f27e149]:
+                    - cell [ref=f27e150]:
+                      - link ".cursor/rules, (Directory)" [ref=f27e157] [cursor=pointer]:
+                        - /url: /langfuse/mcp-server-langfuse/tree/main/.cursor/rules
+                        - text: .cursor/rules
+                    - cell [ref=f27e158]:
+                      - 'link "chore: add mcp-llms-full as cursor rule" [ref=f27e161] [cursor=pointer]':
+                        - /url: /langfuse/mcp-server-langfuse/commit/50080df2f4ced9c0c101388cd9c17d5d0a1550df
+                    - cell "Feb 15, 2025last year" [ref=f27e162]
+                  - row [ref=f27e164]:
+                    - cell [ref=f27e165]:
+                      - link "src, (Directory)" [ref=f27e172] [cursor=pointer]:
+                        - /url: /langfuse/mcp-server-langfuse/tree/main/src
+                        - text: src
+                    - cell [ref=f27e173]:
+                      - generic [ref=f27e175]:
+                        - 'link "feat: add langfuse prompt management (" [ref=f27e176] [cursor=pointer]':
+                          - /url: /langfuse/mcp-server-langfuse/commit/7060433e3236343a9c1268998ddb76d03dcee95d
+                        - link "#1" [ref=f27e177] [cursor=pointer]:
+                          - /url: https://github.com/langfuse/mcp-server-langfuse/pull/1
+                        - link ")" [ref=f27e178] [cursor=pointer]:
+                          - /url: /langfuse/mcp-server-langfuse/commit/7060433e3236343a9c1268998ddb76d03dcee95d
+                    - cell "Feb 15, 2025last year" [ref=f27e179]
+                  - row [ref=f27e181]:
+                    - cell [ref=f27e182]:
+                      - link ".env.example, (File)" [ref=f27e189] [cursor=pointer]:
+                        - /url: /langfuse/mcp-server-langfuse/blob/main/.env.example
+                        - text: .env.example
+                    - cell [ref=f27e190]:
+                      - 'link "chore: init with weather example" [ref=f27e193] [cursor=pointer]':
+                        - /url: /langfuse/mcp-server-langfuse/commit/c5b96b3f739f9b79f16595684fd5d531e8015846
+                    - cell "Feb 15, 2025last year" [ref=f27e194]
+                  - row [ref=f27e196]:
+                    - cell [ref=f27e197]:
+                      - link ".gitignore, (File)" [ref=f27e204] [cursor=pointer]:
+                        - /url: /langfuse/mcp-server-langfuse/blob/main/.gitignore
+                        - text: .gitignore
+                    - cell [ref=f27e205]:
+                      - 'link "chore: init with weather example" [ref=f27e208] [cursor=pointer]':
+                        - /url: /langfuse/mcp-server-langfuse/commit/c5b96b3f739f9b79f16595684fd5d531e8015846
+                    - cell "Feb 15, 2025last year" [ref=f27e209]
+                  - row [ref=f27e211]:
+                    - cell [ref=f27e212]:
+                      - link "LICENSE, (File)" [ref=f27e219] [cursor=pointer]:
+                        - /url: /langfuse/mcp-server-langfuse/blob/main/LICENSE
+                        - text: LICENSE
+                    - cell [ref=f27e220]:
+                      - 'link "chore: add LICENSE" [ref=f27e223] [cursor=pointer]':
+                        - /url: /langfuse/mcp-server-langfuse/commit/9ab5f22749efc5ce3ffa95dc2c66260949b7e778
+                    - cell "Feb 15, 2025last year" [ref=f27e224]
+                  - row [ref=f27e226]:
+                    - cell [ref=f27e227]:
+                      - link "README.md, (File)" [ref=f27e234] [cursor=pointer]:
+                        - /url: /langfuse/mcp-server-langfuse/blob/main/README.md
+                        - text: README.md
+                    - cell [ref=f27e235]:
+                      - 'link "chore: add limitations to readme" [ref=f27e238] [cursor=pointer]':
+                        - /url: /langfuse/mcp-server-langfuse/commit/a534b5a995d50c21ba45f14419246ef64d3ca6f4
+                    - cell "Feb 15, 2025last year" [ref=f27e239]
+                  - row [ref=f27e241]:
+                    - cell [ref=f27e242]:
+                      - link "package-lock.json, (File)" [ref=f27e249] [cursor=pointer]:
+                        - /url: /langfuse/mcp-server-langfuse/blob/main/package-lock.json
+                        - text: package-lock.json
+                    - cell [ref=f27e250]:
+                      - generic [ref=f27e252]:
+                        - 'link "feat: add langfuse prompt management (" [ref=f27e253] [cursor=pointer]':
+                          - /url: /langfuse/mcp-server-langfuse/commit/7060433e3236343a9c1268998ddb76d03dcee95d
+                        - link "#1" [ref=f27e254] [cursor=pointer]:
+                          - /url: https://github.com/langfuse/mcp-server-langfuse/pull/1
+                        - link ")" [ref=f27e255] [cursor=pointer]:
+                          - /url: /langfuse/mcp-server-langfuse/commit/7060433e3236343a9c1268998ddb76d03dcee95d
+                    - cell "Feb 15, 2025last year" [ref=f27e256]
+                  - row [ref=f27e258]:
+                    - cell [ref=f27e259]:
+                      - link "package.json, (File)" [ref=f27e266] [cursor=pointer]:
+                        - /url: /langfuse/mcp-server-langfuse/blob/main/package.json
+                        - text: package.json
+                    - cell [ref=f27e267]:
+                      - 'link "chore: add version" [ref=f27e270] [cursor=pointer]':
+                        - /url: /langfuse/mcp-server-langfuse/commit/6f7f2bd8a2abd7ad6f70758863a6da4c99367837
+                    - cell "Feb 15, 2025last year" [ref=f27e271]
+                  - row [ref=f27e273]:
+                    - cell [ref=f27e274]:
+                      - link "tsconfig.json, (File)" [ref=f27e281] [cursor=pointer]:
+                        - /url: /langfuse/mcp-server-langfuse/blob/main/tsconfig.json
+                        - text: tsconfig.json
+                    - cell [ref=f27e282]:
+                      - 'link "chore: init with weather example" [ref=f27e285] [cursor=pointer]':
+                        - /url: /langfuse/mcp-server-langfuse/commit/c5b96b3f739f9b79f16595684fd5d531e8015846
+                    - cell "Feb 15, 2025last year" [ref=f27e286]
+            - generic [ref=f27e289]:
+              - generic [ref=f27e290]:
+                - heading "Repository files navigation" [level=2] [ref=f27e291]
+                - navigation "Repository files" [ref=f27e292]:
+                  - list [ref=f27e293]:
+                    - listitem [ref=f27e294]:
+                      - link "README" [ref=f27e295] [cursor=pointer]:
+                        - /url: "#"
+                    - listitem [ref=f27e297]:
+                      - link "MIT license" [ref=f27e298] [cursor=pointer]:
+                        - /url: "#"
+                - button "Outline" [ref=f27e300] [cursor=pointer]
+              - article [ref=f27e304]:
+                - generic [ref=f27e305]:
+                  - heading "Langfuse Prompt Management MCP Server" [level=1] [ref=f27e306]
+                  - 'link "Permalink: Langfuse Prompt Management MCP Server" [ref=f27e307] [cursor=pointer]':
+                    - /url: "#langfuse-prompt-management-mcp-server"
+                - paragraph [ref=f27e310]:
+                  - link "Model Context Protocol" [ref=f27e311] [cursor=pointer]:
+                    - /url: https://github.com/modelcontextprotocol
+                  - text: (MCP) Server for
+                  - link "Langfuse Prompt Management" [ref=f27e312] [cursor=pointer]:
+                    - /url: https://langfuse.com/docs/prompts/get-started
+                  - text: . This server allows you to access and manage your Langfuse prompts through the Model Context Protocol.
+                - generic [ref=f27e313]:
+                  - heading "Demo" [level=2] [ref=f27e314]
+                  - 'link "Permalink: Demo" [ref=f27e315] [cursor=pointer]':
+                    - /url: "#demo"
+                - paragraph [ref=f27e318]:
+                  - text: Quick demo of Langfuse Prompts MCP in Claude Desktop (
+                  - emphasis [ref=f27e319]: unmute for voice-over explanations
+                  - text: "):"
+                - group [ref=f27e320]:
+                  - generic "langfuse-prompts-mcp-server-1080.mp4" [ref=f27e321] [cursor=pointer]
+                - generic [ref=f27e326]:
+                  - heading "Features" [level=2] [ref=f27e327]
+                  - 'link "Permalink: Features" [ref=f27e328] [cursor=pointer]':
+                    - /url: "#features"
+                - generic [ref=f27e331]:
+                  - heading "MCP Prompt" [level=3] [ref=f27e332]
+                  - 'link "Permalink: MCP Prompt" [ref=f27e333] [cursor=pointer]':
+                    - /url: "#mcp-prompt"
+                - paragraph [ref=f27e336]:
+                  - text: This server implements the
+                  - link "MCP Prompts specification" [ref=f27e337] [cursor=pointer]:
+                    - /url: https://modelcontextprotocol.io/docs/concepts/prompts
+                  - text: for prompt discovery and retrieval.
+                - list [ref=f27e338]:
+                  - listitem [ref=f27e339]:
+                    - paragraph [ref=f27e340]:
+                      - code [ref=f27e341]: prompts/list
+                      - text: ": List all available prompts"
+                    - list [ref=f27e342]:
+                      - listitem [ref=f27e343]: Optional cursor-based pagination
+                      - listitem [ref=f27e344]: "Returns prompt names and their required arguments, limitation: all arguments are assumed to be optional and do not include descriptions as variables do not have specification in Langfuse"
+                      - listitem [ref=f27e345]: Includes next cursor for pagination if there's more than 1 page of prompts
+                  - listitem [ref=f27e346]:
+                    - paragraph [ref=f27e347]:
+                      - code [ref=f27e348]: prompts/get
+                      - text: ": Get a specific prompt"
+                    - list [ref=f27e349]:
+                      - listitem [ref=f27e350]: Transforms Langfuse prompts (text and chat) into MCP prompt objects
+                      - listitem [ref=f27e351]: Compiles prompt with provided variables
+                - generic [ref=f27e352]:
+                  - heading "Tools" [level=3] [ref=f27e353]
+                  - 'link "Permalink: Tools" [ref=f27e354] [cursor=pointer]':
+                    - /url: "#tools"
+                - paragraph [ref=f27e357]: To increase compatibility with other MCP clients that do not support the prompt capability, the server also exports tools that replicate the functionality of the MCP Prompts.
+                - list [ref=f27e358]:
+                  - listitem [ref=f27e359]:
+                    - paragraph [ref=f27e360]:
+                      - code [ref=f27e361]: get-prompts
+                      - text: ": List available prompts"
+                    - list [ref=f27e362]:
+                      - listitem [ref=f27e363]:
+                        - text: Optional
+                        - code [ref=f27e364]: cursor
+                        - text: parameter for pagination
+                      - listitem [ref=f27e365]: Returns a list of prompts with their arguments
+                  - listitem [ref=f27e366]:
+                    - paragraph [ref=f27e367]:
+                      - code [ref=f27e368]: get-prompt
+                      - text: ": Retrieve and compile a specific prompt"
+                    - list [ref=f27e369]:
+                      - listitem [ref=f27e370]:
+                        - text: Required
+                        - code [ref=f27e371]: name
+                        - text: "parameter: Name of the prompt to retrieve"
+                      - listitem [ref=f27e372]:
+                        - text: Optional
+                        - code [ref=f27e373]: arguments
+                        - text: "parameter: JSON object with prompt variables"
+                - generic [ref=f27e374]:
+                  - heading "Development" [level=2] [ref=f27e375]
+                  - 'link "Permalink: Development" [ref=f27e376] [cursor=pointer]':
+                    - /url: "#development"
+                - generic [ref=f27e379]:
+                  - generic [ref=f27e380]:
+                    - text: npm install
+                    - generic [ref=f27e381]: "# build current file"
+                    - text: npm run build
+                    - generic [ref=f27e382]: "# test in mcp inspector"
+                    - text: npx @modelcontextprotocol/inspector node ./build/index.js
+                  - button "Copy code to clipboard" [ref=f27e384] [cursor=pointer]
+                - generic [ref=f27e388]:
+                  - heading "Usage" [level=2] [ref=f27e389]
+                  - 'link "Permalink: Usage" [ref=f27e390] [cursor=pointer]':
+                    - /url: "#usage"
+                - generic [ref=f27e393]:
+                  - 'heading "Step 1: Build" [level=3] [ref=f27e394]'
+                  - 'link "Permalink: Step 1: Build" [ref=f27e395] [cursor=pointer]':
+                    - /url: "#step-1-build"
+                - generic [ref=f27e398]:
+                  - generic [ref=f27e399]: npm install npm run build
+                  - button "Copy code to clipboard" [ref=f27e401] [cursor=pointer]
+                - generic [ref=f27e405]:
+                  - 'heading "Step 2: Add the server to your MCP servers:" [level=3] [ref=f27e406]'
+                  - 'link "Permalink: Step 2: Add the server to your MCP servers:" [ref=f27e407] [cursor=pointer]':
+                    - /url: "#step-2-add-the-server-to-your-mcp-servers"
+                - generic [ref=f27e410]:
+                  - heading "Claude Desktop" [level=4] [ref=f27e411]
+                  - 'link "Permalink: Claude Desktop" [ref=f27e412] [cursor=pointer]':
+                    - /url: "#claude-desktop"
+                - paragraph [ref=f27e415]:
+                  - text: Configure Claude for Desktop by editing
+                  - code [ref=f27e416]: claude_desktop_config.json
+                - generic [ref=f27e417]:
+                  - generic [ref=f27e418]:
+                    - text: "{ \"mcpServers\": { \"langfuse\": { \"command\":"
+                    - generic [ref=f27e419]: "\"node\""
+                    - text: ", \"args\": ["
+                    - generic [ref=f27e420]: "\"<absolute-path>/build/index.js\""
+                    - text: "], \"env\": { \"LANGFUSE_PUBLIC_KEY\":"
+                    - generic [ref=f27e421]: "\"your-public-key\""
+                    - text: ", \"LANGFUSE_SECRET_KEY\":"
+                    - generic [ref=f27e422]: "\"your-secret-key\""
+                    - text: ", \"LANGFUSE_BASEURL\":"
+                    - generic [ref=f27e423]: "\"https://cloud.langfuse.com\""
+                    - text: "} } } }"
+                  - button "Copy code to clipboard" [ref=f27e425] [cursor=pointer]
+                - paragraph [ref=f27e429]: Make sure to replace the environment variables with your actual Langfuse API keys. The server will now be available to use in Claude Desktop.
+                - generic [ref=f27e430]:
+                  - heading "Cursor" [level=4] [ref=f27e431]
+                  - 'link "Permalink: Cursor" [ref=f27e432] [cursor=pointer]':
+                    - /url: "#cursor"
+                - paragraph [ref=f27e435]: "Add new server to Cursor:"
+                - list [ref=f27e436]:
+                  - listitem [ref=f27e437]:
+                    - text: "Name:"
+                    - code [ref=f27e438]: Langfuse Prompts
+                  - listitem [ref=f27e439]:
+                    - text: "Type:"
+                    - code [ref=f27e440]: command
+                  - listitem [ref=f27e441]:
+                    - text: "Command:"
+                    - generic [ref=f27e442]:
+                      - generic [ref=f27e443]:
+                        - text: LANGFUSE_PUBLIC_KEY=
+                        - generic [ref=f27e444]: "\"your-public-key\""
+                        - text: LANGFUSE_SECRET_KEY=
+                        - generic [ref=f27e445]: "\"your-secret-key\""
+                        - text: LANGFUSE_BASEURL=
+                        - generic [ref=f27e446]: "\"https://cloud.langfuse.com\""
+                        - text: node absolute-path/build/index.js
+                      - button "Copy code to clipboard" [ref=f27e448] [cursor=pointer]
+                - generic [ref=f27e452]:
+                  - heading "Limitations" [level=2] [ref=f27e453]
+                  - 'link "Permalink: Limitations" [ref=f27e454] [cursor=pointer]':
+                    - /url: "#limitations"
+                - paragraph [ref=f27e457]: "The MCP Server is a work in progress and has some limitations:"
+                - list [ref=f27e458]:
+                  - listitem [ref=f27e459]:
+                    - text: Only prompts with a
+                    - code [ref=f27e460]: production
+                    - text: label in Langfuse are returned
+                  - listitem [ref=f27e461]: All arguments are assumed to be optional and do not include descriptions as variables do not have specification in Langfuse
+                  - listitem [ref=f27e462]: List operations require fetching each prompt individually in the background to extract the arguments, this works but is not efficient
+                - paragraph [ref=f27e463]:
+                  - text: Contributions are welcome! Please open an issue or a PR (
+                  - link "repo" [ref=f27e464] [cursor=pointer]:
+                    - /url: https://github.com/langfuse/mcp-server-langfuse
+                  - text: ) if you have any suggestions or feedback.
+        - generic [ref=f27e467]:
+          - generic [ref=f27e468]:
+            - heading "Releases (2)" [level=2] [ref=f27e469]:
+              - generic [ref=f27e470]:
+                - link "Releases" [ref=f27e471] [cursor=pointer]:
+                  - /url: /langfuse/mcp-server-langfuse/releases
+                - generic [ref=f27e472]: "2"
+                - generic [ref=f27e473]: (2)
+            - link "v0.0.1 Latest Feb 15, 2025last year" [ref=f27e474] [cursor=pointer]:
+              - /url: /langfuse/mcp-server-langfuse/releases/tag/v0.0.1
+              - generic [ref=f27e477]:
+                - generic [ref=f27e478]:
+                  - generic "v0.0.1" [ref=f27e479]
+                  - generic [ref=f27e480]: Latest
+                - generic [ref=f27e481]: Feb 15, 2025last year
+            - link "+ 1 release" [ref=f27e483] [cursor=pointer]:
+              - /url: /langfuse/mcp-server-langfuse/releases
+          - generic [ref=f27e484]:
+            - heading "Contributors (1)" [level=2] [ref=f27e485]:
+              - generic [ref=f27e486]:
+                - link "Contributors" [ref=f27e487] [cursor=pointer]:
+                  - /url: /langfuse/mcp-server-langfuse/graphs/contributors
+                - generic [ref=f27e488]: "1"
+                - generic [ref=f27e489]: (1)
+            - list [ref=f27e490]:
+              - listitem [ref=f27e491]:
+                - link [ref=f27e492] [cursor=pointer]:
+                  - /url: /marcklingen
+                  - img "@marcklingen" [ref=f27e493]
+                - generic "marcklingen Marc Klingen" [ref=f27e494]:
+                  - link [ref=f27e495] [cursor=pointer]:
+                    - /url: /marcklingen
+                    - strong [ref=f27e496]: marcklingen
+                    - text: Marc Klingen
+          - generic [ref=f27e497]:
+            - heading "Languages" [level=2] [ref=f27e498]
+            - 'progressbar "TypeScript: 100%" [ref=f27e501]'
+            - list [ref=f27e502]:
+              - listitem [ref=f27e503]:
+                - link "TypeScript 100%" [ref=f27e504] [cursor=pointer]:
+                  - /url: /langfuse/mcp-server-langfuse/search?l=typescript
+                  - generic [ref=f27e506]: TypeScript
+                  - generic [ref=f27e507]: 100%
+    - contentinfo [ref=f27e509]:
+      - heading "Footer" [level=2] [ref=f27e510]
+      - generic [ref=f27e511]:
+        - generic [ref=f27e512]:
+          - link "GitHub Homepage" [ref=f27e513] [cursor=pointer]:
+            - /url: https://github.com
+          - generic [ref=f27e516]: © 2026 GitHub, Inc.
+        - navigation "Footer" [ref=f27e517]:
+          - heading "Footer navigation" [level=3] [ref=f27e518]
+          - list "Footer navigation" [ref=f27e519]:
+            - listitem [ref=f27e520]:
+              - link "Terms" [ref=f27e521] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+            - listitem [ref=f27e522]:
+              - link "Privacy" [ref=f27e523] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+            - listitem [ref=f27e524]:
+              - link "Security" [ref=f27e525] [cursor=pointer]:
+                - /url: https://github.com/security
+            - listitem [ref=f27e526]:
+              - link "Status" [ref=f27e527] [cursor=pointer]:
+                - /url: https://www.githubstatus.com/
+            - listitem [ref=f27e528]:
+              - link "Community" [ref=f27e529] [cursor=pointer]:
+                - /url: https://github.community/
+            - listitem [ref=f27e530]:
+              - link "Docs" [ref=f27e531] [cursor=pointer]:
+                - /url: https://docs.github.com/
+            - listitem [ref=f27e532]:
+              - link "Contact" [ref=f27e533] [cursor=pointer]:
+                - /url: https://support.github.com?tags=dotcom-footer
+            - listitem [ref=f27e534]:
+              - button "Manage cookies" [ref=f27e536] [cursor=pointer]
+            - listitem [ref=f27e537]:
+              - button "Do not share my personal information" [ref=f27e539] [cursor=pointer]
+  - alert [ref=f27e542]

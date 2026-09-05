@@ -1,0 +1,6 @@
+[     759ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/suggestions?username=guides&library=set-up-your-agent:0
+[     781ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/libraries/%2Fguides%2Fset-up-your-agent:0
+[    2134ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/suggestions?username=guides&library=set-up-your-agent:0
+[    2235ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/libraries/%2Fguides%2Fset-up-your-agent:0
+[    4501ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/suggestions?username=guides&library=set-up-your-agent:0
+[    8893ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/suggestions?username=guides&library=set-up-your-agent:0

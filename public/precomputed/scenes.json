@@ -1,0 +1,1425 @@
+[
+  {
+    "id": "hero",
+    "name": "Hero Monolith",
+    "precomputed": true,
+    "computeTime": 62.635400000000004,
+    "config": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          8
+        ]
+      },
+      "objects": [
+        {
+          "type": "icosahedron",
+          "radius": 1.5,
+          "detail": 4,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "material": "monolith"
+        },
+        {
+          "type": "particles",
+          "count": 50,
+          "radius": 2.5,
+          "color": "#14b8a6"
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.4
+        },
+        {
+          "type": "directional",
+          "position": [
+            5,
+            10,
+            5
+          ],
+          "intensity": 1
+        },
+        {
+          "type": "point",
+          "position": [
+            -5,
+            5,
+            5
+          ],
+          "intensity": 0.5,
+          "color": "#a855f7"
+        },
+        {
+          "type": "point",
+          "position": [
+            5,
+            -5,
+            5
+          ],
+          "intensity": 0.5,
+          "color": "#14b8a6"
+        }
+      ]
+    },
+    "initialState": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          8
+        ]
+      },
+      "objects": [
+        {
+          "type": "icosahedron",
+          "radius": 1.5,
+          "detail": 4,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "material": "monolith",
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "particles",
+          "count": 50,
+          "radius": 2.5,
+          "color": "#14b8a6",
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.4
+        },
+        {
+          "type": "directional",
+          "position": [
+            5,
+            10,
+            5
+          ],
+          "intensity": 1
+        },
+        {
+          "type": "point",
+          "position": [
+            -5,
+            5,
+            5
+          ],
+          "intensity": 0.5,
+          "color": "#a855f7"
+        },
+        {
+          "type": "point",
+          "position": [
+            5,
+            -5,
+            5
+          ],
+          "intensity": 0.5,
+          "color": "#14b8a6"
+        }
+      ],
+      "shaderUniforms": {
+        "uTime": 0,
+        "uScroll": 0,
+        "uMouse": [
+          0,
+          0
+        ],
+        "uIntensity": 1
+      }
+    }
+  },
+  {
+    "id": "manifesto",
+    "name": "Manifesto Liquid Metal",
+    "precomputed": true,
+    "computeTime": 64.05760000000001,
+    "config": {
+      "camera": {
+        "fov": 50,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          2,
+          10
+        ]
+      },
+      "objects": [
+        {
+          "type": "plane",
+          "width": 20,
+          "height": 20,
+          "segments": 64,
+          "material": "liquid-metal"
+        },
+        {
+          "type": "particles",
+          "count": 100,
+          "radius": 8,
+          "color": "#14b8a6"
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.3
+        },
+        {
+          "type": "directional",
+          "position": [
+            10,
+            15,
+            10
+          ],
+          "intensity": 0.8
+        },
+        {
+          "type": "point",
+          "position": [
+            0,
+            5,
+            0
+          ],
+          "intensity": 1,
+          "color": "#14b8a6"
+        }
+      ]
+    },
+    "initialState": {
+      "camera": {
+        "fov": 50,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          2,
+          10
+        ]
+      },
+      "objects": [
+        {
+          "type": "plane",
+          "width": 20,
+          "height": 20,
+          "segments": 64,
+          "material": "liquid-metal",
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "particles",
+          "count": 100,
+          "radius": 8,
+          "color": "#14b8a6",
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.3
+        },
+        {
+          "type": "directional",
+          "position": [
+            10,
+            15,
+            10
+          ],
+          "intensity": 0.8
+        },
+        {
+          "type": "point",
+          "position": [
+            0,
+            5,
+            0
+          ],
+          "intensity": 1,
+          "color": "#14b8a6"
+        }
+      ],
+      "shaderUniforms": {
+        "uTime": 0,
+        "uScroll": 0,
+        "uMouse": [
+          0,
+          0
+        ],
+        "uIntensity": 1
+      }
+    }
+  },
+  {
+    "id": "craft-chapters",
+    "name": "Craft Chapters Primitives",
+    "precomputed": true,
+    "computeTime": 62.4007,
+    "config": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          12
+        ]
+      },
+      "objects": [
+        {
+          "type": "icosahedron",
+          "radius": 1.2,
+          "detail": 3,
+          "position": [
+            -6,
+            0,
+            0
+          ],
+          "material": "service",
+          "color": "#14b8a6"
+        },
+        {
+          "type": "box",
+          "size": [
+            2,
+            2,
+            2
+          ],
+          "position": [
+            -2,
+            0,
+            0
+          ],
+          "material": "service",
+          "color": "#06b6d4"
+        },
+        {
+          "type": "torusKnot",
+          "radius": 1,
+          "tube": 0.4,
+          "position": [
+            2,
+            0,
+            0
+          ],
+          "material": "service",
+          "color": "#a855f7"
+        },
+        {
+          "type": "octahedron",
+          "radius": 1.2,
+          "detail": 1,
+          "position": [
+            6,
+            0,
+            0
+          ],
+          "material": "service",
+          "color": "#f59e0b"
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.4
+        },
+        {
+          "type": "directional",
+          "position": [
+            5,
+            10,
+            5
+          ],
+          "intensity": 1
+        },
+        {
+          "type": "point",
+          "position": [
+            -5,
+            5,
+            5
+          ],
+          "intensity": 0.5,
+          "color": "#a855f7"
+        },
+        {
+          "type": "point",
+          "position": [
+            5,
+            -5,
+            5
+          ],
+          "intensity": 0.5,
+          "color": "#14b8a6"
+        }
+      ]
+    },
+    "initialState": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          12
+        ]
+      },
+      "objects": [
+        {
+          "type": "icosahedron",
+          "radius": 1.2,
+          "detail": 3,
+          "position": [
+            -6,
+            0,
+            0
+          ],
+          "material": "service",
+          "color": "#14b8a6",
+          "initialTransform": {
+            "position": [
+              -6,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "box",
+          "size": [
+            2,
+            2,
+            2
+          ],
+          "position": [
+            -2,
+            0,
+            0
+          ],
+          "material": "service",
+          "color": "#06b6d4",
+          "initialTransform": {
+            "position": [
+              -2,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "torusKnot",
+          "radius": 1,
+          "tube": 0.4,
+          "position": [
+            2,
+            0,
+            0
+          ],
+          "material": "service",
+          "color": "#a855f7",
+          "initialTransform": {
+            "position": [
+              2,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "octahedron",
+          "radius": 1.2,
+          "detail": 1,
+          "position": [
+            6,
+            0,
+            0
+          ],
+          "material": "service",
+          "color": "#f59e0b",
+          "initialTransform": {
+            "position": [
+              6,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.4
+        },
+        {
+          "type": "directional",
+          "position": [
+            5,
+            10,
+            5
+          ],
+          "intensity": 1
+        },
+        {
+          "type": "point",
+          "position": [
+            -5,
+            5,
+            5
+          ],
+          "intensity": 0.5,
+          "color": "#a855f7"
+        },
+        {
+          "type": "point",
+          "position": [
+            5,
+            -5,
+            5
+          ],
+          "intensity": 0.5,
+          "color": "#14b8a6"
+        }
+      ],
+      "shaderUniforms": {
+        "uTime": 0,
+        "uScroll": 0,
+        "uMouse": [
+          0,
+          0
+        ],
+        "uIntensity": 1
+      }
+    }
+  },
+  {
+    "id": "ai-lab",
+    "name": "AI Lab Neural Network",
+    "precomputed": true,
+    "computeTime": 63.799000000000035,
+    "config": {
+      "camera": {
+        "fov": 50,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          15
+        ]
+      },
+      "objects": [
+        {
+          "type": "neural-network",
+          "layers": [
+            8,
+            16,
+            8
+          ],
+          "nodeCount": 32,
+          "connectionProb": 0.3
+        },
+        {
+          "type": "particles",
+          "count": 200,
+          "radius": 10,
+          "color": "#a855f7"
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.2
+        },
+        {
+          "type": "directional",
+          "position": [
+            0,
+            10,
+            10
+          ],
+          "intensity": 0.5
+        },
+        {
+          "type": "point",
+          "position": [
+            0,
+            0,
+            5
+          ],
+          "intensity": 1,
+          "color": "#a855f7"
+        }
+      ]
+    },
+    "initialState": {
+      "camera": {
+        "fov": 50,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          15
+        ]
+      },
+      "objects": [
+        {
+          "type": "neural-network",
+          "layers": [
+            8,
+            16,
+            8
+          ],
+          "nodeCount": 32,
+          "connectionProb": 0.3,
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "particles",
+          "count": 200,
+          "radius": 10,
+          "color": "#a855f7",
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.2
+        },
+        {
+          "type": "directional",
+          "position": [
+            0,
+            10,
+            10
+          ],
+          "intensity": 0.5
+        },
+        {
+          "type": "point",
+          "position": [
+            0,
+            0,
+            5
+          ],
+          "intensity": 1,
+          "color": "#a855f7"
+        }
+      ],
+      "shaderUniforms": {
+        "uTime": 0,
+        "uScroll": 0,
+        "uMouse": [
+          0,
+          0
+        ],
+        "uIntensity": 1
+      }
+    }
+  },
+  {
+    "id": "work-strip",
+    "name": "Work Strip Cards",
+    "precomputed": true,
+    "computeTime": 62.92150000000004,
+    "config": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          12
+        ]
+      },
+      "objects": [
+        {
+          "type": "grid",
+          "rows": 2,
+          "cols": 3,
+          "spacing": 4,
+          "cellSize": 3.5,
+          "material": "card"
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.4
+        },
+        {
+          "type": "directional",
+          "position": [
+            5,
+            10,
+            5
+          ],
+          "intensity": 0.8
+        }
+      ]
+    },
+    "initialState": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          12
+        ]
+      },
+      "objects": [
+        {
+          "type": "grid",
+          "rows": 2,
+          "cols": 3,
+          "spacing": 4,
+          "cellSize": 3.5,
+          "material": "card",
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.4
+        },
+        {
+          "type": "directional",
+          "position": [
+            5,
+            10,
+            5
+          ],
+          "intensity": 0.8
+        }
+      ],
+      "shaderUniforms": {
+        "uTime": 0,
+        "uScroll": 0,
+        "uMouse": [
+          0,
+          0
+        ],
+        "uIntensity": 1
+      }
+    }
+  },
+  {
+    "id": "testimonials",
+    "name": "Testimonial Cards",
+    "precomputed": true,
+    "computeTime": 62.79359999999997,
+    "config": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          10
+        ]
+      },
+      "objects": [
+        {
+          "type": "cards",
+          "count": 6,
+          "spacing": 4,
+          "material": "testimonial"
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.4
+        },
+        {
+          "type": "directional",
+          "position": [
+            0,
+            10,
+            0
+          ],
+          "intensity": 0.8
+        }
+      ]
+    },
+    "initialState": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          10
+        ]
+      },
+      "objects": [
+        {
+          "type": "cards",
+          "count": 6,
+          "spacing": 4,
+          "material": "testimonial",
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.4
+        },
+        {
+          "type": "directional",
+          "position": [
+            0,
+            10,
+            0
+          ],
+          "intensity": 0.8
+        }
+      ],
+      "shaderUniforms": {
+        "uTime": 0,
+        "uScroll": 0,
+        "uMouse": [
+          0,
+          0
+        ],
+        "uIntensity": 1
+      }
+    }
+  },
+  {
+    "id": "pricing",
+    "name": "Pricing Tiers",
+    "precomputed": true,
+    "computeTime": 63.51990000000001,
+    "config": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          12
+        ]
+      },
+      "objects": [
+        {
+          "type": "tiers",
+          "count": 3,
+          "spacing": 6,
+          "material": "pricing"
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.3
+        },
+        {
+          "type": "directional",
+          "position": [
+            0,
+            8,
+            8
+          ],
+          "intensity": 1
+        }
+      ]
+    },
+    "initialState": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          12
+        ]
+      },
+      "objects": [
+        {
+          "type": "tiers",
+          "count": 3,
+          "spacing": 6,
+          "material": "pricing",
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.3
+        },
+        {
+          "type": "directional",
+          "position": [
+            0,
+            8,
+            8
+          ],
+          "intensity": 1
+        }
+      ],
+      "shaderUniforms": {
+        "uTime": 0,
+        "uScroll": 0,
+        "uMouse": [
+          0,
+          0
+        ],
+        "uIntensity": 1
+      }
+    }
+  },
+  {
+    "id": "team",
+    "name": "Team Orbs",
+    "precomputed": true,
+    "computeTime": 64.31999999999994,
+    "config": {
+      "camera": {
+        "fov": 50,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          15
+        ]
+      },
+      "objects": [
+        {
+          "type": "orbs",
+          "count": 6,
+          "arrangement": "hexagon",
+          "radius": 5,
+          "material": "orb"
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.3
+        },
+        {
+          "type": "directional",
+          "position": [
+            0,
+            10,
+            5
+          ],
+          "intensity": 0.8
+        }
+      ]
+    },
+    "initialState": {
+      "camera": {
+        "fov": 50,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          15
+        ]
+      },
+      "objects": [
+        {
+          "type": "orbs",
+          "count": 6,
+          "arrangement": "hexagon",
+          "radius": 5,
+          "material": "orb",
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.3
+        },
+        {
+          "type": "directional",
+          "position": [
+            0,
+            10,
+            5
+          ],
+          "intensity": 0.8
+        }
+      ],
+      "shaderUniforms": {
+        "uTime": 0,
+        "uScroll": 0,
+        "uMouse": [
+          0,
+          0
+        ],
+        "uIntensity": 1
+      }
+    }
+  },
+  {
+    "id": "process-line",
+    "name": "Process Timeline",
+    "precomputed": true,
+    "computeTime": 62.506000000000085,
+    "config": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          10
+        ]
+      },
+      "objects": [
+        {
+          "type": "timeline",
+          "steps": 4,
+          "spacing": 8,
+          "material": "process"
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.4
+        },
+        {
+          "type": "directional",
+          "position": [
+            0,
+            8,
+            5
+          ],
+          "intensity": 0.8
+        }
+      ]
+    },
+    "initialState": {
+      "camera": {
+        "fov": 45,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          10
+        ]
+      },
+      "objects": [
+        {
+          "type": "timeline",
+          "steps": 4,
+          "spacing": 8,
+          "material": "process",
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.4
+        },
+        {
+          "type": "directional",
+          "position": [
+            0,
+            8,
+            5
+          ],
+          "intensity": 0.8
+        }
+      ],
+      "shaderUniforms": {
+        "uTime": 0,
+        "uScroll": 0,
+        "uMouse": [
+          0,
+          0
+        ],
+        "uIntensity": 1
+      }
+    }
+  },
+  {
+    "id": "footer-cta",
+    "name": "Footer Eclipse",
+    "precomputed": true,
+    "computeTime": 61.608799999999974,
+    "config": {
+      "camera": {
+        "fov": 50,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          20
+        ]
+      },
+      "objects": [
+        {
+          "type": "eclipse",
+          "sunRadius": 2.5,
+          "moonRadius": 2.6,
+          "coronaRadius": 3.5
+        },
+        {
+          "type": "particles",
+          "count": 200,
+          "radius": 15
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.1
+        },
+        {
+          "type": "point",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "intensity": 2,
+          "color": "#ffd700"
+        }
+      ]
+    },
+    "initialState": {
+      "camera": {
+        "fov": 50,
+        "near": 0.1,
+        "far": 1000,
+        "position": [
+          0,
+          0,
+          20
+        ]
+      },
+      "objects": [
+        {
+          "type": "eclipse",
+          "sunRadius": 2.5,
+          "moonRadius": 2.6,
+          "coronaRadius": 3.5,
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "particles",
+          "count": 200,
+          "radius": 15,
+          "initialTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "lights": [
+        {
+          "type": "ambient",
+          "intensity": 0.1
+        },
+        {
+          "type": "point",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "intensity": 2,
+          "color": "#ffd700"
+        }
+      ],
+      "shaderUniforms": {
+        "uTime": 0,
+        "uScroll": 0,
+        "uMouse": [
+          0,
+          0
+        ],
+        "uIntensity": 1
+      }
+    }
+  }
+]

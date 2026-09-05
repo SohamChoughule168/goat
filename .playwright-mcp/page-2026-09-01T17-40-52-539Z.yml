@@ -1,0 +1,362 @@
+- generic [ref=f2e2]:
+  - generic [ref=f2e3]:
+    - link "Skip to content" [ref=f2e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f2e9]:
+      - heading "Navigation Menu" [level=2] [ref=f2e10]
+      - generic [ref=f2e12]:
+        - button "Toggle navigation" [ref=f2e14] [cursor=pointer]
+        - link "Homepage" [ref=f2e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f2e21]:
+          - link "Sign in" [ref=f2e22] [cursor=pointer]:
+            - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fsearch%3Fq%3Dorg%253Amodelcontextprotocol%2Btype%253Arepo%26type%3Drepositories
+          - button "Appearance settings" [ref=f2e25] [cursor=pointer]
+  - main [ref=f2e31]:
+    - generic [ref=f2e34]:
+      - heading "repositories Search Results · org:modelcontextprotocol type:repo" [level=1] [ref=f2e35]
+      - generic [ref=f2e42]:
+        - generic [ref=f2e44]:
+          - generic [ref=f2e45]:
+            - generic [ref=f2e47]:
+              - generic [ref=f2e48]: "Filter:"
+              - button "Filter by type" [ref=f2e49] [cursor=pointer]:
+                - generic [ref=f2e51]:
+                  - text: Repositories
+                  - generic [ref=f2e52]:
+                    - generic [ref=f2e53]: "42"
+                    - generic [ref=f2e54]: (42)
+            - heading "42 results" [level=2] [ref=f2e55]
+            - generic [ref=f2e56]:
+              - text: in
+              - generic [ref=f2e57]:
+                - link "modelcontextprotocol (press backspace or delete to remove)" [ref=f2e58] [cursor=pointer]:
+                  - /url: /modelcontextprotocol
+                  - text: modelcontextprotocol
+                  - generic [ref=f2e59]: (press backspace or delete to remove)
+                - generic [ref=f2e60] [cursor=pointer]
+          - generic [ref=f2e63]:
+            - button "Filter" [ref=f2e65] [cursor=pointer]
+            - button "Open column options" [ref=f2e69] [cursor=pointer]
+        - generic [ref=f2e74]:
+          - generic [ref=f2e76]:
+            - generic [ref=f2e77]:
+              - heading "modelcontextprotocol/servers" [level=3] [ref=f2e78]:
+                - link "modelcontextprotocol/servers" [ref=f2e82] [cursor=pointer]:
+                  - /url: /modelcontextprotocol/servers
+              - generic [ref=f2e83]: Model Context Protocol Servers
+              - list [ref=f2e84]:
+                - listitem [ref=f2e85]:
+                  - generic "TypeScript language" [ref=f2e88]: TypeScript
+                - generic [ref=f2e89]: ·
+                - listitem [ref=f2e90]:
+                  - link "90005 stars" [ref=f2e91] [cursor=pointer]:
+                    - /url: /modelcontextprotocol/servers/stargazers
+                    - generic [ref=f2e94]: 90k
+                - generic [ref=f2e95]: ·
+                - listitem [ref=f2e96]:
+                  - generic [ref=f2e97]:
+                    - text: Updated
+                    - generic "Aug 31, 2026, 6:37 PM UTC" [ref=f2e98]: 23 hours ago
+            - link "Star" [ref=f2e101] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fsearch%3Fq%3Dorg%253Amodelcontextprotocol%2Btype%253Arepo%26type%3Drepositories
+          - generic [ref=f2e105]:
+            - generic [ref=f2e106]:
+              - heading "modelcontextprotocol/python-sdk" [level=3] [ref=f2e107]:
+                - link "modelcontextprotocol/python-sdk" [ref=f2e111] [cursor=pointer]:
+                  - /url: /modelcontextprotocol/python-sdk
+              - generic [ref=f2e112]: The official Python SDK for Model Context Protocol servers and clients
+              - generic [ref=f2e113]:
+                - link "python" [ref=f2e115] [cursor=pointer]:
+                  - /url: /topics/python
+                - link "mcp" [ref=f2e117] [cursor=pointer]:
+                  - /url: /topics/mcp
+                - link "mcp-server" [ref=f2e119] [cursor=pointer]:
+                  - /url: /topics/mcp-server
+                - link "mcp-client" [ref=f2e121] [cursor=pointer]:
+                  - /url: /topics/mcp-client
+              - list [ref=f2e122]:
+                - listitem [ref=f2e123]:
+                  - generic "Python language" [ref=f2e126]: Python
+                - generic [ref=f2e127]: ·
+                - listitem [ref=f2e128]:
+                  - link "24178 stars" [ref=f2e129] [cursor=pointer]:
+                    - /url: /modelcontextprotocol/python-sdk/stargazers
+                    - generic [ref=f2e132]: 24.2k
+                - generic [ref=f2e133]: ·
+                - listitem [ref=f2e134]:
+                  - generic [ref=f2e135]:
+                    - text: Updated
+                    - generic "Sep 1, 2026, 5:30 PM UTC" [ref=f2e136]: 10 minutes ago
+            - link "Star" [ref=f2e139] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fsearch%3Fq%3Dorg%253Amodelcontextprotocol%2Btype%253Arepo%26type%3Drepositories
+          - generic [ref=f2e143]:
+            - generic [ref=f2e144]:
+              - heading "modelcontextprotocol/typescript-sdk" [level=3] [ref=f2e145]:
+                - link "modelcontextprotocol/typescript-sdk" [ref=f2e149] [cursor=pointer]:
+                  - /url: /modelcontextprotocol/typescript-sdk
+              - generic [ref=f2e150]: The official TypeScript SDK for Model Context Protocol servers and clients
+              - generic [ref=f2e151]:
+                - link "typescript" [ref=f2e153] [cursor=pointer]:
+                  - /url: /topics/typescript
+                - link "mcp" [ref=f2e155] [cursor=pointer]:
+                  - /url: /topics/mcp
+                - link "mcp-server" [ref=f2e157] [cursor=pointer]:
+                  - /url: /topics/mcp-server
+                - link "mcp-client" [ref=f2e159] [cursor=pointer]:
+                  - /url: /topics/mcp-client
+              - list [ref=f2e160]:
+                - listitem [ref=f2e161]:
+                  - generic "TypeScript language" [ref=f2e164]: TypeScript
+                - generic [ref=f2e165]: ·
+                - listitem [ref=f2e166]:
+                  - link "13297 stars" [ref=f2e167] [cursor=pointer]:
+                    - /url: /modelcontextprotocol/typescript-sdk/stargazers
+                    - generic [ref=f2e170]: 13.3k
+                - generic [ref=f2e171]: ·
+                - listitem [ref=f2e172]:
+                  - generic [ref=f2e173]:
+                    - text: Updated
+                    - generic "Sep 1, 2026, 3:23 PM UTC" [ref=f2e174]: 2 hours ago
+            - link "Star" [ref=f2e177] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fsearch%3Fq%3Dorg%253Amodelcontextprotocol%2Btype%253Arepo%26type%3Drepositories
+          - generic [ref=f2e181]:
+            - generic [ref=f2e182]:
+              - heading "modelcontextprotocol/inspector" [level=3] [ref=f2e183]:
+                - link "modelcontextprotocol/inspector" [ref=f2e187] [cursor=pointer]:
+                  - /url: /modelcontextprotocol/inspector
+              - generic [ref=f2e188]: Visual testing tool for MCP servers
+              - generic [ref=f2e189]:
+                - link "cli" [ref=f2e191] [cursor=pointer]:
+                  - /url: /topics/cli
+                - link "web" [ref=f2e193] [cursor=pointer]:
+                  - /url: /topics/web
+                - link "tool" [ref=f2e195] [cursor=pointer]:
+                  - /url: /topics/tool
+                - link "mcp" [ref=f2e197] [cursor=pointer]:
+                  - /url: /topics/mcp
+                - link "tui" [ref=f2e199] [cursor=pointer]:
+                  - /url: /topics/tui
+              - list [ref=f2e200]:
+                - listitem [ref=f2e201]:
+                  - generic "TypeScript language" [ref=f2e204]: TypeScript
+                - generic [ref=f2e205]: ·
+                - listitem [ref=f2e206]:
+                  - link "10804 stars" [ref=f2e207] [cursor=pointer]:
+                    - /url: /modelcontextprotocol/inspector/stargazers
+                    - generic [ref=f2e210]: 10.8k
+                - generic [ref=f2e211]: ·
+                - listitem [ref=f2e212]:
+                  - generic [ref=f2e213]:
+                    - text: Updated
+                    - generic "Sep 1, 2026, 5:02 PM UTC" [ref=f2e214]: 38 minutes ago
+            - link "Star" [ref=f2e217] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fsearch%3Fq%3Dorg%253Amodelcontextprotocol%2Btype%253Arepo%26type%3Drepositories
+          - generic [ref=f2e221]:
+            - generic [ref=f2e222]:
+              - heading "modelcontextprotocol/modelcontextprotocol" [level=3] [ref=f2e223]:
+                - link "modelcontextprotocol/modelcontextprotocol" [ref=f2e227] [cursor=pointer]:
+                  - /url: /modelcontextprotocol/modelcontextprotocol
+              - generic [ref=f2e228]: Specification and documentation for the Model Context Protocol
+              - generic [ref=f2e229]:
+                - link "docs" [ref=f2e231] [cursor=pointer]:
+                  - /url: /topics/docs
+                - link "mcp" [ref=f2e233] [cursor=pointer]:
+                  - /url: /topics/mcp
+                - link "specification" [ref=f2e235] [cursor=pointer]:
+                  - /url: /topics/specification
+                - link "standard" [ref=f2e237] [cursor=pointer]:
+                  - /url: /topics/standard
+              - list [ref=f2e238]:
+                - listitem [ref=f2e239]:
+                  - generic "TypeScript language" [ref=f2e242]: TypeScript
+                - generic [ref=f2e243]: ·
+                - listitem [ref=f2e244]:
+                  - link "9103 stars" [ref=f2e245] [cursor=pointer]:
+                    - /url: /modelcontextprotocol/modelcontextprotocol/stargazers
+                    - generic [ref=f2e248]: 9.1k
+                - generic [ref=f2e249]: ·
+                - listitem [ref=f2e250]:
+                  - generic [ref=f2e251]:
+                    - text: Updated
+                    - generic "Sep 1, 2026, 5:43 AM UTC" [ref=f2e252]: 11 hours ago
+            - link "Star" [ref=f2e255] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fsearch%3Fq%3Dorg%253Amodelcontextprotocol%2Btype%253Arepo%26type%3Drepositories
+          - generic [ref=f2e259]:
+            - generic [ref=f2e260]:
+              - heading "modelcontextprotocol/registry" [level=3] [ref=f2e261]:
+                - link "modelcontextprotocol/registry" [ref=f2e265] [cursor=pointer]:
+                  - /url: /modelcontextprotocol/registry
+              - generic [ref=f2e266]: A community driven registry service for Model Context Protocol (MCP) servers.
+              - generic [ref=f2e267]:
+                - link "mcp" [ref=f2e269] [cursor=pointer]:
+                  - /url: /topics/mcp
+                - link "mcp-servers" [ref=f2e271] [cursor=pointer]:
+                  - /url: /topics/mcp-servers
+              - list [ref=f2e272]:
+                - listitem [ref=f2e273]:
+                  - generic "Go language" [ref=f2e276]: Go
+                - generic [ref=f2e277]: ·
+                - listitem [ref=f2e278]:
+                  - link "7210 stars" [ref=f2e279] [cursor=pointer]:
+                    - /url: /modelcontextprotocol/registry/stargazers
+                    - generic [ref=f2e282]: 7.2k
+                - generic [ref=f2e283]: ·
+                - listitem [ref=f2e284]:
+                  - generic [ref=f2e285]:
+                    - text: Updated
+                    - generic "Aug 26, 2026, 11:33 PM UTC" [ref=f2e286]: 5 days ago
+            - link "Star" [ref=f2e289] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fsearch%3Fq%3Dorg%253Amodelcontextprotocol%2Btype%253Arepo%26type%3Drepositories
+          - generic [ref=f2e293]:
+            - generic [ref=f2e294]:
+              - heading "modelcontextprotocol/go-sdk" [level=3] [ref=f2e295]:
+                - link "modelcontextprotocol/go-sdk" [ref=f2e299] [cursor=pointer]:
+                  - /url: /modelcontextprotocol/go-sdk
+              - generic [ref=f2e300]: The official Go SDK for Model Context Protocol servers and clients. Maintained in collaboration with Google.
+              - generic [ref=f2e301]:
+                - link "go" [ref=f2e303] [cursor=pointer]:
+                  - /url: /topics/go
+                - link "mcp" [ref=f2e305] [cursor=pointer]:
+                  - /url: /topics/mcp
+              - list [ref=f2e306]:
+                - listitem [ref=f2e307]:
+                  - generic "Go language" [ref=f2e310]: Go
+                - generic [ref=f2e311]: ·
+                - listitem [ref=f2e312]:
+                  - link "5048 stars" [ref=f2e313] [cursor=pointer]:
+                    - /url: /modelcontextprotocol/go-sdk/stargazers
+                    - generic [ref=f2e316]: 5k
+                - generic [ref=f2e317]: ·
+                - listitem [ref=f2e318]:
+                  - generic [ref=f2e319]:
+                    - text: Updated
+                    - generic "Sep 1, 2026, 5:02 PM UTC" [ref=f2e320]: 38 minutes ago
+            - link "Star" [ref=f2e323] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fsearch%3Fq%3Dorg%253Amodelcontextprotocol%2Btype%253Arepo%26type%3Drepositories
+          - generic [ref=f2e327]:
+            - generic [ref=f2e328]:
+              - heading "modelcontextprotocol/csharp-sdk" [level=3] [ref=f2e329]:
+                - link "modelcontextprotocol/csharp-sdk" [ref=f2e333] [cursor=pointer]:
+                  - /url: /modelcontextprotocol/csharp-sdk
+              - generic [ref=f2e334]: The official C# SDK for Model Context Protocol servers and clients. Maintained in collaboration with Microsoft.
+              - generic [ref=f2e335]:
+                - link "csharp" [ref=f2e337] [cursor=pointer]:
+                  - /url: /topics/csharp
+                - link "dotnet" [ref=f2e339] [cursor=pointer]:
+                  - /url: /topics/dotnet
+                - link "mcp" [ref=f2e341] [cursor=pointer]:
+                  - /url: /topics/mcp
+                - link "mcp-server" [ref=f2e343] [cursor=pointer]:
+                  - /url: /topics/mcp-server
+                - link "modelcontextprotocol" [ref=f2e345] [cursor=pointer]:
+                  - /url: /topics/modelcontextprotocol
+              - list [ref=f2e346]:
+                - listitem [ref=f2e347]:
+                  - generic "C# language" [ref=f2e350]: C#
+                - generic [ref=f2e351]: ·
+                - listitem [ref=f2e352]:
+                  - link "4508 stars" [ref=f2e353] [cursor=pointer]:
+                    - /url: /modelcontextprotocol/csharp-sdk/stargazers
+                    - generic [ref=f2e356]: 4.5k
+                - generic [ref=f2e357]: ·
+                - listitem [ref=f2e358]:
+                  - generic [ref=f2e359]:
+                    - text: Updated
+                    - generic "Aug 27, 2026, 4:20 PM UTC" [ref=f2e360]: 5 days ago
+            - link "Star" [ref=f2e363] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fsearch%3Fq%3Dorg%253Amodelcontextprotocol%2Btype%253Arepo%26type%3Drepositories
+          - generic [ref=f2e367]:
+            - generic [ref=f2e368]:
+              - heading "modelcontextprotocol/rust-sdk" [level=3] [ref=f2e369]:
+                - link "modelcontextprotocol/rust-sdk" [ref=f2e373] [cursor=pointer]:
+                  - /url: /modelcontextprotocol/rust-sdk
+              - generic [ref=f2e374]: The official Rust SDK for the Model Context Protocol
+              - generic [ref=f2e375]:
+                - link "rust" [ref=f2e377] [cursor=pointer]:
+                  - /url: /topics/rust
+                - link "mcp" [ref=f2e379] [cursor=pointer]:
+                  - /url: /topics/mcp
+                - link "mcp-server" [ref=f2e381] [cursor=pointer]:
+                  - /url: /topics/mcp-server
+                - link "mcp-client" [ref=f2e383] [cursor=pointer]:
+                  - /url: /topics/mcp-client
+              - list [ref=f2e384]:
+                - listitem [ref=f2e385]:
+                  - generic "Rust language" [ref=f2e388]: Rust
+                - generic [ref=f2e389]: ·
+                - listitem [ref=f2e390]:
+                  - link "3860 stars" [ref=f2e391] [cursor=pointer]:
+                    - /url: /modelcontextprotocol/rust-sdk/stargazers
+                    - generic [ref=f2e394]: 3.9k
+                - generic [ref=f2e395]: ·
+                - listitem [ref=f2e396]:
+                  - generic [ref=f2e397]:
+                    - text: Updated
+                    - generic "Sep 1, 2026, 2:19 PM UTC" [ref=f2e398]: 3 hours ago
+            - link "Star" [ref=f2e401] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fsearch%3Fq%3Dorg%253Amodelcontextprotocol%2Btype%253Arepo%26type%3Drepositories
+          - generic [ref=f2e405]:
+            - generic [ref=f2e406]:
+              - heading "modelcontextprotocol/java-sdk" [level=3] [ref=f2e407]:
+                - link "modelcontextprotocol/java-sdk" [ref=f2e411] [cursor=pointer]:
+                  - /url: /modelcontextprotocol/java-sdk
+              - generic [ref=f2e412]: The official Java SDK for Model Context Protocol servers and clients. Maintained in collaboration with Spring AI
+              - generic [ref=f2e413]:
+                - link "java" [ref=f2e415] [cursor=pointer]:
+                  - /url: /topics/java
+                - link "mcp" [ref=f2e417] [cursor=pointer]:
+                  - /url: /topics/mcp
+                - link "mcp-server" [ref=f2e419] [cursor=pointer]:
+                  - /url: /topics/mcp-server
+                - link "mcp-client" [ref=f2e421] [cursor=pointer]:
+                  - /url: /topics/mcp-client
+              - list [ref=f2e422]:
+                - listitem [ref=f2e423]:
+                  - generic "Java language" [ref=f2e426]: Java
+                - generic [ref=f2e427]: ·
+                - listitem [ref=f2e428]:
+                  - link "3678 stars" [ref=f2e429] [cursor=pointer]:
+                    - /url: /modelcontextprotocol/java-sdk/stargazers
+                    - generic [ref=f2e432]: 3.7k
+                - generic [ref=f2e433]: ·
+                - listitem [ref=f2e434]:
+                  - generic [ref=f2e435]:
+                    - text: Updated
+                    - generic "Sep 1, 2026, 4:09 PM UTC" [ref=f2e436]: 1 hour ago
+            - link "Star" [ref=f2e439] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fsearch%3Fq%3Dorg%253Amodelcontextprotocol%2Btype%253Arepo%26type%3Drepositories
+        - navigation "Pagination" [ref=f2e444]:
+          - generic [ref=f2e445]:
+            - generic [ref=f2e446]: Previous
+            - link "Page 1" [ref=f2e449] [cursor=pointer]:
+              - /url: https://github.com/search?q=org%3Amodelcontextprotocol+type%3Arepo&type=repositories&p=1
+              - text: "1"
+            - link "Page 2" [ref=f2e450] [cursor=pointer]:
+              - /url: https://github.com/search?q=org%3Amodelcontextprotocol+type%3Arepo&type=repositories&p=2
+              - text: "2"
+            - link "Page 3" [ref=f2e451] [cursor=pointer]:
+              - /url: https://github.com/search?q=org%3Amodelcontextprotocol+type%3Arepo&type=repositories&p=3
+              - text: "3"
+            - link "Page 4" [ref=f2e452] [cursor=pointer]:
+              - /url: https://github.com/search?q=org%3Amodelcontextprotocol+type%3Arepo&type=repositories&p=4
+              - text: "4"
+            - link "Page 5" [ref=f2e453] [cursor=pointer]:
+              - /url: https://github.com/search?q=org%3Amodelcontextprotocol+type%3Arepo&type=repositories&p=5
+              - text: "5"
+            - link "Next Page" [ref=f2e454] [cursor=pointer]:
+              - /url: https://github.com/search?q=org%3Amodelcontextprotocol+type%3Arepo&type=repositories&p=2
+              - text: Next
+        - generic [ref=f2e458]:
+          - generic [ref=f2e459]:
+            - img "Package icon" [ref=f2e461]
+            - heading "Sponsor open source projects you depend on" [level=2] [ref=f2e462]
+            - generic [ref=f2e463]: Contributors are working behind the scenes to make open source better for everyone—give them the help and recognition they deserve.
+            - link "Explore sponsorable projects" [ref=f2e464] [cursor=pointer]:
+              - /url: https://github.com/sponsors/explore
+          - generic [ref=f2e467]:
+            - generic [ref=f2e468]: ProTip!
+            - generic [ref=f2e471]:
+              - text: Press the
+              - generic [ref=f2e472]: /
+              - text: key to activate the search input again and adjust your query.

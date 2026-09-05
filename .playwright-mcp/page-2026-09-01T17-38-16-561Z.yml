@@ -1,0 +1,1196 @@
+- generic [ref=f1e2]:
+  - generic [ref=f1e3]:
+    - link "Skip to content" [ref=f1e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f1e9]:
+      - heading "Navigation Menu" [level=2] [ref=f1e10]
+      - generic [ref=f1e11]:
+        - link "Homepage" [ref=f1e13] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f1e16]:
+          - navigation "Global" [ref=f1e17]:
+            - list [ref=f1e18]:
+              - listitem [ref=f1e19]:
+                - button "Platform" [ref=f1e21] [cursor=pointer]
+              - listitem [ref=f1e24]:
+                - button "Solutions" [ref=f1e26] [cursor=pointer]
+              - listitem [ref=f1e29]:
+                - button "Resources" [ref=f1e31] [cursor=pointer]
+              - listitem [ref=f1e34]:
+                - button "Open Source" [ref=f1e36] [cursor=pointer]
+              - listitem [ref=f1e39]:
+                - button "Enterprise" [ref=f1e41] [cursor=pointer]
+              - listitem [ref=f1e44]:
+                - link "Pricing" [ref=f1e45] [cursor=pointer]:
+                  - /url: https://github.com/pricing
+          - generic [ref=f1e46]:
+            - button "Search or jump to, type / to search" [ref=f1e48] [cursor=pointer]:
+              - generic [ref=f1e51]:
+                - generic [ref=f1e52]: Search
+                - generic [ref=f1e53]: /
+            - link "Sign in" [ref=f1e55] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fmodelcontextprotocol%2Frepositories
+            - link "Sign up" [ref=f1e58] [cursor=pointer]:
+              - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Forgs%2F%3Corg-login%3E%2Frepositories&source=header
+            - button "Appearance settings" [ref=f1e61] [cursor=pointer]
+  - generic [ref=f1e67]:
+    - banner [ref=f1e68]:
+      - heading [level=1] [ref=f1e70]:
+        - link [ref=f1e71] [cursor=pointer]:
+          - /url: /modelcontextprotocol
+          - img "@modelcontextprotocol" [ref=f1e72]
+          - text: Model Context Protocol
+      - navigation "Organization" [ref=f1e74]:
+        - list [ref=f1e76]:
+          - listitem [ref=f1e77]:
+            - link "Overview" [ref=f1e78] [cursor=pointer]:
+              - /url: /modelcontextprotocol
+          - listitem [ref=f1e81]:
+            - link "Repositories" [ref=f1e82] [cursor=pointer]:
+              - /url: /orgs/modelcontextprotocol/repositories
+          - listitem [ref=f1e85]:
+            - link "Discussions" [ref=f1e86] [cursor=pointer]:
+              - /url: /orgs/modelcontextprotocol/discussions
+          - listitem [ref=f1e89]:
+            - link "Projects" [ref=f1e90] [cursor=pointer]:
+              - /url: /orgs/modelcontextprotocol/projects
+          - listitem [ref=f1e93]:
+            - link "Packages" [ref=f1e94] [cursor=pointer]:
+              - /url: /orgs/modelcontextprotocol/packages
+          - listitem [ref=f1e97]:
+            - link "People" [ref=f1e98] [cursor=pointer]:
+              - /url: /orgs/modelcontextprotocol/people
+    - generic [ref=f1e104]:
+      - complementary "Repository filters" [ref=f1e105]:
+        - navigation "Repository views" [ref=f1e107]:
+          - list [ref=f1e108]:
+            - listitem [ref=f1e109]:
+              - link "All" [ref=f1e110] [cursor=pointer]:
+                - /url: "?q="
+            - listitem [ref=f1e113]:
+              - link "Contributed by me" [ref=f1e114] [cursor=pointer]:
+                - /url: "?q=contributed-by:@me"
+            - listitem [ref=f1e117]:
+              - link "Admin access" [ref=f1e118] [cursor=pointer]:
+                - /url: "?q=admin:@me"
+            - listitem [ref=f1e121]:
+              - link "Public" [ref=f1e122] [cursor=pointer]:
+                - /url: "?q=visibility:public archived:false"
+            - listitem [ref=f1e125]:
+              - link "Sources" [ref=f1e126] [cursor=pointer]:
+                - /url: "?q=mirror:false fork:false archived:false"
+            - listitem [ref=f1e129]:
+              - link "Forks" [ref=f1e130] [cursor=pointer]:
+                - /url: "?q=fork:true archived:false"
+            - listitem [ref=f1e133]:
+              - link "Archived" [ref=f1e134] [cursor=pointer]:
+                - /url: "?q=archived:true"
+            - listitem [ref=f1e137]:
+              - link "Templates" [ref=f1e138] [cursor=pointer]:
+                - /url: "?q=template:true archived:false"
+        - list [ref=f1e142]:
+          - listitem [ref=f1e143]:
+            - button "Collapse sidebar" [expanded] [ref=f1e144] [cursor=pointer]
+      - generic [ref=f1e147]:
+        - heading "All" [level=1] [ref=f1e153]
+        - main [ref=f1e155]:
+          - generic [ref=f1e156]:
+            - search "Search repositories" [ref=f1e157]:
+              - form "Search repositories" [ref=f1e158]:
+                - generic [ref=f1e161]:
+                  - combobox "Search repositories" [ref=f1e165]
+                  - button "Search" [ref=f1e166] [cursor=pointer]
+            - region "All" [ref=f1e169]:
+              - generic [ref=f1e173]:
+                - heading "Repositories list" [level=2] [ref=f1e174]
+                - generic [ref=f1e175]:
+                  - heading "42 repositories" [level=2] [ref=f1e176]
+                  - generic [ref=f1e178]:
+                    - button "Sort by Last pushed descending" [ref=f1e180] [cursor=pointer]:
+                      - generic [ref=f1e181]: Last pushed
+                    - list "Repositories list display density" [ref=f1e183]:
+                      - listitem [ref=f1e184]:
+                        - button "Comfortable display density" [pressed] [ref=f1e185] [cursor=pointer]
+                      - listitem [ref=f1e189]:
+                        - button "Compact display density" [ref=f1e190] [cursor=pointer]
+                - list "Repositories list" [ref=f1e194]:
+                  - listitem "." [ref=f1e195]:
+                    - generic [ref=f1e196]:
+                      - heading [level=3] [ref=f1e197]:
+                        - link "python-sdk" [ref=f1e198] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/python-sdk
+                      - generic [ref=f1e199]: Public
+                    - generic [ref=f1e202]:
+                      - generic "The official Python SDK for Model Context Protocol servers and clients" [ref=f1e205]
+                      - generic [ref=f1e206]:
+                        - link "python" [ref=f1e207] [cursor=pointer]:
+                          - /url: /search?q=topic%3Apython+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e209] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-server" [ref=f1e211] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-server+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-client" [ref=f1e213] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-client+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e215]:
+                        - generic [ref=f1e216]: Python
+                        - generic [ref=f1e219]: •
+                        - generic [ref=f1e220]: MIT License
+                        - generic [ref=f1e223]: •
+                        - link "3.9k forks" [ref=f1e224] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/python-sdk/forks
+                          - text: 3.9k
+                        - generic [ref=f1e227]: •
+                        - link "24k stars" [ref=f1e228] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/python-sdk/stargazers
+                          - text: 24k
+                        - generic [ref=f1e231]: •
+                        - link "205 issues" [ref=f1e232] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/python-sdk/issues
+                          - text: "205"
+                        - generic [ref=f1e236]: •
+                        - link "187 pull requests" [ref=f1e237] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/python-sdk/pulls
+                          - text: "187"
+                        - generic [ref=f1e240]: •
+                        - generic [ref=f1e241]: Updated Sep 1, 2026Sep 1, 2026
+                  - listitem "." [ref=f1e242]:
+                    - generic [ref=f1e243]:
+                      - heading [level=3] [ref=f1e244]:
+                        - link "inspector" [ref=f1e245] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/inspector
+                      - generic [ref=f1e246]: Public
+                    - generic [ref=f1e249]:
+                      - generic "Visual testing tool for MCP servers" [ref=f1e252]
+                      - generic [ref=f1e253]:
+                        - link "cli" [ref=f1e254] [cursor=pointer]:
+                          - /url: /search?q=topic%3Acli+org%3Amodelcontextprotocol&type=Repositories
+                        - link "web" [ref=f1e256] [cursor=pointer]:
+                          - /url: /search?q=topic%3Aweb+org%3Amodelcontextprotocol&type=Repositories
+                        - link "tool" [ref=f1e258] [cursor=pointer]:
+                          - /url: /search?q=topic%3Atool+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e260] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "tui" [ref=f1e262] [cursor=pointer]:
+                          - /url: /search?q=topic%3Atui+org%3Amodelcontextprotocol&type=Repositories
+                        - link "debug" [ref=f1e264] [cursor=pointer]:
+                          - /url: /search?q=topic%3Adebug+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e266]:
+                        - generic [ref=f1e267]: TypeScript
+                        - generic [ref=f1e270]: •
+                        - link "1.5k forks" [ref=f1e271] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/inspector/forks
+                          - text: 1.5k
+                        - generic [ref=f1e274]: •
+                        - link "11k stars" [ref=f1e275] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/inspector/stargazers
+                          - text: 11k
+                        - generic [ref=f1e278]: •
+                        - link "26 issues" [ref=f1e279] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/inspector/issues
+                          - text: "26"
+                        - generic [ref=f1e283]: •
+                        - link "2 pull requests" [ref=f1e284] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/inspector/pulls
+                          - text: "2"
+                        - generic [ref=f1e287]: •
+                        - generic [ref=f1e288]: Updated Sep 1, 2026Sep 1, 2026
+                  - listitem "." [ref=f1e289]:
+                    - generic [ref=f1e290]:
+                      - heading [level=3] [ref=f1e291]:
+                        - link "go-sdk" [ref=f1e292] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/go-sdk
+                      - generic [ref=f1e293]: Public
+                    - generic [ref=f1e296]:
+                      - generic "The official Go SDK for Model Context Protocol servers and clients. Maintained in collaboration with Google." [ref=f1e299]
+                      - generic [ref=f1e300]:
+                        - link "go" [ref=f1e301] [cursor=pointer]:
+                          - /url: /search?q=topic%3Ago+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e303] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e305]:
+                        - generic [ref=f1e306]: Go
+                        - generic [ref=f1e309]: •
+                        - generic [ref=f1e310]: Other
+                        - generic [ref=f1e313]: •
+                        - link "531 forks" [ref=f1e314] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/go-sdk/forks
+                          - text: "531"
+                        - generic [ref=f1e317]: •
+                        - link "5k stars" [ref=f1e318] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/go-sdk/stargazers
+                          - text: 5k
+                        - generic [ref=f1e321]: •
+                        - link "46 issues" [ref=f1e322] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/go-sdk/issues
+                          - text: "46"
+                        - generic [ref=f1e326]: •
+                        - link "47 pull requests" [ref=f1e327] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/go-sdk/pulls
+                          - text: "47"
+                        - generic [ref=f1e330]: •
+                        - generic [ref=f1e331]: Updated Sep 1, 2026Sep 1, 2026
+                  - listitem "." [ref=f1e332]:
+                    - generic [ref=f1e333]:
+                      - heading [level=3] [ref=f1e334]:
+                        - link "ruby-sdk" [ref=f1e335] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ruby-sdk
+                      - generic [ref=f1e336]: Public
+                    - generic [ref=f1e339]:
+                      - generic "The official Ruby SDK for the Model Context Protocol servers and clients." [ref=f1e342]
+                      - generic [ref=f1e343]:
+                        - link "ruby" [ref=f1e344] [cursor=pointer]:
+                          - /url: /search?q=topic%3Aruby+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e346] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-server" [ref=f1e348] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-server+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-client" [ref=f1e350] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-client+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e352]:
+                        - generic [ref=f1e353]: Ruby
+                        - generic [ref=f1e356]: •
+                        - generic [ref=f1e357]: Other
+                        - generic [ref=f1e360]: •
+                        - link "130 forks" [ref=f1e361] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ruby-sdk/forks
+                          - text: "130"
+                        - generic [ref=f1e364]: •
+                        - link "899 stars" [ref=f1e365] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ruby-sdk/stargazers
+                          - text: "899"
+                        - generic [ref=f1e368]: •
+                        - link "1 issue" [ref=f1e369] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ruby-sdk/issues
+                          - text: "1"
+                        - generic [ref=f1e373]: •
+                        - link "2 pull requests" [ref=f1e374] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ruby-sdk/pulls
+                          - text: "2"
+                        - generic [ref=f1e377]: •
+                        - generic [ref=f1e378]: Updated Sep 1, 2026Sep 1, 2026
+                  - listitem "." [ref=f1e379]:
+                    - generic [ref=f1e380]:
+                      - heading [level=3] [ref=f1e381]:
+                        - link "java-sdk" [ref=f1e382] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/java-sdk
+                      - generic [ref=f1e383]: Public
+                    - generic [ref=f1e386]:
+                      - generic "The official Java SDK for Model Context Protocol servers and clients. Maintained in collaboration with Spring AI" [ref=f1e389]
+                      - generic [ref=f1e390]:
+                        - link "java" [ref=f1e391] [cursor=pointer]:
+                          - /url: /search?q=topic%3Ajava+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e393] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-server" [ref=f1e395] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-server+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-client" [ref=f1e397] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-client+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e399]:
+                        - generic [ref=f1e400]: Java
+                        - generic [ref=f1e403]: •
+                        - generic [ref=f1e404]: MIT License
+                        - generic [ref=f1e407]: •
+                        - link "1.1k forks" [ref=f1e408] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/java-sdk/forks
+                          - text: 1.1k
+                        - generic [ref=f1e411]: •
+                        - link "3.7k stars" [ref=f1e412] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/java-sdk/stargazers
+                          - text: 3.7k
+                        - generic [ref=f1e415]: •
+                        - link "126 issues" [ref=f1e416] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/java-sdk/issues
+                          - text: "126"
+                        - generic [ref=f1e420]: •
+                        - link "159 pull requests" [ref=f1e421] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/java-sdk/pulls
+                          - text: "159"
+                        - generic [ref=f1e424]: •
+                        - generic [ref=f1e425]: Updated Sep 1, 2026Sep 1, 2026
+                  - listitem "." [ref=f1e426]:
+                    - generic [ref=f1e427]:
+                      - heading [level=3] [ref=f1e428]:
+                        - link "typescript-sdk" [ref=f1e429] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/typescript-sdk
+                      - generic [ref=f1e430]: Public
+                      - link "modelcontextprotocol/typescript-sdk's past year of commit activity" [ref=f1e432] [cursor=pointer]:
+                        - /url: /modelcontextprotocol/typescript-sdk/graphs/commit-activity
+                    - generic [ref=f1e440]:
+                      - generic "The official TypeScript SDK for Model Context Protocol servers and clients" [ref=f1e443]
+                      - generic [ref=f1e444]:
+                        - link "typescript" [ref=f1e445] [cursor=pointer]:
+                          - /url: /search?q=topic%3Atypescript+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e447] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-server" [ref=f1e449] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-server+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-client" [ref=f1e451] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-client+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e453]:
+                        - generic [ref=f1e454]: TypeScript
+                        - generic [ref=f1e457]: •
+                        - generic [ref=f1e458]: Other
+                        - generic [ref=f1e461]: •
+                        - link "2.1k forks" [ref=f1e462] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/typescript-sdk/forks
+                          - text: 2.1k
+                        - generic [ref=f1e465]: •
+                        - link "13k stars" [ref=f1e466] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/typescript-sdk/stargazers
+                          - text: 13k
+                        - generic [ref=f1e469]: •
+                        - link "303 issues" [ref=f1e470] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/typescript-sdk/issues
+                          - text: "303"
+                        - generic [ref=f1e474]: •
+                        - link "294 pull requests" [ref=f1e475] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/typescript-sdk/pulls
+                          - text: "294"
+                        - generic [ref=f1e478]: •
+                        - generic [ref=f1e479]: Updated Sep 1, 2026Sep 1, 2026
+                  - listitem "." [ref=f1e480]:
+                    - generic [ref=f1e481]:
+                      - heading [level=3] [ref=f1e482]:
+                        - link "rust-sdk" [ref=f1e483] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/rust-sdk
+                      - generic [ref=f1e484]: Public
+                    - generic [ref=f1e487]:
+                      - generic "The official Rust SDK for the Model Context Protocol" [ref=f1e490]
+                      - generic [ref=f1e491]:
+                        - link "rust" [ref=f1e492] [cursor=pointer]:
+                          - /url: /search?q=topic%3Arust+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e494] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-server" [ref=f1e496] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-server+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-client" [ref=f1e498] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-client+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e500]:
+                        - generic [ref=f1e501]: Rust
+                        - generic [ref=f1e504]: •
+                        - generic [ref=f1e505]: Other
+                        - generic [ref=f1e508]: •
+                        - link "628 forks" [ref=f1e509] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/rust-sdk/forks
+                          - text: "628"
+                        - generic [ref=f1e512]: •
+                        - link "3.9k stars" [ref=f1e513] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/rust-sdk/stargazers
+                          - text: 3.9k
+                        - generic [ref=f1e516]: •
+                        - link "23 issues" [ref=f1e517] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/rust-sdk/issues
+                          - text: "23"
+                        - generic [ref=f1e521]: •
+                        - link "34 pull requests" [ref=f1e522] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/rust-sdk/pulls
+                          - text: "34"
+                        - generic [ref=f1e525]: •
+                        - generic [ref=f1e526]: Updated Sep 1, 2026Sep 1, 2026
+                  - listitem "." [ref=f1e527]:
+                    - generic [ref=f1e528]:
+                      - heading [level=3] [ref=f1e529]:
+                        - link "kotlin-sdk" [ref=f1e530] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/kotlin-sdk
+                      - generic [ref=f1e531]: Public
+                      - link "modelcontextprotocol/kotlin-sdk's past year of commit activity" [ref=f1e533] [cursor=pointer]:
+                        - /url: /modelcontextprotocol/kotlin-sdk/graphs/commit-activity
+                    - generic [ref=f1e541]:
+                      - generic "The official Kotlin SDK for Model Context Protocol servers and clients. Maintained in collaboration with JetBrains" [ref=f1e544]
+                      - generic [ref=f1e545]:
+                        - link "mcp" [ref=f1e546] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "kotlin-multiplatform" [ref=f1e548] [cursor=pointer]:
+                          - /url: /search?q=topic%3Akotlin-multiplatform+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e550]:
+                        - generic [ref=f1e551]: Kotlin
+                        - generic [ref=f1e554]: •
+                        - generic [ref=f1e555]: Other
+                        - generic [ref=f1e558]: •
+                        - link "242 forks" [ref=f1e559] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/kotlin-sdk/forks
+                          - text: "242"
+                        - generic [ref=f1e562]: •
+                        - link "1.4k stars" [ref=f1e563] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/kotlin-sdk/stargazers
+                          - text: 1.4k
+                        - generic [ref=f1e566]: •
+                        - link "68 issues" [ref=f1e567] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/kotlin-sdk/issues
+                          - text: "68"
+                        - generic [ref=f1e571]: •
+                        - link "14 pull requests" [ref=f1e572] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/kotlin-sdk/pulls
+                          - text: "14"
+                        - generic [ref=f1e575]: •
+                        - generic [ref=f1e576]: Updated Sep 1, 2026Sep 1, 2026
+                  - listitem "." [ref=f1e577]:
+                    - generic [ref=f1e578]:
+                      - heading [level=3] [ref=f1e579]:
+                        - link "modelcontextprotocol" [ref=f1e580] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/modelcontextprotocol
+                      - generic [ref=f1e581]: Public
+                    - generic [ref=f1e584]:
+                      - generic "Specification and documentation for the Model Context Protocol" [ref=f1e587]
+                      - generic [ref=f1e588]:
+                        - link "docs" [ref=f1e589] [cursor=pointer]:
+                          - /url: /search?q=topic%3Adocs+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e591] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "specification" [ref=f1e593] [cursor=pointer]:
+                          - /url: /search?q=topic%3Aspecification+org%3Amodelcontextprotocol&type=Repositories
+                        - link "standard" [ref=f1e595] [cursor=pointer]:
+                          - /url: /search?q=topic%3Astandard+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e597]:
+                        - generic [ref=f1e598]: TypeScript
+                        - generic [ref=f1e601]: •
+                        - generic [ref=f1e602]: Other
+                        - generic [ref=f1e605]: •
+                        - link "1.8k forks" [ref=f1e606] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/modelcontextprotocol/forks
+                          - text: 1.8k
+                        - generic [ref=f1e609]: •
+                        - link "9.1k stars" [ref=f1e610] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/modelcontextprotocol/stargazers
+                          - text: 9.1k
+                        - generic [ref=f1e613]: •
+                        - link "62 issues" [ref=f1e614] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/modelcontextprotocol/issues
+                          - text: "62"
+                        - generic [ref=f1e618]: •
+                        - link "79 pull requests" [ref=f1e619] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/modelcontextprotocol/pulls
+                          - text: "79"
+                        - generic [ref=f1e622]: •
+                        - generic [ref=f1e623]: Updated Sep 1, 2026Sep 1, 2026
+                  - listitem "." [ref=f1e624]:
+                    - generic [ref=f1e625]:
+                      - heading [level=3] [ref=f1e626]:
+                        - link "experimental-ext-skills" [ref=f1e627] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-skills
+                      - generic [ref=f1e628]: Public
+                    - generic [ref=f1e631]:
+                      - generic "Experimental exploration of skills discovery and distribution through MCP primitives. Maintained by the Skills Over MCP Working Group." [ref=f1e634]
+                      - generic [ref=f1e635]:
+                        - generic [ref=f1e636]: Apache License 2.0
+                        - generic [ref=f1e639]: •
+                        - link "29 forks" [ref=f1e640] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-skills/forks
+                          - text: "29"
+                        - generic [ref=f1e643]: •
+                        - link "205 stars" [ref=f1e644] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-skills/stargazers
+                          - text: "205"
+                        - generic [ref=f1e647]: •
+                        - link "10 issues" [ref=f1e648] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-skills/issues
+                          - text: "10"
+                        - generic [ref=f1e652]: •
+                        - link "2 pull requests" [ref=f1e653] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-skills/pulls
+                          - text: "2"
+                        - generic [ref=f1e656]: •
+                        - generic [ref=f1e657]: Updated Sep 1, 2026Sep 1, 2026
+                  - listitem "." [ref=f1e658]:
+                    - generic [ref=f1e659]:
+                      - heading [level=3] [ref=f1e660]:
+                        - link "servers" [ref=f1e661] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/servers
+                      - generic [ref=f1e662]: Public
+                      - link "modelcontextprotocol/servers's past year of commit activity" [ref=f1e664] [cursor=pointer]:
+                        - /url: /modelcontextprotocol/servers/graphs/commit-activity
+                    - generic [ref=f1e672]:
+                      - generic "Model Context Protocol Servers" [ref=f1e675]
+                      - generic [ref=f1e676]:
+                        - generic [ref=f1e677]: TypeScript
+                        - generic [ref=f1e680]: •
+                        - generic [ref=f1e681]: Other
+                        - generic [ref=f1e684]: •
+                        - link "12k forks" [ref=f1e685] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/servers/forks
+                          - text: 12k
+                        - generic [ref=f1e688]: •
+                        - link "90k stars" [ref=f1e689] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/servers/stargazers
+                          - text: 90k
+                        - generic [ref=f1e692]: •
+                        - link "234 issues" [ref=f1e693] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/servers/issues
+                          - text: "234"
+                        - generic [ref=f1e697]: •
+                        - link "281 pull requests" [ref=f1e698] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/servers/pulls
+                          - text: "281"
+                        - generic [ref=f1e701]: •
+                        - generic [ref=f1e702]: Updated Aug 31, 2026Aug 31, 2026
+                  - listitem "." [ref=f1e703]:
+                    - generic [ref=f1e704]:
+                      - heading [level=3] [ref=f1e705]:
+                        - link "experimental-ext-grouping" [ref=f1e706] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-grouping
+                      - generic [ref=f1e707]: Public
+                      - link "modelcontextprotocol/experimental-ext-grouping's past year of commit activity" [ref=f1e709] [cursor=pointer]:
+                        - /url: /modelcontextprotocol/experimental-ext-grouping/graphs/commit-activity
+                    - generic [ref=f1e717]:
+                      - generic "About experimental exploration of organization for MCP primitives. Maintained by the Primitive Grouping Interest Group." [ref=f1e720]
+                      - generic [ref=f1e721]:
+                        - generic [ref=f1e722]: JavaScript
+                        - generic [ref=f1e725]: •
+                        - link "5 forks" [ref=f1e726] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-grouping/forks
+                          - text: "5"
+                        - generic [ref=f1e729]: •
+                        - link "10 stars" [ref=f1e730] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-grouping/stargazers
+                          - text: "10"
+                        - generic [ref=f1e733]: •
+                        - link "0 issues" [ref=f1e734] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-grouping/issues
+                          - text: "0"
+                        - generic [ref=f1e738]: •
+                        - link "7 pull requests" [ref=f1e739] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-grouping/pulls
+                          - text: "7"
+                        - generic [ref=f1e742]: •
+                        - generic [ref=f1e743]: Updated Aug 31, 2026Aug 31, 2026
+                  - listitem "." [ref=f1e744]:
+                    - generic [ref=f1e745]:
+                      - heading [level=3] [ref=f1e746]:
+                        - link "conformance" [ref=f1e747] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/conformance
+                      - generic [ref=f1e748]: Public
+                    - generic [ref=f1e751]:
+                      - generic "Conformance Tests for MCP" [ref=f1e754]
+                      - generic [ref=f1e755]:
+                        - generic [ref=f1e756]: TypeScript
+                        - generic [ref=f1e759]: •
+                        - generic [ref=f1e760]: Other
+                        - generic [ref=f1e763]: •
+                        - link "88 forks" [ref=f1e764] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/conformance/forks
+                          - text: "88"
+                        - generic [ref=f1e767]: •
+                        - link "111 stars" [ref=f1e768] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/conformance/stargazers
+                          - text: "111"
+                        - generic [ref=f1e771]: •
+                        - link "65 issues" [ref=f1e772] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/conformance/issues
+                          - text: "65"
+                        - generic [ref=f1e776]: •
+                        - link "59 pull requests" [ref=f1e777] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/conformance/pulls
+                          - text: "59"
+                        - generic [ref=f1e780]: •
+                        - generic [ref=f1e781]: Updated Aug 31, 2026Aug 31, 2026
+                  - listitem "." [ref=f1e782]:
+                    - generic [ref=f1e783]:
+                      - heading [level=3] [ref=f1e784]:
+                        - link "dns" [ref=f1e785] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/dns
+                      - generic [ref=f1e786]: Public
+                    - generic [ref=f1e789]:
+                      - generic "Infrastructure as Code for MCP domains / DNS management" [ref=f1e792]
+                      - generic [ref=f1e793]:
+                        - link "dns" [ref=f1e794] [cursor=pointer]:
+                          - /url: /search?q=topic%3Adns+org%3Amodelcontextprotocol&type=Repositories
+                        - link "infrastructure" [ref=f1e796] [cursor=pointer]:
+                          - /url: /search?q=topic%3Ainfrastructure+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e798]:
+                        - generic [ref=f1e799]: TypeScript
+                        - generic [ref=f1e802]: •
+                        - link "10 forks" [ref=f1e803] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/dns/forks
+                          - text: "10"
+                        - generic [ref=f1e806]: •
+                        - link "11 stars" [ref=f1e807] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/dns/stargazers
+                          - text: "11"
+                        - generic [ref=f1e810]: •
+                        - link "0 issues" [ref=f1e811] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/dns/issues
+                          - text: "0"
+                        - generic [ref=f1e815]: •
+                        - link "3 pull requests" [ref=f1e816] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/dns/pulls
+                          - text: "3"
+                        - generic [ref=f1e819]: •
+                        - generic [ref=f1e820]: Updated Aug 30, 2026Aug 30, 2026
+                  - listitem "." [ref=f1e821]:
+                    - generic [ref=f1e822]:
+                      - heading [level=3] [ref=f1e823]:
+                        - link "agents-wg" [ref=f1e824] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/agents-wg
+                      - generic [ref=f1e825]: Public
+                    - generic [ref=f1e828]:
+                      - generic "Staging grounds for the Agents Working Group" [ref=f1e831]
+                      - generic [ref=f1e832]:
+                        - generic [ref=f1e833]: Apache License 2.0
+                        - generic [ref=f1e836]: •
+                        - link "9 forks" [ref=f1e837] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/agents-wg/forks
+                          - text: "9"
+                        - generic [ref=f1e840]: •
+                        - link "9 stars" [ref=f1e841] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/agents-wg/stargazers
+                          - text: "9"
+                        - generic [ref=f1e844]: •
+                        - link "1 issue" [ref=f1e845] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/agents-wg/issues
+                          - text: "1"
+                        - generic [ref=f1e849]: •
+                        - link "4 pull requests" [ref=f1e850] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/agents-wg/pulls
+                          - text: "4"
+                        - generic [ref=f1e853]: •
+                        - generic [ref=f1e854]: Updated Aug 29, 2026Aug 29, 2026
+                  - listitem "." [ref=f1e855]:
+                    - generic [ref=f1e856]:
+                      - heading [level=3] [ref=f1e857]:
+                        - link "php-sdk" [ref=f1e858] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/php-sdk
+                      - generic [ref=f1e859]: Public
+                    - generic [ref=f1e862]:
+                      - generic "The official PHP SDK for Model Context Protocol servers and clients. Maintained in collaboration with The PHP Foundation." [ref=f1e865]
+                      - generic [ref=f1e866]:
+                        - link "php" [ref=f1e867] [cursor=pointer]:
+                          - /url: /search?q=topic%3Aphp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e869] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-server" [ref=f1e871] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-server+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-client" [ref=f1e873] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-client+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e875]:
+                        - generic [ref=f1e876]: PHP
+                        - generic [ref=f1e879]: •
+                        - generic [ref=f1e880]: Other
+                        - generic [ref=f1e883]: •
+                        - link "167 forks" [ref=f1e884] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/php-sdk/forks
+                          - text: "167"
+                        - generic [ref=f1e887]: •
+                        - link "1.6k stars" [ref=f1e888] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/php-sdk/stargazers
+                          - text: 1.6k
+                        - generic [ref=f1e891]: •
+                        - link "53 issues" [ref=f1e892] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/php-sdk/issues
+                          - text: "53"
+                        - generic [ref=f1e896]: •
+                        - link "16 pull requests" [ref=f1e897] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/php-sdk/pulls
+                          - text: "16"
+                        - generic [ref=f1e900]: •
+                        - generic [ref=f1e901]: Updated Aug 29, 2026Aug 29, 2026
+                  - listitem "." [ref=f1e902]:
+                    - generic [ref=f1e903]:
+                      - heading [level=3] [ref=f1e904]:
+                        - link "quickstart-resources" [ref=f1e905] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/quickstart-resources
+                      - generic [ref=f1e906]: Public
+                    - generic [ref=f1e909]:
+                      - generic "A repository of servers and clients from the Model Context Protocol tutorials" [ref=f1e912]
+                      - generic [ref=f1e913]:
+                        - generic [ref=f1e914]: TypeScript
+                        - generic [ref=f1e917]: •
+                        - generic [ref=f1e918]: Other
+                        - generic [ref=f1e921]: •
+                        - link "671 forks" [ref=f1e922] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/quickstart-resources/forks
+                          - text: "671"
+                        - generic [ref=f1e925]: •
+                        - link "1.2k stars" [ref=f1e926] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/quickstart-resources/stargazers
+                          - text: 1.2k
+                        - generic [ref=f1e929]: •
+                        - link "5 issues" [ref=f1e930] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/quickstart-resources/issues
+                          - text: "5"
+                        - generic [ref=f1e934]: •
+                        - link "0 pull requests" [ref=f1e935] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/quickstart-resources/pulls
+                          - text: "0"
+                        - generic [ref=f1e938]: •
+                        - generic [ref=f1e939]: Updated Aug 29, 2026Aug 29, 2026
+                  - listitem "." [ref=f1e940]:
+                    - generic [ref=f1e941]:
+                      - heading [level=3] [ref=f1e942]:
+                        - link "experimental-ext-interceptors" [ref=f1e943] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-interceptors
+                      - generic [ref=f1e944]: Public
+                    - generic [ref=f1e947]:
+                      - 'generic "Status: Experimental. This repository provides a multi-language reference implementation of the proposed interceptor extension for the Model Context Protocol (M…" [ref=f1e950]'
+                      - generic [ref=f1e951]:
+                        - link "extension" [ref=f1e952] [cursor=pointer]:
+                          - /url: /search?q=topic%3Aextension+org%3Amodelcontextprotocol&type=Repositories
+                        - link "experimental" [ref=f1e954] [cursor=pointer]:
+                          - /url: /search?q=topic%3Aexperimental+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e956]:
+                        - generic [ref=f1e957]: C#
+                        - generic [ref=f1e960]: •
+                        - generic [ref=f1e961]: Apache License 2.0
+                        - generic [ref=f1e964]: •
+                        - link "14 forks" [ref=f1e965] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-interceptors/forks
+                          - text: "14"
+                        - generic [ref=f1e968]: •
+                        - link "23 stars" [ref=f1e969] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-interceptors/stargazers
+                          - text: "23"
+                        - generic [ref=f1e972]: •
+                        - link "5 issues" [ref=f1e973] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-interceptors/issues
+                          - text: "5"
+                        - generic [ref=f1e977]: •
+                        - link "9 pull requests" [ref=f1e978] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-interceptors/pulls
+                          - text: "9"
+                        - generic [ref=f1e981]: •
+                        - generic [ref=f1e982]: Updated Aug 28, 2026Aug 28, 2026
+                  - listitem "." [ref=f1e983]:
+                    - generic [ref=f1e984]:
+                      - heading [level=3] [ref=f1e985]:
+                        - link "csharp-sdk" [ref=f1e986] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/csharp-sdk
+                      - generic [ref=f1e987]: Public
+                    - generic [ref=f1e990]:
+                      - generic "The official C# SDK for Model Context Protocol servers and clients. Maintained in collaboration with Microsoft." [ref=f1e993]
+                      - generic [ref=f1e994]:
+                        - link "csharp" [ref=f1e995] [cursor=pointer]:
+                          - /url: /search?q=topic%3Acsharp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "dotnet" [ref=f1e997] [cursor=pointer]:
+                          - /url: /search?q=topic%3Adotnet+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e999] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-server" [ref=f1e1001] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-server+org%3Amodelcontextprotocol&type=Repositories
+                        - link "modelcontextprotocol" [ref=f1e1003] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amodelcontextprotocol+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-client" [ref=f1e1005] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-client+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e1007]:
+                        - generic [ref=f1e1008]: C#
+                        - generic [ref=f1e1011]: •
+                        - generic [ref=f1e1012]: Other
+                        - generic [ref=f1e1015]: •
+                        - link "796 forks" [ref=f1e1016] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/csharp-sdk/forks
+                          - text: "796"
+                        - generic [ref=f1e1019]: •
+                        - link "4.5k stars" [ref=f1e1020] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/csharp-sdk/stargazers
+                          - text: 4.5k
+                        - generic [ref=f1e1023]: •
+                        - link "118 issues" [ref=f1e1024] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/csharp-sdk/issues
+                          - text: "118"
+                        - generic [ref=f1e1028]: •
+                        - link "49 pull requests" [ref=f1e1029] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/csharp-sdk/pulls
+                          - text: "49"
+                        - generic [ref=f1e1032]: •
+                        - generic [ref=f1e1033]: Updated Aug 27, 2026Aug 27, 2026
+                  - listitem "." [ref=f1e1034]:
+                    - generic [ref=f1e1035]:
+                      - heading [level=3] [ref=f1e1036]:
+                        - link "registry" [ref=f1e1037] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/registry
+                      - generic [ref=f1e1038]: Public
+                    - generic [ref=f1e1041]:
+                      - generic "A community driven registry service for Model Context Protocol (MCP) servers." [ref=f1e1044]
+                      - generic [ref=f1e1045]:
+                        - link "mcp" [ref=f1e1046] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-servers" [ref=f1e1048] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-servers+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e1050]:
+                        - generic [ref=f1e1051]: Go
+                        - generic [ref=f1e1054]: •
+                        - generic [ref=f1e1055]: Other
+                        - generic [ref=f1e1058]: •
+                        - link "974 forks" [ref=f1e1059] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/registry/forks
+                          - text: "974"
+                        - generic [ref=f1e1062]: •
+                        - link "7.2k stars" [ref=f1e1063] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/registry/stargazers
+                          - text: 7.2k
+                        - generic [ref=f1e1066]: •
+                        - link "104 issues" [ref=f1e1067] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/registry/issues
+                          - text: "104"
+                        - generic [ref=f1e1071]: •
+                        - link "53 pull requests" [ref=f1e1072] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/registry/pulls
+                          - text: "53"
+                        - generic [ref=f1e1075]: •
+                        - generic [ref=f1e1076]: Updated Aug 26, 2026Aug 26, 2026
+                  - listitem "." [ref=f1e1077]:
+                    - generic [ref=f1e1078]:
+                      - heading [level=3] [ref=f1e1079]:
+                        - link "transports-wg" [ref=f1e1080] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/transports-wg
+                      - generic [ref=f1e1081]: Public
+                    - generic [ref=f1e1084]:
+                      - generic "Transports Working Group" [ref=f1e1087]
+                      - generic [ref=f1e1088]:
+                        - generic [ref=f1e1089]: Other
+                        - generic [ref=f1e1092]: •
+                        - link "10 forks" [ref=f1e1093] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/transports-wg/forks
+                          - text: "10"
+                        - generic [ref=f1e1096]: •
+                        - link "18 stars" [ref=f1e1097] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/transports-wg/stargazers
+                          - text: "18"
+                        - generic [ref=f1e1100]: •
+                        - link "2 issues" [ref=f1e1101] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/transports-wg/issues
+                          - text: "2"
+                        - generic [ref=f1e1105]: •
+                        - link "6 pull requests" [ref=f1e1106] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/transports-wg/pulls
+                          - text: "6"
+                        - generic [ref=f1e1109]: •
+                        - generic [ref=f1e1110]: Updated Aug 26, 2026Aug 26, 2026
+                  - listitem "." [ref=f1e1111]:
+                    - generic [ref=f1e1112]:
+                      - heading [level=3] [ref=f1e1113]:
+                        - link "ext-tasks" [ref=f1e1114] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-tasks
+                      - generic [ref=f1e1115]: Public
+                    - generic [ref=f1e1118]:
+                      - generic "This repository provides a reference for the tasks extensions to the MCP protocol, allowing for long-running operations, such as Agent communication, in MCP." [ref=f1e1121]
+                      - generic [ref=f1e1122]:
+                        - generic [ref=f1e1123]: TypeScript
+                        - generic [ref=f1e1126]: •
+                        - generic [ref=f1e1127]: Apache License 2.0
+                        - generic [ref=f1e1130]: •
+                        - link "8 forks" [ref=f1e1131] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-tasks/forks
+                          - text: "8"
+                        - generic [ref=f1e1134]: •
+                        - link "35 stars" [ref=f1e1135] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-tasks/stargazers
+                          - text: "35"
+                        - generic [ref=f1e1138]: •
+                        - link "2 issues" [ref=f1e1139] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-tasks/issues
+                          - text: "2"
+                        - generic [ref=f1e1143]: •
+                        - link "0 pull requests" [ref=f1e1144] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-tasks/pulls
+                          - text: "0"
+                        - generic [ref=f1e1147]: •
+                        - generic [ref=f1e1148]: Updated Aug 24, 2026Aug 24, 2026
+                  - listitem "." [ref=f1e1149]:
+                    - generic [ref=f1e1150]:
+                      - heading [level=3] [ref=f1e1151]:
+                        - link "access" [ref=f1e1152] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/access
+                      - generic [ref=f1e1153]: Public
+                    - generic [ref=f1e1156]:
+                      - generic "Infrastructure as Code for MCP access management" [ref=f1e1159]
+                      - generic [ref=f1e1160]:
+                        - link "infrastructure" [ref=f1e1161] [cursor=pointer]:
+                          - /url: /search?q=topic%3Ainfrastructure+org%3Amodelcontextprotocol&type=Repositories
+                        - link "authorization" [ref=f1e1163] [cursor=pointer]:
+                          - /url: /search?q=topic%3Aauthorization+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e1165]:
+                        - generic [ref=f1e1166]: TypeScript
+                        - generic [ref=f1e1169]: •
+                        - link "61 forks" [ref=f1e1170] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/access/forks
+                          - text: "61"
+                        - generic [ref=f1e1173]: •
+                        - link "46 stars" [ref=f1e1174] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/access/stargazers
+                          - text: "46"
+                        - generic [ref=f1e1177]: •
+                        - link "0 issues" [ref=f1e1178] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/access/issues
+                          - text: "0"
+                        - generic [ref=f1e1182]: •
+                        - link "5 pull requests" [ref=f1e1183] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/access/pulls
+                          - text: "5"
+                        - generic [ref=f1e1186]: •
+                        - generic [ref=f1e1187]: Updated Aug 20, 2026Aug 20, 2026
+                  - listitem "." [ref=f1e1188]:
+                    - generic [ref=f1e1189]:
+                      - heading [level=3] [ref=f1e1190]:
+                        - link "experimental-ext-tool-annotations" [ref=f1e1191] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-tool-annotations
+                      - generic [ref=f1e1192]: Public
+                    - generic [ref=f1e1195]:
+                      - generic "Repository for the Tool Annotations Interest Group" [ref=f1e1198]
+                      - generic [ref=f1e1199]:
+                        - generic [ref=f1e1200]: MDX
+                        - generic [ref=f1e1203]: •
+                        - generic [ref=f1e1204]: Other
+                        - generic [ref=f1e1207]: •
+                        - link "5 forks" [ref=f1e1208] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-tool-annotations/forks
+                          - text: "5"
+                        - generic [ref=f1e1211]: •
+                        - link "2 stars" [ref=f1e1212] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-tool-annotations/stargazers
+                          - text: "2"
+                        - generic [ref=f1e1215]: •
+                        - link "1 issue" [ref=f1e1216] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-tool-annotations/issues
+                          - text: "1"
+                        - generic [ref=f1e1220]: •
+                        - link "3 pull requests" [ref=f1e1221] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/experimental-ext-tool-annotations/pulls
+                          - text: "3"
+                        - generic [ref=f1e1224]: •
+                        - generic [ref=f1e1225]: Updated Aug 20, 2026Aug 20, 2026
+                  - listitem "." [ref=f1e1226]:
+                    - generic [ref=f1e1227]:
+                      - heading [level=3] [ref=f1e1228]:
+                        - link "ext-apps" [ref=f1e1229] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-apps
+                      - generic [ref=f1e1230]: Public
+                    - generic [ref=f1e1233]:
+                      - generic "Official repo for spec & SDK of MCP Apps protocol - standard for UIs embedded AI chatbots, served by MCP servers" [ref=f1e1236]
+                      - generic [ref=f1e1237]:
+                        - link "ui" [ref=f1e1238] [cursor=pointer]:
+                          - /url: /search?q=topic%3Aui+org%3Amodelcontextprotocol&type=Repositories
+                        - link "ai" [ref=f1e1240] [cursor=pointer]:
+                          - /url: /search?q=topic%3Aai+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e1242] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                        - link "apps" [ref=f1e1244] [cursor=pointer]:
+                          - /url: /search?q=topic%3Aapps+org%3Amodelcontextprotocol&type=Repositories
+                        - link "modelcontextprotocol" [ref=f1e1246] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amodelcontextprotocol+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp-apps" [ref=f1e1248] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp-apps+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e1250]:
+                        - generic [ref=f1e1251]: TypeScript
+                        - generic [ref=f1e1254]: •
+                        - generic [ref=f1e1255]: Other
+                        - generic [ref=f1e1258]: •
+                        - link "370 forks" [ref=f1e1259] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-apps/forks
+                          - text: "370"
+                        - generic [ref=f1e1262]: •
+                        - link "2.8k stars" [ref=f1e1263] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-apps/stargazers
+                          - text: 2.8k
+                        - generic [ref=f1e1266]: •
+                        - link "124 issues" [ref=f1e1267] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-apps/issues
+                          - text: "124"
+                        - generic [ref=f1e1271]: •
+                        - link "86 pull requests" [ref=f1e1272] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-apps/pulls
+                          - text: "86"
+                        - generic [ref=f1e1275]: •
+                        - generic [ref=f1e1276]: Updated Aug 12, 2026Aug 12, 2026
+                  - listitem "." [ref=f1e1277]:
+                    - generic [ref=f1e1278]:
+                      - heading [level=3] [ref=f1e1279]:
+                        - link "ext-server-card" [ref=f1e1280] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-server-card
+                      - generic [ref=f1e1281]: Public
+                    - generic [ref=f1e1284]:
+                      - generic [ref=f1e1285]:
+                        - link "extension" [ref=f1e1286] [cursor=pointer]:
+                          - /url: /search?q=topic%3Aextension+org%3Amodelcontextprotocol&type=Repositories
+                        - link "mcp" [ref=f1e1288] [cursor=pointer]:
+                          - /url: /search?q=topic%3Amcp+org%3Amodelcontextprotocol&type=Repositories
+                      - generic [ref=f1e1290]:
+                        - generic [ref=f1e1291]: TypeScript
+                        - generic [ref=f1e1294]: •
+                        - generic [ref=f1e1295]: Apache License 2.0
+                        - generic [ref=f1e1298]: •
+                        - link "5 forks" [ref=f1e1299] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-server-card/forks
+                          - text: "5"
+                        - generic [ref=f1e1302]: •
+                        - link "7 stars" [ref=f1e1303] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-server-card/stargazers
+                          - text: "7"
+                        - generic [ref=f1e1306]: •
+                        - link "13 issues" [ref=f1e1307] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-server-card/issues
+                          - text: "13"
+                        - generic [ref=f1e1311]: •
+                        - link "2 pull requests" [ref=f1e1312] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-server-card/pulls
+                          - text: "2"
+                        - generic [ref=f1e1315]: •
+                        - generic [ref=f1e1316]: Updated Aug 12, 2026Aug 12, 2026
+                  - listitem "." [ref=f1e1317]:
+                    - generic [ref=f1e1318]:
+                      - heading [level=3] [ref=f1e1319]:
+                        - link "example-remote-server" [ref=f1e1320] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/example-remote-server
+                      - generic [ref=f1e1321]: Public
+                    - generic [ref=f1e1324]:
+                      - generic "A hosted version of the Everything server - for demonstration and testing purposes, hosted at https://example-server.modelcontextprotocol.io/mcp" [ref=f1e1327]
+                      - generic [ref=f1e1328]:
+                        - generic [ref=f1e1329]: TypeScript
+                        - generic [ref=f1e1332]: •
+                        - generic [ref=f1e1333]: MIT License
+                        - generic [ref=f1e1336]: •
+                        - link "36 forks" [ref=f1e1337] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/example-remote-server/forks
+                          - text: "36"
+                        - generic [ref=f1e1340]: •
+                        - link "78 stars" [ref=f1e1341] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/example-remote-server/stargazers
+                          - text: "78"
+                        - generic [ref=f1e1344]: •
+                        - link "5 issues" [ref=f1e1345] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/example-remote-server/issues
+                          - text: "5"
+                        - generic [ref=f1e1349]: •
+                        - link "7 pull requests" [ref=f1e1350] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/example-remote-server/pulls
+                          - text: "7"
+                        - generic [ref=f1e1353]: •
+                        - generic [ref=f1e1354]: Updated Aug 7, 2026Aug 7, 2026
+                  - listitem "." [ref=f1e1355]:
+                    - generic [ref=f1e1356]:
+                      - heading [level=3] [ref=f1e1357]:
+                        - link "financial-services-interest-group" [ref=f1e1358] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/financial-services-interest-group
+                      - generic [ref=f1e1359]: Public
+                    - generic [ref=f1e1362]:
+                      - generic "Financial Services Interest Group" [ref=f1e1365]
+                      - generic [ref=f1e1366]:
+                        - generic [ref=f1e1367]: Apache License 2.0
+                        - generic [ref=f1e1370]: •
+                        - link "7 forks" [ref=f1e1371] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/financial-services-interest-group/forks
+                          - text: "7"
+                        - generic [ref=f1e1374]: •
+                        - link "60 stars" [ref=f1e1375] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/financial-services-interest-group/stargazers
+                          - text: "60"
+                        - generic [ref=f1e1378]: •
+                        - link "2 issues" [ref=f1e1379] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/financial-services-interest-group/issues
+                          - text: "2"
+                        - generic [ref=f1e1383]: •
+                        - link "1 pull request" [ref=f1e1384] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/financial-services-interest-group/pulls
+                          - text: "1"
+                        - generic [ref=f1e1387]: •
+                        - generic [ref=f1e1388]: Updated Jul 15, 2026Jul 15, 2026
+                  - listitem "." [ref=f1e1389]:
+                    - generic [ref=f1e1390]:
+                      - heading [level=3] [ref=f1e1391]:
+                        - link "actions" [ref=f1e1392] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/actions
+                      - generic [ref=f1e1393]: Public
+                    - generic [ref=f1e1396]:
+                      - generic "GitHub Actions relevant to the management of MCP repositories." [ref=f1e1399]
+                      - generic [ref=f1e1400]:
+                        - generic [ref=f1e1401]: JavaScript
+                        - generic [ref=f1e1404]: •
+                        - generic [ref=f1e1405]: MIT License
+                        - generic [ref=f1e1408]: •
+                        - link "3 forks" [ref=f1e1409] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/actions/forks
+                          - text: "3"
+                        - generic [ref=f1e1412]: •
+                        - link "5 stars" [ref=f1e1413] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/actions/stargazers
+                          - text: "5"
+                        - generic [ref=f1e1416]: •
+                        - link "0 issues" [ref=f1e1417] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/actions/issues
+                          - text: "0"
+                        - generic [ref=f1e1421]: •
+                        - link "0 pull requests" [ref=f1e1422] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/actions/pulls
+                          - text: "0"
+                        - generic [ref=f1e1425]: •
+                        - generic [ref=f1e1426]: Updated Jul 6, 2026Jul 6, 2026
+                  - listitem "." [ref=f1e1427]:
+                    - generic [ref=f1e1428]:
+                      - heading [level=3] [ref=f1e1429]:
+                        - link "ext-auth" [ref=f1e1430] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-auth
+                      - generic [ref=f1e1431]: Public
+                    - generic [ref=f1e1434]:
+                      - generic "Extensions to authorization" [ref=f1e1437]
+                      - generic [ref=f1e1438]:
+                        - generic [ref=f1e1439]: MDX
+                        - generic [ref=f1e1442]: •
+                        - generic [ref=f1e1443]: MIT License
+                        - generic [ref=f1e1446]: •
+                        - link "47 forks" [ref=f1e1447] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-auth/forks
+                          - text: "47"
+                        - generic [ref=f1e1450]: •
+                        - link "156 stars" [ref=f1e1451] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-auth/stargazers
+                          - text: "156"
+                        - generic [ref=f1e1454]: •
+                        - link "11 issues" [ref=f1e1455] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-auth/issues
+                          - text: "11"
+                        - generic [ref=f1e1459]: •
+                        - link "9 pull requests" [ref=f1e1460] [cursor=pointer]:
+                          - /url: /modelcontextprotocol/ext-auth/pulls
+                          - text: "9"
+                        - generic [ref=f1e1463]: •
+                        - generic [ref=f1e1464]: Updated Jun 18, 2026Jun 18, 2026
+              - navigation "Pagination" [ref=f1e1465]:
+                - generic [ref=f1e1466]:
+                  - generic [ref=f1e1467]: Previous
+                  - link "Page 1" [ref=f1e1470] [cursor=pointer]:
+                    - /url: "#1"
+                    - text: "1"
+                  - link "Page 2" [ref=f1e1471] [cursor=pointer]:
+                    - /url: "#2"
+                    - text: "2"
+                  - link "Next Page" [ref=f1e1472] [cursor=pointer]:
+                    - /url: "#2"
+                    - text: Next
+              - generic [ref=f1e1475]:
+                - strong [ref=f1e1478]: ProTip!
+                - text: When viewing an organization's repositories, you can use the
+                - code [ref=f1e1479]: props.
+                - text: filter to filter by custom property.
+  - contentinfo [ref=f1e1480]:
+    - heading "Footer" [level=2] [ref=f1e1481]
+    - generic [ref=f1e1482]:
+      - generic [ref=f1e1483]:
+        - link "GitHub Homepage" [ref=f1e1484] [cursor=pointer]:
+          - /url: https://github.com
+        - generic [ref=f1e1487]: © 2026 GitHub, Inc.
+      - navigation "Footer" [ref=f1e1488]:
+        - heading "Footer navigation" [level=3] [ref=f1e1489]
+        - list "Footer navigation" [ref=f1e1490]:
+          - listitem [ref=f1e1491]:
+            - link "Terms" [ref=f1e1492] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=f1e1493]:
+            - link "Privacy" [ref=f1e1494] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+          - listitem [ref=f1e1495]:
+            - link "Security" [ref=f1e1496] [cursor=pointer]:
+              - /url: https://github.com/security
+          - listitem [ref=f1e1497]:
+            - link "Status" [ref=f1e1498] [cursor=pointer]:
+              - /url: https://www.githubstatus.com/
+          - listitem [ref=f1e1499]:
+            - link "Community" [ref=f1e1500] [cursor=pointer]:
+              - /url: https://github.community/
+          - listitem [ref=f1e1501]:
+            - link "Docs" [ref=f1e1502] [cursor=pointer]:
+              - /url: https://docs.github.com/
+          - listitem [ref=f1e1503]:
+            - link "Contact" [ref=f1e1504] [cursor=pointer]:
+              - /url: https://support.github.com?tags=dotcom-footer
+          - listitem [ref=f1e1505]:
+            - button "Manage cookies" [ref=f1e1507] [cursor=pointer]
+          - listitem [ref=f1e1508]:
+            - button "Do not share my personal information" [ref=f1e1510] [cursor=pointer]

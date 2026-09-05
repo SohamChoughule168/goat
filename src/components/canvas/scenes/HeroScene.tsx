@@ -27,6 +27,7 @@ interface HeroMonolithProps {
   mousePos: { x: number; y: number };
   hovered: boolean;
   intensity: number;
+  quality?: "high" | "medium" | "low";
 }
 
 export function HeroMonolith({
@@ -40,7 +41,7 @@ export function HeroMonolith({
   const { size } = useThree();
 
   // Custom shader material
-  const shaderMaterial = useMemo(() => {
+const shaderMaterial = useMemo(() => {
     return new THREE.ShaderMaterial({
       uniforms: {
         uTime: { value: 0 },
@@ -52,6 +53,7 @@ export function HeroMonolith({
         uColorB: { value: new THREE.Color("#a855f7") }, // accent purple
         uColorC: { value: new THREE.Color("#ffffff") }, // white core
         uIntensity: { value: 1.0 },
+        uChromaticAberration: { value: 0 },
       },
       vertexShader: monolithVertex,
       fragmentShader: monolithFragment,
@@ -129,6 +131,7 @@ export function HeroScene({
   mousePos,
   hovered,
   intensity,
+  quality = "medium",
 }: HeroMonolithProps) {
   return (
     <group>
@@ -137,6 +140,7 @@ export function HeroScene({
         mousePos={mousePos}
         hovered={hovered}
         intensity={intensity}
+        quality={quality}
       />
       
       {/* Orbital particles around monolith */}

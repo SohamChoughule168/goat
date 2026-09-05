@@ -11,6 +11,7 @@
  * - Manages global 3D state (camera, scroll, hover)
  * - Handles DPR-aware quality scaling
  * - Supports prefers-reduced-motion fallback
+ * - Includes post-processing chain (Bloom, ChromaticAberration, Vignette, SMAA, Noise)
  * 
  * Usage in app/layout.tsx:
  *   <CanvasProvider>
@@ -23,7 +24,10 @@
 import { Suspense, useEffect, useState, type ReactNode } from "react";
 import { Canvas } from "@react-three/fiber";
 import { PerformanceMonitor, View } from "@react-three/drei";
+import { EffectComposer, EffectGroup, Bloom, Vignette, ChromaticAberration, Noise, SMAA } from "@react-three/postprocessing";
 import { ACESFilmicToneMapping, SRGBColorSpace, type ColorRepresentation } from "three";
+import { usePerformanceMonitor } from "@/components/v6/performance-optimizer";
+import { useAdaptiveQuality } from "@/components/v6/performance-optimizer";
 
 interface CanvasProviderProps {
   children: ReactNode;
@@ -35,6 +39,10 @@ export function CanvasProvider({ children, className = "" }: CanvasProviderProps
   const [dpr, setDpr] = useState<[number, number]>([1, 2]);
   const [quality, setQuality] = useState<"high" | "medium" | "low">("high");
   const [reducedMotion, setReducedMotion] = useState(false);
+  const { shouldReduceParticles } = useAdaptiveQuality();
+  const { quality: perfQuality } = usePerformanceMonitor();
+
+  const effectiveQuality = perfQuality as "high" | "medium" | "low";
 
   useEffect(() => {
     // Check prefers-reduced-motion
@@ -76,7 +84,7 @@ export function CanvasProvider({ children, className = "" }: CanvasProviderProps
         performance={{ min: 0.5, max: 1, debounce: 200 }}
         // Shaders
         gl={{
-          antialias: quality === "high",
+          antialias: effectiveQuality === "high",
           alpha: true,
           powerPreference: "high-performance",
           stencil: false,
@@ -95,7 +103,7 @@ export function CanvasProvider({ children, className = "" }: CanvasProviderProps
         eventSource={typeof document !== "undefined" ? document.documentElement : undefined}
         eventPrefix="client"
         // Shadows
-        shadows={quality === "high" ? "soft" : false}
+        shadows={effectiveQuality === "high" ? "soft" : false}
         // Style
         style={{
           position: "fixed",
@@ -107,7 +115,6 @@ export function CanvasProvider({ children, className = "" }: CanvasProviderProps
           zIndex: 0,
         }}
         // R3F 9.0+ flat option removed; use linear workflow
-        // dpr-aware
         linear={false}
       >
         <PerformanceMonitor
@@ -120,6 +127,8 @@ export function CanvasProvider({ children, className = "" }: CanvasProviderProps
           <Suspense fallback={null}>
             <CanvasScene />
             <PreloadQueue />
+            {/* Post-processing chain */}
+            <PostProcessingChain quality={effectiveQuality as "high" | "medium" | "low"} />
           </Suspense>
         </PerformanceMonitor>
       </Canvas>
@@ -129,6 +138,69 @@ export function CanvasProvider({ children, className = "" }: CanvasProviderProps
         {children}
       </div>
     </div>
+  );
+}
+
+/**
+ * Post-processing chain component
+ * Applies: Bloom, Chromatic Aberration, Vignette, SMAA, Noise (quality-adaptive)
+ */
+function PostProcessingChain({ quality }: { quality: "high" | "medium" | "low" }) {
+  // Use a runtime variable to prevent TypeScript from narrowing
+  const qualityValue = quality;
+  const isLow = qualityValue === "low";
+  const isHigh = qualityValue === "high";
+  
+  if (isLow) return null;
+
+  return (
+    <EffectComposer
+      multisampling={8}
+      renderPriority={999}
+      enabled={true}
+      mergeMode="auto"
+    >
+      <EffectGroup>
+        {/* Bloom - only on high/medium quality */}
+        {!isLow && (
+          <Bloom
+            intensity={isHigh ? 0.6 : 0.4}
+            luminanceThreshold={0.85}
+            luminanceSmoothing={0.025}
+            mipmapBlur
+          />
+        )}
+        
+        {/* Chromatic Aberration - subtle, only on high quality */}
+        {isHigh && (
+          <ChromaticAberration
+            offset={[0.0008, 0.0008]}
+            radialModulation={false}
+          />
+        )}
+        
+        {/* Vignette - always on, subtle */}
+        <Vignette
+          eskil={false}
+          offset={0.3}
+          darkness={isHigh ? 0.4 : 0.3}
+        />
+        
+        {/* Noise - only on high quality, very subtle */}
+        {isHigh && (
+          <Noise
+            opacity={0.02}
+            premultiply={false}
+          />
+        )}
+        
+        {/* SMAA - anti-aliasing */}
+        <SMAA
+          preset={isHigh ? 2 : 1} // SMAAPreset.HIGH = 2, MEDIUM = 1
+          edgeDetectionMode={0} // EdgeDetectionMode.COLOR = 0
+        />
+      </EffectGroup>
+    </EffectComposer>
   );
 }
 

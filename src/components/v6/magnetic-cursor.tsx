@@ -156,7 +156,6 @@ export function MagneticButton({
   onMouseEnter,
   onMouseLeave,
   onClick,
-  ...props
 }: MagneticButtonProps) {
   const ref = useRef<any>(null);
   const [hovered, setHovered] = useState(false);
@@ -180,7 +179,7 @@ export function MagneticButton({
   return (
     <Tag
       ref={ref}
-      className={`magnetic-btn relative overflow-hidden ${className}`}
+      className={`magnetic-btn relative overflow-hidden ${className} focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none`}
       style={{
         ...style,
         transform: hovered ? "scale(1.02)" : "scale(1)",

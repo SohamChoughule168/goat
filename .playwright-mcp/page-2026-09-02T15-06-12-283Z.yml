@@ -1,0 +1,665 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - link "Skip to content" [ref=f1e4] [cursor=pointer]:
+        - /url: "#start-of-content"
+      - banner [ref=f1e9]:
+        - heading "Navigation Menu" [level=2] [ref=f1e10]
+        - generic [ref=f1e12]:
+          - button "Toggle navigation" [ref=f1e14] [cursor=pointer]
+          - link "Homepage" [ref=f1e18] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f1e21]:
+            - link "Sign in" [ref=f1e22] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Ftavily-ai%2Ftavily-mcp
+            - button "Appearance settings" [ref=f1e25] [cursor=pointer]
+    - main [ref=f1e32]:
+      - generic [ref=f1e33]:
+        - generic [ref=f1e34]:
+          - generic [ref=f1e36]:
+            - link "tavily-ai" [ref=f1e40] [cursor=pointer]:
+              - /url: /tavily-ai
+            - generic [ref=f1e41]: /
+            - strong [ref=f1e42]:
+              - link "tavily-mcp" [ref=f1e43] [cursor=pointer]:
+                - /url: /tavily-ai/tavily-mcp
+            - generic [ref=f1e44]: Public
+          - generic [ref=f1e45]:
+            - list:
+              - listitem [ref=f1e46]:
+                - link "You must be signed in to change notification settings" [ref=f1e47] [cursor=pointer]:
+                  - /url: /login?return_to=%2Ftavily-ai%2Ftavily-mcp
+                  - text: Notifications
+              - listitem [ref=f1e50]:
+                - link "Fork 291" [ref=f1e51] [cursor=pointer]:
+                  - /url: /login?return_to=%2Ftavily-ai%2Ftavily-mcp
+                  - text: Fork
+                  - generic "291" [ref=f1e54]
+              - listitem [ref=f1e55]:
+                - link "You must be signed in to star a repository" [ref=f1e57] [cursor=pointer]:
+                  - /url: /login?return_to=%2Ftavily-ai%2Ftavily-mcp
+                  - text: Star
+                  - generic "2366 users starred this repository" [ref=f1e60]: 2.4k
+        - navigation "Repository" [ref=f1e61]:
+          - list [ref=f1e62]:
+            - listitem [ref=f1e63]:
+              - link "Code" [ref=f1e64] [cursor=pointer]:
+                - /url: /tavily-ai/tavily-mcp
+            - listitem [ref=f1e68]:
+              - link "Issues 31" [ref=f1e69] [cursor=pointer]:
+                - /url: /tavily-ai/tavily-mcp/issues
+                - generic [ref=f1e73]: Issues
+                - generic "31" [ref=f1e74]
+            - listitem [ref=f1e75]:
+              - link "Pull requests 18" [ref=f1e76] [cursor=pointer]:
+                - /url: /tavily-ai/tavily-mcp/pulls
+                - generic [ref=f1e79]: Pull requests
+                - generic "18" [ref=f1e80]
+            - listitem [ref=f1e81]:
+              - link "Actions" [ref=f1e82] [cursor=pointer]:
+                - /url: /tavily-ai/tavily-mcp/actions
+            - listitem [ref=f1e86]:
+              - link "Projects" [ref=f1e87] [cursor=pointer]:
+                - /url: /tavily-ai/tavily-mcp/projects
+            - listitem [ref=f1e91]
+            - listitem [ref=f1e92]
+          - button "Additional navigation options" [ref=f1e96] [cursor=pointer]
+      - generic [ref=f1e110]:
+        - generic [ref=f1e113]:
+          - generic [ref=f1e114]:
+            - generic [ref=f1e115]:
+              - button "main branch" [ref=f1e117] [cursor=pointer]:
+                - generic [ref=f1e118]: main
+              - generic [ref=f1e122]:
+                - link "Go to Branches page" [ref=f1e123] [cursor=pointer]:
+                  - /url: /tavily-ai/tavily-mcp/branches
+                - link "Go to Tags page" [ref=f1e126] [cursor=pointer]:
+                  - /url: /tavily-ai/tavily-mcp/tags
+            - generic [ref=f1e129]:
+              - button "Go to file" [ref=f1e132] [cursor=pointer]
+              - button "Code" [ref=f1e135] [cursor=pointer]
+          - generic [ref=f1e138]:
+            - generic [ref=f1e139]:
+              - generic [ref=f1e141]:
+                - heading "Latest commit" [level=2] [ref=f1e142]
+                - generic [ref=f1e143]:
+                  - generic [ref=f1e145]:
+                    - link [ref=f1e146] [cursor=pointer]:
+                      - /url: /yashb1708
+                      - img "yashb1708" [ref=f1e147]
+                    - link "commits by yashb1708" [ref=f1e148] [cursor=pointer]:
+                      - /url: /tavily-ai/tavily-mcp/commits?author=yashb1708
+                      - text: yashb1708
+                  - generic [ref=f1e149]:
+                    - generic [ref=f1e151]:
+                      - link "Merge pull request" [ref=f1e152] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/commit/248dc9e3e385305ad3281120284ff662af4b5940
+                      - link "#202" [ref=f1e153] [cursor=pointer]:
+                        - /url: https://github.com/tavily-ai/tavily-mcp/pull/202
+                      - link "from tavily-ai/fix/security-bumps" [ref=f1e154] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/commit/248dc9e3e385305ad3281120284ff662af4b5940
+                    - button "Open commit details" [ref=f1e155] [cursor=pointer]
+                    - button "success" [ref=f1e158] [cursor=pointer]
+                - generic [ref=f1e161]:
+                  - generic [ref=f1e163]:
+                    - link "Commit 248dc9e" [ref=f1e164] [cursor=pointer]:
+                      - /url: /tavily-ai/tavily-mcp/commit/248dc9e3e385305ad3281120284ff662af4b5940
+                      - text: 248dc9e
+                    - text: ·
+                    - generic "Aug 20, 2026, 7:41 PM GMT+5:30" [ref=f1e165]: Aug 20, 20262 weeks ago
+                  - generic [ref=f1e166]:
+                    - heading "History" [level=2] [ref=f1e167]
+                    - link "View commit history for this file." [ref=f1e169] [cursor=pointer]:
+                      - /url: /tavily-ai/tavily-mcp/commits/main/
+              - heading "Folders and files" [level=2] [ref=f1e171]
+              - table "Folders and files" [ref=f1e172]:
+                - rowgroup:
+                  - row "Name Last commit message Last commit date":
+                    - columnheader "Name"
+                    - columnheader "Last commit message"
+                    - columnheader "Last commit date"
+                - rowgroup [ref=f1e173]:
+                  - row "assets, (Directory)" [ref=f1e174]:
+                    - cell [ref=f1e175]:
+                      - link "assets, (Directory)" [ref=f1e182] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/tree/main/assets
+                        - text: assets
+                    - cell [ref=f1e183]
+                    - cell [ref=f1e185]
+                  - row "src, (Directory)" [ref=f1e188]:
+                    - cell [ref=f1e189]:
+                      - link "src, (Directory)" [ref=f1e196] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/tree/main/src
+                        - text: src
+                    - cell [ref=f1e197]
+                    - cell [ref=f1e199]
+                  - row ".gitignore, (File)" [ref=f1e202]:
+                    - cell [ref=f1e203]:
+                      - link ".gitignore, (File)" [ref=f1e210] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/blob/main/.gitignore
+                        - text: .gitignore
+                    - cell [ref=f1e211]
+                    - cell [ref=f1e213]
+                  - row "Dockerfile, (File)" [ref=f1e216]:
+                    - cell [ref=f1e217]:
+                      - link "Dockerfile, (File)" [ref=f1e224] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/blob/main/Dockerfile
+                        - text: Dockerfile
+                    - cell [ref=f1e225]
+                    - cell [ref=f1e227]
+                  - row "LICENCE, (File)" [ref=f1e230]:
+                    - cell [ref=f1e231]:
+                      - link "LICENCE, (File)" [ref=f1e238] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/blob/main/LICENCE
+                        - text: LICENCE
+                    - cell [ref=f1e239]
+                    - cell [ref=f1e241]
+                  - row "README.md, (File)" [ref=f1e244]:
+                    - cell [ref=f1e245]:
+                      - link "README.md, (File)" [ref=f1e252] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/blob/main/README.md
+                        - text: README.md
+                    - cell [ref=f1e253]
+                    - cell [ref=f1e255]
+                  - row "package-lock.json, (File)" [ref=f1e258]:
+                    - cell [ref=f1e259]:
+                      - link "package-lock.json, (File)" [ref=f1e266] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/blob/main/package-lock.json
+                        - text: package-lock.json
+                    - cell [ref=f1e267]
+                    - cell [ref=f1e269]
+                  - row "package.json, (File)" [ref=f1e272]:
+                    - cell [ref=f1e273]:
+                      - link "package.json, (File)" [ref=f1e280] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/blob/main/package.json
+                        - text: package.json
+                    - cell [ref=f1e281]
+                    - cell [ref=f1e283]
+                  - row "smithery.yaml, (File)" [ref=f1e286]:
+                    - cell [ref=f1e287]:
+                      - link "smithery.yaml, (File)" [ref=f1e294] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/blob/main/smithery.yaml
+                        - text: smithery.yaml
+                    - cell [ref=f1e295]
+                    - cell [ref=f1e297]
+                  - row "tsconfig.json, (File)" [ref=f1e300]:
+                    - cell [ref=f1e301]:
+                      - link "tsconfig.json, (File)" [ref=f1e308] [cursor=pointer]:
+                        - /url: /tavily-ai/tavily-mcp/blob/main/tsconfig.json
+                        - text: tsconfig.json
+                    - cell [ref=f1e309]
+                    - cell [ref=f1e311]
+            - generic [ref=f1e315]:
+              - generic [ref=f1e316]:
+                - heading "Repository files navigation" [level=2] [ref=f1e317]
+                - navigation "Repository files" [ref=f1e318]:
+                  - list [ref=f1e319]:
+                    - listitem [ref=f1e320]:
+                      - link "README" [ref=f1e321] [cursor=pointer]:
+                        - /url: "#"
+                    - listitem [ref=f1e323]:
+                      - link "MIT license" [ref=f1e324] [cursor=pointer]:
+                        - /url: "#"
+                - button "Outline" [ref=f1e326] [cursor=pointer]
+              - article [ref=f1e330]:
+                - generic [ref=f1e331]:
+                  - heading "Tavily MCP Server" [level=1] [ref=f1e332]
+                  - 'link "Permalink: Tavily MCP Server" [ref=f1e333] [cursor=pointer]':
+                    - /url: "#tavily-mcp-server"
+                - paragraph [ref=f1e336]:
+                  - link [ref=f1e337] [cursor=pointer]:
+                    - /url: https://camo.githubusercontent.com/2058d7a8d0fe5392e4650ddb46088f94030656806b59545e827e5fb4a60858f2/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f746176696c792d61692f746176696c792d6d63703f7374796c653d736f6369616c
+                    - img "GitHub Repo stars" [ref=f1e338]
+                  - link [ref=f1e339] [cursor=pointer]:
+                    - /url: https://camo.githubusercontent.com/92ee4661cfc67d8ded5d09f86ca75eae016e825147c4a6449b4389beab747b11/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f64742f746176696c792d6d6370
+                    - img "npm" [ref=f1e340]
+                  - link [ref=f1e341] [cursor=pointer]:
+                    - /url: https://camo.githubusercontent.com/1524d777e29c61bbe42e68f4ab503a3662a9f9fc551c94e369e60f0f1ae86b40/68747470733a2f2f736d6974686572792e61692f62616467652f40746176696c792d61692f746176696c792d6d6370
+                    - img "smithery badge" [ref=f1e342]
+                - paragraph [ref=f1e343]: "The Tavily MCP server provides:"
+                - list [ref=f1e344]:
+                  - listitem [ref=f1e345]: search, extract, map, crawl tools
+                  - listitem [ref=f1e346]: Real-time web search capabilities through the tavily-search tool
+                  - listitem [ref=f1e347]: Intelligent data extraction from web pages via the tavily-extract tool
+                  - listitem [ref=f1e348]: Powerful web mapping tool that creates a structured map of website
+                  - listitem [ref=f1e349]: Web crawler that systematically explores websites
+                - generic [ref=f1e350]:
+                  - heading "📚 Helpful Resources" [level=3] [ref=f1e351]
+                  - 'link "Permalink: 📚 Helpful Resources" [ref=f1e352] [cursor=pointer]':
+                    - /url: "#-helpful-resources"
+                - list [ref=f1e355]:
+                  - listitem [ref=f1e356]:
+                    - link "Tutorial" [ref=f1e357] [cursor=pointer]:
+                      - /url: https://medium.com/@dustin_36183/building-a-knowledge-graph-assistant-combining-tavily-and-neo4j-mcp-servers-with-claude-db92de075df9
+                    - text: on combining Tavily MCP with Neo4j MCP server
+                  - listitem [ref=f1e358]:
+                    - link "Tutorial" [ref=f1e359] [cursor=pointer]:
+                      - /url: https://medium.com/@dustin_36183/connect-your-coding-assistant-to-the-web-integrating-tavily-mcp-with-cline-in-vs-code-5f923a4983d1
+                    - text: on integrating Tavily MCP with Cline in VS Code
+                - generic [ref=f1e360]:
+                  - heading "Remote MCP Server" [level=2] [ref=f1e361]
+                  - 'link "Permalink: Remote MCP Server" [ref=f1e362] [cursor=pointer]':
+                    - /url: "#remote-mcp-server"
+                - paragraph [ref=f1e365]: Connect directly to Tavily's remote MCP server instead of running it locally. This provides a seamless experience without requiring local installation or configuration.
+                - paragraph [ref=f1e366]: "Simply use the remote MCP server URL with your Tavily API key:"
+                - generic [ref=f1e367]:
+                  - code [ref=f1e369]: https://mcp.tavily.com/mcp/?tavilyApiKey=<your-api-key>
+                  - button "Copy code to clipboard" [ref=f1e371] [cursor=pointer]
+                - paragraph [ref=f1e375]:
+                  - text: Get your Tavily API key from
+                  - link "tavily.com" [ref=f1e376] [cursor=pointer]:
+                    - /url: https://www.tavily.com/
+                  - text: .
+                - paragraph [ref=f1e377]: "Alternatively, you can pass your API key through an Authorization header if the MCP client supports this:"
+                - generic [ref=f1e378]:
+                  - code [ref=f1e380]: "Authorization: Bearer <your-api-key>"
+                  - button "Copy code to clipboard" [ref=f1e382] [cursor=pointer]
+                - paragraph [ref=f1e386]:
+                  - strong [ref=f1e387]: "Note:"
+                  - text: When using the remote MCP, you can specify default parameters for all requests by including a
+                  - code [ref=f1e388]: DEFAULT_PARAMETERS
+                  - text: "header containing a JSON object with your desired defaults. Example:"
+                - generic [ref=f1e389]:
+                  - generic [ref=f1e390]:
+                    - text: "{\"include_images\":true, \"search_depth\":"
+                    - generic [ref=f1e391]: "\"basic\""
+                    - text: ", \"max_results\": 10}"
+                  - button "Copy code to clipboard" [ref=f1e393] [cursor=pointer]
+                - generic [ref=f1e397]:
+                  - heading "Connect to Claude Code" [level=2] [ref=f1e398]
+                  - 'link "Permalink: Connect to Claude Code" [ref=f1e399] [cursor=pointer]':
+                    - /url: "#connect-to-claude-code"
+                - paragraph [ref=f1e402]:
+                  - link "Claude Code" [ref=f1e403] [cursor=pointer]:
+                    - /url: https://docs.anthropic.com/en/docs/claude-code
+                  - text: is Anthropic's official CLI tool for Claude. You can add the Tavily MCP server using the
+                  - code [ref=f1e404]: claude mcp add
+                  - text: "command. There are two ways to authenticate:"
+                - generic [ref=f1e405]:
+                  - 'heading "Option 1: API Key in URL" [level=4] [ref=f1e406]'
+                  - 'link "Permalink: Option 1: API Key in URL" [ref=f1e407] [cursor=pointer]':
+                    - /url: "#option-1-api-key-in-url"
+                - paragraph [ref=f1e410]:
+                  - text: Pass your API key directly in the URL. Replace
+                  - code [ref=f1e411]: <your-api-key>
+                  - text: with your actual
+                  - link "Tavily API key" [ref=f1e412] [cursor=pointer]:
+                    - /url: https://www.tavily.com/
+                  - text: ":"
+                - generic [ref=f1e413]:
+                  - generic [ref=f1e414]: claude mcp add --transport http tavily https://mcp.tavily.com/mcp/?tavilyApiKey=<your-api-key>
+                  - button "Copy code to clipboard" [ref=f1e416] [cursor=pointer]
+                - generic [ref=f1e420]:
+                  - 'heading "Option 2: OAuth Authentication Flow" [level=4] [ref=f1e421]'
+                  - 'link "Permalink: Option 2: OAuth Authentication Flow" [ref=f1e422] [cursor=pointer]':
+                    - /url: "#option-2-oauth-authentication-flow"
+                - paragraph [ref=f1e425]: "Add the server without an API key in the URL:"
+                - generic [ref=f1e426]:
+                  - generic [ref=f1e427]: claude mcp add --transport http tavily https://mcp.tavily.com/mcp
+                  - button "Copy code to clipboard" [ref=f1e429] [cursor=pointer]
+                - paragraph [ref=f1e433]: "After adding, you'll need to complete the authentication flow:"
+                - list [ref=f1e434]:
+                  - listitem [ref=f1e435]:
+                    - text: Run
+                    - code [ref=f1e436]: claude
+                    - text: to start Claude Code
+                  - listitem [ref=f1e437]:
+                    - text: Type
+                    - code [ref=f1e438]: /mcp
+                    - text: to open the MCP server management
+                  - listitem [ref=f1e439]: Select the Tavily server and complete the authentication process
+                - paragraph [ref=f1e440]:
+                  - strong [ref=f1e441]: "Tip:"
+                  - text: Add
+                  - code [ref=f1e442]: "--scope user"
+                  - text: "to either command to make the Tavily MCP server available globally across all your projects:"
+                - generic [ref=f1e443]:
+                  - generic [ref=f1e444]: claude mcp add --transport http --scope user tavily https://mcp.tavily.com/mcp/?tavilyApiKey=<your-api-key>
+                  - button "Copy code to clipboard" [ref=f1e446] [cursor=pointer]
+                - paragraph [ref=f1e450]: Once configured, you'll have access to the Tavily search, extract, map, and crawl tools.
+                - generic [ref=f1e451]:
+                  - heading "Connect to Cursor" [level=2] [ref=f1e452]
+                  - 'link "Permalink: Connect to Cursor" [ref=f1e453] [cursor=pointer]':
+                    - /url: "#connect-to-cursor"
+                - paragraph [ref=f1e456]:
+                  - link [ref=f1e457] [cursor=pointer]:
+                    - /url: https://cursor.com/en/install-mcp?name=tavily-remote-mcp&config=eyJjb21tYW5kIjoibnB4IC15IG1jcC1yZW1vdGUgaHR0cHM6Ly9tY3AudGF2aWx5LmNvbS9tY3AvP3RhdmlseUFwaUtleT08eW91ci1hcGkta2V5PiIsImVudiI6e319
+                    - img "Install MCP Server" [ref=f1e458]
+                - paragraph [ref=f1e459]:
+                  - text: Click the ⬆️ Add to Cursor ⬆️ button, this will do most of the work for you but you will still need to edit the configuration to add your API-KEY. You can get a Tavily API key
+                  - link "here" [ref=f1e460] [cursor=pointer]:
+                    - /url: https://www.tavily.com/
+                  - text: .
+                - paragraph [ref=f1e461]: once you click the button you should be redirect to Cursor ...
+                - generic [ref=f1e462]:
+                  - heading "Step 1" [level=3] [ref=f1e463]
+                  - 'link "Permalink: Step 1" [ref=f1e464] [cursor=pointer]':
+                    - /url: "#step-1"
+                - paragraph [ref=f1e467]: Click the install button
+                - paragraph [ref=f1e468]:
+                  - link:
+                    - /url: /tavily-ai/tavily-mcp/blob/main/assets/cursor-step1.png
+                - generic [ref=f1e469]:
+                  - heading "Step 2" [level=3] [ref=f1e470]
+                  - 'link "Permalink: Step 2" [ref=f1e471] [cursor=pointer]':
+                    - /url: "#step-2"
+                - paragraph [ref=f1e474]:
+                  - text: You should see the MCP is now installed, if the blue slide is not already turned on, manually turn it on. You also need to edit the configuration to include your own Tavily API key.
+                  - link:
+                    - /url: /tavily-ai/tavily-mcp/blob/main/assets/cursor-step2.png
+                - generic [ref=f1e475]:
+                  - heading "Step 3" [level=3] [ref=f1e476]
+                  - 'link "Permalink: Step 3" [ref=f1e477] [cursor=pointer]':
+                    - /url: "#step-3"
+                - paragraph [ref=f1e480]:
+                  - text: You will then be redirected to your
+                  - code [ref=f1e481]: mcp.json
+                  - text: file where you have to add
+                  - code [ref=f1e482]: your-api-key
+                  - text: .
+                - generic [ref=f1e483]:
+                  - generic [ref=f1e484]:
+                    - text: "{ \"mcpServers\": { \"tavily-remote-mcp\": { \"command\":"
+                    - generic [ref=f1e485]: "\"npx -y mcp-remote https://mcp.tavily.com/mcp/?tavilyApiKey=<your-api-key>\""
+                    - text: ", \"env\": {} } } }"
+                  - button "Copy code to clipboard" [ref=f1e487] [cursor=pointer]
+                - generic [ref=f1e491]:
+                  - heading "Remote MCP Server OAuth Flow" [level=3] [ref=f1e492]
+                  - 'link "Permalink: Remote MCP Server OAuth Flow" [ref=f1e493] [cursor=pointer]':
+                    - /url: "#remote-mcp-server-oauth-flow"
+                - paragraph [ref=f1e496]: The Tavily Remote MCP server supports secure OAuth authentication, allowing you to connect and authorize seamlessly with compatible clients.
+                - generic [ref=f1e497]:
+                  - heading "How to Set Up OAuth Authentication" [level=4] [ref=f1e498]
+                  - 'link "Permalink: How to Set Up OAuth Authentication" [ref=f1e499] [cursor=pointer]':
+                    - /url: "#how-to-set-up-oauth-authentication"
+                - paragraph [ref=f1e502]:
+                  - strong [ref=f1e503]: "A. Using MCP Inspector:"
+                - list [ref=f1e504]:
+                  - listitem [ref=f1e505]: Open the MCP Inspector and click "Open Auth Settings".
+                  - listitem [ref=f1e506]:
+                    - text: "Select the OAuth flow and complete these steps:"
+                    - list [ref=f1e507]:
+                      - listitem [ref=f1e508]: Metadata discovery
+                      - listitem [ref=f1e509]: Client registration
+                      - listitem [ref=f1e510]: Preparing authorization
+                      - listitem [ref=f1e511]: Request authorization and obtain the authorization code
+                      - listitem [ref=f1e512]: Token request
+                      - listitem [ref=f1e513]: Authentication complete
+                - paragraph [ref=f1e514]: Once finished, you will receive an access token that lets you securely make authenticated requests to the Tavily Remote MCP server.
+                - paragraph [ref=f1e515]:
+                  - strong [ref=f1e516]: "B. Using other MCP Clients (Example: Cursor):"
+                - paragraph [ref=f1e517]:
+                  - text: You can configure your MCP client to use OAuth without including your Tavily API key in the URL. For example, in your
+                  - code [ref=f1e518]: mcp.json
+                  - text: ":"
+                - generic [ref=f1e519]:
+                  - generic [ref=f1e520]:
+                    - text: "{ \"mcpServers\": { \"tavily-remote-mcp\": { \"command\":"
+                    - generic [ref=f1e521]: "\"npx mcp-remote https://mcp.tavily.com/mcp\""
+                    - text: ", \"env\": {} } } }"
+                  - button "Copy code to clipboard" [ref=f1e523] [cursor=pointer]
+                - paragraph [ref=f1e527]: "If you need to clear stored OAuth credentials and reauthenticate, run:"
+                - generic [ref=f1e528]:
+                  - generic [ref=f1e529]: rm -rf ~/.mcp-auth
+                  - button "Copy code to clipboard" [ref=f1e531] [cursor=pointer]
+                - blockquote [ref=f1e535]:
+                  - paragraph [ref=f1e536]:
+                    - strong [ref=f1e537]: "Note:"
+                  - list [ref=f1e538]:
+                    - listitem [ref=f1e539]:
+                      - text: OAuth authentication is optional. You can still use API key authentication at any time by including your Tavily API key in the URL query parameter (
+                      - code [ref=f1e540]: "?tavilyApiKey=..."
+                      - text: ) or by setting it in the
+                      - code [ref=f1e541]: Authorization
+                      - text: header, as described above.
+                - generic [ref=f1e542]:
+                  - heading "Selecting Which API Key Is Used for OAuth" [level=4] [ref=f1e543]
+                  - 'link "Permalink: Selecting Which API Key Is Used for OAuth" [ref=f1e544] [cursor=pointer]':
+                    - /url: "#selecting-which-api-key-is-used-for-oauth"
+                - paragraph [ref=f1e547]:
+                  - text: After successful OAuth authentication, you can control which API key is used by naming it
+                  - code [ref=f1e548]: mcp_auth_default
+                  - text: ":"
+                - list [ref=f1e549]:
+                  - listitem [ref=f1e550]:
+                    - text: If you set a key named
+                    - code [ref=f1e551]: mcp_auth_default
+                    - text: in your
+                    - strong [ref=f1e552]: personal account
+                    - text: ", that key will be used for the auth flow."
+                  - listitem [ref=f1e553]:
+                    - text: If you are part of a
+                    - strong [ref=f1e554]: team
+                    - text: that has a key named
+                    - code [ref=f1e555]: mcp_auth_default
+                    - text: ", that key will be used for the auth flow."
+                  - listitem [ref=f1e556]:
+                    - text: If you have
+                    - strong [ref=f1e557]: both
+                    - text: a personal key and a team key named
+                    - code [ref=f1e558]: mcp_auth_default
+                    - text: ", the"
+                    - strong [ref=f1e559]: personal key will be prioritized
+                    - text: .
+                  - listitem [ref=f1e560]:
+                    - text: If no
+                    - code [ref=f1e561]: mcp_auth_default
+                    - text: key is set, the
+                    - code [ref=f1e562]: default
+                    - text: key in your personal account will be used. If no
+                    - code [ref=f1e563]: default
+                    - text: key is set, the first available key will be used.
+                - generic [ref=f1e564]:
+                  - heading "Local MCP" [level=2] [ref=f1e565]
+                  - 'link "Permalink: Local MCP" [ref=f1e566] [cursor=pointer]':
+                    - /url: "#local-mcp"
+                - generic [ref=f1e569]:
+                  - heading "Prerequisites 🔧" [level=3] [ref=f1e570]
+                  - 'link "Permalink: Prerequisites 🔧" [ref=f1e571] [cursor=pointer]':
+                    - /url: "#prerequisites-"
+                - paragraph [ref=f1e574]: "Before you begin, ensure you have:"
+                - list [ref=f1e575]:
+                  - listitem [ref=f1e576]:
+                    - link "Tavily API key" [ref=f1e577] [cursor=pointer]:
+                      - /url: https://app.tavily.com/home
+                    - list [ref=f1e578]:
+                      - listitem [ref=f1e579]:
+                        - text: If you don't have a Tavily API key, you can sign up for a free account
+                        - link "here" [ref=f1e580] [cursor=pointer]:
+                          - /url: https://app.tavily.com/home
+                  - listitem [ref=f1e581]:
+                    - link "Claude Desktop" [ref=f1e582] [cursor=pointer]:
+                      - /url: https://claude.ai/download
+                    - text: or
+                    - link "Cursor" [ref=f1e583] [cursor=pointer]:
+                      - /url: https://cursor.sh
+                  - listitem [ref=f1e584]:
+                    - link "Node.js" [ref=f1e585] [cursor=pointer]:
+                      - /url: https://nodejs.org/
+                    - text: (v20 or higher)
+                    - list [ref=f1e586]:
+                      - listitem [ref=f1e587]:
+                        - text: "You can verify your Node.js installation by running:"
+                        - list [ref=f1e588]:
+                          - listitem [ref=f1e589]:
+                            - code [ref=f1e590]: node --version
+                  - listitem [ref=f1e591]:
+                    - link "Git" [ref=f1e592] [cursor=pointer]:
+                      - /url: https://git-scm.com/downloads
+                    - text: installed (only needed if using Git installation method)
+                    - list [ref=f1e593]:
+                      - listitem [ref=f1e594]:
+                        - text: "On macOS:"
+                        - code [ref=f1e595]: brew install git
+                      - listitem [ref=f1e596]:
+                        - text: "On Linux:"
+                        - list [ref=f1e597]:
+                          - listitem [ref=f1e598]:
+                            - text: "Debian/Ubuntu:"
+                            - code [ref=f1e599]: sudo apt install git
+                          - listitem [ref=f1e600]:
+                            - text: "RedHat/CentOS:"
+                            - code [ref=f1e601]: sudo yum install git
+                      - listitem [ref=f1e602]:
+                        - text: "On Windows: Download"
+                        - link "Git for Windows" [ref=f1e603] [cursor=pointer]:
+                          - /url: https://git-scm.com/download/win
+                - generic [ref=f1e604]:
+                  - heading "Running with NPX" [level=3] [ref=f1e605]
+                  - 'link "Permalink: Running with NPX" [ref=f1e606] [cursor=pointer]':
+                    - /url: "#running-with-npx"
+                - generic [ref=f1e609]:
+                  - generic [ref=f1e610]: npx -y tavily-mcp@latest
+                  - button "Copy code to clipboard" [ref=f1e612] [cursor=pointer]
+                - generic [ref=f1e616]:
+                  - heading "Default Parameters Configuration ⚙️" [level=2] [ref=f1e617]
+                  - 'link "Permalink: Default Parameters Configuration ⚙️" [ref=f1e618] [cursor=pointer]':
+                    - /url: "#default-parameters-configuration-️"
+                - paragraph [ref=f1e621]:
+                  - text: You can set default parameter values for the
+                  - code [ref=f1e622]: tavily-search
+                  - text: tool using the
+                  - code [ref=f1e623]: DEFAULT_PARAMETERS
+                  - text: environment variable. This allows you to configure default search behavior without specifying these parameters in every request.
+                - generic [ref=f1e624]:
+                  - heading "Example Configuration" [level=3] [ref=f1e625]
+                  - 'link "Permalink: Example Configuration" [ref=f1e626] [cursor=pointer]':
+                    - /url: "#example-configuration"
+                - generic [ref=f1e629]:
+                  - generic [ref=f1e630]:
+                    - text: export DEFAULT_PARAMETERS=
+                    - generic [ref=f1e631]: "'{\"include_images\": true}'"
+                  - button "Copy code to clipboard" [ref=f1e633] [cursor=pointer]
+                - generic [ref=f1e637]:
+                  - heading "Example usage from Client" [level=3] [ref=f1e638]
+                  - 'link "Permalink: Example usage from Client" [ref=f1e639] [cursor=pointer]':
+                    - /url: "#example-usage-from-client"
+                - generic [ref=f1e642]:
+                  - generic [ref=f1e643]:
+                    - text: "{ \"mcpServers\": { \"tavily-mcp\": { \"command\":"
+                    - generic [ref=f1e644]: "\"npx\""
+                    - text: ", \"args\": ["
+                    - generic [ref=f1e645]: "\"-y\""
+                    - text: ","
+                    - generic [ref=f1e646]: "\"tavily-mcp@latest\""
+                    - text: "], \"env\": { \"TAVILY_API_KEY\":"
+                    - generic [ref=f1e647]: "\"your-api-key-here\""
+                    - text: ", \"DEFAULT_PARAMETERS\":"
+                    - generic [ref=f1e648]: "\"{\\\"include_images\\\": true, \\\"max_results\\\": 15, \\\"search_depth\\\": \\\"advanced\\\"}\""
+                    - text: "} } } }"
+                  - button "Copy code to clipboard" [ref=f1e650] [cursor=pointer]
+                - generic [ref=f1e654]:
+                  - heading "Identifying the End User (Optional)" [level=2] [ref=f1e655]
+                  - 'link "Permalink: Identifying the End User (Optional)" [ref=f1e656] [cursor=pointer]':
+                    - /url: "#identifying-the-end-user-optional"
+                - paragraph [ref=f1e659]:
+                  - text: You can optionally identify the end user on whose behalf requests are being made by setting the
+                  - code [ref=f1e660]: TAVILY_HUMAN_ID
+                  - text: environment variable. When set, Tavily MCP forwards it as the
+                  - code [ref=f1e661]: X-Human-Id
+                  - text: header on every API call, enabling per-user analytics.
+                - paragraph [ref=f1e662]:
+                  - text: This is
+                  - strong [ref=f1e663]: entirely optional
+                  - text: — leave it unset and behavior is unchanged.
+                - generic [ref=f1e664]:
+                  - generic [ref=f1e665]:
+                    - text: "{ \"mcpServers\": { \"tavily-mcp\": { \"command\":"
+                    - generic [ref=f1e666]: "\"npx\""
+                    - text: ", \"args\": ["
+                    - generic [ref=f1e667]: "\"-y\""
+                    - text: ","
+                    - generic [ref=f1e668]: "\"tavily-mcp@latest\""
+                    - text: "], \"env\": { \"TAVILY_API_KEY\":"
+                    - generic [ref=f1e669]: "\"your-api-key-here\""
+                    - text: ", \"TAVILY_HUMAN_ID\":"
+                    - generic [ref=f1e670]: "\"your-user-id\""
+                    - text: "} } } }"
+                  - button "Copy code to clipboard" [ref=f1e672] [cursor=pointer]
+                - paragraph [ref=f1e676]:
+                  - strong [ref=f1e677]: "Privacy note:"
+                  - text: Tavily hashes
+                  - code [ref=f1e678]: human_id
+                  - text: server-side (SHA-256) before storage, so the raw value is never persisted. Even so, prefer opaque identifiers (e.g. an internal user ID) over raw PII like emails when possible.
+                - generic [ref=f1e679]:
+                  - heading "Acknowledgments ✨" [level=2] [ref=f1e680]
+                  - 'link "Permalink: Acknowledgments ✨" [ref=f1e681] [cursor=pointer]':
+                    - /url: "#acknowledgments-"
+                - list [ref=f1e684]:
+                  - listitem [ref=f1e685]:
+                    - link "Model Context Protocol" [ref=f1e686] [cursor=pointer]:
+                      - /url: https://modelcontextprotocol.io
+                    - text: for the MCP specification
+                  - listitem [ref=f1e687]:
+                    - link "Anthropic" [ref=f1e688] [cursor=pointer]:
+                      - /url: https://anthropic.com
+                    - text: for Claude Desktop
+        - generic [ref=f1e691]:
+          - generic [ref=f1e692]:
+            - heading "About" [level=2] [ref=f1e693]
+            - paragraph [ref=f1e694]: Production ready MCP server with real-time search, extract, map & crawl.
+            - heading "Resources" [level=3] [ref=f1e695]
+            - link "Readme" [ref=f1e697] [cursor=pointer]:
+              - /url: "#readme-ov-file"
+            - link "MIT license" [ref=f1e701] [cursor=pointer]:
+              - /url: "#MIT-1-ov-file"
+            - link "Activity" [ref=f1e705] [cursor=pointer]:
+              - /url: /tavily-ai/tavily-mcp/activity
+            - link "Custom properties" [ref=f1e709] [cursor=pointer]:
+              - /url: /tavily-ai/tavily-mcp/custom-properties
+            - heading "Stars" [level=3] [ref=f1e712]
+            - generic [ref=f1e714]:
+              - strong [ref=f1e717]: 2.4k
+              - text: stars
+            - heading "Watchers" [level=3] [ref=f1e718]
+            - generic [ref=f1e720]:
+              - strong [ref=f1e723]: "7"
+              - text: watching
+            - heading "Forks" [level=3] [ref=f1e724]
+            - link [ref=f1e726] [cursor=pointer]:
+              - /url: /tavily-ai/tavily-mcp/forks
+              - strong [ref=f1e730]: "291"
+              - text: forks
+            - link "Report repository" [ref=f1e732] [cursor=pointer]:
+              - /url: /contact/report-content?content_url=https%3A%2F%2Fgithub.com%2Ftavily-ai%2Ftavily-mcp&report=tavily-ai+%28user%29
+          - heading "Releases" [level=2] [ref=f1e734]
+          - heading "Packages" [level=2] [ref=f1e738]
+          - heading "Used by" [level=2] [ref=f1e741]
+          - heading "Contributors" [level=2] [ref=f1e744]
+          - heading "Languages" [level=2] [ref=f1e747]
+    - contentinfo [ref=f1e750]:
+      - heading "Footer" [level=2] [ref=f1e751]
+      - generic [ref=f1e752]:
+        - generic [ref=f1e753]:
+          - link "GitHub Homepage" [ref=f1e754] [cursor=pointer]:
+            - /url: https://github.com
+          - generic [ref=f1e757]: © 2026 GitHub, Inc.
+        - navigation "Footer" [ref=f1e758]:
+          - heading "Footer navigation" [level=3] [ref=f1e759]
+          - list "Footer navigation" [ref=f1e760]:
+            - listitem [ref=f1e761]:
+              - link "Terms" [ref=f1e762] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+            - listitem [ref=f1e763]:
+              - link "Privacy" [ref=f1e764] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+            - listitem [ref=f1e765]:
+              - link "Security" [ref=f1e766] [cursor=pointer]:
+                - /url: https://github.com/security
+            - listitem [ref=f1e767]:
+              - link "Status" [ref=f1e768] [cursor=pointer]:
+                - /url: https://www.githubstatus.com/
+            - listitem [ref=f1e769]:
+              - link "Community" [ref=f1e770] [cursor=pointer]:
+                - /url: https://github.community/
+            - listitem [ref=f1e771]:
+              - link "Docs" [ref=f1e772] [cursor=pointer]:
+                - /url: https://docs.github.com/
+            - listitem [ref=f1e773]:
+              - link "Contact" [ref=f1e774] [cursor=pointer]:
+                - /url: https://support.github.com?tags=dotcom-footer
+            - listitem [ref=f1e775]:
+              - button "Manage cookies" [ref=f1e777] [cursor=pointer]
+            - listitem [ref=f1e778]:
+              - button "Do not share my personal information" [ref=f1e780] [cursor=pointer]
+  - alert [ref=f1e783]

@@ -1,0 +1,499 @@
+- generic [ref=f26e2]:
+  - generic [ref=f26e3]:
+    - link "Skip to content" [ref=f26e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f26e9]:
+      - heading "Navigation Menu" [level=2] [ref=f26e10]
+      - generic [ref=f26e12]:
+        - button "Toggle navigation" [ref=f26e14] [cursor=pointer]
+        - link "Homepage" [ref=f26e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f26e21]:
+          - link "Sign in" [ref=f26e22] [cursor=pointer]:
+            - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fcloudflare%2Fmcp-server-cloudflare
+          - button "Appearance settings" [ref=f26e25] [cursor=pointer]
+  - main [ref=f26e32]:
+    - generic [ref=f26e33]:
+      - generic [ref=f26e36]:
+        - link "cloudflare" [ref=f26e40] [cursor=pointer]:
+          - /url: /cloudflare
+        - generic [ref=f26e41]: /
+        - strong [ref=f26e42]:
+          - link "mcp-server-cloudflare" [ref=f26e43] [cursor=pointer]:
+            - /url: /cloudflare/mcp-server-cloudflare
+        - generic [ref=f26e44]: Public
+      - navigation "Repository" [ref=f26e45]:
+        - list [ref=f26e46]:
+          - listitem [ref=f26e47]:
+            - link "Code" [ref=f26e48] [cursor=pointer]:
+              - /url: /cloudflare/mcp-server-cloudflare
+          - listitem [ref=f26e52]:
+            - link "Issues 31" [ref=f26e53] [cursor=pointer]:
+              - /url: /cloudflare/mcp-server-cloudflare/issues
+              - generic [ref=f26e57]: Issues
+              - generic "31" [ref=f26e58]
+          - listitem [ref=f26e59]:
+            - link "Pull requests 28" [ref=f26e60] [cursor=pointer]:
+              - /url: /cloudflare/mcp-server-cloudflare/pulls
+              - generic [ref=f26e63]: Pull requests
+              - generic "28" [ref=f26e64]
+          - listitem [ref=f26e65]:
+            - link "Actions" [ref=f26e66] [cursor=pointer]:
+              - /url: /cloudflare/mcp-server-cloudflare/actions
+          - listitem [ref=f26e70]:
+            - link "Projects" [ref=f26e71] [cursor=pointer]:
+              - /url: /cloudflare/mcp-server-cloudflare/projects
+          - listitem [ref=f26e75]
+          - listitem [ref=f26e76]
+        - button "Additional navigation options" [ref=f26e80] [cursor=pointer]
+    - generic [ref=f26e94]:
+      - generic [ref=f26e97]:
+        - generic [ref=f26e98]:
+          - generic [ref=f26e99]:
+            - button "main branch" [ref=f26e101] [cursor=pointer]:
+              - generic [ref=f26e102]: main
+            - generic [ref=f26e106]:
+              - link "Go to Branches page" [ref=f26e107] [cursor=pointer]:
+                - /url: /cloudflare/mcp-server-cloudflare/branches
+              - link "Go to Tags page" [ref=f26e110] [cursor=pointer]:
+                - /url: /cloudflare/mcp-server-cloudflare/tags
+          - generic [ref=f26e113]:
+            - button "Go to file" [ref=f26e116] [cursor=pointer]
+            - button "Code" [ref=f26e119] [cursor=pointer]
+        - generic [ref=f26e122]:
+          - generic [ref=f26e123]:
+            - generic [ref=f26e125]:
+              - heading "Latest commit" [level=2] [ref=f26e126]
+              - generic [ref=f26e129]:
+                - heading "History" [level=2] [ref=f26e130]
+                - link "View commit history for this file." [ref=f26e132] [cursor=pointer]:
+                  - /url: /cloudflare/mcp-server-cloudflare/commits/main/
+            - heading "Folders and files" [level=2] [ref=f26e134]
+            - table "Folders and files" [ref=f26e135]:
+              - rowgroup:
+                - row "Name Last commit message Last commit date":
+                  - columnheader "Name"
+                  - columnheader "Last commit message"
+                  - columnheader "Last commit date"
+              - rowgroup [ref=f26e136]:
+                - row ".changeset, (Directory)" [ref=f26e137]:
+                  - cell [ref=f26e138]:
+                    - link ".changeset, (Directory)" [ref=f26e145] [cursor=pointer]:
+                      - /url: /cloudflare/mcp-server-cloudflare/tree/main/.changeset
+                      - text: .changeset
+                  - cell [ref=f26e146]
+                  - cell [ref=f26e148]
+                - row ".github, (Directory)" [ref=f26e151]:
+                  - cell [ref=f26e152]:
+                    - link ".github, (Directory)" [ref=f26e159] [cursor=pointer]:
+                      - /url: /cloudflare/mcp-server-cloudflare/tree/main/.github
+                      - text: .github
+                  - cell [ref=f26e160]
+                  - cell [ref=f26e162]
+                - row ".vscode, (Directory)" [ref=f26e165]:
+                  - cell [ref=f26e166]:
+                    - link ".vscode, (Directory)" [ref=f26e173] [cursor=pointer]:
+                      - /url: /cloudflare/mcp-server-cloudflare/tree/main/.vscode
+                      - text: .vscode
+                  - cell [ref=f26e174]
+                  - cell [ref=f26e176]
+                - row "apps, (Directory)" [ref=f26e179]:
+                  - cell [ref=f26e180]:
+                    - link "apps, (Directory)" [ref=f26e187] [cursor=pointer]:
+                      - /url: /cloudflare/mcp-server-cloudflare/tree/main/apps
+                      - text: apps
+                  - cell [ref=f26e188]
+                  - cell [ref=f26e190]
+                - row "implementation-guides, (Directory)" [ref=f26e193]:
+                  - cell [ref=f26e194]:
+                    - link "implementation-guides, (Directory)" [ref=f26e201] [cursor=pointer]:
+                      - /url: /cloudflare/mcp-server-cloudflare/tree/main/implementation-guides
+                      - text: implementation-guides
+                  - cell [ref=f26e202]
+                  - cell [ref=f26e204]
+                - row "packages, (Directory)" [ref=f26e207]:
+                  - cell [ref=f26e208]:
+                    - link "packages, (Directory)" [ref=f26e215] [cursor=pointer]:
+                      - /url: /cloudflare/mcp-server-cloudflare/tree/main/packages
+                      - text: packages
+                  - cell [ref=f26e216]
+                  - cell [ref=f26e218]
+                - row ".dockerignore, (File)" [ref=f26e221]:
+                  - cell [ref=f26e222]:
+                    - link ".dockerignore, (File)" [ref=f26e229] [cursor=pointer]:
+                      - /url: /cloudflare/mcp-server-cloudflare/blob/main/.dockerignore
+                      - text: .dockerignore
+                  - cell [ref=f26e230]
+                  - cell [ref=f26e232]
+                - row ".editorconfig, (File)" [ref=f26e235]:
+                  - cell [ref=f26e236]:
+                    - link ".editorconfig, (File)" [ref=f26e243] [cursor=pointer]:
+                      - /url: /cloudflare/mcp-server-cloudflare/blob/main/.editorconfig
+                      - text: .editorconfig
+                  - cell [ref=f26e244]
+                  - cell [ref=f26e246]
+                - row ".eslintrc.cjs, (File)" [ref=f26e249]:
+                  - cell [ref=f26e250]:
+                    - link ".eslintrc.cjs, (File)" [ref=f26e257] [cursor=pointer]:
+                      - /url: /cloudflare/mcp-server-cloudflare/blob/main/.eslintrc.cjs
+                      - text: .eslintrc.cjs
+                  - cell [ref=f26e258]
+                  - cell [ref=f26e260]
+                - row ".gitignore, (File)" [ref=f26e263]:
+                  - cell [ref=f26e264]:
+                    - link ".gitignore, (File)" [ref=f26e271] [cursor=pointer]:
+                      - /url: /cloudflare/mcp-server-cloudflare/blob/main/.gitignore
+                      - text: .gitignore
+                  - cell [ref=f26e272]
+                  - cell [ref=f26e274]
+                - row [ref=f26e277]:
+                  - cell [ref=f26e278] [cursor=pointer]:
+                    - button "View all files" [ref=f26e280]
+          - generic [ref=f26e282]:
+            - generic [ref=f26e283]:
+              - heading "Repository files navigation" [level=2] [ref=f26e284]
+              - navigation "Repository files" [ref=f26e285]:
+                - list [ref=f26e286]:
+                  - listitem [ref=f26e287]:
+                    - link "README" [ref=f26e288] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=f26e290]:
+                    - link "Code of conduct" [ref=f26e291] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=f26e293]:
+                    - link "Contributing" [ref=f26e294] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=f26e296]:
+                    - link "Apache-2.0 license" [ref=f26e297] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=f26e299]:
+                    - link "Security" [ref=f26e300] [cursor=pointer]:
+                      - /url: "#"
+              - button "Outline" [ref=f26e302] [cursor=pointer]
+            - article [ref=f26e306]:
+              - generic [ref=f26e307]:
+                - heading "Cloudflare MCP Server" [level=1] [ref=f26e308]
+                - 'link "Permalink: Cloudflare MCP Server" [ref=f26e309] [cursor=pointer]':
+                  - /url: "#cloudflare-mcp-server"
+              - paragraph [ref=f26e312]:
+                - text: Model Context Protocol (MCP) is a
+                - link "new, standardized protocol" [ref=f26e313] [cursor=pointer]:
+                  - /url: https://modelcontextprotocol.io/introduction
+                - text: for managing context between large language models (LLMs) and external systems. In this repository, you can find several MCP servers allowing you to connect to Cloudflare's service from an MCP client (e.g. Cursor, Claude) and use natural language to accomplish tasks through your Cloudflare account.
+              - paragraph [ref=f26e314]:
+                - text: These MCP servers allow your
+                - link "MCP Client" [ref=f26e315] [cursor=pointer]:
+                  - /url: https://modelcontextprotocol.io/clients
+                - text: to read configurations from your account, process information, make suggestions based on data, and even make those suggested changes for you. All of these actions can happen across Cloudflare's many services including application development, security and performance.
+              - paragraph [ref=f26e316]:
+                - text: Every server in this repository exposes the same stateless Streamable HTTP handler at
+                - code [ref=f26e317]: /mcp
+                - text: and
+                - code [ref=f26e318]: /sse
+                - text: through a fresh SDK v2 server factory.
+                - code [ref=f26e319]: /sse
+                - text: remains as a URL compatibility alias; it does not use the deprecated HTTP+SSE transport. A legacy SSE
+                - code [ref=f26e320]: GET /sse
+                - text: request receives a
+                - code [ref=f26e321]: 410 Gone
+                - text: "Problem Details response with two migration options: configure the existing URL to use Streamable HTTP, or switch to the recommended"
+                - code [ref=f26e322]: /mcp
+                - text: URL for future compatibility. Modern 2026 requests and stateless 2025 requests share the same request-scoped implementation without an MCP protocol session. OAuth, credentials, account selection, application caches, and product Durable Objects remain application/security state where required.
+              - paragraph [ref=f26e323]:
+                - text: Cloudflare offers the following MCP servers. The domain-specific servers are included in this repository, while the recommended Code Mode server is maintained in
+                - link [ref=f26e324] [cursor=pointer]:
+                  - /url: https://github.com/cloudflare/mcp
+                  - code [ref=f26e325]: cloudflare/mcp
+                - text: ":"
+              - table [ref=f26e327]:
+                - rowgroup [ref=f26e328]:
+                  - row [ref=f26e329]:
+                    - columnheader "Server Name" [ref=f26e330]
+                    - columnheader "Description" [ref=f26e331]
+                    - columnheader "Server URL" [ref=f26e332]
+                - rowgroup [ref=f26e333]:
+                  - row [ref=f26e334]:
+                    - cell [ref=f26e335]:
+                      - link [ref=f26e336] [cursor=pointer]:
+                        - /url: https://github.com/cloudflare/mcp
+                        - strong [ref=f26e337]: Code Mode server (recommended)
+                    - cell "Best when you want broad access across Cloudflare's APIs through code execution" [ref=f26e338]
+                    - cell [ref=f26e339]:
+                      - code [ref=f26e340]: https://mcp.cloudflare.com/mcp
+                  - row [ref=f26e341]:
+                    - cell [ref=f26e342]:
+                      - link [ref=f26e343] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/docs-ai-search
+                        - strong [ref=f26e344]: Documentation server
+                    - cell "Get up-to-date reference information on Cloudflare" [ref=f26e345]
+                    - cell [ref=f26e346]:
+                      - code [ref=f26e347]: https://docs.mcp.cloudflare.com/mcp
+                  - row [ref=f26e348]:
+                    - cell [ref=f26e349]:
+                      - link [ref=f26e350] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/workers-bindings
+                        - strong [ref=f26e351]: Workers Bindings server
+                    - cell "Build Workers applications with storage, AI, and compute primitives" [ref=f26e352]
+                    - cell [ref=f26e353]:
+                      - code [ref=f26e354]: https://bindings.mcp.cloudflare.com/mcp
+                  - row [ref=f26e355]:
+                    - cell [ref=f26e356]:
+                      - link [ref=f26e357] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/workers-builds
+                        - strong [ref=f26e358]: Workers Builds server
+                    - cell "Get insights and manage your Cloudflare Workers Builds" [ref=f26e359]
+                    - cell [ref=f26e360]:
+                      - code [ref=f26e361]: https://builds.mcp.cloudflare.com/mcp
+                  - row [ref=f26e362]:
+                    - cell [ref=f26e363]:
+                      - link [ref=f26e364] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/workers-observability
+                        - strong [ref=f26e365]: Observability server
+                    - cell "Debug and get insight into your application's logs and analytics" [ref=f26e366]
+                    - cell [ref=f26e367]:
+                      - code [ref=f26e368]: https://observability.mcp.cloudflare.com/mcp
+                  - row [ref=f26e369]:
+                    - cell [ref=f26e370]:
+                      - link [ref=f26e371] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/sandbox-container
+                        - strong [ref=f26e372]: Container server
+                    - cell "Spin up a sandbox development environment" [ref=f26e373]
+                    - cell [ref=f26e374]:
+                      - code [ref=f26e375]: https://containers.mcp.cloudflare.com/mcp
+                  - row [ref=f26e376]:
+                    - cell [ref=f26e377]:
+                      - link [ref=f26e378] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/browser-rendering
+                        - strong [ref=f26e379]: Browser Run server
+                    - cell "Fetch web pages, convert them to markdown and take screenshots" [ref=f26e380]
+                    - cell [ref=f26e381]:
+                      - code [ref=f26e382]: https://browser.mcp.cloudflare.com/mcp
+                  - row [ref=f26e383]:
+                    - cell [ref=f26e384]:
+                      - link [ref=f26e385] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/logpush
+                        - strong [ref=f26e386]: Logpush server
+                    - cell "Get quick summaries for Logpush job health" [ref=f26e387]
+                    - cell [ref=f26e388]:
+                      - code [ref=f26e389]: https://logs.mcp.cloudflare.com/mcp
+                  - row [ref=f26e390]:
+                    - cell [ref=f26e391]:
+                      - link [ref=f26e392] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/ai-gateway
+                        - strong [ref=f26e393]: AI Gateway server
+                    - cell "Search your logs, get details about the prompts and responses" [ref=f26e394]
+                    - cell [ref=f26e395]:
+                      - code [ref=f26e396]: https://ai-gateway.mcp.cloudflare.com/mcp
+                  - row [ref=f26e397]:
+                    - cell [ref=f26e398]:
+                      - link [ref=f26e399] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/autorag
+                        - strong [ref=f26e400]: AutoRAG server
+                    - cell "Search and query account AutoRAG instances" [ref=f26e401]
+                    - cell [ref=f26e402]:
+                      - code [ref=f26e403]: https://autorag.mcp.cloudflare.com/mcp
+                  - row [ref=f26e404]:
+                    - cell [ref=f26e405]:
+                      - link [ref=f26e406] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/auditlogs
+                        - strong [ref=f26e407]: Audit Logs server
+                    - cell "Query audit logs and generate reports for review" [ref=f26e408]
+                    - cell [ref=f26e409]:
+                      - code [ref=f26e410]: https://auditlogs.mcp.cloudflare.com/mcp
+                  - row [ref=f26e411]:
+                    - cell [ref=f26e412]:
+                      - link [ref=f26e413] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/dns-analytics
+                        - strong [ref=f26e414]: DNS Analytics server
+                    - cell "Optimize DNS performance and debug issues based on current setup" [ref=f26e415]
+                    - cell [ref=f26e416]:
+                      - code [ref=f26e417]: https://dns-analytics.mcp.cloudflare.com/mcp
+                  - row [ref=f26e418]:
+                    - cell [ref=f26e419]:
+                      - link [ref=f26e420] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/dex-analysis
+                        - strong [ref=f26e421]: Digital Experience Monitoring server
+                    - cell "Get quick insight on critical applications for your organization" [ref=f26e422]
+                    - cell [ref=f26e423]:
+                      - code [ref=f26e424]: https://dex.mcp.cloudflare.com/mcp
+                  - row [ref=f26e425]:
+                    - cell [ref=f26e426]:
+                      - link [ref=f26e427] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/cloudflare-one-casb
+                        - strong [ref=f26e428]: Cloudflare One CASB server
+                    - cell "Quickly identify any security misconfigurations for SaaS applications to safeguard users & data" [ref=f26e429]
+                    - cell [ref=f26e430]:
+                      - code [ref=f26e431]: https://casb.mcp.cloudflare.com/mcp
+                  - row [ref=f26e432]:
+                    - cell [ref=f26e433]:
+                      - link [ref=f26e434] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/radar
+                        - strong [ref=f26e435]: Radar server
+                    - cell "Explore Cloudflare Radar internet insights" [ref=f26e436]
+                    - cell [ref=f26e437]:
+                      - code [ref=f26e438]: https://radar.mcp.cloudflare.com/mcp
+                  - row [ref=f26e439]:
+                    - cell [ref=f26e440]:
+                      - link [ref=f26e441] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/cloudflare-blog
+                        - strong [ref=f26e442]: Cloudflare Blog server
+                    - cell "Search and read posts from the Cloudflare Blog" [ref=f26e443]
+                    - cell [ref=f26e444]:
+                      - code [ref=f26e445]: https://blog.mcp.cloudflare.com/mcp
+                  - row [ref=f26e446]:
+                    - cell [ref=f26e447]:
+                      - link [ref=f26e448] [cursor=pointer]:
+                        - /url: /cloudflare/mcp-server-cloudflare/blob/main/apps/demo-day
+                        - strong [ref=f26e449]: Demo Day server
+                    - cell "Demonstrate a minimal Cloudflare MCP server" [ref=f26e450]
+                    - cell [ref=f26e451]:
+                      - code [ref=f26e452]: https://demo-day.mcp.cloudflare.com/mcp
+              - generic [ref=f26e453]:
+                - heading "Which Cloudflare MCP server should you use?" [level=2] [ref=f26e454]
+                - 'link "Permalink: Which Cloudflare MCP server should you use?" [ref=f26e455] [cursor=pointer]':
+                  - /url: "#which-cloudflare-mcp-server-should-you-use"
+              - paragraph [ref=f26e458]: "Cloudflare provides two categories of MCP servers:"
+              - list [ref=f26e459]:
+                - listitem [ref=f26e460]:
+                  - strong [ref=f26e461]: Code Mode server
+                  - text: (
+                  - code [ref=f26e462]: mcp.cloudflare.com
+                  - text: ) in
+                  - link [ref=f26e463] [cursor=pointer]:
+                    - /url: https://github.com/cloudflare/mcp
+                    - code [ref=f26e464]: cloudflare/mcp
+                  - text: ": best when you want broad access across Cloudflare's APIs through code execution."
+                - listitem [ref=f26e465]:
+                  - strong [ref=f26e466]: Domain-specific servers
+                  - text: (
+                  - code [ref=f26e467]: "*.mcp.cloudflare.com"
+                  - text: ") in this repository: best when you want curated, typed tools for a specific Cloudflare product area."
+              - generic [ref=f26e468]:
+                - heading "When should you use each?" [level=3] [ref=f26e469]
+                - 'link "Permalink: When should you use each?" [ref=f26e470] [cursor=pointer]':
+                  - /url: "#when-should-you-use-each"
+              - paragraph [ref=f26e473]:
+                - text: Use the
+                - strong [ref=f26e474]: Code Mode server
+                - text: "when:"
+              - list [ref=f26e475]:
+                - listitem [ref=f26e476]: you need broad API coverage across many Cloudflare products
+                - listitem [ref=f26e477]: you prefer a smaller set of general-purpose tools
+                - listitem [ref=f26e478]: your workflow is better served by code execution
+              - paragraph [ref=f26e479]:
+                - text: Use the
+                - strong [ref=f26e480]: domain-specific servers
+                - text: "in this repository when:"
+              - list [ref=f26e481]:
+                - listitem [ref=f26e482]: you want purpose-built tools for a specific product area
+                - listitem [ref=f26e483]: you want more guided, typed interactions
+                - listitem [ref=f26e484]: you are working primarily within one Cloudflare domain such as observability, bindings, Radar, or Browser Run
+              - paragraph [ref=f26e485]:
+                - text: "Learn more about the Code Mode server here:"
+                - link [ref=f26e486] [cursor=pointer]:
+                  - /url: https://github.com/cloudflare/mcp
+                  - code [ref=f26e487]: cloudflare/mcp
+                - text: .
+              - generic [ref=f26e488]:
+                - heading "Connect to an MCP server" [level=2] [ref=f26e489]
+                - 'link "Permalink: Connect to an MCP server" [ref=f26e490] [cursor=pointer]':
+                  - /url: "#connect-to-an-mcp-server"
+              - paragraph [ref=f26e493]:
+                - text: Connect any MCP client with remote-server support directly to a URL in the table above.
+                - link "Cloudflare AI Playground" [ref=f26e494] [cursor=pointer]:
+                  - /url: https://playground.ai.cloudflare.com/
+                - text: also accepts server URLs in its interface.
+              - generic [ref=f26e495]:
+                - heading "Using Cloudflare's MCP servers from the OpenAI Responses API" [level=2] [ref=f26e496]
+                - 'link "Permalink: Using Cloudflare''s MCP servers from the OpenAI Responses API" [ref=f26e497] [cursor=pointer]':
+                  - /url: "#using-cloudflares-mcp-servers-from-the-openai-responses-api"
+              - paragraph [ref=f26e500]:
+                - text: To use one of Cloudflare's MCP servers with
+                - link "OpenAI's responses API" [ref=f26e501] [cursor=pointer]:
+                  - /url: https://openai.com/index/new-tools-and-features-in-the-responses-api/
+                - text: ", you will need to provide the Responses API with an API token that has the scopes (permissions) required for that particular MCP server."
+              - paragraph [ref=f26e502]:
+                - text: For example, to use the
+                - link "Browser Run MCP server" [ref=f26e503] [cursor=pointer]:
+                  - /url: https://github.com/cloudflare/mcp-server-cloudflare/tree/main/apps/browser-rendering
+                - text: with OpenAI, create an API token in the Cloudflare dashboard
+                - link "here" [ref=f26e504] [cursor=pointer]:
+                  - /url: https://dash.cloudflare.com/profile/api-tokens
+                - text: ", with the following permissions:"
+              - link [ref=f26e505] [cursor=pointer]:
+                - /url: https://private-user-images.githubusercontent.com/1221592/446213703-872e253f-23ce-43b3-983c-45f9d0f66100.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODgyODYyNjYsIm5iZiI6MTc4ODI4NTk2NiwicGF0aCI6Ii8xMjIxNTkyLzQ0NjIxMzcwMy04NzJlMjUzZi0yM2NlLTQzYjMtOTgzYy00NWY5ZDBmNjYxMDAucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDkwMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA5MDFUMTgwNjA2WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9MDA4Nzg3NTkzYzI4Mzk1NjQwZjE0NjE0ZGFkYzMyMTljYzFiYTYyZmY3MGNkZDM1NDQ4MTkyMjIwNDlkNGUwOCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGcG5nIn0.de91pgdI1yX6MbbT2EYyUOVZHpZu1ls84H9WuyS6J98
+                - img "Screenshot 2025-05-21 at 10 38 02 AM" [ref=f26e506]
+              - generic [ref=f26e507]:
+                - heading "Need access to more Cloudflare tools?" [level=2] [ref=f26e508]
+                - 'link "Permalink: Need access to more Cloudflare tools?" [ref=f26e509] [cursor=pointer]':
+                  - /url: "#need-access-to-more-cloudflare-tools"
+              - paragraph [ref=f26e512]:
+                - text: We're continuing to add more functionality to this remote MCP server repo. If you'd like to leave feedback, file a bug or provide a feature request,
+                - link "please open an issue" [ref=f26e513] [cursor=pointer]:
+                  - /url: https://github.com/cloudflare/mcp-server-cloudflare/issues/new/choose
+                - text: on this repository
+              - generic [ref=f26e514]:
+                - heading "Troubleshooting" [level=2] [ref=f26e515]
+                - 'link "Permalink: Troubleshooting" [ref=f26e516] [cursor=pointer]':
+                  - /url: "#troubleshooting"
+              - paragraph [ref=f26e519]: "\"Claude's response was interrupted ... \""
+              - paragraph [ref=f26e520]: If you see this message, Claude likely hit its context-length limit and stopped mid-reply. This happens most often on servers that trigger many chained tool calls such as the observability server.
+              - paragraph [ref=f26e521]: "To reduce the chance of running in to this issue:"
+              - list [ref=f26e522]:
+                - listitem [ref=f26e523]: Try to be specific, keep your queries concise.
+                - listitem [ref=f26e524]: If a single request calls multiple tools, try to to break it into several smaller tool calls to keep the responses short.
+              - generic [ref=f26e525]:
+                - heading "Paid Features" [level=2] [ref=f26e526]
+                - 'link "Permalink: Paid Features" [ref=f26e527] [cursor=pointer]':
+                  - /url: "#paid-features"
+              - paragraph [ref=f26e530]: Some features may require a paid Cloudflare Workers plan. Ensure your Cloudflare account has the necessary subscription level for the features you intend to use.
+              - generic [ref=f26e531]:
+                - heading "Contributing" [level=2] [ref=f26e532]
+                - 'link "Permalink: Contributing" [ref=f26e533] [cursor=pointer]':
+                  - /url: "#contributing"
+              - paragraph [ref=f26e536]:
+                - text: Interested in contributing, and running this server locally? See
+                - link "CONTRIBUTING.md" [ref=f26e537] [cursor=pointer]:
+                  - /url: /cloudflare/mcp-server-cloudflare/blob/main/CONTRIBUTING.md
+                - text: to get started.
+      - generic [ref=f26e540]:
+        - heading "Releases" [level=2] [ref=f26e542]
+        - heading "Packages" [level=2] [ref=f26e546]
+        - heading "Used by" [level=2] [ref=f26e549]
+        - heading "Contributors" [level=2] [ref=f26e552]
+        - heading "Languages" [level=2] [ref=f26e555]
+  - contentinfo [ref=f26e558]:
+    - heading "Footer" [level=2] [ref=f26e559]
+    - generic [ref=f26e560]:
+      - generic [ref=f26e561]:
+        - link "GitHub Homepage" [ref=f26e562] [cursor=pointer]:
+          - /url: https://github.com
+        - generic [ref=f26e565]: © 2026 GitHub, Inc.
+      - navigation "Footer" [ref=f26e566]:
+        - heading "Footer navigation" [level=3] [ref=f26e567]
+        - list "Footer navigation" [ref=f26e568]:
+          - listitem [ref=f26e569]:
+            - link "Terms" [ref=f26e570] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=f26e571]:
+            - link "Privacy" [ref=f26e572] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+          - listitem [ref=f26e573]:
+            - link "Security" [ref=f26e574] [cursor=pointer]:
+              - /url: https://github.com/security
+          - listitem [ref=f26e575]:
+            - link "Status" [ref=f26e576] [cursor=pointer]:
+              - /url: https://www.githubstatus.com/
+          - listitem [ref=f26e577]:
+            - link "Community" [ref=f26e578] [cursor=pointer]:
+              - /url: https://github.community/
+          - listitem [ref=f26e579]:
+            - link "Docs" [ref=f26e580] [cursor=pointer]:
+              - /url: https://docs.github.com/
+          - listitem [ref=f26e581]:
+            - link "Contact" [ref=f26e582] [cursor=pointer]:
+              - /url: https://support.github.com?tags=dotcom-footer
+          - listitem [ref=f26e583]:
+            - button "Manage cookies" [ref=f26e585] [cursor=pointer]
+          - listitem [ref=f26e586]:
+            - button "Do not share my personal information" [ref=f26e588] [cursor=pointer]

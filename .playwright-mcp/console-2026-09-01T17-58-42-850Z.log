@@ -1,0 +1,6 @@
+[     904ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/libraries/%2Fguides%2Fmcp-server-list:0
+[    1039ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/suggestions?username=guides&library=mcp-server-list:0
+[    2280ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/libraries/%2Fguides%2Fmcp-server-list:0
+[    2403ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/suggestions?username=guides&library=mcp-server-list:0
+[    4795ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/suggestions?username=guides&library=mcp-server-list:0
+[    9216ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://context7.com/api/suggestions?username=guides&library=mcp-server-list:0

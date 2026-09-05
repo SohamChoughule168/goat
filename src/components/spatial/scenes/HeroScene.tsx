@@ -1,0 +1,210 @@
+'use client';
+
+import { useMemo, useRef, useEffect } from 'react';
+import { useFrame, useThree } from '@react-three/fiber';
+import { Float } from '@react-three/drei';
+import * as THREE from 'three';
+import { usePerformanceMonitor } from '@/components/v6/performance-optimizer';
+import { useAdaptiveQuality } from '@/components/v6/performance-optimizer';
+
+// Import inlined shaders
+import { INLINED_SHADERS } from '@/lib/three/shaderLoader';
+
+interface HeroSceneProps {
+  scrollProgress: number;
+  mousePos: { x: number; y: number };
+  hovered: boolean;
+  intensity: number;
+}
+
+function HeroMonolith({ 
+  scrollProgress, 
+  mousePos, 
+  hovered, 
+  intensity 
+}: HeroSceneProps) {
+  const { quality } = usePerformanceMonitor();
+  const { shouldReduceParticles } = useAdaptiveQuality();
+  const { size } = useThree();
+
+  // Shader uniforms
+  const uniforms = useMemo(() => ({
+    uTime: { value: 0 },
+    uScroll: { value: 0 },
+    uMouse: { value: new THREE.Vector2(0, 0) },
+    uHover: { value: 0 },
+    uDisplace: { value: 0.05 },
+    uColorA: { value: new THREE.Color('#14b8a6') }, // brand teal
+    uColorB: { value: new THREE.Color('#a855f7') }, // accent purple
+    uColorC: { value: new THREE.Color('#ffffff') }, // white core
+    uIntensity: { value: 1.0 },
+    uChromaticAberration: { value: quality === 'high' ? 1.0 : 0.0 },
+  }), [quality]);
+
+  // Custom shader material
+  const shaderMaterial = useMemo(() => {
+    return new THREE.ShaderMaterial({
+      uniforms,
+      vertexShader: INLINED_SHADERS['hero/monolith.vert'],
+      fragmentShader: INLINED_SHADERS['hero/monolith.frag'],
+      transparent: true,
+      depthWrite: true,
+      side: THREE.DoubleSide,
+    });
+  }, [uniforms]);
+
+  // Refs - ONLY ONCE
+  const meshRef = useRef<THREE.Mesh>(null);
+  const materialRef = useRef<THREE.ShaderMaterial>(null);
+
+  // Store material ref
+  useEffect(() => {
+    materialRef.current = shaderMaterial;
+  }, [shaderMaterial]);
+
+  // Animation frame update
+  useFrame((state, delta) => {
+    if (!materialRef.current || !meshRef.current) return;
+
+    const mat = materialRef.current;
+    const mesh = meshRef.current;
+
+    // Update time
+    mat.uniforms.uTime.value = state.clock.elapsedTime;
+
+    // Update scroll
+    mat.uniforms.uScroll.value = scrollProgress;
+
+    // Update mouse (smoothed)
+    const currentMouse = mat.uniforms.uMouse.value as THREE.Vector2;
+    currentMouse.x = THREE.MathUtils.lerp(currentMouse.x, mousePos.x, 0.05);
+    currentMouse.y = THREE.MathUtils.lerp(currentMouse.y, mousePos.y, 0.05);
+
+    // Update hover (smoothed)
+    mat.uniforms.uHover.value = THREE.MathUtils.lerp(
+      mat.uniforms.uHover.value,
+      hovered ? 1.0 : 0.0,
+      0.08
+    );
+
+    // Update displacement based on hover
+    mat.uniforms.uDisplace.value = THREE.MathUtils.lerp(
+      mat.uniforms.uDisplace.value,
+      hovered ? 0.12 : 0.05,
+      0.05
+    );
+
+    // Intensity
+    mat.uniforms.uIntensity.value = intensity;
+
+    // Chromatic aberration (quality gated)
+    mat.uniforms.uChromaticAberration.value = quality === 'high' ? 1.0 : 0.0;
+
+    // Slow rotation
+    mesh.rotation.y += delta * 0.05;
+    mesh.rotation.x = THREE.MathUtils.lerp(
+      mesh.rotation.x,
+      -mousePos.y * 0.2,
+      0.05
+    );
+  });
+
+  // Adaptive quality
+  const finalIntensity = quality === 'high' ? 1.0 : quality === 'medium' ? 0.7 : 0.4;
+
+  return (
+    <Float
+      speed={1.5}
+      rotationIntensity={0.5}
+      floatIntensity={0.3}
+    >
+      <mesh ref={meshRef}>
+        <icosahedronGeometry args={[1.5, 4]} />
+        <primitive
+          object={shaderMaterial}
+          ref={materialRef}
+          attach="material"
+        />
+      </mesh>
+    </Float>
+  );
+}
+
+// Orbital particles around monolith
+interface OrbitalParticlesProps {
+  count: number;
+  scrollProgress: number;
+}
+
+function OrbitalParticles({ count, scrollProgress }: OrbitalParticlesProps) {
+  const pointsRef = useRef<THREE.Points>(null);
+
+  const { positions, scales } = useMemo(() => {
+    const positions = new Float32Array(count * 3);
+    const scales = new Float32Array(count);
+    for (let i = 0; i < count; i++) {
+      const r = 2.5 + Math.random() * 1.5;
+      const theta = (i / count) * Math.PI * 2;
+      const phi = Math.random() * Math.PI * 0.4 - Math.PI * 0.2;
+      positions[i * 3] = r * Math.cos(theta) * Math.cos(phi);
+      positions[i * 3 + 1] = r * Math.sin(phi);
+      positions[i * 3 + 2] = r * Math.sin(theta) * Math.cos(phi);
+      scales[i] = 0.02 + Math.random() * 0.04;
+    }
+    return { positions, scales };
+  }, [count]);
+
+  useFrame((state, delta) => {
+    if (!pointsRef.current) return;
+    pointsRef.current.rotation.y += delta * 0.1;
+    // Scale with scroll
+    pointsRef.current.scale.setScalar(1 - scrollProgress * 0.5);
+  });
+
+  return (
+    <points ref={pointsRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          args={[positions, 3]}
+        />
+        <bufferAttribute
+          attach="attributes-scale"
+          args={[scales, 1]}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.05}
+        color="#14b8a6"
+        sizeAttenuation
+        transparent
+        opacity={0.6}
+      />
+    </points>
+  );
+}
+
+/**
+ * The full Hero 3D scene
+ * Includes monolith, orbital particles, and effects
+ */
+export function HeroScene({
+  scrollProgress,
+  mousePos,
+  hovered,
+  intensity,
+}: HeroSceneProps) {
+  return (
+    <group>
+      <HeroMonolith
+        scrollProgress={scrollProgress}
+        mousePos={mousePos}
+        hovered={hovered}
+        intensity={intensity}
+      />
+      
+      {/* Orbital particles around monolith */}
+      <OrbitalParticles count={50} scrollProgress={scrollProgress} />
+    </group>
+  );
+}

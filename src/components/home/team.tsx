@@ -1,7 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+import { useGlobalScrollProgress } from "@/components/canvas/Tunnel";
+import { usePerformanceMonitor, useAdaptiveQuality } from "@/components/v6/performance-optimizer";
 
 const TEAM = [
   {
@@ -56,6 +59,30 @@ const TEAM = [
 
 export function Team() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [hero3DHovered, setHero3DHovered] = useState(false);
+
+  const globalProgress = useGlobalScrollProgress();
+  const { quality } = usePerformanceMonitor();
+  const { shouldReduceParticles } = useAdaptiveQuality();
+  const intensity = quality === "high" ? 1.0 : quality === "medium" ? 0.7 : 0.4;
+
+  // Mouse tracking for 3D parallax
+  useEffect(() => {
+    const handleMouse = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = -(e.clientY / window.innerHeight) * 2 + 1;
+      setMousePos({ x, y });
+    };
+    window.addEventListener("mousemove", handleMouse);
+    return () => window.removeEventListener("mousemove", handleMouse);
+  }, []);
+
+  // Dynamic import for the 3D scene
+  const TeamScene3D = dynamic(
+    () => import("@/components/canvas/scenes/TeamScene").then(m => m.TeamScene),
+    { ssr: false, loading: () => null }
+  );
 
   return (
     <section
@@ -64,7 +91,17 @@ export function Team() {
       className="team-section relative section-y"
       data-component="team"
     >
-      <div className="shell">
+      {/* 3D Background Scene */}
+      <div className="hero-3d-canvas absolute inset-0 z-0 pointer-events-none">
+        <TeamScene3D
+          scrollProgress={globalProgress}
+          mousePos={mousePos}
+          hovered={hero3DHovered}
+          intensity={intensity}
+        />
+      </div>
+
+      <div className="shell relative z-10">
         <div className="section-header">
           <span className="section-badge">The people who ship</span>
           <h2 className="section-title">Senior-led. No juniors learning on your dime.</h2>

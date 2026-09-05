@@ -1,5 +1,88 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm install",
-  "buildCommand": "npm run build"
+  "framework": "nextjs",
+  "buildCommand": "pnpm prebuild && pnpm build",
+  "devCommand": "pnpm dev",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "regions": ["iad1", "sfo1", "lhr1"],
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30,
+      "memory": 1024
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "X-DNS-Prefetch-Control", "value": "on" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+        { "key": "Cross-Origin-Embedder-Policy", "value": "credentialless" }
+      ]
+    },
+    {
+      "source": "/_next/static/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/models/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/portfolio", "destination": "/work" },
+    { "source": "/blog", "destination": "/insights" },
+    { "source": "/blog/:slug", "destination": "/insights" }
+  ],
+  "redirects": [
+    { "source": "/services/web-dev", "destination": "/services/web-development", "permanent": true },
+    { "source": "/services/mobile", "destination": "/services/mobile-app-development", "permanent": true },
+    { "source": "/services/ai", "destination": "/services/ai-driven-websites", "permanent": true },
+    { "source": "/services/refurbish", "destination": "/services/website-refurbishment", "permanent": true }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/health-check",
+      "schedule": "*/5 * * * *"
+    },
+    {
+      "path": "/api/cron/analytics-rollup",
+      "schedule": "0 * * * *"
+    },
+    {
+      "path": "/api/cron/cache-warm",
+      "schedule": "0 3 * * *"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "@site-url",
+    "NEXT_PUBLIC_GA_ID": "@ga-id",
+    "NEXT_PUBLIC_VERCEL_ANALYTICS_ID": "@vercel-analytics-id"
+  },
+  "github": {
+    "enabled": true,
+    "autoAlias": true,
+    "silent": false
+  }
 }

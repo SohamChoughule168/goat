@@ -1,0 +1,40 @@
+- generic [active] [ref=f18e1]:
+  - generic [ref=f18e3]:
+    - 'link "Read our latest blog post: Context7 vs. web search — 34% cheaper, 37% fewer tokens" [ref=f18e4] [cursor=pointer]':
+      - /url: https://upstash.com/blog/context7-vs-web-search-benchmark
+      - generic [ref=f18e5]: "Read our latest blog post:"
+      - generic [ref=f18e6]: Context7 vs. web search — 34% cheaper, 37% fewer tokens
+    - button "Dismiss announcement" [ref=f18e10] [cursor=pointer]
+  - banner [ref=f18e14]:
+    - generic [ref=f18e16]:
+      - link [ref=f18e18] [cursor=pointer]:
+        - /url: /
+        - img "Context7 Logo" [ref=f18e20]
+      - button "Open menu" [ref=f18e22] [cursor=pointer]
+  - main [ref=f18e29]:
+    - main [ref=f18e31]
+  - contentinfo [ref=f18e81]:
+    - generic [ref=f18e82]:
+      - generic [ref=f18e83]:
+        - generic [ref=f18e84]:
+          - text: © 2026, Context7 is an
+          - link "Upstash" [ref=f18e85] [cursor=pointer]:
+            - /url: https://upstash.com
+          - text: project
+        - link [ref=f18e86] [cursor=pointer]:
+          - /url: https://status.upstash.com/
+      - generic [ref=f18e90]:
+        - link "About" [ref=f18e91] [cursor=pointer]:
+          - /url: /about
+        - link "Guides" [ref=f18e92] [cursor=pointer]:
+          - /url: /guides
+        - link "Contact" [ref=f18e93] [cursor=pointer]:
+          - /url: /contact
+        - link "Legal" [ref=f18e94] [cursor=pointer]:
+          - /url: https://upstash.com/docs/common/help/legal
+        - link "Follow on X" [ref=f18e95] [cursor=pointer]:
+          - /url: https://x.com/Context7AI
+  - region "Notifications alt+T"
+  - alert [ref=f18e96]
+  - iframe [ref=f18e97]:
+    

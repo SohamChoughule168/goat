@@ -46,15 +46,26 @@ export function Manifesto() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeStatement, setActiveStatement] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [reducedMotion, setReducedMotion] = useState(false);
   const globalProgress = useGlobalScrollProgress();
   const sectionProgress = useSectionProgress("manifesto");
 
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
   const textY = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const springY = useSpring(textY, { stiffness: 80, damping: 20 });
+  const springY = useSpring(textY, { stiffness: 65, damping: 25 });
+
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   // Mouse tracking for 3D parallax
   useEffect(() => {
+    if (reducedMotion) return;
     const handleMouse = (e: MouseEvent) => {
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = -(e.clientY / window.innerHeight) * 2 + 1;
@@ -62,15 +73,10 @@ export function Manifesto() {
     };
     window.addEventListener("mousemove", handleMouse);
     return () => window.removeEventListener("mousemove", handleMouse);
-  }, []);
+  }, [reducedMotion]);
 
-  // Rotate statements based on scroll
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStatement((s) => (s + 1) % STATEMENTS.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
+  // Compute static transform for reduced motion
+  const textTransform = reducedMotion ? 0 : springY;
 
   return (
     <section
@@ -78,9 +84,10 @@ export function Manifesto() {
       id="manifesto"
       className="manifesto-section relative section-y"
       data-component="manifesto"
+      aria-labelledby="manifesto-title"
     >
       {/* 3D Background - liquid metal surface */}
-      <div className="manifesto-3d absolute inset-0 pointer-events-none z-0">
+      <div className="manifesto-3d absolute inset-0 pointer-events-none z-0" aria-hidden="true">
         <SectionView trackId="manifesto" lazyMount={true}>
           <ManifestoScene3D scrollProgress={globalProgress} mousePos={mousePos} />
         </SectionView>
@@ -92,6 +99,7 @@ export function Manifesto() {
             <div>
               <p className="micro text-[var(--color-brand-500)]">The Manifesto</p>
               <h2
+                id="manifesto-title"
                 className="mt-4 font-semibold"
                 style={{
                   fontSize: "clamp(2rem, 4.4vw, 4rem)",
@@ -105,30 +113,30 @@ export function Manifesto() {
 
             {/* Statement counter */}
             <div className="flex items-center gap-3 text-sm text-[var(--text-tertiary)]" role="status" aria-live="polite">
-              <span className="w-6 h-px bg-gradient-to-r from-transparent via-[var(--color-brand-500)] to-transparent" />
+              <span className="w-6 h-px bg-gradient-to-r from-transparent via-[var(--color-brand-500)] to-transparent" aria-hidden="true" />
               <span className="font-mono">
                 {String(activeStatement + 1).padStart(2, "0")} / {String(STATEMENTS.length).padStart(2, "0")}
               </span>
-              <span className="w-6 h-px bg-gradient-to-r from-transparent via-[var(--color-brand-500)] to-transparent" />
+              <span className="w-6 h-px bg-gradient-to-r from-transparent via-[var(--color-brand-500)] to-transparent" aria-hidden="true" />
             </div>
           </div>
 
           {/* Scrolling Statements */}
           <motion.div
             className="manifesto-text-wrapper max-w-4xl"
-            style={{ y: springY }}
+            style={{ y: textTransform }}
+            initial={reducedMotion ? false : { opacity: 0, y: 50 }}
+            animate={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="space-y-16">
               {STATEMENTS.map((statement, i) => {
                 const words = statement.split(" ");
                 return (
-                  <motion.p
+                  <p
                     key={i}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: i * 0.05 }}
-                    viewport={{ once: true, margin: "-100px" }}
                     className="manifesto-statement text-2xl md:text-3xl lg:text-4xl leading-snug"
+                    style={{ opacity: reducedMotion ? 1 : 0, transform: reducedMotion ? "translateY(0)" : "translateY(30px)" }}
                   >
                     {words.map((word, j) => {
                       const isHighlight = HIGHLIGHT_WORDS.includes(
@@ -147,14 +155,14 @@ export function Manifesto() {
                         </span>
                       );
                     })}
-                  </motion.p>
+                  </p>
                 );
               })}
             </div>
           </motion.div>
 
           {/* Philosophy Pills */}
-          <div className="mt-16 flex flex-wrap gap-3">
+          <div className="mt-16 flex flex-wrap gap-3" role="list" aria-label="Core principles">
             {[
               "Code Ownership",
               "Business-Day Response",
@@ -162,17 +170,14 @@ export function Manifesto() {
               "Four Practices",
               "Zero Handoffs",
             ].map((principle, i) => (
-              <motion.span
+              <span
                 key={principle}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
-                viewport={{ once: true }}
-                className="badge badge-primary animate-scale-in-bounce"
-                style={{ animationDelay: `${300 + i * 80}ms` }}
+                className="badge badge-primary"
+                style={{ opacity: reducedMotion ? 1 : 0, transform: reducedMotion ? "translateY(0)" : "translateY(20px)" } as React.CSSProperties}
+                role="listitem"
               >
                 {principle}
-              </motion.span>
+              </span>
             ))}
           </div>
         </div>

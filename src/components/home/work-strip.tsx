@@ -17,6 +17,7 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useGlobalScrollProgress } from "@/components/canvas/Tunnel";
 import { MagneticButton } from "@/components/v6/magnetic-cursor";
+import Link from "next/link";
 
 const WorkCard3D = dynamic(
   () => import("@/components/canvas/scenes/WorkCardScene").then(m => m.WorkCardScene),
@@ -127,7 +128,17 @@ export function WorkStrip() {
   const [visiblePanels, setVisiblePanels] = useState<WorkPanel[]>(PANELS);
   const [isFiltering, setIsFiltering] = useState(false);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const globalProgress = useGlobalScrollProgress();
+
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   // Filter logic with animation
   useEffect(() => {
@@ -147,18 +158,20 @@ export function WorkStrip() {
       id="work"
       className="work-strip-section relative section-y"
       data-component="work-strip"
+      aria-labelledby="work-title"
     >
       <div className="shell">
         {/* Header */}
         <div className="work-header pb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 40 }}
+            whileInView={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+            transition={{ duration: reducedMotion ? 0.01 : 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
           >
             <p className="micro text-[var(--color-brand-500)]">Selected Work</p>
             <h2
+              id="work-title"
               className="mt-5 font-semibold"
               style={{
                 fontSize: "clamp(1.9rem, 3.6vw, 3.2rem)",
@@ -174,7 +187,7 @@ export function WorkStrip() {
           </motion.div>
 
           {/* Category Filter */}
-          <div className="flex flex-wrap gap-2 lg:ml-auto">
+          <div className="flex flex-wrap gap-2 lg:ml-auto" role="group" aria-label="Filter work by category">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
@@ -201,6 +214,8 @@ export function WorkStrip() {
             transform: isFiltering ? "scale(0.98)" : "scale(1)",
             transition: "opacity 200ms ease, transform 200ms ease",
           }}
+          role="list"
+          aria-label="Work projects"
         >
           {visiblePanels.map((p, index) => (
             <WorkCard
@@ -210,14 +225,15 @@ export function WorkStrip() {
               hoveredId={hoveredId}
               setHoveredId={setHoveredId}
               isFiltering={isFiltering}
+              reducedMotion={reducedMotion}
             />
           ))}
 
           {/* CTA Card */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 40 }}
+            whileInView={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+            transition={{ duration: reducedMotion ? 0.01 : 0.6, delay: reducedMotion ? 0 : 0.2 }}
             viewport={{ once: true, margin: "-50px" }}
             className="work-panel flex-shrink-0 flex flex-col items-start justify-center border border-dashed p-8 glass-strong"
             style={{
@@ -225,6 +241,7 @@ export function WorkStrip() {
               background: "var(--surface-card)",
               minHeight: "320px",
             }}
+            role="listitem"
           >
             <p className="micro text-[var(--color-brand-500)]">Next up</p>
             <p className="mt-4 font-semibold text-2xl md:text-3xl text-[var(--text-primary)]">
@@ -237,6 +254,7 @@ export function WorkStrip() {
               href="/contact"
               className="v6-magnet mt-8"
               data-cursor="Start Now"
+              aria-label="Start a new project with us"
             >
               Start a Project
             </MagneticButton>
@@ -256,18 +274,22 @@ function WorkCard({
   hoveredId,
   setHoveredId,
   isFiltering,
+  reducedMotion,
 }: {
   panel: WorkPanel;
   index: number;
   hoveredId: string | null;
   setHoveredId: (id: string | null) => void;
   isFiltering: boolean;
+  reducedMotion: boolean;
 }) {
   const isHovered = hoveredId === panel.id;
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // 3D tilt on mouse move
+  // 3D tilt on mouse move (disabled for reduced motion)
   useEffect(() => {
+    if (reducedMotion) return;
+    
     const card = cardRef.current;
     if (!card) return;
 
@@ -298,14 +320,14 @@ function WorkCard({
       card.removeEventListener("mouseleave", handleMouseLeave);
       handleMouseLeave();
     };
-  }, [isHovered]);
+  }, [isHovered, reducedMotion]);
 
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 40, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
+      initial={reducedMotion ? false : { opacity: 0, y: 40, scale: 0.95 }}
+      whileInView={reducedMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: reducedMotion ? 0.01 : 0.6, delay: reducedMotion ? 0 : index * 0.08, ease: "easeOut" }}
       viewport={{ once: true, margin: "-50px" }}
       className="work-panel work-panel-item group relative"
       onMouseEnter={() => setHoveredId(panel.id)}
@@ -364,5 +386,3 @@ function WorkCard({
     </motion.div>
   );
 }
-
-import Link from "next/link";

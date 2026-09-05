@@ -45,6 +45,7 @@ export function Hero() {
   const heroTextRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [hero3DHovered, setHero3DHovered] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   const globalProgress = useGlobalScrollProgress();
   const globalVelocity = useGlobalScrollVelocity();
@@ -54,10 +55,20 @@ export function Hero() {
   const { scrollY } = useScroll({ target: containerRef });
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
   const heroY = useTransform(scrollY, [0, 500], [0, -100]);
-  const springY = useSpring(heroY, { stiffness: 100, damping: 30 });
+  const springY = useSpring(heroY, { stiffness: 85, damping: 25, mass: 1 });
+
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   // Mouse tracking for 3D parallax
   useEffect(() => {
+    if (reducedMotion) return;
     const handleMouse = (e: MouseEvent) => {
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = -(e.clientY / window.innerHeight) * 2 + 1;
@@ -65,7 +76,7 @@ export function Hero() {
     };
     window.addEventListener("mousemove", handleMouse);
     return () => window.removeEventListener("mousemove", handleMouse);
-  }, []);
+  }, [reducedMotion]);
 
   const intensity = quality === "high" ? 1.0 : quality === "medium" ? 0.7 : 0.4;
 
@@ -75,73 +86,75 @@ export function Hero() {
       id="hero"
       className="hero-section relative min-h-screen overflow-hidden"
       data-component="hero"
+      aria-labelledby="hero-title"
     >
       {/* 3D Background Scene */}
-      <div className="hero-3d-canvas absolute inset-0 z-0 pointer-events-none">
-        <HeroScene3D
-          scrollProgress={globalProgress}
-          mousePos={mousePos}
-          hovered={hero3DHovered}
-          intensity={intensity}
-        />
+      <div className="hero-3d-canvas absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+<HeroScene3D
+  scrollProgress={globalProgress}
+  mousePos={mousePos}
+  hovered={hero3DHovered}
+  intensity={intensity}
+  quality={quality}
+/>
       </div>
 
       {/* DOM Content */}
       <motion.div
         ref={heroTextRef}
         className="hero-content relative z-10 min-h-screen flex items-center"
-        style={{ opacity: heroOpacity, y: springY }}
+        style={{ opacity: reducedMotion ? 1 : heroOpacity, y: reducedMotion ? 0 : springY }}
+        initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+        animate={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
       >
         <div className="shell">
           <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
             {/* Left Column: Text */}
             <div className="hero-text max-w-2xl">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
+              <div
                 className="hero-kicker mb-6"
+                style={{ opacity: reducedMotion ? 1 : 0, transform: reducedMotion ? "translateY(0)" : "translateY(20px)" }}
               >
                 <span className="badge badge-primary">Digital Studio</span>
                 <span className="text-[var(--text-tertiary)] ml-3 text-sm tracking-wider uppercase">
                   ImaginarsClub — Mumbai · Founded 2024
                 </span>
-              </motion.div>
+              </div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+              <h1
+                id="hero-title"
                 className="hero-title text-5xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight"
+                style={{ opacity: reducedMotion ? 1 : 0, transform: reducedMotion ? "translateY(0)" : "translateY(30px)" }}
               >
                 We build digital<br />
                 products <span className="gradient-text">that scale.</span>
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+              <p
                 className="lede mt-6 max-w-xl text-lg text-[var(--text-secondary)]"
+                style={{ opacity: reducedMotion ? 1 : 0, transform: reducedMotion ? "translateY(0)" : "translateY(20px)" }}
               >
                 Websites, mobile applications, and AI-powered platforms —
                 engineered end-to-end by a senior-led studio. No departments.
                 No handoffs. Just the people who ship.
-              </motion.p>
+              </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+              <div
                 className="mt-10 grid grid-cols-2 gap-4 max-w-xl"
+                style={{ opacity: reducedMotion ? 1 : 0, transform: reducedMotion ? "translateY(0)" : "translateY(20px)" }}
+                role="list"
+                aria-label="Our guarantees"
               >
                 {VALUE_PROPS.map((prop, i) => (
                   <div
                     key={i}
                     className="glass-strong rounded-xl p-4 flex items-start gap-3"
                     data-cursor={prop.text}
+                    style={{ transitionDelay: `${i * 100}ms` } as React.CSSProperties}
+                    role="listitem"
                   >
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-emerald-500/20 border border-emerald-500/30 flex-shrink-0">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-emerald-500/20 border border-emerald-500/30 flex-shrink-0" aria-hidden="true">
                       <CheckIcon />
                     </div>
                     <p className="text-sm text-[var(--text-secondary)] leading-snug">
@@ -149,18 +162,17 @@ export function Hero() {
                     </p>
                   </div>
                 ))}
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+              <div
                 className="mt-10 flex flex-wrap items-center gap-4"
+                style={{ opacity: reducedMotion ? 1 : 0, transform: reducedMotion ? "translateY(0)" : "translateY(20px)" }}
               >
                 <MagneticButton
                   href="/contact"
                   className="btn-magnetic"
                   data-cursor="Start Project"
+                  aria-label="Start a new project with us"
                 >
                   Start a Project
                   <ArrowIcon />
@@ -169,67 +181,61 @@ export function Hero() {
                   href="/work"
                   className="btn btn-secondary"
                   data-cursor="View Work"
+                  aria-label="View our portfolio"
                 >
                   View Our Work
                 </MagneticButton>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
+              <div
                 className="mt-10 glass-strong rounded-2xl p-4 flex items-center gap-3 max-w-md"
+                style={{ opacity: reducedMotion ? 1 : 0, transform: reducedMotion ? "translateY(0)" : "translateY(20px)" }}
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <ShieldIcon />
                 </div>
                 <div>
                   <p className="micro text-emerald-400">Verified Case Study</p>
                   <p className="font-semibold text-sm">PRV Financial Services · 99.99% uptime</p>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Right Column: Metrics */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+            <div
               className="hero-metrics"
+              style={{ opacity: reducedMotion ? 1 : 0, transform: reducedMotion ? "translateX(0)" : "translateX(40px)" }}
             >
               <div className="grid grid-cols-2 gap-6 max-w-sm ml-auto">
                 {METRICS.map((m, i) => (
-                  <motion.div
+                  <div
                     key={m.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
                     className="metric-item"
+                    style={{ transitionDelay: `${0.4 + i * 0.1}s` } as React.CSSProperties}
                   >
                     <p className="text-3xl md:text-4xl font-bold tabular-nums text-[var(--text-primary)]">
                       {m.value}
                     </p>
                     <p className="micro mt-1">{m.label}</p>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </motion.div>
 
       {/* Scroll Hint */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
+      <div
         className="scroll-hint absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+        style={{ opacity: reducedMotion ? 1 : 0, transition: "opacity 0.6s ease 1.2s" }}
+        aria-hidden="true"
       >
         <div className="flex flex-col items-center gap-2">
           <span className="micro">Scroll to explore</span>
           <div className="w-px h-14 bg-gradient-to-b from-transparent via-[var(--color-brand-500)] to-transparent animate-pulse" />
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

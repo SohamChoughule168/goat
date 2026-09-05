@@ -1,0 +1,344 @@
+- generic [ref=f23e2]:
+  - generic [ref=f23e3]:
+    - link "Skip to content" [ref=f23e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f23e9]:
+      - heading "Navigation Menu" [level=2] [ref=f23e10]
+      - generic [ref=f23e12]:
+        - button "Toggle navigation" [ref=f23e14] [cursor=pointer]
+        - link "Homepage" [ref=f23e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f23e21]:
+          - link "Sign in" [ref=f23e22] [cursor=pointer]:
+            - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fstripe%2Fai%2Ftree%2Fmain
+          - button "Appearance settings" [ref=f23e25] [cursor=pointer]
+  - main [ref=f23e32]:
+    - generic [ref=f23e33]:
+      - generic [ref=f23e36]:
+        - link "stripe" [ref=f23e40] [cursor=pointer]:
+          - /url: /stripe
+        - generic [ref=f23e41]: /
+        - strong [ref=f23e42]:
+          - link "ai" [ref=f23e43] [cursor=pointer]:
+            - /url: /stripe/ai
+        - generic [ref=f23e44]: Public
+      - navigation "Repository" [ref=f23e45]:
+        - list [ref=f23e46]:
+          - listitem [ref=f23e47]:
+            - link "Code" [ref=f23e48] [cursor=pointer]:
+              - /url: /stripe/ai
+          - listitem [ref=f23e52]:
+            - link "Issues 24" [ref=f23e53] [cursor=pointer]:
+              - /url: /stripe/ai/issues
+              - generic [ref=f23e57]: Issues
+              - generic "24" [ref=f23e58]
+          - listitem [ref=f23e59]:
+            - link "Pull requests 60" [ref=f23e60] [cursor=pointer]:
+              - /url: /stripe/ai/pulls
+              - generic [ref=f23e63]: Pull requests
+              - generic "60" [ref=f23e64]
+          - listitem [ref=f23e65]:
+            - link "Discussions" [ref=f23e66] [cursor=pointer]:
+              - /url: /stripe/ai/discussions
+          - listitem [ref=f23e70]:
+            - link "Actions" [ref=f23e71] [cursor=pointer]:
+              - /url: /stripe/ai/actions
+          - listitem [ref=f23e75]
+          - listitem [ref=f23e76]
+        - button "Additional navigation options" [ref=f23e80] [cursor=pointer]
+    - generic [ref=f23e94]:
+      - generic [ref=f23e97]:
+        - generic [ref=f23e98]:
+          - generic [ref=f23e99]:
+            - button "main branch" [ref=f23e101] [cursor=pointer]:
+              - generic [ref=f23e102]: main
+            - generic [ref=f23e106]:
+              - link "Go to Branches page" [ref=f23e107] [cursor=pointer]:
+                - /url: /stripe/ai/branches
+              - link "Go to Tags page" [ref=f23e110] [cursor=pointer]:
+                - /url: /stripe/ai/tags
+          - generic [ref=f23e113]:
+            - button "Go to file" [ref=f23e116] [cursor=pointer]
+            - button "Code" [ref=f23e119] [cursor=pointer]
+        - generic [ref=f23e122]:
+          - generic [ref=f23e123]:
+            - generic [ref=f23e125]:
+              - heading "Latest commit" [level=2] [ref=f23e126]
+              - generic [ref=f23e129]:
+                - heading "History" [level=2] [ref=f23e130]
+                - link "View commit history for this file." [ref=f23e132] [cursor=pointer]:
+                  - /url: /stripe/ai/commits/main/
+            - heading "Folders and files" [level=2] [ref=f23e134]
+            - table "Folders and files" [ref=f23e135]:
+              - rowgroup:
+                - row "Name Last commit message Last commit date":
+                  - columnheader "Name"
+                  - columnheader "Last commit message"
+                  - columnheader "Last commit date"
+              - rowgroup [ref=f23e136]:
+                - row ".claude-plugin, (Directory)" [ref=f23e137]:
+                  - cell [ref=f23e138]:
+                    - link ".claude-plugin, (Directory)" [ref=f23e145] [cursor=pointer]:
+                      - /url: /stripe/ai/tree/main/.claude-plugin
+                      - text: .claude-plugin
+                  - cell [ref=f23e146]
+                  - cell [ref=f23e148]
+                - row ".codex-plugin, (Directory)" [ref=f23e151]:
+                  - cell [ref=f23e152]:
+                    - link ".codex-plugin, (Directory)" [ref=f23e159] [cursor=pointer]:
+                      - /url: /stripe/ai/tree/main/.codex-plugin
+                      - text: .codex-plugin
+                  - cell [ref=f23e160]
+                  - cell [ref=f23e162]
+                - row ".cursor-plugin, (Directory)" [ref=f23e165]:
+                  - cell [ref=f23e166]:
+                    - link ".cursor-plugin, (Directory)" [ref=f23e173] [cursor=pointer]:
+                      - /url: /stripe/ai/tree/main/.cursor-plugin
+                      - text: .cursor-plugin
+                  - cell [ref=f23e174]
+                  - cell [ref=f23e176]
+                - row ".github, (Directory)" [ref=f23e179]:
+                  - cell [ref=f23e180]:
+                    - link ".github, (Directory)" [ref=f23e187] [cursor=pointer]:
+                      - /url: /stripe/ai/tree/main/.github
+                      - text: .github
+                  - cell [ref=f23e188]
+                  - cell [ref=f23e190]
+                - row ".grok-plugin, (Directory)" [ref=f23e193]:
+                  - cell [ref=f23e194]:
+                    - link ".grok-plugin, (Directory)" [ref=f23e201] [cursor=pointer]:
+                      - /url: /stripe/ai/tree/main/.grok-plugin
+                      - text: .grok-plugin
+                  - cell [ref=f23e202]
+                  - cell [ref=f23e204]
+                - row ".vscode, (Directory)" [ref=f23e207]:
+                  - cell [ref=f23e208]:
+                    - link ".vscode, (Directory)" [ref=f23e215] [cursor=pointer]:
+                      - /url: /stripe/ai/tree/main/.vscode
+                      - text: .vscode
+                  - cell [ref=f23e216]
+                  - cell [ref=f23e218]
+                - row "benchmarks, (Directory)" [ref=f23e221]:
+                  - cell [ref=f23e222]:
+                    - link "benchmarks, (Directory)" [ref=f23e229] [cursor=pointer]:
+                      - /url: /stripe/ai/tree/main/benchmarks
+                      - text: benchmarks
+                  - cell [ref=f23e230]
+                  - cell [ref=f23e232]
+                - row "llm, (Directory)" [ref=f23e235]:
+                  - cell [ref=f23e236]:
+                    - link "llm, (Directory)" [ref=f23e243] [cursor=pointer]:
+                      - /url: /stripe/ai/tree/main/llm
+                      - text: llm
+                  - cell [ref=f23e244]
+                  - cell [ref=f23e246]
+                - row "providers, (Directory)" [ref=f23e249]:
+                  - cell [ref=f23e250]:
+                    - link "providers, (Directory)" [ref=f23e257] [cursor=pointer]:
+                      - /url: /stripe/ai/tree/main/providers
+                      - text: providers
+                  - cell [ref=f23e258]
+                  - cell [ref=f23e260]
+                - row "scripts, (Directory)" [ref=f23e263]:
+                  - cell [ref=f23e264]:
+                    - link "scripts, (Directory)" [ref=f23e271] [cursor=pointer]:
+                      - /url: /stripe/ai/tree/main/scripts
+                      - text: scripts
+                  - cell [ref=f23e272]
+                  - cell [ref=f23e274]
+                - row [ref=f23e277]:
+                  - cell [ref=f23e278] [cursor=pointer]:
+                    - button "View all files" [ref=f23e280]
+          - generic [ref=f23e282]:
+            - generic [ref=f23e283]:
+              - heading "Repository files navigation" [level=2] [ref=f23e284]
+              - navigation "Repository files" [ref=f23e285]:
+                - list [ref=f23e286]:
+                  - listitem [ref=f23e287]:
+                    - link "README" [ref=f23e288] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=f23e290]:
+                    - link "Code of conduct" [ref=f23e291] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=f23e293]:
+                    - link "Contributing" [ref=f23e294] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=f23e296]:
+                    - link "MIT license" [ref=f23e297] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=f23e299]:
+                    - link "Security" [ref=f23e300] [cursor=pointer]:
+                      - /url: "#"
+              - button "Outline" [ref=f23e302] [cursor=pointer]
+            - article [ref=f23e306]:
+              - paragraph [ref=f23e307]:
+                - link [ref=f23e309] [cursor=pointer]:
+                  - /url: https://camo.githubusercontent.com/7ecef46358a7a32417eb359ddd54dd2ec09cd66e249e7c689a9828060fe5ba3e/68747470733a2f2f7374726970652e6465762f696d616765732f6261646765732f61692d62616e6e65722e676966
+                  - img "Hero GIF" [ref=f23e310]
+              - generic [ref=f23e311]:
+                - heading "Stripe AI" [level=1] [ref=f23e312]
+                - 'link "Permalink: Stripe AI" [ref=f23e313] [cursor=pointer]':
+                  - /url: "#stripe-ai"
+              - paragraph [ref=f23e316]: This repo is the one-stop shop for building AI-powered products and businesses on top of Stripe.
+              - paragraph [ref=f23e317]: "It contains a collection of SDKs to help you integrate Stripe with LLMs and agent frameworks, including:"
+              - list [ref=f23e318]:
+                - listitem [ref=f23e319]:
+                  - link [ref=f23e320] [cursor=pointer]:
+                    - /url: /stripe/ai/blob/main/llm/ai-sdk
+                    - code [ref=f23e321]: "@stripe/ai-sdk"
+                  - text: "- for integrating Stripe's billing infrastructure with Vercel's"
+                  - link [ref=f23e322] [cursor=pointer]:
+                    - /url: https://npm.im/ai
+                    - code [ref=f23e323]: ai
+                  - text: and
+                  - link [ref=f23e324] [cursor=pointer]:
+                    - /url: https://ai-sdk.dev/
+                    - code [ref=f23e325]: "@ai-sdk"
+                  - text: libraries.
+                - listitem [ref=f23e326]:
+                  - link [ref=f23e327] [cursor=pointer]:
+                    - /url: /stripe/ai/blob/main/llm/token-meter
+                    - code [ref=f23e328]: "@stripe/token-meter"
+                  - text: "- for integrating Stripe's billing infrastructure with native SDKs from OpenAI, Anthropic, and Google Gemini, without any framework dependencies."
+              - generic [ref=f23e329]:
+                - heading "Model Context Protocol (MCP)" [level=2] [ref=f23e330]
+                - 'link "Permalink: Model Context Protocol (MCP)" [ref=f23e331] [cursor=pointer]':
+                  - /url: "#model-context-protocol-mcp"
+              - paragraph [ref=f23e334]:
+                - text: Stripe hosts a remote MCP server at
+                - code [ref=f23e335]: https://mcp.stripe.com
+                - text: . This allows secure MCP client access via OAuth. View the docs
+                - link "here" [ref=f23e336] [cursor=pointer]:
+                  - /url: https://docs.stripe.com/mcp#connect
+                - text: .
+              - paragraph [ref=f23e337]:
+                - text: You can also
+                - link "build autonomous agents" [ref=f23e338] [cursor=pointer]:
+                  - /url: https://docs.stripe.com/mcp#agents
+                - text: with MCP as well.
+              - generic [ref=f23e339]:
+                - heading "Agent skills" [level=2] [ref=f23e340]
+                - 'link "Permalink: Agent skills" [ref=f23e341] [cursor=pointer]':
+                  - /url: "#agent-skills"
+              - paragraph [ref=f23e344]:
+                - link "Agent skills" [ref=f23e345] [cursor=pointer]:
+                  - /url: https://agentskills.io/home
+                - text: are instructions that agents can use to build faster and more accurately. Stripe offers a collection of skills that help your agents use the latest best practices when building with Stripe.
+              - paragraph [ref=f23e346]: If you use one of these popular agent harnesses, we recommend installing the official Stripe plugins, which include additional agent tools and update automatically.
+              - generic [ref=f23e347]:
+                - heading "Claude Code" [level=3] [ref=f23e348]
+                - 'link "Permalink: Claude Code" [ref=f23e349] [cursor=pointer]':
+                  - /url: "#claude-code"
+              - paragraph [ref=f23e352]: "Run this command in your project:"
+              - generic [ref=f23e353]:
+                - generic [ref=f23e354]: claude plugin install stripe@claude-plugins-official
+                - button "Copy code to clipboard" [ref=f23e356] [cursor=pointer]
+              - generic [ref=f23e360]:
+                - heading "Codex" [level=3] [ref=f23e361]
+                - 'link "Permalink: Codex" [ref=f23e362] [cursor=pointer]':
+                  - /url: "#codex"
+              - paragraph [ref=f23e365]: "Run this command in your project:"
+              - generic [ref=f23e366]:
+                - generic [ref=f23e367]: codex plugin add stripe@openai-curated
+                - button "Copy code to clipboard" [ref=f23e369] [cursor=pointer]
+              - generic [ref=f23e373]:
+                - heading "Cursor" [level=3] [ref=f23e374]
+                - 'link "Permalink: Cursor" [ref=f23e375] [cursor=pointer]':
+                  - /url: "#cursor"
+              - paragraph [ref=f23e378]: "Run this command in your project:"
+              - generic [ref=f23e379]:
+                - generic [ref=f23e380]: /add-plugin stripe
+                - button "Copy code to clipboard" [ref=f23e382] [cursor=pointer]
+              - paragraph [ref=f23e386]:
+                - text: You can also install through the
+                - link "Cursor marketplace" [ref=f23e387] [cursor=pointer]:
+                  - /url: https://cursor.com/marketplace/stripe
+                - text: .
+              - generic [ref=f23e388]:
+                - heading "Grok Build" [level=3] [ref=f23e389]
+                - 'link "Permalink: Grok Build" [ref=f23e390] [cursor=pointer]':
+                  - /url: "#grok-build"
+              - paragraph [ref=f23e393]: "Run this command in your project:"
+              - generic [ref=f23e394]:
+                - generic [ref=f23e395]: grok plugin install stripe --trust
+                - button "Copy code to clipboard" [ref=f23e397] [cursor=pointer]
+              - generic [ref=f23e401]:
+                - heading "Agent Plugins" [level=3] [ref=f23e402]
+                - 'link "Permalink: Agent Plugins" [ref=f23e403] [cursor=pointer]':
+                  - /url: "#agent-plugins"
+              - paragraph [ref=f23e406]:
+                - text: Installation methods currently vary by client for the new
+                - link "Agent Plugins" [ref=f23e407] [cursor=pointer]:
+                  - /url: https://agent-plugins.org/
+                - text: "standard, but you can point your client to our package via:"
+              - list [ref=f23e408]:
+                - listitem [ref=f23e409]:
+                  - text: "Git URL:"
+                  - code [ref=f23e410]: https://github.com/stripe/ai
+                - listitem [ref=f23e411]:
+                  - text: "Subdirectory:"
+                  - link [ref=f23e412] [cursor=pointer]:
+                    - /url: /stripe/ai/blob/main/providers/agent-plugins/plugin
+                    - code [ref=f23e413]: providers/agent-plugins/plugin/
+                  - text: .
+              - generic [ref=f23e414]:
+                - heading "Manual installation" [level=2] [ref=f23e415]
+                - 'link "Permalink: Manual installation" [ref=f23e416] [cursor=pointer]':
+                  - /url: "#manual-installation"
+              - blockquote [ref=f23e419]:
+                - paragraph [ref=f23e420]:
+                  - text: Manually installed skills don’t auto-update. Run
+                  - code [ref=f23e421]: npx skills update -y
+                  - text: to get the latest versions.
+              - paragraph [ref=f23e422]: "Run this command in your project:"
+              - generic [ref=f23e423]:
+                - generic [ref=f23e424]: npx skills add https://docs.stripe.com
+                - button "Copy code to clipboard" [ref=f23e426] [cursor=pointer]
+              - generic [ref=f23e430]:
+                - heading "License" [level=2] [ref=f23e431]
+                - 'link "Permalink: License" [ref=f23e432] [cursor=pointer]':
+                  - /url: "#license"
+              - paragraph [ref=f23e435]:
+                - link "MIT" [ref=f23e436] [cursor=pointer]:
+                  - /url: /stripe/ai/blob/main/LICENSE
+      - generic [ref=f23e439]:
+        - heading "Releases" [level=2] [ref=f23e441]
+        - heading "Packages" [level=2] [ref=f23e445]
+        - heading "Used by" [level=2] [ref=f23e448]
+        - heading "Contributors" [level=2] [ref=f23e451]
+        - heading "Languages" [level=2] [ref=f23e454]
+  - contentinfo [ref=f23e457]:
+    - heading "Footer" [level=2] [ref=f23e458]
+    - generic [ref=f23e459]:
+      - generic [ref=f23e460]:
+        - link "GitHub Homepage" [ref=f23e461] [cursor=pointer]:
+          - /url: https://github.com
+        - generic [ref=f23e464]: © 2026 GitHub, Inc.
+      - navigation "Footer" [ref=f23e465]:
+        - heading "Footer navigation" [level=3] [ref=f23e466]
+        - list "Footer navigation" [ref=f23e467]:
+          - listitem [ref=f23e468]:
+            - link "Terms" [ref=f23e469] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=f23e470]:
+            - link "Privacy" [ref=f23e471] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+          - listitem [ref=f23e472]:
+            - link "Security" [ref=f23e473] [cursor=pointer]:
+              - /url: https://github.com/security
+          - listitem [ref=f23e474]:
+            - link "Status" [ref=f23e475] [cursor=pointer]:
+              - /url: https://www.githubstatus.com/
+          - listitem [ref=f23e476]:
+            - link "Community" [ref=f23e477] [cursor=pointer]:
+              - /url: https://github.community/
+          - listitem [ref=f23e478]:
+            - link "Docs" [ref=f23e479] [cursor=pointer]:
+              - /url: https://docs.github.com/
+          - listitem [ref=f23e480]:
+            - link "Contact" [ref=f23e481] [cursor=pointer]:
+              - /url: https://support.github.com?tags=dotcom-footer
+          - listitem [ref=f23e482]:
+            - button "Manage cookies" [ref=f23e484] [cursor=pointer]
+          - listitem [ref=f23e485]:
+            - button "Do not share my personal information" [ref=f23e487] [cursor=pointer]

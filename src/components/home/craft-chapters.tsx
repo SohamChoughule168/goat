@@ -67,17 +67,28 @@ const CRAFTS = [
 
 export function CraftChapters() {
   const [activeChapter, setActiveChapter] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const globalProgress = useGlobalScrollProgress();
   const chapterProgress = useSectionProgress("craft-chapters");
+
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   return (
     <section
       id="craft-chapters"
       className="craft-chapters-section relative"
       data-component="craft-chapters"
+      aria-labelledby="craft-title"
     >
       {/* Background 3D Scene - fixed to section */}
-      <div className="craft-3d-container absolute inset-0 pointer-events-none">
+      <div className="craft-3d-container absolute inset-0 pointer-events-none" aria-hidden="true">
         <SectionView trackId="craft-chapters" lazyMount={true}>
           <CraftChaptersScene3D scrollProgress={globalProgress} />
         </SectionView>
@@ -89,6 +100,7 @@ export function CraftChapters() {
           <div className="craft-header mb-16 text-center">
             <p className="micro text-[var(--color-brand-500)]">What We Do</p>
             <h2
+              id="craft-title"
               className="mt-4 font-semibold mx-auto"
               style={{
                 fontSize: "clamp(2rem, 4.4vw, 4rem)",
@@ -102,18 +114,20 @@ export function CraftChapters() {
           </div>
 
           {/* Sticky Chapter List */}
-          <div className="craft-chapters-list">
+          <div className="craft-chapters-list" role="list" aria-label="Service chapters">
             {CRAFTS.map((c, i) => (
               <motion.div
                 key={c.num}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
+                initial={reducedMotion ? false : { opacity: 0, y: 40 }}
+                whileInView={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                transition={{ duration: reducedMotion ? 0.01 : 0.6, delay: reducedMotion ? 0 : i * 0.08 }}
                 viewport={{ once: true, margin: "-50px" }}
                 className={`craft-chapter-item relative grid lg:grid-cols-[80px_1fr] gap-8 py-12 border-t border-[var(--border-subtle)] ${
                   i === CRAFTS.length - 1 ? "border-b" : ""
                 }`}
                 onMouseEnter={() => setActiveChapter(i)}
+                onFocus={() => setActiveChapter(i)}
+                role="listitem"
               >
                 <span
                   className="craft-chapter-num text-7xl md:text-8xl font-semibold leading-none"
@@ -121,6 +135,7 @@ export function CraftChapters() {
                     WebkitTextStroke: "1px rgba(255,255,255,0.12)",
                     color: "transparent",
                   }}
+                  aria-hidden="true"
                 >
                   {c.num}
                 </span>
@@ -129,11 +144,12 @@ export function CraftChapters() {
                   <h3 className="text-3xl md:text-4xl font-semibold tracking-tight">{c.title}</h3>
                   <p className="lede mt-4 max-w-[60ch] text-[var(--text-secondary)]">{c.longDesc}</p>
 
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  <div className="mt-6 flex flex-wrap gap-2" role="list" aria-label={`${c.title} capabilities`}>
                     {c.items.map((it) => (
                       <span
                         key={it}
                         className="px-3 py-1.5 rounded-full border border-[var(--border-strong)] text-xs text-[var(--text-tertiary)] uppercase tracking-wider"
+                        role="listitem"
                       >
                         {it}
                       </span>
@@ -142,10 +158,10 @@ export function CraftChapters() {
 
                   <div className="mt-6 pt-4 border-t border-[var(--border-subtle)]">
                     <p className="micro mb-2">Measured Outcomes</p>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-3" role="list" aria-label={`${c.title} outcomes`}>
                       {c.outcomes.map((o) => (
-                        <div key={o} className="flex items-center gap-1.5 text-sm text-[var(--text-tertiary)]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                        <div key={o} className="flex items-center gap-1.5 text-sm text-[var(--text-tertiary)]" role="listitem">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
                           {o}
                         </div>
                       ))}
@@ -156,9 +172,10 @@ export function CraftChapters() {
                     href={c.href}
                     className="craft-chapter-link mt-6 inline-flex items-center gap-2"
                     data-cursor={c.cursor}
+                    aria-label={c.cursor}
                   >
                     Explore {c.title}
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M2 11L11 2M11 2H4M11 2v7" />
                     </svg>
                   </MagneticButton>

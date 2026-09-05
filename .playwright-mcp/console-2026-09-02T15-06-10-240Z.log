@@ -1,0 +1,3 @@
+[    1457ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://github.com/tavily-ai/tavily-mcp/raw/main/assets/cursor-step1.png:0
+[    1458ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://github.com/tavily-ai/tavily-mcp/raw/main/assets/cursor-step2.png:0
+[    1750ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://github.com/in-product-messaging/budget-threshold-banner?organization=tavily-ai:0

@@ -1,0 +1,4 @@
+[    1008ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://github.com/stripe/ai/tree/main/packages/mcp:0
+[    1467ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://github.com/in-product-messaging/budget-threshold-banner?organization=stripe:0
+[    1912ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://github.com/stripe/ai/tree-commit-info/main/packages/mcp:0
+[    1974ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://github.com/stripe/ai/latest-commit/main/packages/mcp:0

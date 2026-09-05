@@ -12,9 +12,13 @@
     "test:e2e": "playwright test",
     "test:lighthouse": "lhci autorun",
     "analyze": "ANALYZE=true next build",
+    "budget": "node scripts/performance-budget.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "precompute:scenes": "node scripts/precompute-scenes.mjs",
     "compress:models": "node scripts/compress-models.mjs",
     "compress:textures": "node scripts/compress-textures.mjs",
-    "optimize:assets": "node scripts/optimize-assets.mjs"
+    "optimize:assets": "node scripts/optimize-assets.mjs",
+    "prebuild": "node scripts/inline-shaders.mjs && node scripts/precompute-scenes.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.6",

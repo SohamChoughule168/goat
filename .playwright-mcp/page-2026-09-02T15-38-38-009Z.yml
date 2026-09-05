@@ -1,0 +1,186 @@
+- generic [ref=f3e2]:
+  - generic [ref=f3e3]:
+    - link "Skip to content" [ref=f3e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f3e9]:
+      - heading "Navigation Menu" [level=2] [ref=f3e10]
+      - generic [ref=f3e11]:
+        - generic [ref=f3e12]:
+          - button "Toggle navigation" [ref=f3e14] [cursor=pointer]
+          - link "Homepage" [ref=f3e18] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f3e21]:
+            - link "Sign in" [ref=f3e22] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fagent-plugins
+            - button "Appearance settings" [ref=f3e25] [cursor=pointer]
+        - link "agent-plugins" [ref=f3e30] [cursor=pointer]:
+          - /url: /agent-plugins
+  - main [ref=f3e34]:
+    - generic [ref=f3e35]:
+      - generic [ref=f3e36]:
+        - generic [ref=f3e38]:
+          - img "@agent-plugins" [ref=f3e40]
+          - generic [ref=f3e41]:
+            - heading "agent-plugins" [level=1] [ref=f3e42]
+            - list:
+              - listitem
+        - navigation "Organization" [ref=f3e44]:
+          - list [ref=f3e46]:
+            - listitem [ref=f3e47]:
+              - link "Overview" [ref=f3e48] [cursor=pointer]:
+                - /url: /agent-plugins
+            - listitem [ref=f3e51]:
+              - link "Repositories" [ref=f3e52] [cursor=pointer]:
+                - /url: /orgs/agent-plugins/repositories
+            - listitem [ref=f3e55]:
+              - link "Projects" [ref=f3e56] [cursor=pointer]:
+                - /url: /orgs/agent-plugins/projects
+            - listitem [ref=f3e59]:
+              - link "Packages" [ref=f3e60] [cursor=pointer]:
+                - /url: /orgs/agent-plugins/packages
+            - listitem [ref=f3e63]:
+              - link "People" [ref=f3e64] [cursor=pointer]:
+                - /url: /orgs/agent-plugins/people
+      - generic [ref=f3e68]:
+        - generic [ref=f3e71]:
+          - generic [ref=f3e72]:
+            - heading "Popular repositories Loading" [level=2] [ref=f3e73]:
+              - text: Popular repositories
+              - generic: Loading
+              - status
+            - list [ref=f3e75]:
+              - listitem [ref=f3e76]:
+                - generic [ref=f3e78]:
+                  - generic [ref=f3e79]:
+                    - link "template" [ref=f3e81] [cursor=pointer]:
+                      - /url: /agent-plugins/template
+                    - generic [ref=f3e82]: Public
+                  - paragraph [ref=f3e84]: The base Express container - acts as an authenticated middleman
+                  - paragraph [ref=f3e85]:
+                    - generic [ref=f3e86]: JavaScript
+              - listitem [ref=f3e88]:
+                - generic [ref=f3e90]:
+                  - generic [ref=f3e91]:
+                    - link "arxiv" [ref=f3e93] [cursor=pointer]:
+                      - /url: /agent-plugins/arxiv
+                    - generic [ref=f3e94]: Public
+                  - paragraph [ref=f3e96]
+                  - paragraph [ref=f3e97]:
+                    - generic [ref=f3e98]: JavaScript
+          - generic [ref=f3e101]:
+            - heading "Repositories" [level=3] [ref=f3e102]
+            - search [ref=f3e107]:
+              - generic [ref=f3e108]:
+                - generic [ref=f3e109]:
+                  - searchbox "Find a repository…" [ref=f3e110]
+                  - generic: Loading
+                - generic [ref=f3e114]:
+                  - group [ref=f3e115]:
+                    - button "Type" [ref=f3e116] [cursor=pointer]
+                  - group [ref=f3e118]:
+                    - button "Language" [ref=f3e119] [cursor=pointer]
+                  - group [ref=f3e121]:
+                    - button "Sort" [ref=f3e122] [cursor=pointer]
+            - generic [ref=f3e125]:
+              - generic [ref=f3e126]: Showing 2 of 2 repositories
+              - list [ref=f3e128]:
+                - listitem [ref=f3e129]:
+                  - generic [ref=f3e130]:
+                    - generic [ref=f3e131]:
+                      - generic [ref=f3e132]:
+                        - link "arxiv" [ref=f3e133] [cursor=pointer]:
+                          - /url: /agent-plugins/arxiv
+                        - 'generic "Label: Public" [ref=f3e134]': Public
+                      - generic:
+                        - generic:
+                          - link "agent-plugins/arxiv's past year of commit activity":
+                            - /url: /agent-plugins/arxiv/graphs/commit-activity
+                    - generic [ref=f3e135]:
+                      - generic [ref=f3e136]: JavaScript
+                      - link "0 stars" [ref=f3e138] [cursor=pointer]:
+                        - /url: /agent-plugins/arxiv/stargazers
+                        - text: "0"
+                      - link "0 forks" [ref=f3e141] [cursor=pointer]:
+                        - /url: /agent-plugins/arxiv/forks
+                        - text: "0"
+                      - link "0 issues" [ref=f3e144] [cursor=pointer]:
+                        - /url: /agent-plugins/arxiv/issues
+                        - text: "0"
+                      - link "0 pull requests" [ref=f3e148] [cursor=pointer]:
+                        - /url: /agent-plugins/arxiv/pulls
+                        - text: "0"
+                      - generic [ref=f3e151]: Updated Aug 15, 2024on Aug 15, 2024
+                - listitem [ref=f3e152]:
+                  - generic [ref=f3e153]:
+                    - generic [ref=f3e154]:
+                      - generic [ref=f3e155]:
+                        - link "template" [ref=f3e156] [cursor=pointer]:
+                          - /url: /agent-plugins/template
+                        - 'generic "Label: Public" [ref=f3e157]': Public
+                        - paragraph [ref=f3e158]: The base Express container - acts as an authenticated middleman
+                      - generic:
+                        - generic:
+                          - link "agent-plugins/template's past year of commit activity":
+                            - /url: /agent-plugins/template/graphs/commit-activity
+                    - generic [ref=f3e159]:
+                      - generic [ref=f3e160]: JavaScript
+                      - link "0 stars" [ref=f3e162] [cursor=pointer]:
+                        - /url: /agent-plugins/template/stargazers
+                        - text: "0"
+                      - link "0 forks" [ref=f3e165] [cursor=pointer]:
+                        - /url: /agent-plugins/template/forks
+                        - text: "0"
+                      - link "0 issues" [ref=f3e168] [cursor=pointer]:
+                        - /url: /agent-plugins/template/issues
+                        - text: "0"
+                      - link "0 pull requests" [ref=f3e172] [cursor=pointer]:
+                        - /url: /agent-plugins/template/pulls
+                        - text: "0"
+                      - generic [ref=f3e175]: Updated Aug 3, 2024on Aug 3, 2024
+        - generic [ref=f3e177]:
+          - generic [ref=f3e179]:
+            - link [ref=f3e180] [cursor=pointer]:
+              - /url: /orgs/agent-plugins/people
+              - heading "People" [level=4] [ref=f3e181]
+            - paragraph [ref=f3e182]: This organization has no public members. You must be a member to see who’s a part of this organization.
+          - generic [ref=f3e185]:
+            - heading "Top languages" [level=4] [ref=f3e186]
+            - paragraph [ref=f3e187]: Loading…
+          - generic [ref=f3e190]:
+            - heading "Most used topics" [level=4] [ref=f3e191]
+            - paragraph [ref=f3e192]: Loading…
+  - contentinfo [ref=f3e193]:
+    - heading "Footer" [level=2] [ref=f3e194]
+    - generic [ref=f3e195]:
+      - generic [ref=f3e196]:
+        - link "GitHub Homepage" [ref=f3e197] [cursor=pointer]:
+          - /url: https://github.com
+        - generic [ref=f3e200]: © 2026 GitHub, Inc.
+      - navigation "Footer" [ref=f3e201]:
+        - heading "Footer navigation" [level=3] [ref=f3e202]
+        - list "Footer navigation" [ref=f3e203]:
+          - listitem [ref=f3e204]:
+            - link "Terms" [ref=f3e205] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=f3e206]:
+            - link "Privacy" [ref=f3e207] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+          - listitem [ref=f3e208]:
+            - link "Security" [ref=f3e209] [cursor=pointer]:
+              - /url: https://github.com/security
+          - listitem [ref=f3e210]:
+            - link "Status" [ref=f3e211] [cursor=pointer]:
+              - /url: https://www.githubstatus.com/
+          - listitem [ref=f3e212]:
+            - link "Community" [ref=f3e213] [cursor=pointer]:
+              - /url: https://github.community/
+          - listitem [ref=f3e214]:
+            - link "Docs" [ref=f3e215] [cursor=pointer]:
+              - /url: https://docs.github.com/
+          - listitem [ref=f3e216]:
+            - link "Contact" [ref=f3e217] [cursor=pointer]:
+              - /url: https://support.github.com?tags=dotcom-footer
+          - listitem [ref=f3e218]:
+            - button "Manage cookies" [ref=f3e220] [cursor=pointer]
+          - listitem [ref=f3e221]:
+            - button "Do not share my personal information" [ref=f3e223] [cursor=pointer]

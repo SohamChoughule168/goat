@@ -1,0 +1,121 @@
+- generic [ref=f22e2]:
+  - generic [ref=f22e3]:
+    - link "Skip to content" [ref=f22e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f22e9]:
+      - heading "Navigation Menu" [level=2] [ref=f22e10]
+      - generic [ref=f22e12]:
+        - button "Toggle navigation" [ref=f22e14] [cursor=pointer]
+        - link "Homepage" [ref=f22e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f22e21]:
+          - link "Sign in" [ref=f22e22] [cursor=pointer]:
+            - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fstripe%2Fai%2Ftree%2Fmain%2Fpackages%2Fmcp
+          - button "Appearance settings" [ref=f22e25] [cursor=pointer]
+  - main [ref=f22e32]:
+    - generic [ref=f22e33]:
+      - generic [ref=f22e36]:
+        - link "stripe" [ref=f22e40] [cursor=pointer]:
+          - /url: /stripe
+        - generic [ref=f22e41]: /
+        - strong [ref=f22e42]:
+          - link "ai" [ref=f22e43] [cursor=pointer]:
+            - /url: /stripe/ai
+        - generic [ref=f22e44]: Public
+      - navigation "Repository" [ref=f22e45]:
+        - list [ref=f22e46]:
+          - listitem [ref=f22e47]:
+            - link "Code" [ref=f22e48] [cursor=pointer]:
+              - /url: /stripe/ai
+          - listitem [ref=f22e52]:
+            - link "Issues 24" [ref=f22e53] [cursor=pointer]:
+              - /url: /stripe/ai/issues
+              - generic [ref=f22e57]: Issues
+              - generic "24" [ref=f22e58]
+          - listitem [ref=f22e59]:
+            - link "Pull requests 60" [ref=f22e60] [cursor=pointer]:
+              - /url: /stripe/ai/pulls
+              - generic [ref=f22e63]: Pull requests
+              - generic "60" [ref=f22e64]
+          - listitem [ref=f22e65]:
+            - link "Discussions" [ref=f22e66] [cursor=pointer]:
+              - /url: /stripe/ai/discussions
+          - listitem [ref=f22e70]:
+            - link "Actions" [ref=f22e71] [cursor=pointer]:
+              - /url: /stripe/ai/actions
+          - listitem [ref=f22e75]
+          - listitem [ref=f22e76]
+        - button "Additional navigation options" [ref=f22e80] [cursor=pointer]
+    - generic [ref=f22e91]:
+      - generic [ref=f22e95]:
+        - generic [ref=f22e96]:
+          - heading [level=2] [ref=f22e98]:
+            - button "Expand file tree" [ref=f22e99] [cursor=pointer]:
+              - generic [ref=f22e100]: Files
+          - button "main branch" [ref=f22e103] [cursor=pointer]:
+            - generic [ref=f22e104]: main
+          - generic [ref=f22e109]:
+            - navigation [ref=f22e110]:
+              - heading "Breadcrumbs" [level=2] [ref=f22e111]
+              - list [ref=f22e112]:
+                - listitem [ref=f22e113]:
+                  - link "ai" [ref=f22e114] [cursor=pointer]:
+                    - /url: /stripe/ai/tree/main
+                - listitem [ref=f22e115]:
+                  - text: /
+                  - link "packages" [ref=f22e116] [cursor=pointer]:
+                    - /url: /stripe/ai/tree/main/packages
+            - generic [ref=f22e117]:
+              - text: /
+              - heading "mcp" [level=1] [ref=f22e118]
+              - text: /
+            - button "Copy path" [ref=f22e119] [cursor=pointer]
+        - generic [ref=f22e125]:
+          - heading "Directory actions" [level=2] [ref=f22e126]
+          - heading "More options" [level=2] [ref=f22e127]
+          - button "More options" [ref=f22e128] [cursor=pointer]
+      - generic [ref=f22e133]:
+        - heading "404 - page not found" [level=2] [ref=f22e138]
+        - paragraph [ref=f22e139]:
+          - generic [ref=f22e140]:
+            - text: The
+            - generic [ref=f22e141]: main
+            - text: branch of ai does not contain the path
+            - generic [ref=f22e142]: packages/mcp.
+        - link "Return to the repository overview" [ref=f22e144] [cursor=pointer]:
+          - /url: /stripe/ai
+  - contentinfo [ref=f22e148]:
+    - heading "Footer" [level=2] [ref=f22e149]
+    - generic [ref=f22e150]:
+      - generic [ref=f22e151]:
+        - link "GitHub Homepage" [ref=f22e152] [cursor=pointer]:
+          - /url: https://github.com
+        - generic [ref=f22e155]: © 2026 GitHub, Inc.
+      - navigation "Footer" [ref=f22e156]:
+        - heading "Footer navigation" [level=3] [ref=f22e157]
+        - list "Footer navigation" [ref=f22e158]:
+          - listitem [ref=f22e159]:
+            - link "Terms" [ref=f22e160] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=f22e161]:
+            - link "Privacy" [ref=f22e162] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+          - listitem [ref=f22e163]:
+            - link "Security" [ref=f22e164] [cursor=pointer]:
+              - /url: https://github.com/security
+          - listitem [ref=f22e165]:
+            - link "Status" [ref=f22e166] [cursor=pointer]:
+              - /url: https://www.githubstatus.com/
+          - listitem [ref=f22e167]:
+            - link "Community" [ref=f22e168] [cursor=pointer]:
+              - /url: https://github.community/
+          - listitem [ref=f22e169]:
+            - link "Docs" [ref=f22e170] [cursor=pointer]:
+              - /url: https://docs.github.com/
+          - listitem [ref=f22e171]:
+            - link "Contact" [ref=f22e172] [cursor=pointer]:
+              - /url: https://support.github.com?tags=dotcom-footer
+          - listitem [ref=f22e173]:
+            - button "Manage cookies" [ref=f22e175] [cursor=pointer]
+          - listitem [ref=f22e176]:
+            - button "Do not share my personal information" [ref=f22e178] [cursor=pointer]

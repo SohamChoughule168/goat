@@ -1,0 +1,587 @@
+- generic [active] [ref=f10e1]:
+  - generic [ref=f10e2]:
+    - generic [ref=f10e3]:
+      - link "Skip to content" [ref=f10e4] [cursor=pointer]:
+        - /url: "#start-of-content"
+      - banner [ref=f10e9]:
+        - heading "Navigation Menu" [level=2] [ref=f10e10]
+        - generic [ref=f10e12]:
+          - button "Toggle navigation" [ref=f10e14] [cursor=pointer]
+          - link "Homepage" [ref=f10e18] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f10e21]:
+            - link "Sign in" [ref=f10e22] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fupstash%2Fcontext7
+            - button "Appearance settings" [ref=f10e25] [cursor=pointer]
+    - main [ref=f10e32]:
+      - generic [ref=f10e33]:
+        - generic [ref=f10e36]:
+          - link "upstash" [ref=f10e40] [cursor=pointer]:
+            - /url: /upstash
+          - generic [ref=f10e41]: /
+          - strong [ref=f10e42]:
+            - link "context7" [ref=f10e43] [cursor=pointer]:
+              - /url: /upstash/context7
+          - generic [ref=f10e44]: Public
+        - navigation "Repository" [ref=f10e45]:
+          - list [ref=f10e46]:
+            - listitem [ref=f10e47]:
+              - link "Code" [ref=f10e48] [cursor=pointer]:
+                - /url: /upstash/context7
+            - listitem [ref=f10e52]:
+              - link "Issues 29" [ref=f10e53] [cursor=pointer]:
+                - /url: /upstash/context7/issues
+                - generic [ref=f10e57]: Issues
+                - generic "29" [ref=f10e58]
+            - listitem [ref=f10e59]:
+              - link "Pull requests 39" [ref=f10e60] [cursor=pointer]:
+                - /url: /upstash/context7/pulls
+                - generic [ref=f10e63]: Pull requests
+                - generic "39" [ref=f10e64]
+            - listitem [ref=f10e65]:
+              - link "Discussions" [ref=f10e66] [cursor=pointer]:
+                - /url: /upstash/context7/discussions
+            - listitem [ref=f10e70]:
+              - link "Actions" [ref=f10e71] [cursor=pointer]:
+                - /url: /upstash/context7/actions
+            - listitem [ref=f10e75]
+            - listitem [ref=f10e76]
+          - button "Additional navigation options" [ref=f10e80] [cursor=pointer]
+      - generic [ref=f10e94]:
+        - generic [ref=f10e97]:
+          - generic [ref=f10e98]:
+            - generic [ref=f10e99]:
+              - button "master branch" [ref=f10e101] [cursor=pointer]:
+                - generic [ref=f10e102]: master
+              - generic [ref=f10e106]:
+                - link "Go to Branches page" [ref=f10e107] [cursor=pointer]:
+                  - /url: /upstash/context7/branches
+                - link "Go to Tags page" [ref=f10e110] [cursor=pointer]:
+                  - /url: /upstash/context7/tags
+            - generic [ref=f10e113]:
+              - button "Go to file" [ref=f10e116] [cursor=pointer]
+              - button "Code" [ref=f10e119] [cursor=pointer]
+          - generic [ref=f10e122]:
+            - generic [ref=f10e123]:
+              - generic [ref=f10e125]:
+                - heading "Latest commit" [level=2] [ref=f10e126]
+                - generic [ref=f10e127]:
+                  - generic [ref=f10e129]:
+                    - link [ref=f10e130] [cursor=pointer]:
+                      - /url: /enesgules
+                      - img "enesgules" [ref=f10e131]
+                    - link "commits by enesgules" [ref=f10e132] [cursor=pointer]:
+                      - /url: /upstash/context7/commits?author=enesgules
+                      - text: enesgules
+                  - generic [ref=f10e133]:
+                    - 'link "feat: rebuild mcpb packaging as a self-contained bundle, publish on r…" [ref=f10e136] [cursor=pointer]':
+                      - /url: /upstash/context7/commit/c05c71c5fddf9ff4b1a128752fc04a1fce73360e
+                    - button "Open commit details" [ref=f10e137] [cursor=pointer]
+                    - button "success" [ref=f10e140] [cursor=pointer]
+                - generic [ref=f10e143]:
+                  - generic [ref=f10e145]:
+                    - link "Commit c05c71c" [ref=f10e146] [cursor=pointer]:
+                      - /url: /upstash/context7/commit/c05c71c5fddf9ff4b1a128752fc04a1fce73360e
+                      - text: c05c71c
+                    - text: ·
+                    - generic "Sep 1, 2026, 6:43 PM GMT+5:30" [ref=f10e147]: Sep 1, 20264 hours ago
+                  - generic [ref=f10e148]:
+                    - heading "History" [level=2] [ref=f10e149]
+                    - link "View commit history for this file." [ref=f10e151] [cursor=pointer]:
+                      - /url: /upstash/context7/commits/master/
+              - heading "Folders and files" [level=2] [ref=f10e153]
+              - table "Folders and files" [ref=f10e154]:
+                - rowgroup:
+                  - row "Name Last commit message Last commit date":
+                    - columnheader "Name"
+                    - columnheader "Last commit message"
+                    - columnheader "Last commit date"
+                - rowgroup [ref=f10e155]:
+                  - row ".agents/plugins, (Directory)" [ref=f10e156]:
+                    - cell [ref=f10e157]:
+                      - link ".agents/plugins, (Directory)" [ref=f10e164] [cursor=pointer]:
+                        - /url: /upstash/context7/tree/master/.agents/plugins
+                        - text: .agents/plugins
+                    - cell [ref=f10e165]
+                    - cell [ref=f10e167]
+                  - row ".changeset, (Directory)" [ref=f10e170]:
+                    - cell [ref=f10e171]:
+                      - link ".changeset, (Directory)" [ref=f10e178] [cursor=pointer]:
+                        - /url: /upstash/context7/tree/master/.changeset
+                        - text: .changeset
+                    - cell [ref=f10e179]
+                    - cell [ref=f10e181]
+                  - row ".claude-plugin, (Directory)" [ref=f10e184]:
+                    - cell [ref=f10e185]:
+                      - link ".claude-plugin, (Directory)" [ref=f10e192] [cursor=pointer]:
+                        - /url: /upstash/context7/tree/master/.claude-plugin
+                        - text: .claude-plugin
+                    - cell [ref=f10e193]
+                    - cell [ref=f10e195]
+                  - row ".github, (Directory)" [ref=f10e198]:
+                    - cell [ref=f10e199]:
+                      - link ".github, (Directory)" [ref=f10e206] [cursor=pointer]:
+                        - /url: /upstash/context7/tree/master/.github
+                        - text: .github
+                    - cell [ref=f10e207]
+                    - cell [ref=f10e209]
+                  - row "docs, (Directory)" [ref=f10e212]:
+                    - cell [ref=f10e213]:
+                      - link "docs, (Directory)" [ref=f10e220] [cursor=pointer]:
+                        - /url: /upstash/context7/tree/master/docs
+                        - text: docs
+                    - cell [ref=f10e221]
+                    - cell [ref=f10e223]
+                  - row "i18n, (Directory)" [ref=f10e226]:
+                    - cell [ref=f10e227]:
+                      - link "i18n, (Directory)" [ref=f10e234] [cursor=pointer]:
+                        - /url: /upstash/context7/tree/master/i18n
+                        - text: i18n
+                    - cell [ref=f10e235]
+                    - cell [ref=f10e237]
+                  - row "packages, (Directory)" [ref=f10e240]:
+                    - cell [ref=f10e241]:
+                      - link "packages, (Directory)" [ref=f10e248] [cursor=pointer]:
+                        - /url: /upstash/context7/tree/master/packages
+                        - text: packages
+                    - cell [ref=f10e249]
+                    - cell [ref=f10e251]
+                  - row "plugins, (Directory)" [ref=f10e254]:
+                    - cell [ref=f10e255]:
+                      - link "plugins, (Directory)" [ref=f10e262] [cursor=pointer]:
+                        - /url: /upstash/context7/tree/master/plugins
+                        - text: plugins
+                    - cell [ref=f10e263]
+                    - cell [ref=f10e265]
+                  - row "public, (Directory)" [ref=f10e268]:
+                    - cell [ref=f10e269]:
+                      - link "public, (Directory)" [ref=f10e276] [cursor=pointer]:
+                        - /url: /upstash/context7/tree/master/public
+                        - text: public
+                    - cell [ref=f10e277]
+                    - cell [ref=f10e279]
+                  - row "rules, (Directory)" [ref=f10e282]:
+                    - cell [ref=f10e283]:
+                      - link "rules, (Directory)" [ref=f10e290] [cursor=pointer]:
+                        - /url: /upstash/context7/tree/master/rules
+                        - text: rules
+                    - cell [ref=f10e291]
+                    - cell [ref=f10e293]
+                  - row [ref=f10e296]:
+                    - cell [ref=f10e297] [cursor=pointer]:
+                      - button "View all files" [ref=f10e299]
+            - generic [ref=f10e301]:
+              - generic [ref=f10e302]:
+                - heading "Repository files navigation" [level=2] [ref=f10e303]
+                - navigation "Repository files" [ref=f10e304]:
+                  - list [ref=f10e305]:
+                    - listitem [ref=f10e306]:
+                      - link "README" [ref=f10e307] [cursor=pointer]:
+                        - /url: "#"
+                    - listitem [ref=f10e309]:
+                      - link "MIT license" [ref=f10e310] [cursor=pointer]:
+                        - /url: "#"
+                    - listitem [ref=f10e312]:
+                      - link "Security" [ref=f10e313] [cursor=pointer]:
+                        - /url: "#"
+                - button "Outline" [ref=f10e315] [cursor=pointer]
+              - article [ref=f10e319]:
+                - paragraph [ref=f10e320]:
+                  - link [ref=f10e321] [cursor=pointer]:
+                    - /url: https://github.com/upstash/context7/blob/master/public/cover.png?raw=true
+                    - img "Cover" [ref=f10e322]
+                - paragraph [ref=f10e323]:
+                  - link [ref=f10e324] [cursor=pointer]:
+                    - /url: https://cursor.com/en/install-mcp?name=context7&config=eyJ1cmwiOiJodHRwczovL21jcC5jb250ZXh0Ny5jb20vbWNwIn0%3D
+                    - img "Install MCP Server" [ref=f10e325]
+                - generic [ref=f10e326]:
+                  - heading "Context7 Platform - Up-to-date Code Docs For Any Prompt" [level=1] [ref=f10e327]
+                  - 'link "Permalink: Context7 Platform - Up-to-date Code Docs For Any Prompt" [ref=f10e328] [cursor=pointer]':
+                    - /url: "#context7-platform---up-to-date-code-docs-for-any-prompt"
+                - paragraph [ref=f10e331]:
+                  - link [ref=f10e332] [cursor=pointer]:
+                    - /url: https://context7.com
+                    - img "Website" [ref=f10e333]
+                  - link [ref=f10e334] [cursor=pointer]:
+                    - /url: https://www.npmjs.com/package/@upstash/context7-mcp
+                    - img "NPM Version" [ref=f10e335]
+                  - link [ref=f10e336] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/LICENSE
+                    - img "MIT licensed" [ref=f10e337]
+                - paragraph [ref=f10e338]:
+                  - link [ref=f10e339] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.zh-TW.md
+                    - img "繁體中文" [ref=f10e340]
+                  - link [ref=f10e341] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.zh-CN.md
+                    - img "简体中文" [ref=f10e342]
+                  - link [ref=f10e343] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.ja.md
+                    - img "日本語" [ref=f10e344]
+                  - link [ref=f10e345] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.ko.md
+                    - img "한국어 문서" [ref=f10e346]
+                  - link [ref=f10e347] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.es.md
+                    - img "Documentación en Español" [ref=f10e348]
+                  - link [ref=f10e349] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.fr.md
+                    - img "Documentation en Français" [ref=f10e350]
+                  - link [ref=f10e351] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.pt-BR.md
+                    - img "Documentação em Português (Brasil)" [ref=f10e352]
+                  - link [ref=f10e353] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.it.md
+                    - img "Documentazione in italiano" [ref=f10e354]
+                  - link [ref=f10e355] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.id-ID.md
+                    - img "Dokumentasi Bahasa Indonesia" [ref=f10e356]
+                  - link [ref=f10e357] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.de.md
+                    - img "Dokumentation auf Deutsch" [ref=f10e358]
+                  - link [ref=f10e359] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.ru.md
+                    - img "Документация на русском языке" [ref=f10e360]
+                  - link [ref=f10e361] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.uk.md
+                    - img "Українська документація" [ref=f10e362]
+                  - link [ref=f10e363] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.tr.md
+                    - img "Türkçe Doküman" [ref=f10e364]
+                  - link [ref=f10e365] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.ar.md
+                    - img "Arabic Documentation" [ref=f10e366]
+                  - link [ref=f10e367] [cursor=pointer]:
+                    - /url: /upstash/context7/blob/master/i18n/README.vi.md
+                    - img "Tiếng Việt" [ref=f10e368]
+                - generic [ref=f10e369]:
+                  - heading "❌ Without Context7" [level=2] [ref=f10e370]
+                  - 'link "Permalink: ❌ Without Context7" [ref=f10e371] [cursor=pointer]':
+                    - /url: "#-without-context7"
+                - paragraph [ref=f10e374]: "LLMs rely on outdated or generic information about the libraries you use. You get:"
+                - list [ref=f10e375]:
+                  - listitem [ref=f10e376]: ❌ Code examples are outdated and based on year-old training data
+                  - listitem [ref=f10e377]: ❌ Hallucinated APIs that don't even exist
+                  - listitem [ref=f10e378]: ❌ Generic answers for old package versions
+                - generic [ref=f10e379]:
+                  - heading "✅ With Context7" [level=2] [ref=f10e380]
+                  - 'link "Permalink: ✅ With Context7" [ref=f10e381] [cursor=pointer]':
+                    - /url: "#-with-context7"
+                - paragraph [ref=f10e384]: Context7 pulls up-to-date, version-specific documentation and code examples straight from the source — and places them directly into your prompt.
+                - generic [ref=f10e385]:
+                  - generic [ref=f10e386]: "Create a Next.js middleware that checks for a valid JWT in cookies and redirects unauthenticated users to `/login`. use context7"
+                  - button "Copy code to clipboard" [ref=f10e388] [cursor=pointer]
+                - generic [ref=f10e392]:
+                  - generic [ref=f10e393]: Configure a Cloudflare Worker script to cache JSON API responses for five minutes. use context7
+                  - button "Copy code to clipboard" [ref=f10e395] [cursor=pointer]
+                - generic [ref=f10e399]:
+                  - generic [ref=f10e400]: Show me the Supabase auth API for email/password sign-up.
+                  - button "Copy code to clipboard" [ref=f10e402] [cursor=pointer]
+                - paragraph [ref=f10e406]: Context7 fetches up-to-date code examples and documentation right into your LLM's context. No tab-switching, no hallucinated APIs that don't exist, no outdated code generation.
+                - paragraph [ref=f10e407]: "Works in two modes:"
+                - list [ref=f10e408]:
+                  - listitem [ref=f10e409]:
+                    - strong [ref=f10e410]: CLI + Skills
+                    - text: — installs a skill that guides your agent to fetch docs using
+                    - code [ref=f10e411]: ctx7
+                    - text: CLI commands (no MCP required)
+                  - listitem [ref=f10e412]:
+                    - strong [ref=f10e413]: MCP
+                    - text: — registers a Context7 MCP server so your agent can call documentation tools natively
+                - generic [ref=f10e414]:
+                  - heading "Installation" [level=2] [ref=f10e415]
+                  - 'link "Permalink: Installation" [ref=f10e416] [cursor=pointer]':
+                    - /url: "#installation"
+                - generic [ref=f10e419]:
+                  - paragraph [ref=f10e420]: Note
+                  - paragraph [ref=f10e423]:
+                    - strong [ref=f10e424]: API Key Recommended
+                    - text: ": Get a free API key at"
+                    - link "context7.com/dashboard" [ref=f10e425] [cursor=pointer]:
+                      - /url: https://context7.com/dashboard
+                    - text: for higher rate limits.
+                - paragraph [ref=f10e426]:
+                  - text: Set up Context7 for your coding agents with a single command. The
+                  - code [ref=f10e427]: ctx7
+                  - text: CLI requires Node.js 18 or newer.
+                - generic [ref=f10e428]:
+                  - generic [ref=f10e429]: npx ctx7 setup
+                  - button "Copy code to clipboard" [ref=f10e431] [cursor=pointer]
+                - paragraph [ref=f10e435]:
+                  - text: Authenticates via OAuth, generates an API key, and installs the appropriate skill. You can choose between CLI + Skills or MCP mode. Use
+                  - code [ref=f10e436]: "--cursor"
+                  - text: ","
+                  - code [ref=f10e437]: "--claude"
+                  - text: ", or"
+                  - code [ref=f10e438]: "--opencode"
+                  - text: to target a specific agent.
+                - paragraph [ref=f10e439]:
+                  - text: To remove the generated setup later, run
+                  - code [ref=f10e440]: npx ctx7 remove
+                  - text: . If you globally installed the CLI with
+                  - code [ref=f10e441]: npm install -g ctx7
+                  - text: ", remove that package separately with"
+                  - code [ref=f10e442]: npm uninstall -g ctx7
+                  - text: .
+                - paragraph [ref=f10e443]:
+                  - text: To configure manually, use the Context7 server URL
+                  - code [ref=f10e444]: https://mcp.context7.com/mcp
+                  - text: with your MCP client and pass your API key via the
+                  - code [ref=f10e445]: "Authorization: Bearer YOUR_API_KEY"
+                  - text: header. See the link below for client-specific setup instructions.
+                - paragraph [ref=f10e446]:
+                  - strong [ref=f10e447]:
+                    - link "Manual Installation / Other Clients →" [ref=f10e448] [cursor=pointer]:
+                      - /url: https://context7.com/docs/resources/all-clients
+                - generic [ref=f10e449]:
+                  - heading "Important Tips" [level=2] [ref=f10e450]
+                  - 'link "Permalink: Important Tips" [ref=f10e451] [cursor=pointer]':
+                    - /url: "#important-tips"
+                - generic [ref=f10e454]:
+                  - heading "Use Library Id" [level=3] [ref=f10e455]
+                  - 'link "Permalink: Use Library Id" [ref=f10e456] [cursor=pointer]':
+                    - /url: "#use-library-id"
+                - paragraph [ref=f10e459]: If you already know exactly which library you want to use, add its Context7 ID to your prompt. That way, Context7 can skip the library-matching step and directly retrieve docs.
+                - generic [ref=f10e460]:
+                  - generic [ref=f10e461]: Implement basic authentication with Supabase. use library /supabase/supabase for API and docs.
+                  - button "Copy code to clipboard" [ref=f10e463] [cursor=pointer]
+                - paragraph [ref=f10e467]: The slash syntax tells Context7 exactly which library to load docs for.
+                - generic [ref=f10e468]:
+                  - heading "Specify a Version" [level=3] [ref=f10e469]
+                  - 'link "Permalink: Specify a Version" [ref=f10e470] [cursor=pointer]':
+                    - /url: "#specify-a-version"
+                - paragraph [ref=f10e473]: "To get documentation for a specific library version, just mention the version in your prompt:"
+                - generic [ref=f10e474]:
+                  - generic [ref=f10e475]: How do I set up Next.js 14 middleware? use context7
+                  - button "Copy code to clipboard" [ref=f10e477] [cursor=pointer]
+                - paragraph [ref=f10e481]: Context7 will automatically match the appropriate version.
+                - generic [ref=f10e482]:
+                  - heading "Add a Rule" [level=3] [ref=f10e483]
+                  - 'link "Permalink: Add a Rule" [ref=f10e484] [cursor=pointer]':
+                    - /url: "#add-a-rule"
+                - paragraph [ref=f10e487]:
+                  - text: If you installed via
+                  - code [ref=f10e488]: ctx7 setup
+                  - text: ", a skill is configured automatically that triggers Context7 for library-related questions. To set up a rule manually instead, add one to your coding agent:"
+                - list [ref=f10e489]:
+                  - listitem [ref=f10e490]:
+                    - strong [ref=f10e491]: Cursor
+                    - text: ":"
+                    - code [ref=f10e492]: Cursor Settings > Rules
+                  - listitem [ref=f10e493]:
+                    - strong [ref=f10e494]: Claude Code
+                    - text: ":"
+                    - code [ref=f10e495]: CLAUDE.md
+                  - listitem [ref=f10e496]: Or the equivalent in your coding agent
+                - paragraph [ref=f10e497]:
+                  - strong [ref=f10e498]: "Example rule:"
+                - generic [ref=f10e499]:
+                  - generic [ref=f10e500]: Always use Context7 when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
+                  - button "Copy code to clipboard" [ref=f10e502] [cursor=pointer]
+                - generic [ref=f10e506]:
+                  - heading "Available Tools" [level=2] [ref=f10e507]
+                  - 'link "Permalink: Available Tools" [ref=f10e508] [cursor=pointer]':
+                    - /url: "#available-tools"
+                - generic [ref=f10e511]:
+                  - heading "CLI Commands" [level=3] [ref=f10e512]
+                  - 'link "Permalink: CLI Commands" [ref=f10e513] [cursor=pointer]':
+                    - /url: "#cli-commands"
+                - list [ref=f10e516]:
+                  - listitem [ref=f10e517]:
+                    - code [ref=f10e518]: ctx7 library <name> <query>
+                    - text: ": Searches the Context7 index by library name and returns matching libraries with their IDs."
+                  - listitem [ref=f10e519]:
+                    - code [ref=f10e520]: ctx7 docs <libraryId> <query>
+                    - text: ": Retrieves documentation for a library using a Context7-compatible library ID (e.g.,"
+                    - code [ref=f10e521]: /mongodb/docs
+                    - text: ","
+                    - code [ref=f10e522]: /vercel/next.js
+                    - text: ).
+                - generic [ref=f10e523]:
+                  - heading "MCP Tools" [level=3] [ref=f10e524]
+                  - 'link "Permalink: MCP Tools" [ref=f10e525] [cursor=pointer]':
+                    - /url: "#mcp-tools"
+                - list [ref=f10e528]:
+                  - listitem [ref=f10e529]:
+                    - code [ref=f10e530]: resolve-library-id
+                    - text: ": Resolves a general library name into a Context7-compatible library ID."
+                    - list [ref=f10e531]:
+                      - listitem [ref=f10e532]:
+                        - code [ref=f10e533]: query
+                        - text: "(required): The user's question or task (used to rank results by relevance)"
+                      - listitem [ref=f10e534]:
+                        - code [ref=f10e535]: libraryName
+                        - text: "(required): The name of the library to search for"
+                  - listitem [ref=f10e536]:
+                    - code [ref=f10e537]: query-docs
+                    - text: ": Retrieves documentation for a library using a Context7-compatible library ID."
+                    - list [ref=f10e538]:
+                      - listitem [ref=f10e539]:
+                        - code [ref=f10e540]: libraryId
+                        - text: "(required): Exact Context7-compatible library ID (e.g.,"
+                        - code [ref=f10e541]: /mongodb/docs
+                        - text: ","
+                        - code [ref=f10e542]: /vercel/next.js
+                        - text: )
+                      - listitem [ref=f10e543]:
+                        - code [ref=f10e544]: query
+                        - text: "(required): The question or task to get relevant documentation for"
+                - generic [ref=f10e545]:
+                  - heading "More Documentation" [level=2] [ref=f10e546]
+                  - 'link "Permalink: More Documentation" [ref=f10e547] [cursor=pointer]':
+                    - /url: "#more-documentation"
+                - list [ref=f10e550]:
+                  - listitem [ref=f10e551]:
+                    - link "CLI Reference" [ref=f10e552] [cursor=pointer]:
+                      - /url: https://context7.com/docs/clients/cli
+                    - text: "- Full CLI documentation"
+                  - listitem [ref=f10e553]:
+                    - link "MCP Clients" [ref=f10e554] [cursor=pointer]:
+                      - /url: https://context7.com/docs/resources/all-clients
+                    - text: "- Manual MCP installation for 30+ clients"
+                  - listitem [ref=f10e555]:
+                    - link "Adding Libraries" [ref=f10e556] [cursor=pointer]:
+                      - /url: https://context7.com/docs/adding-libraries
+                    - text: "- Submit your library to Context7"
+                  - listitem [ref=f10e557]:
+                    - link "Troubleshooting" [ref=f10e558] [cursor=pointer]:
+                      - /url: https://context7.com/docs/resources/troubleshooting
+                    - text: "- Common issues and solutions"
+                  - listitem [ref=f10e559]:
+                    - link "API Reference" [ref=f10e560] [cursor=pointer]:
+                      - /url: https://context7.com/docs/api-guide
+                    - text: "- REST API documentation"
+                  - listitem [ref=f10e561]:
+                    - link "Developer Guide" [ref=f10e562] [cursor=pointer]:
+                      - /url: https://context7.com/docs/resources/developer
+                    - text: "- Run Context7 MCP locally"
+                - generic [ref=f10e563]:
+                  - heading "Packages" [level=2] [ref=f10e564]
+                  - 'link "Permalink: Packages" [ref=f10e565] [cursor=pointer]':
+                    - /url: "#packages"
+                - list [ref=f10e568]:
+                  - listitem [ref=f10e569]:
+                    - link [ref=f10e570] [cursor=pointer]:
+                      - /url: https://www.npmjs.com/package/@upstash/context7-mcp
+                      - code [ref=f10e571]: "@upstash/context7-mcp"
+                    - text: "- MCP server"
+                  - listitem [ref=f10e572]:
+                    - link [ref=f10e573] [cursor=pointer]:
+                      - /url: https://www.npmjs.com/package/ctx7
+                      - code [ref=f10e574]: ctx7
+                    - text: "- CLI"
+                  - listitem [ref=f10e575]:
+                    - link [ref=f10e576] [cursor=pointer]:
+                      - /url: https://www.npmjs.com/package/@upstash/context7-sdk
+                      - code [ref=f10e577]: "@upstash/context7-sdk"
+                    - text: "- TypeScript SDK"
+                  - listitem [ref=f10e578]:
+                    - link [ref=f10e579] [cursor=pointer]:
+                      - /url: https://www.npmjs.com/package/@upstash/context7-tools-ai-sdk
+                      - code [ref=f10e580]: "@upstash/context7-tools-ai-sdk"
+                    - text: "- Vercel AI SDK tools"
+                  - listitem [ref=f10e581]:
+                    - link [ref=f10e582] [cursor=pointer]:
+                      - /url: https://www.npmjs.com/package/@upstash/context7-pi
+                      - code [ref=f10e583]: "@upstash/context7-pi"
+                    - text: "- pi.dev extension"
+                - generic [ref=f10e584]:
+                  - heading "Disclaimer" [level=2] [ref=f10e585]
+                  - 'link "Permalink: Disclaimer" [ref=f10e586] [cursor=pointer]':
+                    - /url: "#disclaimer"
+                - paragraph [ref=f10e589]: 1- Context7 projects are community-contributed and while we strive to maintain high quality, we cannot guarantee the accuracy, completeness, or security of all library documentation. Projects listed in Context7 are developed and maintained by their respective owners, not by Context7. If you encounter any suspicious, inappropriate, or potentially harmful content, please use the "Report" button on the project page to notify us immediately. We take all reports seriously and will review flagged content promptly to maintain the integrity and safety of our platform. By using Context7, you acknowledge that you do so at your own discretion and risk.
+                - paragraph [ref=f10e590]: 2- This repository hosts the MCP server’s source code. The supporting components — API backend, parsing engine, and crawling engine — are private and not part of this repository.
+                - generic [ref=f10e591]:
+                  - heading "🤝 Connect with Us" [level=2] [ref=f10e592]
+                  - 'link "Permalink: 🤝 Connect with Us" [ref=f10e593] [cursor=pointer]':
+                    - /url: "#-connect-with-us"
+                - paragraph [ref=f10e596]: "Stay updated and join our community:"
+                - list [ref=f10e597]:
+                  - listitem [ref=f10e598]:
+                    - text: 📢 Follow us on
+                    - link "X" [ref=f10e599] [cursor=pointer]:
+                      - /url: https://x.com/context7ai
+                    - text: for the latest news and updates
+                  - listitem [ref=f10e600]:
+                    - text: 🌐 Visit our
+                    - link "Website" [ref=f10e601] [cursor=pointer]:
+                      - /url: https://context7.com
+                  - listitem [ref=f10e602]:
+                    - text: 💬 Join our
+                    - link "Discord Community" [ref=f10e603] [cursor=pointer]:
+                      - /url: https://upstash.com/discord
+                - generic [ref=f10e604]:
+                  - heading "📺 Context7 In Media" [level=2] [ref=f10e605]
+                  - 'link "Permalink: 📺 Context7 In Media" [ref=f10e606] [cursor=pointer]':
+                    - /url: "#-context7-in-media"
+                - list [ref=f10e609]:
+                  - listitem [ref=f10e610]:
+                    - 'link "Better Stack: \"Free Tool Makes Cursor 10x Smarter\"" [ref=f10e611] [cursor=pointer]':
+                      - /url: https://youtu.be/52FC3qObp9E
+                  - listitem [ref=f10e612]:
+                    - 'link "Cole Medin: \"This is Hands Down the BEST MCP Server for AI Coding Assistants\"" [ref=f10e613] [cursor=pointer]':
+                      - /url: https://www.youtube.com/watch?v=G7gK8H6u7Rs
+                  - listitem [ref=f10e614]:
+                    - 'link "Income Stream Surfers: \"Context7 + SequentialThinking MCPs: Is This AGI?\"" [ref=f10e615] [cursor=pointer]':
+                      - /url: https://www.youtube.com/watch?v=-ggvzyLpK6o
+                  - listitem [ref=f10e616]:
+                    - 'link "Julian Goldie SEO: \"Context7: New MCP AI Agent Update\"" [ref=f10e617] [cursor=pointer]':
+                      - /url: https://www.youtube.com/watch?v=CTZm6fBYisc
+                  - listitem [ref=f10e618]:
+                    - 'link "JeredBlu: \"Context 7 MCP: Get Documentation Instantly + VS Code Setup\"" [ref=f10e619] [cursor=pointer]':
+                      - /url: https://www.youtube.com/watch?v=-ls0D-rtET4
+                  - listitem [ref=f10e620]:
+                    - 'link "Income Stream Surfers: \"Context7: The New MCP Server That Will CHANGE AI Coding\"" [ref=f10e621] [cursor=pointer]':
+                      - /url: https://www.youtube.com/watch?v=PS-2Azb-C3M
+                  - listitem [ref=f10e622]:
+                    - 'link "AICodeKing: \"Context7 + Cline & RooCode: This MCP Server Makes CLINE 100X MORE EFFECTIVE!\"" [ref=f10e623] [cursor=pointer]':
+                      - /url: https://www.youtube.com/watch?v=qZfENAPMnyo
+                  - listitem [ref=f10e624]:
+                    - 'link "Sean Kochel: \"5 MCP Servers For Vibe Coding Glory (Just Plug-In & Go)\"" [ref=f10e625] [cursor=pointer]':
+                      - /url: https://www.youtube.com/watch?v=LqTQi8qexJM
+                - generic [ref=f10e626]:
+                  - heading "📄 License" [level=2] [ref=f10e627]
+                  - 'link "Permalink: 📄 License" [ref=f10e628] [cursor=pointer]':
+                    - /url: "#-license"
+                - paragraph [ref=f10e631]: MIT
+        - generic [ref=f10e634]:
+          - heading "Releases" [level=2] [ref=f10e636]
+          - heading "Used by" [level=2] [ref=f10e640]
+          - heading "Contributors" [level=2] [ref=f10e643]
+          - heading "Languages" [level=2] [ref=f10e646]
+    - contentinfo [ref=f10e649]:
+      - heading "Footer" [level=2] [ref=f10e650]
+      - generic [ref=f10e651]:
+        - generic [ref=f10e652]:
+          - link "GitHub Homepage" [ref=f10e653] [cursor=pointer]:
+            - /url: https://github.com
+          - generic [ref=f10e656]: © 2026 GitHub, Inc.
+        - navigation "Footer" [ref=f10e657]:
+          - heading "Footer navigation" [level=3] [ref=f10e658]
+          - list "Footer navigation" [ref=f10e659]:
+            - listitem [ref=f10e660]:
+              - link "Terms" [ref=f10e661] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+            - listitem [ref=f10e662]:
+              - link "Privacy" [ref=f10e663] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+            - listitem [ref=f10e664]:
+              - link "Security" [ref=f10e665] [cursor=pointer]:
+                - /url: https://github.com/security
+            - listitem [ref=f10e666]:
+              - link "Status" [ref=f10e667] [cursor=pointer]:
+                - /url: https://www.githubstatus.com/
+            - listitem [ref=f10e668]:
+              - link "Community" [ref=f10e669] [cursor=pointer]:
+                - /url: https://github.community/
+            - listitem [ref=f10e670]:
+              - link "Docs" [ref=f10e671] [cursor=pointer]:
+                - /url: https://docs.github.com/
+            - listitem [ref=f10e672]:
+              - link "Contact" [ref=f10e673] [cursor=pointer]:
+                - /url: https://support.github.com?tags=dotcom-footer
+            - listitem [ref=f10e674]:
+              - button "Manage cookies" [ref=f10e676] [cursor=pointer]
+            - listitem [ref=f10e677]:
+              - button "Do not share my personal information" [ref=f10e679] [cursor=pointer]
+  - alert [ref=f10e682]

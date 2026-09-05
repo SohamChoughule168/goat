@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 import { MagneticButton } from "@/components/v6/magnetic-cursor";
+import dynamic from "next/dynamic";
+import { useGlobalScrollProgress, useSectionProgress } from "@/components/canvas/Tunnel";
+import { usePerformanceMonitor, useAdaptiveQuality } from "@/components/v6/performance-optimizer";
 
 const TESTIMONIALS = [
   {
@@ -79,6 +82,13 @@ export function Testimonials() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [current, setCurrent] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [hero3DHovered, setHero3DHovered] = useState(false);
+
+  const globalProgress = useGlobalScrollProgress();
+  const { quality } = usePerformanceMonitor();
+  const { shouldReduceParticles } = useAdaptiveQuality();
+  const intensity = quality === "high" ? 1.0 : quality === "medium" ? 0.7 : 0.4;
 
   const filtered = activeCategory === "all"
     ? TESTIMONIALS
@@ -94,6 +104,23 @@ export function Testimonials() {
     return () => clearInterval(interval);
   }, [filtered.length]);
 
+  // Mouse tracking for 3D parallax
+  useEffect(() => {
+    const handleMouse = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = -(e.clientY / window.innerHeight) * 2 + 1;
+      setMousePos({ x, y });
+    };
+    window.addEventListener("mousemove", handleMouse);
+    return () => window.removeEventListener("mousemove", handleMouse);
+  }, []);
+
+  // Dynamic import for the 3D scene
+  const TestimonialScene3D = dynamic(
+    () => import("@/components/canvas/scenes/TestimonialScene").then(m => m.TestimonialScene),
+    { ssr: false, loading: () => null }
+  );
+
   const goTo = (index: number) => {
     if (index < 0 || index >= filtered.length) return;
     setCurrent(index);
@@ -104,7 +131,17 @@ export function Testimonials() {
 
   return (
     <section id="testimonials" className="testimonials-section relative section-y" data-component="testimonials">
-      <div className="shell">
+      {/* 3D Background Scene */}
+      <div className="hero-3d-canvas absolute inset-0 z-0 pointer-events-none">
+        <TestimonialScene3D
+          scrollProgress={globalProgress}
+          mousePos={mousePos}
+          hovered={hero3DHovered}
+          intensity={intensity}
+        />
+      </div>
+
+      <div className="shell relative z-10">
         <div className="section-header text-center">
           <span className="section-badge">Trusted by builders</span>
           <h2 className="section-title">Shipped with them. Trusted by them.</h2>

@@ -1,0 +1,215 @@
+- generic [ref=f7e2]:
+  - generic [ref=f7e3]:
+    - link "Skip to content" [ref=f7e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f7e9]:
+      - heading "Navigation Menu" [level=2] [ref=f7e10]
+      - generic [ref=f7e12]:
+        - button "Toggle navigation" [ref=f7e14] [cursor=pointer]
+        - link "Homepage" [ref=f7e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f7e21]:
+          - link "Sign in" [ref=f7e22] [cursor=pointer]:
+            - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fagent-plugins%2Farxiv
+          - button "Appearance settings" [ref=f7e25] [cursor=pointer]
+  - main [ref=f7e32]:
+    - generic [ref=f7e33]:
+      - generic [ref=f7e34]:
+        - generic [ref=f7e36]:
+          - link "agent-plugins" [ref=f7e40] [cursor=pointer]:
+            - /url: /agent-plugins
+          - generic [ref=f7e41]: /
+          - strong [ref=f7e42]:
+            - link "arxiv" [ref=f7e43] [cursor=pointer]:
+              - /url: /agent-plugins/arxiv
+          - generic [ref=f7e44]: Public
+        - generic [ref=f7e45]:
+          - list:
+            - listitem [ref=f7e46]:
+              - link "You must be signed in to change notification settings" [ref=f7e47] [cursor=pointer]:
+                - /url: /login?return_to=%2Fagent-plugins%2Farxiv
+                - text: Notifications
+            - listitem [ref=f7e50]:
+              - link "Fork 0" [ref=f7e51] [cursor=pointer]:
+                - /url: /login?return_to=%2Fagent-plugins%2Farxiv
+                - text: Fork
+                - generic "0" [ref=f7e54]
+            - listitem [ref=f7e55]:
+              - link "You must be signed in to star a repository" [ref=f7e57] [cursor=pointer]:
+                - /url: /login?return_to=%2Fagent-plugins%2Farxiv
+                - text: Star
+                - generic "0 users starred this repository" [ref=f7e60]: "0"
+      - navigation "Repository" [ref=f7e61]:
+        - list [ref=f7e62]:
+          - listitem [ref=f7e63]:
+            - link "Code" [ref=f7e64] [cursor=pointer]:
+              - /url: /agent-plugins/arxiv
+          - listitem [ref=f7e68]:
+            - link "Issues" [ref=f7e69] [cursor=pointer]:
+              - /url: /agent-plugins/arxiv/issues
+          - listitem [ref=f7e74]:
+            - link "Pull requests" [ref=f7e75] [cursor=pointer]:
+              - /url: /agent-plugins/arxiv/pulls
+          - listitem [ref=f7e79]:
+            - link "Actions" [ref=f7e80] [cursor=pointer]:
+              - /url: /agent-plugins/arxiv/actions
+          - listitem [ref=f7e84]:
+            - link "Projects" [ref=f7e85] [cursor=pointer]:
+              - /url: /agent-plugins/arxiv/projects
+          - listitem [ref=f7e89]:
+            - link "Security and quality" [ref=f7e90] [cursor=pointer]:
+              - /url: /agent-plugins/arxiv/security
+          - listitem [ref=f7e94]
+        - button "Additional navigation options" [ref=f7e98] [cursor=pointer]
+    - generic [ref=f7e112]:
+      - generic [ref=f7e115]:
+        - generic [ref=f7e116]:
+          - generic [ref=f7e117]:
+            - button "main branch" [ref=f7e119] [cursor=pointer]:
+              - generic [ref=f7e120]: main
+            - generic [ref=f7e124]:
+              - link "Go to Branches page" [ref=f7e125] [cursor=pointer]:
+                - /url: /agent-plugins/arxiv/branches
+              - link "Go to Tags page" [ref=f7e128] [cursor=pointer]:
+                - /url: /agent-plugins/arxiv/tags
+          - generic [ref=f7e131]:
+            - button "Go to file" [ref=f7e134] [cursor=pointer]
+            - button "Code" [ref=f7e137] [cursor=pointer]
+        - generic [ref=f7e140]:
+          - generic [ref=f7e141]:
+            - generic [ref=f7e143]:
+              - heading "Latest commit" [level=2] [ref=f7e144]
+              - generic [ref=f7e147]:
+                - heading "History" [level=2] [ref=f7e148]
+                - link "View commit history for this file." [ref=f7e150] [cursor=pointer]:
+                  - /url: /agent-plugins/arxiv/commits/main/
+            - heading "Folders and files" [level=2] [ref=f7e152]
+            - table "Folders and files" [ref=f7e153]:
+              - rowgroup:
+                - row "Name Last commit message Last commit date":
+                  - columnheader "Name"
+                  - columnheader "Last commit message"
+                  - columnheader "Last commit date"
+              - rowgroup [ref=f7e154]:
+                - row "Dockerfile, (File)" [ref=f7e155]:
+                  - cell [ref=f7e156]:
+                    - link "Dockerfile, (File)" [ref=f7e163] [cursor=pointer]:
+                      - /url: /agent-plugins/arxiv/blob/main/Dockerfile
+                      - text: Dockerfile
+                  - cell [ref=f7e164]
+                  - cell [ref=f7e166]
+                - row "README.md, (File)" [ref=f7e169]:
+                  - cell [ref=f7e170]:
+                    - link "README.md, (File)" [ref=f7e177] [cursor=pointer]:
+                      - /url: /agent-plugins/arxiv/blob/main/README.md
+                      - text: README.md
+                  - cell [ref=f7e178]
+                  - cell [ref=f7e180]
+                - row "icon.png, (File)" [ref=f7e183]:
+                  - cell [ref=f7e184]:
+                    - link "icon.png, (File)" [ref=f7e191] [cursor=pointer]:
+                      - /url: /agent-plugins/arxiv/blob/main/icon.png
+                      - text: icon.png
+                  - cell [ref=f7e192]
+                  - cell [ref=f7e194]
+                - row "index.js, (File)" [ref=f7e197]:
+                  - cell [ref=f7e198]:
+                    - link "index.js, (File)" [ref=f7e205] [cursor=pointer]:
+                      - /url: /agent-plugins/arxiv/blob/main/index.js
+                      - text: index.js
+                  - cell [ref=f7e206]
+                  - cell [ref=f7e208]
+                - row "package-lock.json, (File)" [ref=f7e211]:
+                  - cell [ref=f7e212]:
+                    - link "package-lock.json, (File)" [ref=f7e219] [cursor=pointer]:
+                      - /url: /agent-plugins/arxiv/blob/main/package-lock.json
+                      - text: package-lock.json
+                  - cell [ref=f7e220]
+                  - cell [ref=f7e222]
+                - row "package.json, (File)" [ref=f7e225]:
+                  - cell [ref=f7e226]:
+                    - link "package.json, (File)" [ref=f7e233] [cursor=pointer]:
+                      - /url: /agent-plugins/arxiv/blob/main/package.json
+                      - text: package.json
+                  - cell [ref=f7e234]
+                  - cell [ref=f7e236]
+          - generic [ref=f7e240]:
+            - generic [ref=f7e241]:
+              - heading "Repository files navigation" [level=2] [ref=f7e242]
+              - navigation "Repository files" [ref=f7e243]:
+                - list [ref=f7e244]:
+                  - listitem [ref=f7e245]:
+                    - link "README" [ref=f7e246] [cursor=pointer]:
+                      - /url: "#"
+            - article [ref=f7e249]:
+              - generic [ref=f7e250]:
+                - heading "Arxiv" [level=1] [ref=f7e251]
+                - 'link "Permalink: Arxiv" [ref=f7e252] [cursor=pointer]':
+                  - /url: "#arxiv"
+              - paragraph [ref=f7e255]: This is just something for a serverless environment intended for pairing with Function Calling capabilities.
+      - generic [ref=f7e258]:
+        - generic [ref=f7e259]:
+          - heading "About" [level=2] [ref=f7e260]
+          - generic [ref=f7e261]: No description, website, or topics provided.
+          - heading "Resources" [level=3] [ref=f7e262]
+          - link "Readme" [ref=f7e264] [cursor=pointer]:
+            - /url: "#readme-ov-file"
+          - link "Activity" [ref=f7e268] [cursor=pointer]:
+            - /url: /agent-plugins/arxiv/activity
+          - link "Custom properties" [ref=f7e272] [cursor=pointer]:
+            - /url: /agent-plugins/arxiv/custom-properties
+          - heading "Stars" [level=3] [ref=f7e275]
+          - generic [ref=f7e277]:
+            - strong [ref=f7e280]: "0"
+            - text: stars
+          - heading "Watchers" [level=3] [ref=f7e281]
+          - generic [ref=f7e283]:
+            - strong [ref=f7e286]: "1"
+            - text: watching
+          - heading "Forks" [level=3] [ref=f7e287]
+          - link [ref=f7e289] [cursor=pointer]:
+            - /url: /agent-plugins/arxiv/forks
+            - strong [ref=f7e293]: "0"
+            - text: forks
+          - link "Report repository" [ref=f7e295] [cursor=pointer]:
+            - /url: /contact/report-content?content_url=https%3A%2F%2Fgithub.com%2Fagent-plugins%2Farxiv&report=agent-plugins+%28user%29
+        - heading "Releases" [level=2] [ref=f7e297]
+        - heading "Packages" [level=2] [ref=f7e301]
+        - heading "Used by" [level=2] [ref=f7e304]
+        - heading "Contributors" [level=2] [ref=f7e307]
+        - heading "Languages" [level=2] [ref=f7e310]
+  - contentinfo [ref=f7e313]:
+    - heading "Footer" [level=2] [ref=f7e314]
+    - generic [ref=f7e315]:
+      - generic [ref=f7e316]:
+        - link "GitHub Homepage" [ref=f7e317] [cursor=pointer]:
+          - /url: https://github.com
+        - generic [ref=f7e320]: © 2026 GitHub, Inc.
+      - navigation "Footer" [ref=f7e321]:
+        - heading "Footer navigation" [level=3] [ref=f7e322]
+        - list "Footer navigation" [ref=f7e323]:
+          - listitem [ref=f7e324]:
+            - link "Terms" [ref=f7e325] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=f7e326]:
+            - link "Privacy" [ref=f7e327] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+          - listitem [ref=f7e328]:
+            - link "Security" [ref=f7e329] [cursor=pointer]:
+              - /url: https://github.com/security
+          - listitem [ref=f7e330]:
+            - link "Status" [ref=f7e331] [cursor=pointer]:
+              - /url: https://www.githubstatus.com/
+          - listitem [ref=f7e332]:
+            - link "Community" [ref=f7e333] [cursor=pointer]:
+              - /url: https://github.community/
+          - listitem [ref=f7e334]:
+            - link "Docs" [ref=f7e335] [cursor=pointer]:
+              - /url: https://docs.github.com/
+          - listitem [ref=f7e336]:
+            - link "Contact" [ref=f7e337] [cursor=pointer]:
+              - /url: https://support.github.com?tags=dotcom-footer
+          - listitem [ref=f7e338]:
+            - button "Manage cookies" [ref=f7e340] [cursor=pointer]
+          - listitem [ref=f7e341]:
+            - button "Do not share my personal information" [ref=f7e343] [cursor=pointer]

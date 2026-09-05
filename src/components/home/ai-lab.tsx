@@ -40,7 +40,17 @@ const STATS = [
 
 export function AILab() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const globalProgress = useGlobalScrollProgress();
+
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   return (
     <section
@@ -48,14 +58,15 @@ export function AILab() {
       id="ailab"
       className="ai-lab-section relative section-y"
       data-component="ai-lab"
+      aria-labelledby="ailab-title"
     >
       <div className="shell grid lg:grid-cols-[1fr_1.25fr] gap-14 items-center">
         {/* Left: Content */}
         <div className="ai-lab-content">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+            transition={{ duration: reducedMotion ? 0.01 : 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
             className="micro text-[var(--color-brand-500)]"
           >
@@ -63,9 +74,10 @@ export function AILab() {
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            id="ailab-title"
+            initial={reducedMotion ? false : { opacity: 0, y: 30 }}
+            whileInView={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+            transition={{ duration: reducedMotion ? 0.01 : 0.7, delay: reducedMotion ? 0 : 0.1 }}
             viewport={{ once: true, margin: "-100px" }}
             className="mt-4 font-semibold"
             style={{ fontSize: "clamp(2rem, 4.4vw, 4rem)", lineHeight: 1.04, letterSpacing: "-0.03em" }}
@@ -75,9 +87,9 @@ export function AILab() {
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+            transition={{ duration: reducedMotion ? 0.01 : 0.6, delay: reducedMotion ? 0 : 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
             className="lede mt-6 max-w-[48ch] text-[var(--text-secondary)]"
           >
@@ -87,15 +99,16 @@ export function AILab() {
           </motion.p>
 
           {/* Stats Row */}
-          <div className="mt-10 grid grid-cols-2 gap-4 max-w-md">
+          <div className="mt-10 grid grid-cols-2 gap-4 max-w-md" role="list" aria-label="AI capabilities metrics">
             {STATS.map((s, i) => (
               <motion.div
                 key={s.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                transition={{ duration: reducedMotion ? 0.01 : 0.5, delay: reducedMotion ? 0 : i * 0.08 }}
                 viewport={{ once: true }}
                 className="glass-strong rounded-2xl p-5 text-center"
+                role="listitem"
               >
                 <p className="stat-value font-mono">{s.value}</p>
                 <p className="micro mt-1">{s.label}</p>
@@ -104,21 +117,22 @@ export function AILab() {
           </div>
 
           {/* Capabilities List */}
-          <ul className="mt-10 border-t border-[var(--border-subtle)] list-none p-0 m-0">
+          <ul className="mt-10 border-t border-[var(--border-subtle)] list-none p-0 m-0" role="list" aria-label="AI capabilities">
             {CAPABILITIES.map((c, i) => (
               <motion.li
                 key={c.title}
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
+                initial={reducedMotion ? false : { opacity: 0, x: 40 }}
+                whileInView={reducedMotion ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
+                transition={{ duration: reducedMotion ? 0.01 : 0.5, delay: reducedMotion ? 0 : i * 0.06 }}
                 viewport={{ once: true, margin: "-50px" }}
                 className="ai-capability-item flex items-center justify-between gap-6 border-b border-[var(--border-subtle)] py-5 group hover:bg-[var(--surface-elevated-hover)] transition-colors"
                 data-cursor={c.title}
+                role="listitem"
               >
                 <div className="flex items-center gap-4">
-                  <span className="micro text-[var(--text-tertiary)]">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="micro text-[var(--text-tertiary)]" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl glass-strong flex items-center justify-center text-[var(--color-brand-500)]">
+                    <div className="w-9 h-9 rounded-xl glass-strong flex items-center justify-center text-[var(--color-brand-500)]" aria-hidden="true">
                       {getIcon(c.icon)}
                     </div>
                     <div>
@@ -129,7 +143,7 @@ export function AILab() {
                     </div>
                   </div>
                 </div>
-                <span className="badge badge-primary text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="badge badge-primary text-xs opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
                   View Details
                 </span>
               </motion.li>
@@ -142,20 +156,21 @@ export function AILab() {
           <div
             className="ai-canvas-wrap relative min-h-[500px] rounded-2xl overflow-hidden border border-[var(--border-subtle)] glass-dark"
             data-cursor="Neural Network"
+            aria-label="Interactive neural network visualization"
           >
             <SectionView trackId="ailab" lazyMount={true}>
               <AILabScene3D scrollProgress={globalProgress} />
             </SectionView>
 
             {/* Live Status Overlay */}
-            <div className="absolute left-4 top-4 flex items-center gap-2 z-10">
+            <div className="absolute left-4 top-4 flex items-center gap-2 z-10" aria-hidden="true">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="micro">imaginars/ml — live</span>
             </div>
-            <div className="absolute right-4 top-4 z-10">
+            <div className="absolute right-4 top-4 z-10" aria-hidden="true">
               <span className="badge badge-primary text-xs">WebGL</span>
             </div>
-            <div className="absolute right-4 bottom-4 flex items-center gap-2 z-10">
+            <div className="absolute right-4 bottom-4 flex items-center gap-2 z-10" aria-hidden="true">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
               <span className="micro text-emerald-500">inference ready</span>
             </div>

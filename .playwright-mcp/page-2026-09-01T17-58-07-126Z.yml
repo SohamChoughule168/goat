@@ -1,0 +1,83 @@
+- generic [active] [ref=f14e1]:
+  - generic [ref=f14e3]:
+    - 'link "Read our latest blog post: Context7 vs. web search — 34% cheaper, 37% fewer tokens" [ref=f14e4] [cursor=pointer]':
+      - /url: https://upstash.com/blog/context7-vs-web-search-benchmark
+      - generic [ref=f14e5]: "Read our latest blog post:"
+      - generic [ref=f14e6]: Context7 vs. web search — 34% cheaper, 37% fewer tokens
+    - button "Dismiss announcement" [ref=f14e10] [cursor=pointer]
+  - banner [ref=f14e14]:
+    - generic [ref=f14e16]:
+      - link [ref=f14e18] [cursor=pointer]:
+        - /url: /
+        - img "Context7 Logo" [ref=f14e20]
+      - button "Open menu" [ref=f14e22] [cursor=pointer]
+  - main [ref=f14e29]:
+    - main [ref=f14e32]:
+      - generic [ref=f14e34]:
+        - heading "Guides for MCP and AI coding agents" [level=1] [ref=f14e35]
+        - paragraph [ref=f14e36]: How to set up MCP servers for your coding agent, and how to keep the documentation it reads up to date.
+      - generic [ref=f14e37]:
+        - generic [ref=f14e38]:
+          - heading "Set up your agent" [level=2] [ref=f14e39]
+          - paragraph [ref=f14e40]: Which MCP servers to add for each coding agent.
+        - generic [ref=f14e41]:
+          - link "MCP server list Compare useful MCP servers for AI coding agents and developer workflows." [ref=f14e42] [cursor=pointer]:
+            - /url: /mcp-server-list
+            - generic [ref=f14e43]: MCP server list
+            - generic [ref=f14e47]: Compare useful MCP servers for AI coding agents and developer workflows.
+          - link "Best Claude Code plugins Find Claude Code plugins and MCP servers for docs, GitHub, search, and local work." [ref=f14e48] [cursor=pointer]:
+            - /url: /claude-code-plugins
+            - generic [ref=f14e49]: Best Claude Code plugins
+            - generic [ref=f14e53]: Find Claude Code plugins and MCP servers for docs, GitHub, search, and local work.
+          - link "Best MCP servers for OpenCode Choose MCP servers that make OpenCode more useful on real codebases." [ref=f14e54] [cursor=pointer]:
+            - /url: /opencode-mcp-servers
+            - generic [ref=f14e55]: Best MCP servers for OpenCode
+            - generic [ref=f14e59]: Choose MCP servers that make OpenCode more useful on real codebases.
+          - link "Best MCP servers for GitHub Copilot Use MCP servers to bring docs, repository context, and tools into Copilot workflows." [ref=f14e60] [cursor=pointer]:
+            - /url: /github-copilot-mcp-servers
+            - generic [ref=f14e61]: Best MCP servers for GitHub Copilot
+            - generic [ref=f14e65]: Use MCP servers to bring docs, repository context, and tools into Copilot workflows.
+          - link "Best MCP servers for Codex Choose focused MCP servers for Codex CLI and IDE coding workflows." [ref=f14e66] [cursor=pointer]:
+            - /url: /codex-mcp-servers
+            - generic [ref=f14e67]: Best MCP servers for Codex
+            - generic [ref=f14e71]: Choose focused MCP servers for Codex CLI and IDE coding workflows.
+      - generic [ref=f14e72]:
+        - generic [ref=f14e73]:
+          - heading "Keep the docs current" [level=2] [ref=f14e74]
+          - paragraph [ref=f14e75]: Why agents use outdated APIs, and how to fix it.
+        - generic [ref=f14e76]:
+          - link "Up-to-date docs for AI code editors Understand why AI coding tools need current, version-specific documentation." [ref=f14e77] [cursor=pointer]:
+            - /url: /up-to-date-documentation-for-ai-code-editors
+            - generic [ref=f14e78]: Up-to-date docs for AI code editors
+            - generic [ref=f14e82]: Understand why AI coding tools need current, version-specific documentation.
+          - link "Versioned library docs for AI tools Pin documentation to the exact library version your project uses." [ref=f14e83] [cursor=pointer]:
+            - /url: /versioned-library-documentation
+            - generic [ref=f14e84]: Versioned library docs for AI tools
+            - generic [ref=f14e88]: Pin documentation to the exact library version your project uses.
+          - link "Context7 for teams Share documentation access, private repos and controls across your team." [ref=f14e89] [cursor=pointer]:
+            - /url: /context7-for-teams
+            - generic [ref=f14e90]: Context7 for teams
+            - generic [ref=f14e94]: Share documentation access, private repos and controls across your team.
+  - contentinfo [ref=f14e95]:
+    - generic [ref=f14e96]:
+      - generic [ref=f14e97]:
+        - generic [ref=f14e98]:
+          - text: © 2026, Context7 is an
+          - link "Upstash" [ref=f14e99] [cursor=pointer]:
+            - /url: https://upstash.com
+          - text: project
+        - link [ref=f14e100] [cursor=pointer]:
+          - /url: https://status.upstash.com/
+      - generic [ref=f14e104]:
+        - link "About" [ref=f14e105] [cursor=pointer]:
+          - /url: /about
+        - link "Guides" [ref=f14e106] [cursor=pointer]:
+          - /url: /guides
+        - link "Contact" [ref=f14e107] [cursor=pointer]:
+          - /url: /contact
+        - link "Legal" [ref=f14e108] [cursor=pointer]:
+          - /url: https://upstash.com/docs/common/help/legal
+        - link "Follow on X" [ref=f14e109] [cursor=pointer]:
+          - /url: https://x.com/Context7AI
+  - region "Notifications alt+T"
+  - alert [ref=f14e110]
