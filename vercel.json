@@ -3,8 +3,8 @@
   "framework": "nextjs",
   "buildCommand": "pnpm prebuild && pnpm build",
   "devCommand": "pnpm dev",
-  "installCommand": "pnpm install --frozen-lockfile",
-  "regions": ["iad1", "sfo1", "lhr1"],
+  "installCommand": "pnpm install",
+  "regions": ["iad1"],
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 30,
@@ -75,11 +75,10 @@
     "schedule": "0 3 * * *"
   }
 ],
-  "env": {
-    "NEXT_PUBLIC_SITE_URL": "@site-url",
-    "NEXT_PUBLIC_GA_ID": "@ga-id",
-    "NEXT_PUBLIC_VERCEL_ANALYTICS_ID": "@vercel-analytics-id"
-  },
+"env": {
+  "NEXT_PUBLIC_SITE_URL": "https://goat-wheat.vercel.app",
+  "NEXT_PUBLIC_GA_ID": "G-8RKLCD5VV8"
+},
   "github": {
     "enabled": true,
     "autoAlias": true,
