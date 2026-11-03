@@ -122,7 +122,7 @@ function RampTable({ mode }: { mode: Mode }) {
 
 export default function DesignSystemPage() {
   return (
-    <main className="shell space-y-16 py-16">
+    <div className="shell space-y-16 py-16">
       <header className="space-y-3">
         <p className="micro">Internal · v3 design system</p>
         <h1 className="display">Primitives, states, scales.</h1>
@@ -291,7 +291,7 @@ export default function DesignSystemPage() {
         <RampTable mode="light" />
         <RampTable mode="dark" />
       </section>
-    </main>
+    </div>
   );
 }
 

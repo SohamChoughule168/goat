@@ -23,17 +23,10 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
-
-  // Turbopack configuration for GLSL shader support
-  // This enables vite-plugin-glsl to import .glsl, .vert, .frag files
-  // and inject them as strings with #include support
-  turbopack: {
-    rules: {
-      "*.{glsl,vert,frag}": {
-        loaders: ["glsl-loader"],
-        as: "*.ts",
-      },
-    },
+  output: 'export',
+  trailingSlash: true,
+  typescript: {
+    ignoreBuildErrors: false,
   },
 
   // Production optimizations
@@ -51,53 +44,7 @@ const nextConfig: NextConfig = {
 
   // Experimental performance features
   experimental: {
-    optimizePackageImports: ["@react-three/fiber", "@react-three/drei", "three", "framer-motion", "zustand"],
-  },
-
-  // Webpack optimizations for production
-  webpack: (config, { dev, isServer }) => {
-    if (!dev && !isServer) {
-      // Optimize Three.js imports
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        "three/examples/jsm": false, // Force tree-shaking of three examples
-      };
-
-      // Split Three.js into separate chunk
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          chunks: "all",
-          cacheGroups: {
-            three: {
-              test: /[\\/]node_modules[\\/](three|@react-three)[\\/]/,
-              name: "three",
-              priority: 20,
-              chunks: "all",
-            },
-            framer: {
-              test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
-              name: "framer",
-              priority: 15,
-              chunks: "all",
-            },
-            zustand: {
-              test: /[\\/]node_modules[\\/]zustand[\\/]/,
-              name: "zustand",
-              priority: 10,
-              chunks: "all",
-            },
-            vendor: {
-              test: /[\\/]node_modules[\\/]/,
-              name: "vendors",
-              priority: 5,
-              chunks: "all",
-            },
-          },
-        },
-      };
-    }
-    return config;
+    optimizePackageImports: ["framer-motion"],
   },
 
   // Source maps in production for debugging
@@ -105,12 +52,12 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      { source: "/portfolio", destination: "/work", permanent: true },
-      { source: "/blog", destination: "/insights", permanent: true },
-      { source: "/blog/:slug", destination: "/insights", permanent: true },
+      { source: "/portfolio", destination: "/work/", permanent: true },
+      { source: "/blog", destination: "/insights/", permanent: true },
+      { source: "/blog/:slug", destination: "/insights/", permanent: true },
       ...Object.entries(legacyServiceMap).map(([from, to]) => ({
         source: `/services/${from}`,
-        destination: `/services/${to}`,
+        destination: `/services/${to}/`,
         permanent: true,
       })),
     ];
@@ -156,13 +103,6 @@ const nextConfig: NextConfig = {
       // Cache images
       {
         source: "/images/(.*)",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-        ],
-      },
-      // Cache 3D assets
-      {
-        source: "/models/(.*)",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],

@@ -12,6 +12,13 @@
 
 # testing
 /coverage
+/playwright-report/
+/test-results/
+/blob-report/
+
+# local baseline evidence
+/baseline/
+/baseline-work-1440.png
 
 # next.js
 /.next/
@@ -35,6 +42,14 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# private creative resource library — local only, never published or committed
+/higgsfield/
+
+# local agent scratch (never published)
+/.playwright-mcp/
+/.serena/
+/jq
 
 # typescript
 *.tsbuildinfo

@@ -1,0 +1,223 @@
+﻿
+src\app\layout.tsx:5:import { buildGraph } from "@/lib/seo";
+src\app\layout.tsx:6:import { JsonLd } from "@/components/seo/jsonld";
+src\app\layout.tsx:7:import Cursor from "@/components/v6/cursor";
+src\app\layout.tsx:8:import { site } from "@/content/site";
+src\app\layout.tsx:9:import PersistentCanvas from "@/components/canvas/PersistentCanvas";
+src\app\layout.tsx:10:import TunnelProvider, { ScrollTracker } from "@/components/canvas/Tunnel";
+src\app\layout.tsx:11:import { PerformanceProvider } from "@/components/v6/performance-optimizer";
+src\app\page.tsx:4:import ForceDark from '@/components/v6/force-dark';
+src\app\(site)\layout.tsx:2:import Header from "@/components/layout/header";
+src\app\(site)\layout.tsx:3:import Footer from "@/components/layout/footer";
+src\app\(site)\layout.tsx:4:import MotionProvider from "@/components/motion/motion-provider";
+src\app\(site)\about\page.tsx:3:import FinalCta from "@/components/home/final-cta";
+src\app\(site)\about\page.tsx:4:import { createMetadata } from "@/lib/seo";
+src\app\(site)\about\page.tsx:5:import { site } from "@/content/site";
+src\app\(site)\careers\page.tsx:2:import { createMetadata } from "@/lib/seo";
+src\app\(site)\contact\page.tsx:3:import ContactForm from "@/components/forms/contact-form";
+src\app\(site)\contact\page.tsx:4:import { JsonLd } from "@/components/seo/jsonld";
+src\app\(site)\contact\page.tsx:5:import { breadcrumbSchema, createMetadata } from "@/lib/seo";
+src\app\(site)\contact\page.tsx:6:import { services } from "@/content/services";
+src\app\(site)\contact\page.tsx:7:import { site } from "@/content/site";
+src\app\(site)\design-system\page.tsx:4:import { contrast } from "@/lib/contrast";
+src\app\(site)\design-system\page.tsx:5:import { Button } from "@/components/ui/button";
+src\app\(site)\design-system\page.tsx:6:import { Input } from "@/components/ui/input";
+src\app\(site)\design-system\page.tsx:7:import { Label } from "@/components/ui/label";
+src\app\(site)\design-system\page.tsx:8:import { Textarea } from "@/components/ui/textarea";
+src\app\(site)\design-system\page.tsx:9:import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 
+"@/components/ui/select";
+src\app\(site)\design-system\page.tsx:10:import { Checkbox } from "@/components/ui/checkbox";
+src\app\(site)\design-system\page.tsx:11:import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+src\app\(site)\design-system\page.tsx:12:import { Switch } from "@/components/ui/switch";
+src\app\(site)\design-system\page.tsx:13:import { Badge } from "@/components/ui/badge";
+src\app\(site)\design-system\page.tsx:21:} from "@/components/ui/table";
+src\app\(site)\design-system\page.tsx:22:import { Tabs, TabsContent, TabsList, TabsTrigger } from 
+"@/components/ui/tabs";
+src\app\(site)\estimate\page.tsx:2:import { createMetadata } from "@/lib/seo";
+src\app\(site)\faq\page.tsx:2:import { createMetadata } from "@/lib/seo";
+src\app\(site)\faq\page.tsx:4:import { services } from "@/content/services";
+src\app\(site)\insights\page.tsx:5:import { createMetadata } from "@/lib/seo";
+src\app\(site)\insights\page.tsx:6:import { insightCategories, insights } from "@/content/insights";
+src\app\(site)\insights\[slug]\page.tsx:6:import { JsonLd } from "@/components/seo/jsonld";
+src\app\(site)\insights\[slug]\page.tsx:7:import FinalCta from "@/components/home/final-cta";
+src\app\(site)\insights\[slug]\page.tsx:8:import { getInsight, insights } from "@/content/insights";
+src\app\(site)\insights\[slug]\page.tsx:9:import { breadcrumbSchema, createMetadata } from "@/lib/seo";
+src\app\(site)\insights\[slug]\page.tsx:10:import { site } from "@/content/site";
+src\app\(site)\legal\cookies\page.tsx:2:import { createMetadata } from "@/lib/seo";
+src\app\(site)\legal\cookies\page.tsx:3:import { site } from "@/content/site";
+src\app\(site)\legal\privacy\page.tsx:2:import { createMetadata } from "@/lib/seo";
+src\app\(site)\legal\privacy\page.tsx:3:import { site } from "@/content/site";
+src\app\(site)\legal\terms\page.tsx:2:import { createMetadata } from "@/lib/seo";
+src\app\(site)\legal\terms\page.tsx:3:import { site } from "@/content/site";
+src\app\(site)\pricing\page.tsx:3:import { createMetadata } from "@/lib/seo";
+src\app\(site)\process\page.tsx:2:import { createMetadata } from "@/lib/seo";
+src\app\(site)\services\page.tsx:5:import { createMetadata } from "@/lib/seo";
+src\app\(site)\services\page.tsx:6:import PillarMotif from "@/components/services/pillar-motif";
+src\app\(site)\services\page.tsx:7:import { getServicesByPillar, pillars } from "@/content/services";
+src\app\(site)\services\[slug]\page.tsx:4:import { JsonLd } from "@/components/seo/jsonld";
+src\app\(site)\services\[slug]\page.tsx:5:import FinalCta from "@/components/home/final-cta";
+src\app\(site)\services\[slug]\page.tsx:6:import PillarMotif from "@/components/services/pillar-motif";
+src\app\(site)\services\[slug]\page.tsx:14:} from "@/content/services";
+src\app\(site)\services\[slug]\page.tsx:15:import { breadcrumbSchema, createMetadata, faqSchema, serviceSchema } from 
+"@/lib/seo";
+src\app\(site)\services\[slug]\page.tsx:16:import type { Service } from "@/content/services/types";
+src\app\(site)\trust\page.tsx:2:import { createMetadata } from "@/lib/seo";
+src\app\(site)\trust\page.tsx:3:import { site } from "@/content/site";
+src\app\(site)\work\page.tsx:4:import SystemArchitecture from "@/components/work/system-architecture";
+src\app\(site)\work\page.tsx:5:import { createMetadata } from "@/lib/seo";
+src\app\(site)\work\page.tsx:6:import { caseStudies } from "@/content/work";
+src\app\(site)\work\[slug]\page.tsx:5:import { JsonLd } from "@/components/seo/jsonld";
+src\app\(site)\work\[slug]\page.tsx:6:import FinalCta from "@/components/home/final-cta";
+src\app\(site)\work\[slug]\page.tsx:7:import { caseStudies, getCaseStudy } from "@/content/work";
+src\app\(site)\work\[slug]\page.tsx:8:import { breadcrumbSchema, createMetadata } from "@/lib/seo";
+src\components\capability-graph.tsx:5:import { allServices, pillars } from "@/content/services";
+src\components\canvas\PersistentCanvas.tsx:29:import { usePerformanceMonitor } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\PersistentCanvas.tsx:30:import { useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\PostProcessing.tsx:5:import { usePerformanceMonitor } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\PostProcessing.tsx:6:import { useAdaptiveQuality } from "@/components/v6/performance-optimizer";
+src\components\canvas\SectionView.tsx:21:import { useSectionProgress, useActiveSection } from 
+"@/components/canvas/Tunnel";
+src\components\canvas\scenes\FooterCTAScene.tsx:7:import { useGlobalScrollProgress, useSectionProgress } from 
+"@/components/canvas/Tunnel";
+src\components\canvas\scenes\FooterCTAScene.tsx:8:import { usePerformanceMonitor } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\scenes\FooterCTAScene.tsx:9:import { useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\scenes\HeroScene.tsx:20:import { INLINED_SHADERS } from "@/lib/three/shaderLoader";
+src\components\canvas\scenes\PricingScene.tsx:7:import { useGlobalScrollProgress, useSectionProgress } from 
+"@/components/canvas/Tunnel";
+src\components\canvas\scenes\PricingScene.tsx:8:import { usePerformanceMonitor } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\scenes\PricingScene.tsx:9:import { useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\scenes\ProcessLineScene.tsx:7:import { useGlobalScrollProgress, useSectionProgress } from 
+"@/components/canvas/Tunnel";
+src\components\canvas\scenes\ProcessLineScene.tsx:8:import { usePerformanceMonitor } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\scenes\ProcessLineScene.tsx:9:import { useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\scenes\TeamScene.tsx:7:import { useGlobalScrollProgress, useSectionProgress } from 
+"@/components/canvas/Tunnel";
+src\components\canvas\scenes\TeamScene.tsx:8:import { usePerformanceMonitor } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\scenes\TeamScene.tsx:9:import { useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\scenes\TestimonialScene.tsx:7:import { useGlobalScrollProgress, useSectionProgress } from 
+"@/components/canvas/Tunnel";
+src\components\canvas\scenes\TestimonialScene.tsx:8:import { usePerformanceMonitor } from 
+"@/components/v6/performance-optimizer";
+src\components\canvas\scenes\TestimonialScene.tsx:9:import { useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\forms\contact-form.tsx:6:import { Button } from "@/components/ui/button";
+src\components\forms\contact-form.tsx:7:import { Input } from "@/components/ui/input";
+src\components\forms\contact-form.tsx:8:import { Label } from "@/components/ui/label";
+src\components\forms\contact-form.tsx:9:import { Textarea } from "@/components/ui/textarea";
+src\components\forms\contact-form.tsx:13:} from "@/app/(site)/contact/actions";
+src\components\home\ai-lab.tsx:17:import { useGlobalScrollProgress } from "@/components/canvas/Tunnel";
+src\components\home\ai-lab.tsx:18:import { SectionView } from "@/components/canvas/SectionView";
+src\components\home\craft-chapters.tsx:16:import { useGlobalScrollProgress, useSectionProgress } from 
+"@/components/canvas/Tunnel";
+src\components\home\craft-chapters.tsx:17:import { SectionView } from "@/components/canvas/SectionView";
+src\components\home\craft-chapters.tsx:18:import { MagneticButton } from "@/components/v6/magnetic-cursor";
+src\components\home\final-cta.tsx:6:import { site } from "@/content/site";
+src\components\home\final-cta.tsx:7:import { useGlobalScrollProgress } from "@/components/canvas/Tunnel";
+src\components\home\final-cta.tsx:8:import { usePerformanceMonitor, useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\home\hero.tsx:18:import { useGlobalScrollProgress, useGlobalScrollVelocity } from 
+"@/components/canvas/Tunnel";
+src\components\home\hero.tsx:19:import { MagneticButton } from "@/components/v6/magnetic-cursor";
+src\components\home\hero.tsx:20:import { usePerformanceMonitor, useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\home\insights-preview.tsx:3:import { insights } from "@/content/insights";
+src\components\home\manifesto.tsx:18:import { useGlobalScrollProgress, useSectionProgress } from 
+"@/components/canvas/Tunnel";
+src\components\home\manifesto.tsx:19:import { SectionView } from "@/components/canvas/SectionView";
+src\components\home\offering-split.tsx:4:import { getServicesByPillar, pillars } from "@/content/services";
+src\components\home\page.tsx:25:import SmoothScroll from "@/components/v6/smooth-scroll";
+src\components\home\page.tsx:26:import Preloader from "@/components/v6/preloader";
+src\components\home\page.tsx:27:import Nav from "@/components/v6/nav";
+src\components\home\page.tsx:28:import ForceDark from "@/components/v6/force-dark";
+src\components\home\pricing.tsx:5:import { MagneticButton } from "@/components/v6/magnetic-cursor";
+src\components\home\pricing.tsx:7:import { useGlobalScrollProgress } from "@/components/canvas/Tunnel";
+src\components\home\pricing.tsx:8:import { usePerformanceMonitor, useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\home\process-line.tsx:6:import { useGlobalScrollProgress, useSectionProgress } from 
+"@/components/canvas/Tunnel";
+src\components\home\process-line.tsx:7:import { usePerformanceMonitor, useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\home\selected-work.tsx:7:import { caseStudies } from "@/content/work";
+src\components\home\services-matrix.tsx:5:import { getServicesByPillar, pillars } from "@/content/services";
+src\components\home\team.tsx:6:import { useGlobalScrollProgress } from "@/components/canvas/Tunnel";
+src\components\home\team.tsx:7:import { usePerformanceMonitor, useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\home\testimonials.tsx:5:import { MagneticButton } from "@/components/v6/magnetic-cursor";
+src\components\home\testimonials.tsx:7:import { useGlobalScrollProgress, useSectionProgress } from 
+"@/components/canvas/Tunnel";
+src\components\home\testimonials.tsx:8:import { usePerformanceMonitor, useAdaptiveQuality } from 
+"@/components/v6/performance-optimizer";
+src\components\home\work-strip.tsx:18:import { useGlobalScrollProgress } from "@/components/canvas/Tunnel";
+src\components\home\work-strip.tsx:19:import { MagneticButton } from "@/components/v6/magnetic-cursor";
+src\components\layout\footer.tsx:3:import { LogoFull } from "@/components/brand/logo";
+src\components\layout\footer.tsx:4:import { site } from "@/content/site";
+src\components\layout\footer.tsx:5:import { pillars } from "@/content/services";
+src\components\layout\header.tsx:3:import { Button } from "@/components/ui/button";
+src\components\layout\header.tsx:4:import { Sheet, SheetContent, SheetTitle, SheetTrigger } from 
+"@/components/ui/sheet";
+src\components\layout\header.tsx:5:import { site } from "@/content/site";
+src\components\layout\header.tsx:11:import { LogoLink } from "@/components/brand/logo";
+src\components\layout\header.tsx:12:import ThemeToggle from "@/components/theme-toggle";
+src\components\layout\header.tsx:13:import { getServicesByPillar, pillars } from "@/content/services";
+src\components\services\pillar-motif.tsx:4:import type { PillarSlug } from "@/content/services";
+src\components\services\pillar-view.tsx:4:import PillarMotif from "@/components/services/pillar-motif";
+src\components\services\pillar-view.tsx:5:import { getServicesByPillar, type Pillar } from "@/content/services";
+src\components\services\service-view.tsx:9:} from "@/components/ui/accordion";
+src\components\services\service-view.tsx:10:import type { Service } from "@/content/services";
+src\components\services\service-view.tsx:11:import { getPillar, getServicesByPillar } from "@/content/services";
+src\components\spatial\SpatialCanvas.tsx:6:import { useRegionRegistry } from '@/lib/spatial/RegionRegistry';
+src\components\spatial\SpatialCanvas.tsx:7:import { useCameraController } from '@/lib/spatial/CameraController';
+src\components\spatial\SpatialCanvas.tsx:8:import { usePerformanceMonitor } from 
+'@/components/v6/performance-optimizer';
+src\components\spatial\SpatialCanvas.tsx:9:import { useAdaptiveQuality } from '@/components/v6/performance-optimizer';
+src\components\spatial\SpatialCanvas.tsx:10:import { SpatialOSConfig, DEFAULT_SPATIAL_CONFIG } from 
+'@/lib/spatial/types';
+src\components\spatial\SpatialCanvas.tsx:11:import { Region } from '@/lib/spatial/types';
+src\components\spatial\postprocessing\PostProcessing.tsx:7:import { usePerformanceMonitor } from 
+'@/components/v6/performance-optimizer';
+src\components\spatial\postprocessing\PostProcessing.tsx:8:import { useAdaptiveQuality } from 
+'@/components/v6/performance-optimizer';
+src\components\spatial\scenes\CraftChaptersScene.tsx:7:import { usePerformanceMonitor } from 
+'@/components/v6/performance-optimizer';
+src\components\spatial\scenes\CraftChaptersScene.tsx:8:import { useAdaptiveQuality } from 
+'@/components/v6/performance-optimizer';
+src\components\spatial\scenes\HeroScene.tsx:7:import { usePerformanceMonitor } from 
+'@/components/v6/performance-optimizer';
+src\components\spatial\scenes\HeroScene.tsx:8:import { useAdaptiveQuality } from 
+'@/components/v6/performance-optimizer';
+src\components\spatial\scenes\HeroScene.tsx:11:import { INLINED_SHADERS } from '@/lib/three/shaderLoader';
+src\components\ui\accordion.tsx:6:import { cn } from "@/lib/utils"
+src\components\ui\badge.tsx:5:import { cn } from "@/lib/utils"
+src\components\ui\breadcrumb.tsx:4:import { cn } from "@/lib/utils"
+src\components\ui\button.tsx:5:import { cn } from "@/lib/utils"
+src\components\ui\checkbox.tsx:6:import { cn } from "@/lib/utils"
+src\components\ui\dialog.tsx:6:import { cn } from "@/lib/utils"
+src\components\ui\dialog.tsx:7:import { Button } from "@/components/ui/button"
+src\components\ui\input.tsx:3:import { cn } from "@/lib/utils"
+src\components\ui\label.tsx:6:import { cn } from "@/lib/utils"
+src\components\ui\pagination.tsx:3:import { cn } from "@/lib/utils"
+src\components\ui\pagination.tsx:4:import { Button } from "@/components/ui/button"
+src\components\ui\popover.tsx:6:import { cn } from "@/lib/utils"
+src\components\ui\radio-group.tsx:6:import { cn } from "@/lib/utils"
+src\components\ui\select.tsx:6:import { cn } from "@/lib/utils"
+src\components\ui\sheet.tsx:6:import { cn } from "@/lib/utils"
+src\components\ui\sheet.tsx:7:import { Button } from "@/components/ui/button"
+src\components\ui\skeleton.tsx:1:import { cn } from "@/lib/utils"
+src\components\ui\switch.tsx:6:import { cn } from "@/lib/utils"
+src\components\ui\table.tsx:5:import { cn } from "@/lib/utils"
+src\components\ui\tabs.tsx:7:import { cn } from "@/lib/utils"
+src\components\ui\textarea.tsx:3:import { cn } from "@/lib/utils"
+src\components\ui\tooltip.tsx:6:import { cn } from "@/lib/utils"
+
+

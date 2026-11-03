@@ -7,7 +7,7 @@ export const buildServices: Service[] = [
     pillar: "build",
     tagline: "Fast, findable websites that carry your brand and convert visitors.",
     description:
-      "Custom websites and web applications built on Next.js and modern tooling. Performance, accessibility and SEO are engineering requirements, not afterthoughts.",
+      "Custom websites and web applications built on Next.js and modern tooling. Performance, accessibility and SEO are requirements, not afterthoughts.",
     body: [
       "Your website is the one asset every other marketing activity points at. Ads, social posts, sales calls and word-of-mouth all land here, so the site has one job: turn that attention into enquiries without friction. We build sites that do this by treating speed, clarity and search visibility as engineering requirements from the first commit, not a pre-launch checklist.",
       "Every build starts with structure. Before visual design we agree the sitemap, the job of each page and the action each audience should take. That document becomes the contract for the rest of the project: content modelled around visitor intent rather than internal org charts, copy written to answer real questions, and a component architecture your team can extend later.",
@@ -34,7 +34,8 @@ export const buildServices: Service[] = [
       "Ongoing hosting management after handover",
       "Native mobile apps (see Mobile App Development)",
     ],
-    priceBand: "TODO(positioning: entry price band)",
+    priceBand:
+      "Fixed project quote after a scoped audit. Written before work starts.",
     faqs: [
       {
         q: "How long does a typical website take?",
@@ -49,7 +50,7 @@ export const buildServices: Service[] = [
         a: "You receive full documentation and ownership of everything we build. Ongoing care plans are available but never required.",
       },
     ],
-    relatedServices: ["website-refurbishment", "ai-driven-websites", "seo-package"],
+    relatedServices: ["website-refurbishment", "ai-driven-websites", "generative-engine-optimization"],
     legacySlugs: ["web-dev"],
     caseStudyRef: "prv-financial-services",
   },
@@ -59,7 +60,7 @@ export const buildServices: Service[] = [
     pillar: "build",
     tagline: "iOS and Android apps people actually keep on their phones.",
     description:
-      "Native and cross-platform mobile development focused on retention: fast startup, sensible offline behaviour, push notifications that respect attention, and store listings optimised for discovery.",
+      "Native and cross-platform apps focused on retention: fast startup, sensible offline behaviour, useful notifications and store listings built for discovery.",
     body: [
       "An app lives or dies on retention, not downloads. The stores are full of beautiful apps opened once and deleted, because teams optimised the launch screenshot instead of the tenth-session experience. Our mobile work starts from the opposite end: what makes someone open this a second time, a tenth time, and what gets in the way.",
       "We build cross-platform with React Native or Flutter when one codebase serves both stores without compromise, and go native when a feature genuinely demands it. The decision is made during scoping based on your requirements, not our preference. Either way the bar is the same: fast cold start, graceful offline behaviour, push notifications that arrive when they matter and stay silent when they don't.",
@@ -85,7 +86,7 @@ export const buildServices: Service[] = [
       "Hardware-level integrations without a feasibility spike",
       "ASO copywriting in languages other than English",
     ],
-    priceBand: "TODO(positioning: entry price band)",
+    priceBand: "Phased fixed quote after scoping. Written before work starts.",
     faqs: [
       {
         q: "Do you publish to the app stores for us?",
@@ -109,7 +110,7 @@ export const buildServices: Service[] = [
     pillar: "build",
     tagline: "Sites that adapt, assist and automate — without gimmicks.",
     description:
-      "AI assistants grounded in your actual content, recommendation logic, smart search and content workflows that save hours weekly — deployed behind evaluation, not hype.",
+      "AI assistants grounded in your content, recommendation logic, smart search and content workflows that save hours weekly — deployed behind evaluation.",
     body: [
       "Most 'AI websites' are a chatbot bolted onto a homepage. They answer badly, hallucinate confidently, and quietly embarrass the brand. Useful AI on a website does one of three jobs: answers real customer questions from verified content, automates a repetitive content task with human review, or personalises an experience using data you already trust. If a feature doesn't do one of those, we will tell you not to build it.",
       "Our implementations start with your content, not the model. Assistants are grounded in documentation you have verified, so answers carry citations instead of confidence. Smart search understands synonyms and intent because it indexes meaning, not keywords. Content workflows generate drafts into a review queue, never straight to publication. Every feature ships with an evaluation set: twenty real questions with known-good answers, run on every change.",
@@ -135,7 +136,8 @@ export const buildServices: Service[] = [
       "Training models on your data without explicit agreement",
       "Features that fail the feasibility spike's honesty test",
     ],
-    priceBand: "TODO(positioning: entry price band)",
+    priceBand:
+      "Fixed implementation quote after a feasibility spike. Written before work starts.",
     faqs: [
       {
         q: "Will an AI chatbot actually help my business?",
@@ -159,7 +161,7 @@ export const buildServices: Service[] = [
     pillar: "build",
     tagline: "Keep what works. Fix everything else.",
     description:
-      "Structured modernisation of an existing site: performance audit, UX repair, content migration and SEO preservation. Keep rankings and history; lose the drag.",
+      "Structured modernisation of existing sites: performance audit, UX repair, content migration and SEO preservation. Keep rankings and history; lose the drag.",
     body: [
       "Refurbishment starts with evidence. We crawl the site, measure Core Web Vitals on mid-range devices, map every URL and its search performance, then audit the user journeys that matter. The output is a prioritised report: what to keep, what to fix, what to retire — with effort estimates against each item so decisions are informed, not guessed.",
       "Migration is where most redesigns destroy value. Rankings evaporate because nobody mapped redirects; content vanishes because the CMS export was treated as an afterthought. Our refurbishments treat the URL map as a first-class deliverable: every existing address lands somewhere sensible, monitored in Search Console through the transition.",
@@ -184,7 +186,8 @@ export const buildServices: Service[] = [
       "New content writing beyond migration fixes",
       "Off-site SEO work (see Growth practice)",
     ],
-    priceBand: "TODO(positioning: entry price band)",
+    priceBand:
+      "Fixed project quote after a technical audit. Written before work starts.",
     faqs: [
       {
         q: "Will we lose our Google rankings?",
@@ -195,7 +198,7 @@ export const buildServices: Service[] = [
         a: "If the platform fights basic requirements, rebuilding costs less than renovating. If the bones are good, we refurbish. The audit answers honestly first.",
       },
     ],
-    relatedServices: ["web-development", "seo-package", "answer-engine-optimization"],
+    relatedServices: ["web-development", "generative-engine-optimization", "answer-engine-optimization"],
     legacySlugs: ["refurbish"],
   },
 ];

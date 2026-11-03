@@ -1,14 +1,17 @@
 ﻿import type { ReactNode } from "react";
-import Header from "@/components/layout/header";
+import SiteHeader from "@/components/layout/site-header";
 import Footer from "@/components/layout/footer";
-import MotionProvider from "@/components/motion/motion-provider";
+import MobileCtaBar from "@/components/leads/mobile-cta-bar";
 
 export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <Header />
-      <main id="main" className="flex-1 pt-[72px]">{children}</main>
+      <SiteHeader />
+      <main id="main" className="inst-main inst-page flex-1">
+        {children}
+      </main>
       <Footer />
+      <MobileCtaBar />
     </>
   );
 }

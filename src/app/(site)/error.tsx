@@ -22,8 +22,8 @@ export default function GlobalError({
         </h1>
         <p className="lede mt-5">
           The issue has been logged. Try again — or reach us directly at{" "}
-          <a href="mailto:imaginarsclubservices@gmail.com" className="link-line text-foreground">
-            imaginarsclubservices@gmail.com
+          <a href="mailto:imaginarsclubs@gmail.com" className="link-line text-foreground">
+            imaginarsclubs@gmail.com
           </a>{" "}
           if it persists.
         </p>

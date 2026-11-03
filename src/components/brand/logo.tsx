@@ -2,25 +2,26 @@
 
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
-      <rect
-        x="5"
-        y="5"
-        width="22"
-        height="22"
-        rx="2.5"
-        transform="rotate(45 16 16)"
+    <svg
+      viewBox="0 0 34 46"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M 2.2 13.8 V 2.2 H 17 A 14.8 11.6 0 0 1 31.8 13.8"
         stroke="currentColor"
-        strokeWidth="1.7"
+        strokeWidth="4.4"
+        strokeLinecap="butt"
+        strokeLinejoin="miter"
       />
       <path
-        d="M10.6 19.8 16 10l5.4 9.8"
+        d="M 2.2 19.5 V 30 A 14.8 12.8 0 0 0 31.8 30 V 25.7"
         stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth="4.4"
+        strokeLinecap="butt"
+        strokeLinejoin="miter"
       />
-      <circle cx="16" cy="23" r="1.4" className="fill-primary" />
     </svg>
   );
 }
@@ -28,13 +29,13 @@ export function LogoMark({ className }: { className?: string }) {
 export function LogoFull({ compact = false }: { compact?: boolean }) {
   return (
     <span className="flex items-center gap-3">
-      <LogoMark className={compact ? "h-7 w-7" : "h-9 w-9"} />
+      <LogoMark className={compact ? "h-7 w-auto" : "h-9 w-auto"} />
       {!compact && (
         <span className="flex flex-col leading-none">
-          <span className="font-display text-[length:var(--text-small)] font-semibold tracking-[0.14em] uppercase">
+          <span className="font-sans text-[length:var(--text-small)] font-medium tracking-[-0.015em]">
             ImaginarsClub
           </span>
-          <span className="mt-1 font-mono text-[length:var(--text-micro)] uppercase tracking-[0.42em] text-primary">
+          <span className="mt-1 font-mono text-[length:var(--text-micro)] uppercase tracking-[0.28em] text-primary">
             Services
           </span>
         </span>

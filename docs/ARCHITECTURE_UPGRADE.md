@@ -1,3 +1,9 @@
+> **HISTORICAL / ASPIRATIONAL — NOT THE CURRENT MOUNTED ARCHITECTURE.**
+> This document describes a persistent-canvas plan that is not mounted in `src/app`.
+> The current site uses static export and the institutional DOM-first shell.
+> See `docs/PHASE_0_BASELINE.md` and
+> `docs/superpowers/specs/2026-10-31-institutional-instrument-upgrade-design.md`.
+
 # ImaginarsClub Services — $100M Tier Architecture
 
 ## Overview

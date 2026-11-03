@@ -3,7 +3,7 @@
     "id": "hero",
     "name": "Hero Monolith",
     "precomputed": true,
-    "computeTime": 62.635400000000004,
+    "computeTime": 49.6201,
     "config": {
       "camera": {
         "fov": 45,
@@ -184,7 +184,7 @@
     "id": "manifesto",
     "name": "Manifesto Liquid Metal",
     "precomputed": true,
-    "computeTime": 64.05760000000001,
+    "computeTime": 62.200100000000006,
     "config": {
       "camera": {
         "fov": 50,
@@ -337,7 +337,7 @@
     "id": "craft-chapters",
     "name": "Craft Chapters Primitives",
     "precomputed": true,
-    "computeTime": 62.4007,
+    "computeTime": 62.7345,
     "config": {
       "camera": {
         "fov": 45,
@@ -620,7 +620,7 @@
     "id": "ai-lab",
     "name": "AI Lab Neural Network",
     "precomputed": true,
-    "computeTime": 63.799000000000035,
+    "computeTime": 61.757300000000015,
     "config": {
       "camera": {
         "fov": 50,
@@ -779,7 +779,7 @@
     "id": "work-strip",
     "name": "Work Strip Cards",
     "precomputed": true,
-    "computeTime": 62.92150000000004,
+    "computeTime": 63.90929999999997,
     "config": {
       "camera": {
         "fov": 45,
@@ -885,7 +885,7 @@
     "id": "testimonials",
     "name": "Testimonial Cards",
     "precomputed": true,
-    "computeTime": 62.79359999999997,
+    "computeTime": 67.11600000000004,
     "config": {
       "camera": {
         "fov": 45,
@@ -987,7 +987,7 @@
     "id": "pricing",
     "name": "Pricing Tiers",
     "precomputed": true,
-    "computeTime": 63.51990000000001,
+    "computeTime": 58.322599999999966,
     "config": {
       "camera": {
         "fov": 45,
@@ -1089,7 +1089,7 @@
     "id": "team",
     "name": "Team Orbs",
     "precomputed": true,
-    "computeTime": 64.31999999999994,
+    "computeTime": 62.8485,
     "config": {
       "camera": {
         "fov": 50,
@@ -1193,7 +1193,7 @@
     "id": "process-line",
     "name": "Process Timeline",
     "precomputed": true,
-    "computeTime": 62.506000000000085,
+    "computeTime": 62.61559999999997,
     "config": {
       "camera": {
         "fov": 45,
@@ -1295,7 +1295,7 @@
     "id": "footer-cta",
     "name": "Footer Eclipse",
     "precomputed": true,
-    "computeTime": 61.608799999999974,
+    "computeTime": 63.39970000000005,
     "config": {
       "camera": {
         "fov": 50,

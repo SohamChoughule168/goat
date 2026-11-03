@@ -60,19 +60,19 @@ export default function Header() {
   const linkCls = (href: string) =>
     `link-line rounded-sm py-1 text-sm transition-colors ${
       isActive(href)
-        ? "text-foreground underline decoration-[2px] underline-offset-8"
+        ? "text-foreground"
         : "text-muted-foreground hover:text-foreground"
     }`;
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 h-[72px] transition-[background-color,border-color] duration-200 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[height,background-color,border-color] duration-300 ease-out ${
         scrolled || servicesOpen
-          ? "border-b border-[color:var(--color-border-hairline)] bg-[color:var(--color-bg)]/[0.88] backdrop-blur-[12px]"
-          : "border-b border-transparent bg-transparent"
+          ? "h-[60px] border-b border-[color:var(--color-border-hairline)] bg-[color:var(--color-bg)]/[0.88] backdrop-blur-[12px]"
+          : "h-[72px] border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="shell flex h-[72px] items-center justify-between gap-6">
+      <div className="shell flex h-full items-center justify-between gap-6">
         <LogoLink />
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
@@ -84,7 +84,7 @@ export default function Header() {
               onClick={() => setServicesOpen((v) => !v)}
               className={`flex items-center gap-1.5 rounded-sm py-1 text-sm transition-colors ${
                 isActive("/services")
-                  ? "text-foreground underline decoration-2 underline-offset-8"
+                  ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -95,10 +95,7 @@ export default function Header() {
               />
             </button>
             {servicesOpen && (
-              <div
-                ref={dropdownRef}
-                className="absolute left-1/2 top-full mt-3 grid w-[720px] -translate-x-1/2 grid-cols-4 gap-6 rounded-lg border border-[color:var(--color-border-hairline)] bg-[color:var(--color-surface)] p-6 shadow-2xl"
-              >
+              <div className="absolute left-1/2 top-full mt-3 grid w-[720px] origin-top -translate-x-1/2 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 grid-cols-4 gap-6 rounded-lg border border-[color:var(--color-border-hairline)] bg-[color:var(--color-surface)] p-6 shadow-[0_24px_60px_-28px_rgba(20,19,15,0.28)] duration-150">
                 {pillars.map((p, i) => (
                   <div key={p.slug}>
                     <p className="micro">{String(i + 1).padStart(2, "0")} · {p.title}</p>
@@ -120,16 +117,26 @@ export default function Header() {
             )}
           </div>
           {NAV.map((item) => (
-            <Link key={item.href} href={item.href as Route} className={linkCls(item.href)}>
+            <Link
+              key={item.href}
+              href={item.href as Route}
+              className={linkCls(item.href)}
+              aria-current={isActive(item.href) ? "page" : undefined}
+            >
               {item.label}
             </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <Button asChild size="sm" className="hidden md:inline-flex">
-            <Link href="/contact">Start a project</Link>
+          <div className="hidden md:block">
+            <ThemeToggle />
+          </div>
+          <Button asChild size="sm" className="inline-flex min-h-11 px-4 md:min-h-7 md:px-2.5">
+            <Link href="/contact">
+              <span className="md:hidden">Start</span>
+              <span className="hidden md:inline">Start a project</span>
+            </Link>
           </Button>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -178,7 +185,10 @@ export default function Header() {
                 <Button asChild className="h-11 w-full">
                   <Link href="/contact">Start a project</Link>
                 </Button>
-                <ThemeToggle />
+                <div className="flex items-center justify-between gap-4">
+                  <span className="micro">Colour theme</span>
+                  <ThemeToggle />
+                </div>
               </div>
             </SheetContent>
           </Sheet>

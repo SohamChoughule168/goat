@@ -29,4 +29,5 @@ export interface Pillar {
   title: string;
   kicker: string;
   description: string;
+  metaDescription: string;
 }

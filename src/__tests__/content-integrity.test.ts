@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { PILLAR_SLUGS, pillars, services } from "@/content/services";
-import { insights } from "@/content/insights";
+import { insightCategories, insights } from "@/content/insights";
 import { caseStudies } from "@/content/work";
 import { site } from "@/content/site";
 
@@ -57,7 +57,7 @@ describe("insights content integrity", () => {
   });
 
   it("uses known categories only", () => {
-    const known = new Set(["AI & Technology", "SEO & Search", "Web Development", "Digital Marketing"]);
+    const known = new Set<string>(insightCategories.filter((category) => category !== "All"));
     for (const i of insights) {
       expect(known.has(i.category)).toBe(true);
     }

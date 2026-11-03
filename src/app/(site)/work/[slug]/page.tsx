@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { JsonLd } from "@/components/seo/jsonld";
 import FinalCta from "@/components/home/final-cta";
 import { caseStudies, getCaseStudy } from "@/content/work";
-import { breadcrumbSchema, createMetadata } from "@/lib/seo";
+import { absoluteUrl, assetUrl, breadcrumbSchema, createMetadata, OG_IMAGE_PATH } from "@/lib/seo";
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -19,7 +19,7 @@ export async function generateMetadata(
   if (!cs) return createMetadata({ title: "Not found", description: "", path: "/work" });
   return createMetadata({
     title: `${cs.client} — Case Study`,
-    description: cs.summary,
+    description: cs.metaDescription ?? cs.summary,
     path: `/work/${cs.slug}`,
   });
 }
@@ -169,10 +169,15 @@ export default async function CaseStudyPage(props: { params: Promise<{ slug: str
             "@context": "https://schema.org",
             "@type": "CreativeWork",
             name: `${cs.client} website`,
-            about: cs.summary,
+    description: cs.metaDescription ?? cs.summary,
             dateCreated: String(cs.year),
             creator: { "@id": "https://www.imaginarsclubservices.com/#organization" },
+            publisher: { "@id": "https://www.imaginarsclubservices.com/#organization" },
             genre: cs.sector,
+            url: absoluteUrl(`/work/${cs.slug}`),
+            image: assetUrl(OG_IMAGE_PATH),
+            inLanguage: "en-IN",
+            mainEntityOfPage: absoluteUrl(`/work/${cs.slug}`),
           },
           breadcrumbSchema([
             { name: "Home", path: "/" },

@@ -6,8 +6,35 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { JsonLd } from "@/components/seo/jsonld";
 import FinalCta from "@/components/home/final-cta";
 import { getInsight, insights } from "@/content/insights";
-import { breadcrumbSchema, createMetadata } from "@/lib/seo";
+import { articleSchema, breadcrumbSchema, createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
+
+const RELATED_BY_CATEGORY: Record<string, { label: string; href: Route }[]> = {
+  Education: [
+    { label: "Institution blueprint", href: "/blueprint" },
+    { label: "Web development", href: "/services/web-development" },
+    { label: "Solutions by institution type", href: "/solutions" },
+  ],
+  "SEO & Search": [
+    { label: "Generative engine optimization", href: "/services/generative-engine-optimization" },
+    { label: "Answer engine optimization", href: "/services/answer-engine-optimization" },
+    { label: "Search engine marketing", href: "/services/sem" },
+  ],
+  "Web Development": [
+    { label: "Web development", href: "/services/web-development" },
+    { label: "Website refurbishment", href: "/services/website-refurbishment" },
+    { label: "PRV Financial Services case study", href: "/work/prv-financial-services" },
+  ],
+  "AI & Technology": [
+    { label: "AI-driven websites", href: "/services/ai-driven-websites" },
+    { label: "Google AI integration", href: "/services/google-ai-integration" },
+  ],
+  "Digital Marketing": [
+    { label: "Digital marketing", href: "/services/digital-marketing" },
+    { label: "Meta advertising", href: "/services/meta-advertising" },
+    { label: "Scope estimator", href: "/estimate" },
+  ],
+};
 
 export function generateStaticParams() {
   return insights.map((i) => ({ slug: i.slug }));
@@ -19,11 +46,18 @@ export async function generateMetadata(
   const { slug } = await props.params;
   const post = getInsight(slug);
   if (!post) return createMetadata({ title: "Not found", description: "", path: "/insights" });
+  const published = new Date(`${post.date}T00:00:00+05:30`).toISOString();
   return createMetadata({
-    title: post.title,
+    title: post.metaTitle ?? post.title,
     description: post.excerpt,
     path: `/insights/${post.slug}`,
     ogType: "article",
+    article: {
+      publishedTime: published,
+      modifiedTime: published,
+      section: post.category,
+      authors: [post.author],
+    },
   });
 }
 
@@ -33,7 +67,8 @@ export default async function InsightPage(props: { params: Promise<{ slug: strin
   if (!post) notFound();
 
   const related = insights.filter((i) => i.slug !== post.slug).slice(0, 2);
-  const published = new Date(`${post.date}T00:00:00`).toISOString();
+  const relatedLinks = RELATED_BY_CATEGORY[post.category] ?? [];
+  const published = new Date(`${post.date}T00:00:00+05:30`).toISOString();
 
   return (
     <>
@@ -155,22 +190,35 @@ export default async function InsightPage(props: { params: Promise<{ slug: strin
             </ul>
           </aside>
         )}
+
+        {relatedLinks.length > 0 && (
+          <aside className="shell mt-12" aria-labelledby="related-links">
+            <h2 id="related-links" className="eyebrow mb-4">
+              Related services
+            </h2>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              {relatedLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="link-line text-foreground">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        )}
       </article>
 
       <JsonLd
         data={[
-          {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: post.title,
+          articleSchema({
+            title: post.title,
             description: post.excerpt,
-            datePublished: published,
-            dateModified: published,
-            author: { "@type": "Organization", name: site.name },
-            publisher: { "@id": `${site.url}/#organization` },
-            mainEntityOfPage: `${site.url}/insights/${post.slug}`,
-            articleSection: post.category,
-          },
+            path: `/insights/${post.slug}`,
+            publishedTime: published,
+            section: post.category,
+            author: post.author,
+          }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Insights", path: "/insights" },

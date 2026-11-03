@@ -5,7 +5,7 @@
 
 ## 1. EXECUTIVE SUMMARY
 
-**Vision**: Transform the $100M marketing site into a **full product platform** — a "Spatial OS" where the marketing site, client portal, AI tools, and developer experience exist as regions in a single infinite WebGL canvas, with edge-first AI personalization adapting every pixel in real-time per visitor.
+**Vision**: Transform the existing marketing foundation into a **full billion-dollar product platform** — a "Spatial OS" where the marketing site, client portal, AI tools, and developer experience exist as regions in a single infinite WebGL canvas, with edge-first AI personalization adapting every pixel in real-time per visitor.
 
 **North Star Metrics**:
 - Lighthouse: 100/100/100/100 (perfect scores non-negotiable)

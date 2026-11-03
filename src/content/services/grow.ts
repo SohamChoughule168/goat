@@ -8,7 +8,7 @@ export const growServices: Service[] = [
     pillar: "grow",
     tagline: "One accountable system across search, social and email.",
     description:
-      "Strategy-first marketing connecting channels instead of running them separately: SEO for durable traffic, paid for controlled scale, email for retention — reported against revenue.",
+      "Strategy-first marketing that connects channels: SEO for durable traffic, paid for controlled scale, email for retention and creative that earns attention.",
     body: [
       "Channels don't fail individually; they fail disconnected. Ads chase clicks the site can't convert, email blasts ignore what search taught you about language, and each agency reports its own numbers in its own currency. Strategy-first marketing fixes the system before tuning the parts.",
       "We start by defining what a qualified lead means for your business, in numbers. Then channel roles: which earns trust over months, which buys attention this week, which keeps customers after purchase. Budget follows role, not habit.",
@@ -33,7 +33,8 @@ export const growServices: Service[] = [
       "Offline media buying",
       "Creative production beyond ad variants (see Content practice)",
     ],
-    priceBand: "TODO(positioning: entry retainer band)",
+    priceBand:
+      "Monthly retainer quoted after a channel audit. Agreed in writing before work starts.",
     faqs: [
       {
         q: "What do you need from us to start?",
@@ -53,7 +54,7 @@ export const growServices: Service[] = [
     pillar: "grow",
     tagline: "Presence with a purpose, on platforms that matter to you.",
     description:
-      "Editorial calendars, community management and paid social built around a clear voice — ending each month with numbers you can act on.",
+      "Editorial calendars, community management and paid social built around a voice — each month ends with numbers you can act on and a plan for the next.",
     body: [
       "Social media works when it has a job. For most businesses that job is staying memorable between purchases and answering questions where people ask them. Posting daily into the void achieves neither. We plan editorial themes quarterly, produce in batches, and measure saves, shares and enquiries instead of vanity reach.",
       "Community management is response playbooks, not improvisation: how fast you reply, what tone you use, when a thread moves to DMs or email. Consistency here builds more trust than any campaign.",
@@ -77,7 +78,8 @@ export const growServices: Service[] = [
       "Follower-buying of any kind",
       "Platforms your buyers don't use",
     ],
-    priceBand: "TODO(positioning: entry retainer band)",
+    priceBand:
+      "Monthly retainer quoted by platform scope. Agreed in writing before work starts.",
     faqs: [
       {
         q: "Which platforms should my business be on?",
@@ -101,7 +103,7 @@ export const growServices: Service[] = [
     pillar: "grow",
     tagline: "Google Ads managed like an investment portfolio.",
     description:
-      "Keyword research, tight ad groups, honest landing pages and relentless bid hygiene. Spend, return and next actions — including when a channel stops being worth it.",
+      "Keyword research, tight ad groups, honest landing pages and disciplined bid hygiene. Spend, return and next actions — even when a channel stops paying.",
     body: [
       "Paid search punishes vagueness. Every rupee is traceable to a query, an ad, a landing page and an outcome. Our management starts with account structure: campaigns mapped to intent, ad groups tight enough that message matches search, negatives maintained weekly so budget stops leaking to irrelevant queries.",
       "Landing pages are half the outcome and usually ignored. We test page-level changes — headline clarity, proof placement, form friction — as systematically as bids. Conversion tracking is implemented properly server-side where possible, because platform-reported conversions flatter everyone.",
@@ -126,7 +128,8 @@ export const growServices: Service[] = [
       "Guaranteed CPA targets on new accounts",
       "Display-only brand awareness buys without measurement",
     ],
-    priceBand: "TODO(positioning: management fee band)",
+    priceBand:
+      "Monthly management fee quoted after account audit. Media spend paid directly to Google.",
     faqs: [
       {
         q: "How much should I budget for ads?",
@@ -137,7 +140,7 @@ export const growServices: Service[] = [
         a: "Rarely. Auto-apply recommendations optimise Google's revenue. We evaluate each against your data first.",
       },
     ],
-    relatedServices: ["digital-marketing", "web-development", "digital-marketing"],
+    relatedServices: ["digital-marketing", "web-development"],
   },
   {
     slug: "generative-engine-optimization",
@@ -169,7 +172,8 @@ export const growServices: Service[] = [
       "Rankings guarantees inside AI answers",
       "GEO without functional technical SEO",
     ],
-    priceBand: "TODO(positioning: entry price band)",
+    priceBand:
+      "Fixed implementation quote plus optional monthly benchmark cycle. Written before work starts.",
     faqs: [
       {
         q: "Is GEO replacing SEO?",
@@ -212,7 +216,7 @@ export const growServices: Service[] = [
       "Guaranteed featured snippets — structuring improves odds, nothing guarantees",
       "Pages without existing topical authority",
     ],
-    priceBand: "TODO(positioning: entry price band)",
+    priceBand: "Fixed implementation quote on priority pages. Written before work starts.",
     faqs: [
       {
         q: "Can you guarantee featured snippets?",
@@ -256,7 +260,8 @@ export const growServices: Service[] = [
       "Platforms beyond Meta (see Digital Marketing Strategy)",
       "Guaranteed ROAS figures",
     ],
-    priceBand: "TODO(positioning: management fee band)",
+    priceBand:
+      "Monthly management fee quoted after account audit. Media spend paid directly to Meta.",
     faqs: [
       {
         q: "Do you also produce the ad creatives?",
@@ -276,7 +281,7 @@ export const growServices: Service[] = [
     pillar: "grow",
     tagline: "Win the map pack in your neighbourhood.",
     description:
-      "Complete profile optimisation for local discovery: categories, services, photos, review velocity and weekly posts — the consistent work that moves local rankings.",
+      "Complete profile optimisation for local discovery: categories, services, photos, review velocity and weekly posts — the work behind local rankings.",
     body: [
       "Local search rewards boring consistency. Categories matching what you actually sell, services described in customers' words, photos refreshed monthly, questions answered publicly, reviews responded to within a day. None of it is glamorous; all of it compounds.",
       "We optimise the profile completely — primary and secondary categories, service areas, attributes, product listings — then set the operating rhythm: post cadence, photo uploads, review-request workflow integrated with your invoicing or delivery flow so asks happen at the moment of satisfaction.",
@@ -301,7 +306,8 @@ export const growServices: Service[] = [
       "Fake reviews or incentivised review schemes",
       "Service-area businesses without physical proof of operations",
     ],
-    priceBand: "TODO(positioning: monthly fee band)",
+    priceBand:
+      "Monthly management fee quoted by location count. Agreed in writing before work starts.",
     faqs: [
       {
         q: "How fast do local profiles improve?",
@@ -312,7 +318,7 @@ export const growServices: Service[] = [
         a: "Only policy-violating ones, through Google's formal process. Genuine criticism gets a professional response and a fix behind it.",
       },
     ],
-    relatedServices: ["google-business-profile", "google-business-profile", "google-marketplace"],
+    relatedServices: ["google-marketplace", "digital-marketing", "web-development"],
     legacySlugs: ["google-business"],
   },
   {
@@ -321,7 +327,7 @@ export const growServices: Service[] = [
     pillar: "grow",
     tagline: "Listings set up right the first time.",
     description:
-      "Merchant account configuration, feed hygiene and listing optimisation — plus review handling and performance tracking most sellers skip.",
+      "Merchant account configuration, feed hygiene and listing optimisation on Google Shopping — plus review handling and performance tracking most sellers skip.",
     body: [
       "Marketplace listings fail on feed hygiene: missing GTINs, thin titles, wrong categories, images that crop badly on mobile. Setup done properly the first time prevents the suspension cycles that cost sellers months.",
       "We configure the merchant account, validate feeds against Google's requirements, write listing copy that matches search behaviour, and set up the performance dashboard covering impressions, clicks and conversion value — reconciled against actual orders.",
@@ -345,7 +351,8 @@ export const growServices: Service[] = [
       "Dropshipping catalogues with quality-control risk",
       "Categories requiring licences you don't hold",
     ],
-    priceBand: "TODO(positioning: monthly fee band)",
+    priceBand:
+      "Setup fee plus monthly management, quoted after a feed audit. Written before work starts.",
     faqs: [
       {
         q: "Is Google Marketplace right for my products?",
@@ -356,6 +363,6 @@ export const growServices: Service[] = [
         a: "Usually yes — most disapprovals trace to GTIN gaps, category mismatches or image policies, all correctable in a structured pass.",
       },
     ],
-    relatedServices: ["google-business-profile", "sem", "sem"],
+    relatedServices: ["google-business-profile", "sem"],
   },
 ];

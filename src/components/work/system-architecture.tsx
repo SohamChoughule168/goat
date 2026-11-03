@@ -10,10 +10,11 @@ export default function SystemArchitecture({
   layers: { label: string; sub?: string }[];
   className?: string;
 }) {
-  const W = 600;
-  const rowH = 52;
-  const pad = 40;
-  const H = pad * 2 + layers.length * rowH + (layers.length - 1) * 12;
+  const W = 420;
+  const rowH = 62;
+  const pad = 30;
+  const gap = 14;
+  const H = pad * 2 + layers.length * rowH + (layers.length - 1) * gap;
 
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className={className} aria-hidden="true" fill="none">
@@ -22,9 +23,9 @@ export default function SystemArchitecture({
         <line
           key={"l" + i}
           x1={W / 2}
-          y1={pad + i * (rowH + 12) + rowH}
+          y1={pad + i * (rowH + gap) + rowH}
           x2={W / 2}
-          y2={pad + (i + 1) * (rowH + 12)}
+          y2={pad + (i + 1) * (rowH + gap)}
           stroke="var(--color-border-interactive, currentColor)"
           strokeWidth="1"
           opacity="0.3"
@@ -33,8 +34,8 @@ export default function SystemArchitecture({
 
       {/* Layer boxes */}
       {layers.map((layer, i) => {
-        const y = pad + i * (rowH + 12);
-        const boxW = Math.min(W - pad * 2, 320 + layer.label.length * 4);
+        const y = pad + i * (rowH + gap);
+        const boxW = Math.min(W - pad * 2, 240 + layer.label.length * 4.5);
         const x = (W - boxW) / 2;
         return (
           <g key={i}>
@@ -49,10 +50,10 @@ export default function SystemArchitecture({
               opacity="0.5"
             />
             <text
-              x={x + 16}
-              y={y + rowH / 2 - 2}
+              x={x + 18}
+              y={y + rowH / 2 - 3}
               dominantBaseline="middle"
-              fontSize={13}
+              fontSize={14}
               fontWeight={500}
               fill="currentColor"
               fontFamily="inherit"
@@ -61,10 +62,10 @@ export default function SystemArchitecture({
             </text>
             {layer.sub && (
               <text
-                x={x + 16}
-                y={y + rowH / 2 + 14}
+                x={x + 18}
+                y={y + rowH / 2 + 15}
                 dominantBaseline="middle"
-                fontSize={10}
+                fontSize={10.5}
                 fill="currentColor"
                 fontFamily="var(--font-mono, monospace)"
                 letterSpacing="0.06em"
@@ -73,7 +74,7 @@ export default function SystemArchitecture({
                 {layer.sub}
               </text>
             )}
-            <circle cx={x + boxW - 20} cy={y + rowH / 2} r={3} fill="var(--color-accent, currentColor)" opacity="0.6" />
+            <circle cx={x + boxW - 20} cy={y + rowH / 2} r={3.5} fill="var(--color-accent, currentColor)" opacity="0.6" />
           </g>
         );
       })}

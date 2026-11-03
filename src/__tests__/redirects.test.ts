@@ -48,12 +48,16 @@ describe("global redirects", () => {
     const redirects = await nextConfig.redirects!();
     const bySource = new Map(redirects.map((r) => [r.source, r.destination]));
 
-    expect(bySource.get("/portfolio")).toBe("/work");
-    expect(bySource.get("/blog")).toBe("/insights");
-    expect(bySource.get("/blog/:slug")).toBe("/insights");
+    expect(bySource.get("/portfolio")).toBe("/work/");
+    expect(bySource.get("/blog")).toBe("/insights/");
+    expect(bySource.get("/blog/:slug")).toBe("/insights/");
 
     for (const [legacy] of Object.entries(legacyServiceMap)) {
       expect(bySource.has(`/services/${legacy}`)).toBe(true);
+    }
+
+    for (const destination of bySource.values()) {
+      expect(destination.endsWith("/"), `"${destination}" must keep the trailing slash`).toBe(true);
     }
   });
 

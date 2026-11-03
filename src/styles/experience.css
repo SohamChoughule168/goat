@@ -1,0 +1,100 @@
+/* The Imaginars Instrument — persistent 3D layer + paper-wash veil. */
+
+.experience-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* An engraved plate sits under the canvas: if WebGL is slow, blocked or has
+   not mounted yet, interior pages still carry the house drawing language. */
+.experience-plate {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 76% 34%, rgba(176, 141, 87, 0.14), transparent 34%),
+    radial-gradient(circle at 76% 34%, transparent 0 16%, rgba(20, 19, 15, 0.05) 16.2% 16.4%, transparent 16.6%),
+    radial-gradient(circle at 76% 34%, transparent 0 27%, rgba(20, 19, 15, 0.035) 27.1% 27.3%, transparent 27.5%),
+    radial-gradient(circle at 76% 34%, transparent 0 38%, rgba(20, 19, 15, 0.025) 38.1% 38.3%, transparent 38.5%),
+    linear-gradient(90deg, transparent 0 62%, rgba(20, 19, 15, 0.022) 62% 62.15%, transparent 62.15%);
+}
+
+@media (max-width: 719px) {
+  .experience-plate {
+    background:
+      radial-gradient(circle at 76% 15%, rgba(176, 141, 87, 0.12), transparent 30%),
+      radial-gradient(circle at 76% 15%, transparent 0 13%, rgba(20, 19, 15, 0.04) 13.2% 13.4%, transparent 13.6%),
+      radial-gradient(circle at 76% 15%, transparent 0 21%, rgba(20, 19, 15, 0.028) 21.1% 21.3%, transparent 21.5%);
+  }
+}
+
+/* On phones, interior scenes become an engraved plate behind the reading
+   column rather than a foreground object: same drawing, paper-soft. The home
+   instrument is exempt — it owns a dedicated stage. */
+.experience-damp {
+  display: none;
+}
+
+@media (max-width: 1279px) {
+  .experience-damp {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: var(--paper);
+    opacity: 0.74;
+    pointer-events: none;
+  }
+}
+
+/* On phones the plate recedes further: legibility outranks the flourish. */
+@media (max-width: 719px) {
+  .experience-damp {
+    opacity: 0.87;
+  }
+}
+
+/* Veil sits after the canvas in DOM order, so it always paints above it. */
+.experience-veil {
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 800ms var(--ease-editorial);
+}
+
+.experience-veil[data-veiled="true"] {
+  opacity: 0.94;
+  transition-duration: 220ms;
+}
+
+/* Once the reading starts, remove the instrument completely. */
+.experience-veil[data-scrolled="true"] {
+  opacity: 1;
+  transition-duration: 600ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-veil {
+    transition: none;
+  }
+}
+
+/* Pointer-reactive 3D tilt for flat media (mouse only). */
+.tilt-frame {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transform-style: preserve-3d;
+  transition: transform 260ms var(--ease-editorial);
+  will-change: transform;
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .tilt-frame {
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}

@@ -1,3 +1,10 @@
+> **HISTORICAL — SUPERSEDED 2026-10-31.**
+> This audit predates the current installed stack and contains contradictory dependency claims.
+> It says R3F, Drei, postprocessing, Zustand and tunnel-rat are missing; they are installed.
+> Do not use this file as the current baseline. Use
+> `docs/PHASE_0_BASELINE.md` and
+> `docs/superpowers/specs/2026-10-31-institutional-instrument-upgrade-design.md`.
+
 # PHASE 0: COMPREHENSIVE AUDIT REPORT
 **Date:** 2026-08-30
 **Project:** ImaginarsClub Services — $100M Upgrade

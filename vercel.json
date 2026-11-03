@@ -1,16 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "pnpm prebuild && pnpm build",
+  "trailingSlash": true,
+  "buildCommand": "pnpm build",
   "devCommand": "pnpm dev",
-  "installCommand": "pnpm install",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "regions": ["iad1"],
-  "functions": {
-    "app/api/**/*.ts": {
-      "maxDuration": 30,
-      "memory": 1024
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
@@ -50,35 +45,27 @@
       ]
     }
   ],
-  "rewrites": [
-    { "source": "/portfolio", "destination": "/work" },
-    { "source": "/blog", "destination": "/insights" },
-    { "source": "/blog/:slug", "destination": "/insights" }
-  ],
   "redirects": [
-    { "source": "/services/web-dev", "destination": "/services/web-development", "permanent": true },
-    { "source": "/services/mobile", "destination": "/services/mobile-app-development", "permanent": true },
-    { "source": "/services/ai", "destination": "/services/ai-driven-websites", "permanent": true },
-    { "source": "/services/refurbish", "destination": "/services/website-refurbishment", "permanent": true }
+    { "source": "/portfolio", "destination": "https://www.imaginarsclubservices.com/work/", "permanent": true },
+    { "source": "/blog", "destination": "https://www.imaginarsclubservices.com/insights/", "permanent": true },
+    { "source": "/blog/:slug", "destination": "https://www.imaginarsclubservices.com/insights/", "permanent": true },
+    { "source": "/services/web-dev", "destination": "https://www.imaginarsclubservices.com/services/web-development/", "permanent": true },
+    { "source": "/services/mobile", "destination": "https://www.imaginarsclubservices.com/services/mobile-app-development/", "permanent": true },
+    { "source": "/services/ai", "destination": "https://www.imaginarsclubservices.com/services/ai-driven-websites/", "permanent": true },
+    { "source": "/services/refurbish", "destination": "https://www.imaginarsclubservices.com/services/website-refurbishment/", "permanent": true },
+    { "source": "/services/marketing", "destination": "https://www.imaginarsclubservices.com/services/digital-marketing/", "permanent": true },
+    { "source": "/services/social-media", "destination": "https://www.imaginarsclubservices.com/services/social-media-marketing/", "permanent": true },
+    { "source": "/services/geo", "destination": "https://www.imaginarsclubservices.com/services/generative-engine-optimization/", "permanent": true },
+    { "source": "/services/aeo", "destination": "https://www.imaginarsclubservices.com/services/answer-engine-optimization/", "permanent": true },
+    { "source": "/services/meta-ads", "destination": "https://www.imaginarsclubservices.com/services/meta-advertising/", "permanent": true },
+    { "source": "/services/google-business", "destination": "https://www.imaginarsclubservices.com/services/google-business-profile/", "permanent": true },
+    { "source": "/services/brand", "destination": "https://www.imaginarsclubservices.com/services/brand-management/", "permanent": true },
+    { "source": "/services/video", "destination": "https://www.imaginarsclubservices.com/services/video-editing/", "permanent": true },
+    { "source": "/services/thumbnails", "destination": "https://www.imaginarsclubservices.com/services/thumbnail-design/", "permanent": true },
+    { "source": "/services/events", "destination": "https://www.imaginarsclubservices.com/services/online-events/", "permanent": true },
+    { "source": "/services/google-ai", "destination": "https://www.imaginarsclubservices.com/services/google-ai-integration/", "permanent": true },
+    { "source": "/services/talent", "destination": "https://www.imaginarsclubservices.com/services/talent-acquisition/", "permanent": true }
   ],
-  "crons": [
-  {
-    "path": "/api/cron/health-check",
-    "schedule": "0 0 * * *"
-  },
-  {
-    "path": "/api/cron/analytics-rollup",
-    "schedule": "0 1 * * *"
-  },
-  {
-    "path": "/api/cron/cache-warm",
-    "schedule": "0 3 * * *"
-  }
-],
-"env": {
-  "NEXT_PUBLIC_SITE_URL": "https://goat-wheat.vercel.app",
-  "NEXT_PUBLIC_GA_ID": "G-8RKLCD5VV8"
-},
   "github": {
     "enabled": true,
     "autoAlias": true,

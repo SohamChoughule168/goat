@@ -2,12 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-interface P {
-  x: number; y: number;
-  vx: number; vy: number;
-  s: number; a: number; phase: number;
-}
-
 export default function ImaginationEngine({
   className = "",
   density = "full",
@@ -58,7 +52,7 @@ export default function ImaginationEngine({
     }
 
     function seed() {
-      pts = Array.from({ length: COUNT }, (_, i) => ({
+      pts = Array.from({ length: COUNT }, () => ({
         x: Math.random() * W,
         y: Math.random() * H,
         vx: (Math.random() - 0.5) * 0.35,

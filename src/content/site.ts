@@ -2,13 +2,13 @@ export const site = {
   name: "ImaginarsClub Services",
   legalName: "ImaginarsClub Services",
   shortName: "ImaginarsClub",
-  tagline: "Digital studio for ambitious businesses",
+  tagline: "Websites and applications for institutes that mean business",
   description:
-    "A senior-led digital studio in Mumbai building websites, mobile apps and AI-driven products — and growing them with search, ads and content that measurably perform.",
+    "Websites, student portals and admissions systems for coaching institutes, schools and edtech teams — built in Mumbai.",
   url: "https://www.imaginarsclubservices.com",
   founded: 2024,
   city: "Mumbai",
-  email: "imaginarsclubservices@gmail.com",
+  email: "imaginarsclubs@gmail.com",
   phone: "+91 93728 09022",
   phoneHref: "+919372809022",
   whatsapp: "https://wa.me/919372809022",
@@ -31,8 +31,9 @@ export const site = {
   nav: [
     { label: "Services", href: "/services" },
     { label: "Work", href: "/work" },
-    { label: "About", href: "/about" },
+    { label: "Pricing", href: "/pricing" },
     { label: "Insights", href: "/insights" },
+    { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;

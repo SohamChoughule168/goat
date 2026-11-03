@@ -11,6 +11,7 @@ export interface CaseStudy {
   year: number;
   services: string[];
   summary: string;
+  metaDescription?: string;
   challenge: string;
   approach: string[];
   execution: { title: string; detail: string }[];
@@ -32,6 +33,8 @@ export const caseStudies: CaseStudy[] = [
     services: ["Web Development", "Backend Integration", "Deployment"],
     summary:
       "End-to-end design and build of a financial services company's public website — from information architecture through backend integration to production deployment.",
+    metaDescription:
+      "How we designed and built PRV Financial Services' public website — information architecture, front-end engineering, integration and launch.",
     challenge:
       "PRV Financial Services needed a credible, fast web presence that explained regulated financial products clearly, worked flawlessly on mobile (where most Indian finance traffic lives), and could be maintained by non-developers after handover.",
     approach: [

@@ -21,7 +21,7 @@
 }
 
 .section-y {
-  padding-block: clamp(96px, 12vh, 128px);
+  padding-block: clamp(72px, 11vh, 128px);
 }
 
 .micro,

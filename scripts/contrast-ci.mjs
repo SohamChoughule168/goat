@@ -5,22 +5,25 @@
 import { readFileSync } from "node:fs";
 
 const css = readFileSync("src/styles/tokens.css", "utf8");
+const institutionalCss = readFileSync("src/styles/institutional.css", "utf8");
 
-function block(fromMarker) {
-  const start = css.indexOf(fromMarker);
+function block(source, fromMarker, prefix) {
+  const start = source.indexOf(fromMarker);
   if (start === -1) throw new Error("contrast-ci: marker not found: " + fromMarker);
-  const open = css.indexOf("{", start);
-  const close = css.indexOf("}", open);
-  const body = css.slice(open + 1, close);
+  const open = source.indexOf("{", start);
+  const close = source.indexOf("}", open);
+  const body = source.slice(open + 1, close);
   const out = {};
-  for (const m of body.matchAll(/--color-([a-z-]+):\s*(#[0-9A-Fa-f]{6})/g)) {
+  const pattern = new RegExp("--" + prefix + "([a-z0-9-]+):\\s*(#[0-9A-Fa-f]{6})", "g");
+  for (const m of body.matchAll(pattern)) {
     out[m[1]] = m[2];
   }
   return out;
 }
 
-const LIGHT = block(':root, [data-theme="light"]');
-const DARK = block('[data-theme="dark"]');
+const LIGHT = block(css, ':root, [data-theme="light"]', "color-");
+const DARK = block(css, '[data-theme="dark"]', "color-");
+const INSTITUTIONAL = block(institutionalCss, ":root", "");
 
 function luminance(hex) {
   const h = hex.replace("#", "");
@@ -41,6 +44,28 @@ function contrast(fgHex, bgHex) {
   const lo = Math.min(a, b);
   return (hi + 0.05) / (lo + 0.05);
 }
+
+const INSTITUTIONAL_PAIRS = [
+  ["ink", "bone", 4.5],
+  ["ink-2", "bone", 4.5],
+  ["ink-3", "bone", 4.5],
+  ["ink-4", "bone", 4.5],
+  ["ink-2", "bone-2", 4.5],
+  ["ink-3", "bone-2", 4.5],
+  ["ink-4", "bone-2", 4.5],
+  ["cobalt", "bone", 4.5],
+  ["cobalt-deep", "bone", 4.5],
+  ["cobalt", "accent-soft", 4.5],
+  ["accent-ink", "cobalt", 4.5],
+  ["dark-ink", "dark", 4.5],
+  ["dark-ink", "dark-2", 4.5],
+  ["dark-muted", "dark", 4.5],
+  ["dark-muted", "dark-2", 4.5],
+  ["live", "bone", 4.5],
+  ["live", "bone-2", 4.5],
+  ["warning", "bone", 4.5],
+  ["warning", "bone-2", 4.5],
+];
 
 const PAIRS = [
   ["text", "bg", 4.5],
@@ -74,12 +99,9 @@ const PAIRS = [
 let failures = 0;
 let passCount = 0;
 
-for (const [mode, tokens] of [
-  ["LIGHT", LIGHT],
-  ["DARK", DARK],
-]) {
-  console.log("=== " + mode + " MODE (" + Object.keys(tokens).length + " tokens) ===");
-  for (const [fg, bg, target] of PAIRS) {
+function checkPairs(label, tokens, pairs) {
+  console.log("=== " + label + " (" + Object.keys(tokens).length + " tokens) ===");
+  for (const [fg, bg, target] of pairs) {
     if (!tokens[fg] || !tokens[bg]) {
       console.log("FAIL missing token: " + fg + " on " + bg);
       failures++;
@@ -102,6 +124,10 @@ for (const [mode, tokens] of [
     );
   }
 }
+
+checkPairs("LIGHT MODE", LIGHT, PAIRS);
+checkPairs("DARK MODE", DARK, PAIRS);
+checkPairs("INSTITUTIONAL LIGHT", INSTITUTIONAL, INSTITUTIONAL_PAIRS);
 
 // Cross-check five numbers quoted in design-spec-v3.md section 3.
 const SPEC_CHECKS = [
@@ -127,7 +153,13 @@ for (const [mode, fg, bg, expected] of SPEC_CHECKS) {
 }
 
 console.log("---");
-console.log("pairings passed: " + passCount + "/" + PAIRS.length + " per mode");
+console.log(
+  "pairings passed: " +
+    passCount +
+    "/" +
+    (PAIRS.length * 2 + INSTITUTIONAL_PAIRS.length) +
+    " checks"
+);
 if (failures > 0) {
   console.error("contrast-ci: " + failures + " failure(s)");
   process.exit(1);

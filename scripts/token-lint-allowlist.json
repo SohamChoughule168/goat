@@ -54,5 +54,10 @@
     "src/components/canvas/scenes/PricingScene.tsx:*",
     "src/components/canvas/scenes/TeamScene.tsx:*",
     "src/components/canvas/scenes/ProcessLineScene.tsx:*",
-    "src/components/canvas/scenes/FooterCTAScene.tsx:*"
+    "src/components/canvas/scenes/FooterCTAScene.tsx:*",
+    "src/components/experience/kit/hooks.ts:*",
+    "src/components/experience/kit/materials.tsx:*",
+    "src/components/experience/kit/primitives.tsx:*",
+    "src/components/experience/kit/studio.tsx:*",
+    "src/components/experience/scenes/lodestar.tsx:*"
 ]

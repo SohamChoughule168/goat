@@ -7,6 +7,7 @@ export interface InsightBlock {
 export interface Insight {
   slug: string;
   title: string;
+  metaTitle?: string;
   category: string;
   date: string;
   readingTime: string;
@@ -21,12 +22,96 @@ export const insightCategories = [
   "SEO & Search",
   "Web Development",
   "Digital Marketing",
+  "Education",
 ] as const;
 
 export const insights: Insight[] = [
   {
+    slug: "coaching-institute-website-checklist",
+    title: "What a Coaching Institute Website Actually Needs",
+    metaTitle: "What a Coaching Institute Website Needs",
+    category: "Education",
+    date: "2026-10-14",
+    readingTime: "6 min",
+    excerpt:
+      "Most institute websites look busy and answer nothing. A practical checklist for the pages, proof and modules that reduce phone calls and fill batches.",
+    author: "Team ImaginarsClub",
+    body: [
+      {
+        type: "p",
+        text: "Most coaching institute websites are built like brochures: a banner, a few course names, a scroll of faculty photos and a contact form. Then the front office spends the day answering the same five questions on WhatsApp. A useful institute website is not a brochure. It is the first layer of the admissions desk.",
+      },
+      {
+        type: "h2",
+        text: "Start with the questions parents actually ask",
+      },
+      {
+        type: "p",
+        text: "Before design, list the questions your staff answers repeatedly: batch timings, fees, syllabus, faculty experience, results, location, demo class, refund policy. Each one deserves a clear, findable answer. If a parent has to call to learn the fee, the website has already failed at its cheapest task.",
+      },
+      {
+        type: "list",
+        items: [
+          "A course page per subject or exam — not one page listing everything",
+          "Batch schedule and duration, written in plain language",
+          "Fee structure or a clear 'request the fee sheet' path",
+          "Faculty credentials with real names and subject specialisms",
+          "Results presented honestly, with year and exam context",
+          "Location, directions and the nearest landmark",
+          "A demo or counselling booking that takes under a minute",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Proof beats adjectives",
+      },
+      {
+        type: "p",
+        text: "Phrases like 'experienced faculty' and 'excellent results' are invisible to a parent comparing three institutes. Specific proof is not. A result table with exam names and years, a two-line testimonial from a named student, a photograph of an actual classroom — these do more than any stock image of graduates throwing caps.",
+      },
+      {
+        type: "p",
+        text: "Keep the proof current. A results page last updated two years ago tells a parent something you did not intend. If you cannot maintain a page, remove it rather than let it age into a liability.",
+      },
+      {
+        type: "h2",
+        text: "Make the enquiry path short and traceable",
+      },
+      {
+        type: "p",
+        text: "A parent should be able to enquire from the course page they are reading, with the course already attached. After that, route the enquiry to a named person and record the source. A form that lands in an inbox nobody owns is worse than no form, because it creates the appearance of responsiveness without the substance.",
+      },
+      {
+        type: "list",
+        items: [
+          "Course-specific enquiry forms with source tagging",
+          "WhatsApp click-to-chat as a first-class option, not a floating afterthought",
+          "An auto-reply that sets expectations and shares the fee sheet",
+          "A weekly review of unanswered enquiries",
+        ],
+      },
+      {
+        type: "h2",
+        text: "When to add a portal",
+      },
+      {
+        type: "p",
+        text: "A student portal makes sense when the same administrative work repeats: sharing schedules, publishing results, collecting fees, distributing notes. It rarely makes sense before the website has clean course content and a working enquiry process. Add modules in the order that removes the most calls, not the order that looks most impressive in a proposal.",
+      },
+      {
+        type: "quote",
+        text: "The best institute websites do not feel clever. They feel like the front office already knows why you came.",
+      },
+      {
+        type: "p",
+        text: "Our Growth package is built around this checklist: course pages, proof, source-tagged enquiries and local SEO. Portal, test and fee modules are optional additions when the admin burden justifies them. If you are unsure where to start, map the five most frequent phone calls first — that map is the brief.",
+      },
+    ],
+  },
+  {
     slug: "generative-engine-optimization-guide",
     title: "GEO: How to Stay Visible When AI Answers the Search",
+    metaTitle: "Staying Visible When AI Answers Search",
     category: "SEO & Search",
     date: "2026-08-12",
     readingTime: "8 min",
@@ -93,6 +178,7 @@ export const insights: Insight[] = [
   {
     slug: "website-performance-that-converts",
     title: "Website Speed Is a Sales Feature, Not a Technical Chore",
+    metaTitle: "Website Speed Is a Sales Feature",
     category: "Web Development",
     date: "2026-07-28",
     readingTime: "7 min",
@@ -151,6 +237,7 @@ export const insights: Insight[] = [
   {
     slug: "ai-in-web-development-practical-view",
     title: "AI in Web Development: What Actually Changed for Clients",
+    metaTitle: "AI in Web Development: What Changed",
     category: "AI & Technology",
     date: "2026-06-30",
     readingTime: "7 min",
@@ -209,6 +296,7 @@ export const insights: Insight[] = [
   {
     slug: "write-a-brief-that-builds-a-better-website",
     title: "The Project Brief That Gets You a Better Website",
+    metaTitle: "The Brief That Builds a Better Website",
     category: "Digital Marketing",
     date: "2026-05-18",
     readingTime: "6 min",
@@ -269,6 +357,7 @@ export const insights: Insight[] = [
   {
     slug: "design-tokens-and-design-systems",
     title: "Design Tokens: Why Your Next Rebuild Should Start Here",
+    metaTitle: "Design Tokens: Start Your Rebuild Here",
     category: "Web Development",
     date: "2026-08-15",
     readingTime: "7 min",
@@ -329,6 +418,7 @@ export const insights: Insight[] = [
   {
     slug: "accessibility-as-business-advantage",
     title: "Accessibility Is Not Charity. It Is a Business Advantage.",
+    metaTitle: "Accessibility Is a Business Advantage",
     category: "Web Development",
     date: "2026-08-01",
     readingTime: "6 min",

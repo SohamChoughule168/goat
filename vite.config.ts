@@ -15,7 +15,7 @@ export default defineConfig({
   plugins: [
     {
       name: "glsl-loader",
-      transform(code, id) {
+      transform(code: string, id: string) {
         if (/\.(glsl|vert|frag)$/.test(id)) {
           return {
             code: transformGLSL(code, id),

@@ -1,65 +1,51 @@
-﻿"use client";
-
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import dynamic from "next/dynamic";
+﻿import Link from "next/link";
 import { site } from "@/content/site";
-import { useGlobalScrollProgress } from "@/components/canvas/Tunnel";
-import { usePerformanceMonitor, useAdaptiveQuality } from "@/components/v6/performance-optimizer";
+import Magnetic from "@/components/motion/magnetic";
 
 export function FooterCTA() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [hero3DHovered, setHero3DHovered] = useState(false);
-
-  const globalProgress = useGlobalScrollProgress();
-  const { quality } = usePerformanceMonitor();
-  const { shouldReduceParticles } = useAdaptiveQuality();
-  const intensity = quality === "high" ? 1.0 : quality === "medium" ? 0.7 : 0.4;
-
-  // Mouse tracking for 3D parallax
-  useEffect(() => {
-    const handleMouse = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = -(e.clientY / window.innerHeight) * 2 + 1;
-      setMousePos({ x, y });
-    };
-    window.addEventListener("mousemove", handleMouse);
-    return () => window.removeEventListener("mousemove", handleMouse);
-  }, []);
-
-  // Dynamic import for the 3D scene
-  const FooterCTAScene3D = dynamic(
-    () => import("@/components/canvas/scenes/FooterCTAScene").then(m => m.FooterCTAScene),
-    { ssr: false, loading: () => null }
-  );
-
   return (
-    <section id="footer-cta" className="section-y border-t border-border relative" aria-label="Start a project">
-      {/* 3D Background Scene */}
-      <div className="hero-3d-canvas absolute inset-0 z-0 pointer-events-none">
-        <FooterCTAScene3D
-          scrollProgress={globalProgress}
-          mousePos={mousePos}
-          hovered={hero3DHovered}
-          intensity={intensity}
-        />
-      </div>
-
-      <div className="shell relative z-10">
-        <p className="micro">Next step</p>
-        <h2 className="display-2 mt-4 max-w-[22ch]">
-          Tell us what you&rsquo;re building. We&rsquo;ll tell you what it takes.
-        </h2>
-        <p className="lede mt-5 text-sm">
-          An honest assessment, a clear scope, and a reply within one business day.
-        </p>
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Link href="/contact" className="btn btn-primary">
-            Start a project
-          </Link>
-          <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-            Message on WhatsApp
-          </a>
+    <section id="footer-cta" className="section-y" aria-label="Start a project">
+      <div className="shell">
+        <div className="cta-block px-6 py-14 md:px-14 md:py-20">
+          <div className="grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:items-end">
+            <div>
+              <p className="eyebrow">Next step</p>
+              <h2 className="display-2 mt-5">
+                <span className="block text-balance">
+                  Tell us what you&rsquo;re building.
+                </span>{" "}
+                <span className="block text-balance">
+                  <em>We&rsquo;ll tell you what it takes.</em>
+                </span>
+              </h2>
+            </div>
+            <div>
+              <p className="lede max-w-sm">
+                An honest assessment, a clear scope, and a reply within one business day.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Magnetic>
+                  <Link href="/contact" className="btn btn-primary">
+                    Start a project
+                  </Link>
+                </Magnetic>
+                <a
+                  href={site.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                >
+                  Message on WhatsApp
+                </a>
+              </div>
+              <p className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.16em] opacity-60">
+                Or email{" "}
+                <a href={`mailto:${site.email}`} className="link-line">
+                  {site.email}
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

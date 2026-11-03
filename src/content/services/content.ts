@@ -6,7 +6,8 @@ export const contentServices: Service[] = [
     title: "Brand Management & Collaboration",
     pillar: "content",
     tagline: "A brand that looks intentional everywhere it shows up.",
-    description: "Identity systems, guidelines and partnership strategy that keep your presentation consistent.",
+    description:
+      "Identity systems, guidelines and partnership strategy that keep your presentation consistent across every channel and every person who represents you.",
     body: [
       "Brand management is the discipline of looking the same everywhere without trying too hard anywhere. Most small businesses have a logo, a colour they like and a font they picked once. What's missing is the system: rules for spacing, photography tone, voice in customer emails, how the logo shrinks on a favicon. We build those systems so every future asset lands consistent.",
       "Partnership strategy is where brand management earns its fee. Collaborations chosen for audience overlap beat those chosen for follower counts. We identify partners whose buyers match yours, negotiate terms that protect both brands, and manage the campaign so neither side looks opportunistic.",
@@ -16,7 +17,8 @@ export const contentServices: Service[] = [
     timeline: "6–8 week identity build; partnerships quarterly cycles",
     processStages: ["Brand audit", "Guideline build", "Partnership ID", "Monitoring cadence"],
     exclusions: ["Logo design as standalone one-off", "Paid celebrity endorsement deals"],
-    priceBand: "TODO(positioning)",
+    priceBand:
+      "Fixed identity project quote; partnerships quoted per cycle. Written before work starts.",
     faqs: [
       { q: "Do you design logos?", a: "Yes, within broader identity work — logo alone rarely solves a brand problem." },
       { q: "How do you choose collaboration partners?", a: "Audience overlap first, follower counts second." },
@@ -30,7 +32,7 @@ export const contentServices: Service[] = [
     title: "Video Editing",
     pillar: "content",
     tagline: "Footage in, stories out — cut for the platform.",
-    description: "Commercial edits, social-native verticals, motion graphics, colour and sound finishing.",
+    description:       "Commercial edits, social-native verticals, motion graphics, colour and sound finishing — delivered in the formats each platform actually rewards.",
     body: [
       "Editing turns footage into communication. Raw files carry information; the edit carries meaning. We cut for each platform's rhythm because Instagram Reels differs from YouTube long-form differs from a website hero loop.",
       "Our pipeline covers assembly, rough cut, sound design, colour grade, motion graphics and delivery in every format. Subtitles ship standard because most viewers watch muted.",
@@ -40,7 +42,8 @@ export const contentServices: Service[] = [
     timeline: "2–4 business days short-form",
     processStages: ["Ingest", "Paper-cut", "Fine cut", "Exports"],
     exclusions: ["Original videography", "Complex 3D animation"],
-    priceBand: "TODO(positioning)",
+    priceBand:
+      "Quoted per batch or monthly volume. Agreed in writing before work starts.",
     faqs: [
       { q: "Typical turnaround?", a: "Short-form 2–4 business days; commercial per scope with previews." },
       { q: "Do you shoot?", a: "We coordinate trusted videographers and handle post end-to-end." },
@@ -54,7 +57,7 @@ export const contentServices: Service[] = [
     title: "Thumbnail Design",
     pillar: "content",
     tagline: "Thumbnails engineered for the click.",
-    description: "Custom thumbnails built on readability-at-a-glance principles with A/B variants where volume justifies testing.",
+    description:       "Custom thumbnails built on readability-at-a-glance principles, with A/B variants where volume justifies testing and a consistent visual system.",
     body: [
       "A thumbnail has half a second to earn a click. Readable text at 120px wide, clear expressions, subject-background contrast, three visual elements maximum. We design within those constraints so thumbnails work at any size.",
       "Share three recent thumbnails you like and we reverse-engineer the visual system, then refine against click performance data.",
@@ -63,7 +66,8 @@ export const contentServices: Service[] = [
     timeline: "1–2 business days per batch",
     processStages: ["Brief review", "Design pass", "Variants", "Delivery"],
     exclusions: ["Full video editing"],
-    priceBand: "TODO(positioning)",
+    priceBand:
+      "Quoted per batch or monthly volume. Agreed in writing before work starts.",
     faqs: [
       { q: "Do you need raw footage?", a: "Helpful but not required — quality stills plus brief suffice." },
       { q: "Can you match an existing channel style?", a: "Yes — send three thumbnails you're happy with and we'll reverse-engineer the system." },
@@ -77,7 +81,7 @@ export const contentServices: Service[] = [
     title: "Online Events",
     pillar: "content",
     tagline: "Webinars and digital events that run boringly on schedule.",
-    description: "End-to-end virtual event production: platform setup, registration flows, rehearsal support, live streaming and analytics.",
+    description:       "End-to-end virtual event production: platform setup, registration flows, rehearsal support, live streaming and post-event analytics you can use.",
     body: [
       "Virtual events succeed on preparation, not improvisation. Platform selected for audience size and budget, registration flows tested before promotion starts, rehearsal run with all speakers, engagement tools configured, analytics captured from first minute to last question.",
       "Recurring series benefit most: registration funnels compound and production checklists mature with each edition.",
@@ -86,7 +90,7 @@ export const contentServices: Service[] = [
     timeline: "Setup 2 weeks before event; production day-of",
     processStages: ["Platform setup", "Registration launch", "Rehearsal", "Event delivery"],
     exclusions: ["Physical venue coordination", "Speaker booking fees"],
-    priceBand: "TODO(positioning)",
+    priceBand: "Quoted per event after scope review. Written before work starts.",
     faqs: [
       { q: "Can you run recurring series?", a: "Yes — recurring formats benefit most, since registration funnels compound and production checklists mature with each edition." },
       { q: "Which platforms?", a: "Zoom, StreamYard, YouTube Live or custom stacks chosen per event." },

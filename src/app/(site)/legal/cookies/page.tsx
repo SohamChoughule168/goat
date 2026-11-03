@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/seo";
-import { site } from "@/content/site";
 
 export const metadata: Metadata = createMetadata({
   title: "Cookie Policy",
@@ -10,7 +9,7 @@ export const metadata: Metadata = createMetadata({
 
 export default function CookiesPage() {
   return (
-    <main className="shell section-y max-w-3xl">
+    <div className="shell section-y max-w-3xl">
       <p className="micro">Legal</p>
       <h1 className="display mt-4">Cookie Policy</h1>
       <p className="lede mt-5 text-sm">Last updated: August 2026</p>
@@ -26,9 +25,8 @@ export default function CookiesPage() {
         <section>
           <h2 className="text-h4 font-semibold">What we do store</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Your theme preference (light or dark) is saved in localStorage under
-            the key <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">imaginars-theme</code>.
-            This is a functional preference, not a tracking cookie, and it never leaves your browser.
+            This site does not save a theme preference or similar settings in your
+            browser. The interface uses a single visual system for every visitor.
           </p>
         </section>
         <section>
@@ -39,6 +37,6 @@ export default function CookiesPage() {
           </p>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

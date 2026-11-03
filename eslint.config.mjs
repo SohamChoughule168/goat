@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Build tooling — plain Node scripts, not app code:
+    "scripts/**",
+    "glsl-loader.mjs",
+    // Project-local skill instructions and third-party starter assets:
+    ".opencode/**",
   ]),
 ]);
 
