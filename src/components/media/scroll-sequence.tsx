@@ -21,6 +21,8 @@ interface ScrollSequenceProps {
   frames: readonly SequenceFrame[];
   note?: string;
   action?: ReactNode;
+  /** Optional stable anchor id for in-page navigation. */
+  sectionId?: string;
 }
 
 /**
@@ -34,6 +36,7 @@ export default function ScrollSequence({
   frames,
   note,
   action,
+  sectionId,
 }: ScrollSequenceProps): ReactNode {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [active, setActive] = useState(0);
@@ -45,6 +48,7 @@ export default function ScrollSequence({
   return (
     <section
       className="inst-sequence"
+      id={sectionId}
       ref={sectionRef}
       aria-labelledby={headingId}
       data-active={active}

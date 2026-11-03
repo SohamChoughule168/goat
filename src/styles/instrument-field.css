@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Instrument Field — the operating field drawing (Canvas 2D)
+   Parts: .instrument-field .instrument-head .instrument-body
+          .instrument-plate .instrument-legend
+   ========================================================================== */
+
+.instrument-field {
+  background:
+    linear-gradient(180deg, var(--bone) 0%, var(--bone) 62%, var(--bone-2) 100%);
+}
+
+.instrument-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.instrument-lede {
+  max-width: 38ch;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--ink-3);
+}
+
+.instrument-body {
+  margin-top: 2.75rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.6fr);
+  align-items: start;
+}
+
+.instrument-plate {
+  position: relative;
+  margin: 0;
+  border: 1px solid var(--rule-strong);
+  background: var(--bone);
+  box-shadow: 0 1px 0 var(--rule);
+}
+
+.instrument-plate canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  touch-action: pan-y;
+}
+
+.instrument-plate figcaption {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.6rem;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  opacity: 0.85;
+}
+
+.instrument-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.instrument-legend-item {
+  display: flex;
+  gap: 0.875rem;
+  padding: 0.6rem 0.125rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.instrument-legend-index {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  padding-top: 0.15rem;
+}
+
+.instrument-legend-title {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 560;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.instrument-legend-short {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .instrument-legend-short {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--ink-3);
+  }
+}
+
+@media (max-width: 960px) {
+  .instrument-body {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .instrument-plate canvas {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .instrument-head {
+    align-items: flex-start;
+  }
+
+  .instrument-plate canvas {
+    aspect-ratio: 5 / 4;
+  }
+}

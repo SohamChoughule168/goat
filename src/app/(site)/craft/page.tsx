@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import "../../../styles/evidence.css";
+import "../../../styles/craft.css";
 import EvidenceHeader from "@/components/evidence/evidence-header";
 import CraftLab from "@/components/craft/craft-lab";
 import { CRAFT_STATS } from "@/content/craft";

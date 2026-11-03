@@ -6,6 +6,7 @@ import { institutionFrames } from "@/content/institution";
 export default function InstitutionSequence() {
   return (
     <ScrollSequence
+      sectionId="home-sequence"
       label="One day, four layers"
       title="From the first enquiry to the final record."
       lede="The same definitions move through every branch. Nothing is re-keyed between the desk, the record and the report."

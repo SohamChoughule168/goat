@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 
 interface NavItem {
@@ -11,9 +9,10 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Hero", href: "#home-hero" },
   { label: "Sequence", href: "#home-sequence" },
   { label: "Stack", href: "#home-stack" },
+  { label: "Proof", href: "#home-evidence" },
+  { label: "Field", href: "#home-field" },
   { label: "Capabilities", href: "#home-capabilities" },
-  { label: "Command Center", href: "#home-command" },
-  { label: "Features", href: "#home-premium" },
+  { label: "Command", href: "#home-command" },
   { label: "Method", href: "#home-method" },
   { label: "Pricing", href: "#home-economics" },
   { label: "Trust", href: "#home-trust" },

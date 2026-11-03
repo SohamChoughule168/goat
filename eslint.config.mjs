@@ -17,6 +17,11 @@ const eslintConfig = defineConfig([
     "glsl-loader.mjs",
     // Project-local skill instructions and third-party starter assets:
     ".opencode/**",
+    // Private creative resource library — local only, never part of the site:
+    "higgsfield/**",
+    // Local deployment scratch scripts:
+    "deploy-here.js",
+    "publish.sh",
   ]),
 ]);
 

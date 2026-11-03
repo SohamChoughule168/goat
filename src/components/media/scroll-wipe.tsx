@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import ScrollImageReveal from "@/components/media/scroll-image-reveal";
 

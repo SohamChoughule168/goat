@@ -6,7 +6,7 @@ Canonical site: https://www.imaginarsclubservices.com/
 Contact: imaginarsclubs@gmail.com | +91 93728 09022
 Address: 3, Vikrant Residency, Near Station Road, Kanjur Marg East, Mumbai 400042, India
 Hours: Monday–Saturday, 9:00 AM–7:00 PM IST
-Last updated: 2026-10-25
+Last updated: 2026-11-04
 
 ## What we do
 
@@ -30,6 +30,13 @@ Last updated: 2026-10-25
 - About: https://www.imaginarsclubservices.com/about/
 - Contact: https://www.imaginarsclubservices.com/contact/
 - Scope estimator: https://www.imaginarsclubservices.com/estimate/
+- Request a quote: https://www.imaginarsclubservices.com/quote/
+- Book a working session: https://www.imaginarsclubservices.com/book/
+- Process: https://www.imaginarsclubservices.com/process/
+- Trust terms: https://www.imaginarsclubservices.com/trust/
+- FAQ: https://www.imaginarsclubservices.com/faq/
+- Careers: https://www.imaginarsclubservices.com/careers/
+- Craft workshop (how the studio builds): https://www.imaginarsclubservices.com/craft/
 
 ## Services
 

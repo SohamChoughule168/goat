@@ -4,8 +4,10 @@ import "./globals.css";
 import "../styles/editorial.css";
 import "../styles/experience.css";
 import "../styles/institutional.css";
-import "../styles/evidence.css";
-import "../styles/craft.css";
+import "../styles/instrument-field.css";
+import "../styles/performance.css";
+/* evidence.css and craft.css are route-scoped:
+   imported only by the pages that render their components. */
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { buildGraph, OG_IMAGE_ALT, OG_IMAGE_PATH } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/jsonld";

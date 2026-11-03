@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 const home = readFileSync("src/app/(site)/page.tsx", "utf8");
-const hero = readFileSync("src/components/home/institution-hero.tsx", "utf8");
+const hero = readFileSync("src/components/home/cinematic-hero.tsx", "utf8");
 
 describe("homepage media and records copy", () => {
   it("removes the published earnings figure", () => {
@@ -16,10 +16,10 @@ describe("homepage media and records copy", () => {
     expect(home).toContain("the admissions process and the reports you do not trust");
   });
 
-  it("mounts the sequence and no longer mounts the Instrument stage", () => {
+  it("mounts the sequence, the instrument field, and the photo-led hero", () => {
     expect(home).toContain("InstitutionSequence");
+    expect(home).toContain("InstrumentField");
     expect(hero).not.toContain("InstrumentStage");
     expect(hero).toContain("institutionHero");
-    expect(hero).toContain("institutionLayers");
   });
 });

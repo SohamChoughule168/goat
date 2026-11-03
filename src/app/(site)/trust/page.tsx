@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import "../../../styles/evidence.css";
 import EvidenceHeader from "@/components/evidence/evidence-header";
 import TrustSeal from "@/components/evidence/trust-seal";
 import HandoverCinema from "@/components/trust/handover-cinema";

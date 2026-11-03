@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import "../../../styles/evidence.css";
 import EvidenceHeader from "@/components/evidence/evidence-header";
 import ScopeMatrix from "@/components/evidence/scope-matrix";
 import { createMetadata } from "@/lib/seo";

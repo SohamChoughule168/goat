@@ -2,39 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import CinematicHero from "@/components/home/cinematic-hero";
-import ScrollWipe from "@/components/media/scroll-wipe";
-import PremiumFeatures from "@/components/home/premium-features";
-import BeforeAfterSlider from "@/components/media/before-after-slider";
-import SectionNavigator from "@/components/layout/section-navigator";
-import PremiumFooter from "@/components/layout/premium-footer";
-import ScrollProgress from "@/components/layout/scroll-progress";
 import InstitutionSequence from "@/components/home/institution-sequence";
-import HiggsfieldStudio from "@/components/home/higgsfield-studio";
-import MCPSkillsShowcase from "@/components/home/mcp-skills-showcase";
-import FeaturedGrid from "@/components/home/featured-grid";
 import FitCheck from "@/components/home/fit-check";
 import InstitutionStack from "@/components/home/institution-stack";
 import EvidenceRoom from "@/components/home/evidence-room";
 import CapabilityLedger from "@/components/home/capability-ledger";
 import CommandCenter from "@/components/home/command-center";
-import InstitutionHero from "@/components/home/institution-hero";
-import ServicesBento from "@/components/home/services-bento";
-import TestimonialCards from "@/components/home/testimonial-cards";
-import ImageGallery3D from "@/components/media/image-gallery-3d";
-import Video3DParallax from "@/components/media/video-3d-parallax";
-import ImageStack3D from "@/components/media/image-stack-3d";
-import GlassCards from "@/components/home/glass-cards";
-import ScrollSyncedImages from "@/components/media/scroll-synced-images";
-import DepthParallaxHero from "@/components/media/depth-parallax-hero";
-import ScrollRevealGrid from "@/components/media/scroll-reveal-grid";
-import AppleShowcase from "@/components/home/apple-showcase";
-import InfiniteMarquee from "@/components/media/infinite-marquee";
-import SplitScroll from "@/components/media/split-scroll";
-import TextScramble from "@/components/media/text-scramble";
-import PinSection from "@/components/media/pin-section";
-import GradientMesh from "@/components/media/gradient-mesh";
-import ClientPortalDashboard from "@/components/home/client-portal-dashboard";
-import BeforeAfterShowcase from "@/components/home/before-after-showcase";
+import InstrumentField from "@/components/home/instrument-field";
+import ScrollWipe from "@/components/media/scroll-wipe";
+import SectionNavigator from "@/components/layout/section-navigator";
+import ScrollProgress from "@/components/layout/scroll-progress";
 import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { insights } from "@/content/insights";
@@ -73,11 +50,8 @@ export default function HomePage() {
     <>
       <ScrollProgress />
       <SectionNavigator />
-      <GradientMesh />
 
       <CinematicHero />
-
-      <HiggsfieldStudio />
 
       <div className="signal-bar">
         <div className="inst-shell signal-bar-inner">
@@ -137,6 +111,8 @@ export default function HomePage() {
 
       <EvidenceRoom />
 
+      <InstrumentField />
+
       <section className="inst-section" aria-labelledby="home-capabilities">
         <div className="inst-shell">
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -156,6 +132,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ScrollWipe />
 
       <section className="inst-dark" aria-labelledby="home-command">
         <div className="inst-section">
@@ -185,55 +163,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <PremiumFeatures />
-
-      <ScrollWipe />
-
-      <BeforeAfterSlider />
-
-      <ServicesBento />
-
-      <TestimonialCards />
-
-      <ImageGallery3D />
-
-      <Video3DParallax
-        src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-        poster="/media/institution/sequence-03-1600.webp"
-        alt="Material study in motion"
-        label="Motion by design"
-        title="Video that moves with you."
-        lede="Scroll through this section and the video tilts, rotates and scales in 3D space — synced to your scroll position. No autoplay, no loop, just scroll-driven parallax."
-      />
-
-      <ImageStack3D />
-
-      <GlassCards />
-
-      <ScrollSyncedImages />
-
-      <GradientMesh />
-
-      <DepthParallaxHero />
-
-      <ScrollRevealGrid />
-
-      <AppleShowcase />
-
-      <InfiniteMarquee />
-
-      <SplitScroll />
-
-      <PinSection />
-
-      <MCPSkillsShowcase />
-
-      <FeaturedGrid />
-
-      <ClientPortalDashboard />
-
-      <BeforeAfterShowcase />
 
       <section className="inst-section" aria-labelledby="home-method">
         <div className="inst-shell">
@@ -425,8 +354,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <PremiumFooter />
     </>
   );
 }

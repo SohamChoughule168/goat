@@ -44,7 +44,7 @@ const nextConfig: NextConfig = {
 
   // Experimental performance features
   experimental: {
-    optimizePackageImports: ["framer-motion"],
+    optimizePackageImports: ["framer-motion", "lucide-react"],
   },
 
   // Source maps in production for debugging

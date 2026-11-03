@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { institutionHero } from "@/content/institution";
 import { useReducedMotion } from "@/lib/motion/use-reduced-motion";
 
@@ -110,16 +110,16 @@ export default function CinematicHero() {
               { index: "02", title: "Website", meta: "Public front door" },
               { index: "03", title: "Admissions", meta: "Enquiry to enrolment" },
               { index: "04", title: "Intelligence", meta: "One reporting layer" },
-            ].map((layer, i) => (
-              <>
-                <dt key={layer.index + "-term"} className="cinematic-legend-item cinematic-legend-reveal">
+            ].map((layer) => (
+              <Fragment key={layer.index}>
+                <dt className="cinematic-legend-item cinematic-legend-reveal">
                   <span className="cinematic-legend-index">{layer.index}</span>
                   <span className="cinematic-legend-title">{layer.title}</span>
                 </dt>
-                <dd key={layer.index + "-def"} className="cinematic-legend-meta cinematic-legend-reveal">
+                <dd className="cinematic-legend-meta cinematic-legend-reveal">
                   {layer.meta}
                 </dd>
-              </>
+              </Fragment>
             ))}
           </dl>
 

@@ -1,0 +1,40 @@
+/* ==========================================================================
+   V3 performance layer — long-page rendering discipline.
+
+   The homepage is a long editorial page. `content-visibility: auto` lets the
+   browser skip style, layout and paint for sections that are far offscreen,
+   which keeps first-load style/layout cost flat as the page grows.
+
+   Rules for keeping this safe:
+   - Never applied to sticky/pinned sections (the scroll sequence owns its
+     own sticky frame).
+   - Never applied to the instrument field (its canvas is observed with
+     IntersectionObserver and must stay renderable).
+   - `contain-intrinsic-size: auto <estimate>` remembers each section's real
+     size after first render, so scroll position stays stable.
+   ========================================================================== */
+
+.inst-section,
+.inst-section-tight,
+.inst-dark,
+.wipe-section,
+.final-cta,
+.premium-footer,
+.notes-grid,
+.method-grid,
+.trust-grid,
+.economics-grid {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 640px;
+}
+
+/* Exemptions: sticky, observed, or instrument-driven sections. */
+.inst-sequence,
+.sequence-sticky,
+.instrument-field,
+.cinematic-hero,
+.fit-check,
+.text-stack {
+  content-visibility: visible;
+  contain-intrinsic-size: none;
+}

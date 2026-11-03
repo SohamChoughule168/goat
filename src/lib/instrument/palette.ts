@@ -43,3 +43,27 @@ export function readInstrumentPalette(
 
   return palette;
 }
+
+export interface InstrumentFonts {
+  sans: string;
+  mono: string;
+}
+
+const FONT_FALLBACK: InstrumentFonts = {
+  sans: "ui-sans-serif, system-ui, sans-serif",
+  mono: "ui-monospace, SFMono-Regular, Menlo, monospace",
+};
+
+/** Resolves the next/font families for canvas drawing (canvas cannot use CSS vars). */
+export function readInstrumentFonts(
+  root: HTMLElement | undefined = typeof document === "undefined"
+    ? undefined
+    : document.documentElement,
+): InstrumentFonts {
+  if (!root) return { ...FONT_FALLBACK };
+  const styles = getComputedStyle(root);
+  return {
+    sans: styles.getPropertyValue("--font-geist-sans").trim() || FONT_FALLBACK.sans,
+    mono: styles.getPropertyValue("--font-geist-mono").trim() || FONT_FALLBACK.mono,
+  };
+}

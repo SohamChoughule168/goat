@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import "../../../styles/evidence.css";
 import EvidenceHeader from "@/components/evidence/evidence-header";
 import PlatformMap from "@/components/evidence/platform-map";
 import { createMetadata } from "@/lib/seo";
