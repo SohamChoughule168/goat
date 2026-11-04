@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { institutionHero } from "@/content/institution";
 import { useReducedMotion } from "@/lib/motion/use-reduced-motion";
 

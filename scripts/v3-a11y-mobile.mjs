@@ -30,6 +30,16 @@ for (const route of routes) {
   const page = await context.newPage();
   await page.goto(base + route, { waitUntil: "networkidle", timeout: 60000 });
   await page.waitForTimeout(700);
+  // Walk the page once so `content-visibility: auto` sections render before
+  // analysis — otherwise getComputedStyle returns UA defaults for skipped
+  // subtrees and axe reports contrast false positives.
+  const height = await page.evaluate(() => document.body.scrollHeight);
+  for (let y = 0; y < height; y += 700) {
+    await page.evaluate((yy) => window.scrollTo(0, yy), y);
+    await page.waitForTimeout(90);
+  }
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(500);
   const results = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
     .analyze();

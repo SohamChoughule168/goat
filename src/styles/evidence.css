@@ -148,14 +148,6 @@
   color: var(--ink-4);
 }
 
-.ev-h3 {
-  font-size: clamp(1.25rem, 2vw, 1.625rem);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-  color: var(--ink);
-}
-
 .ev-section-head {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.55fr);
@@ -2595,7 +2587,21 @@
 
 .handover-plate[data-state="past"] {
   transform: translateY(calc(var(--plate-i) * -6px));
-  opacity: 0.55;
+  /* V3 a11y: 0.55 dropped body text below 4.5:1. 0.8 with a darkened text
+     ramp keeps the receding-stack effect legible (WCAG 2.2 AA). */
+  opacity: 0.8;
+}
+
+.handover-plate[data-state="past"] .inst-h3 {
+  color: var(--ink);
+}
+
+.handover-plate[data-state="past"] .inst-body {
+  color: var(--ink-2);
+}
+
+.handover-plate[data-state="past"] :is(.inst-label, .inst-num, .inst-tag) {
+  color: var(--ink-3);
 }
 
 .handover-plate[data-state="active"] {

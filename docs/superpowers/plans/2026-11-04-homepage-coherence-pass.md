@@ -69,12 +69,17 @@ notes → final CTA. Everything above is out of scope of that design.
 - [x] Snapshot commit created (dangling, tree untouched).
 - [x] Before evidence captured: live preview 34 sections; 390px overflow 0; 6 console
       errors; `.com` title/h1 recorded for isolation check.
-- [ ] Homepage recomposed
-- [ ] Hero fixed
-- [ ] Sequence anchor + navigator updated
-- [ ] Rogue/orphan files deleted
-- [ ] CSS pruned
-- [ ] Tests updated and green
-- [ ] Build + e2e + Lighthouse + axe
-- [ ] Preview deployed + aliased
-- [ ] `.com` isolation re-verified
+
+**SUPERSEDED — completed by the V3 session on the same day, with a different hero
+decision.** See `docs/master-v3-plan.md` and `docs/master-v3-innovation-report.md`.
+Deviations from this plan, all deliberate:
+
+- The mounted hero is `cinematic-hero.tsx` (the one actually rendered since V2); it was
+  kept and fixed (fragment keys, paint cost). `institution-hero.tsx` was unused and has
+  been deleted; `home-copy.test.ts` was retargeted to `cinematic-hero.tsx`.
+- CSS pruning removed whole retired-component sections (31KB) rather than doing a
+  selector-level pass; a token-level prune remains a documented follow-up.
+- A new signature section, `InstrumentField` (Canvas 2D operating field), was added to the
+  curated homepage, which now runs: hero → signal bar → sequence → fit check → premise →
+  stack → evidence → field → capabilities → wipe → command → method → economics → trust →
+  notes → final CTA (17 sections, 53,072px → 21,127px).
