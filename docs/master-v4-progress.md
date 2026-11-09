@@ -20,7 +20,7 @@
 | 7 | 3D engineering (craft surface) | ⏳ | Not started (homepage stays no-WebGL per spec) |
 | 8 | Business/conversion review | ⏳ | Not started |
 | 9 | Performance/SEO/a11y audit | ⏳ | Not started |
-| 10 | Improvement cycles A–H | ⏳ | Cycle A (creative) + Cycle F (business) next |
+| 10 | Improvement cycles A–H | ✅ Cycle A done | Cycle A (creative): capability ledger elevated — row hover, cobalt arrow, featured flagship (web-development), pillar headers; within monochrome palette |
 | 11 | Deploy + verify | ✅ | Deployed live @ goat-wheat.vercel.app; .com isolation confirmed unchanged |
 | 12 | Final report | ⏳ | Not started |
 

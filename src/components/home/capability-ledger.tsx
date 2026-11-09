@@ -67,7 +67,10 @@ export default function CapabilityLedger() {
               </th>
             </tr>
             {services.map(({ service, number }) => (
-              <tr key={service.slug} className="ledger-row">
+              <tr
+                key={service.slug}
+                className={`ledger-row${service.slug === "web-development" ? " ledger-row--featured" : ""}`}
+              >
                 <td className="ledger-index inst-num">{number}</td>
                 <td className="ledger-capability">
                   <Link href={`/services/${service.slug}`}>

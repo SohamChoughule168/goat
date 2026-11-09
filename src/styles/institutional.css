@@ -1183,6 +1183,53 @@ h6 {
   padding-top: 1.5rem;
 }
 
+.economics-card {
+  transition: transform 180ms var(--ease-state), border-color 180ms var(--ease-state), box-shadow 180ms var(--ease-state);
+}
+.economics-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cobalt);
+  box-shadow: 0 24px 60px rgba(17, 18, 15, 0.06);
+}
+
+.economics-card[data-featured="true"] {
+  position: relative;
+  border-left: 3px solid var(--cobalt);
+}
+.economics-card[data-featured="true"]::before {
+  content: "Recommended";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  background: var(--chip);
+  padding: 0.25rem 0.5rem;
+  border-radius: 2px;
+}
+
+.economics-card a {
+  position: relative;
+  z-index: 1;
+}
+.economics-card:hover a .inst-link-arrow {
+  transform: translateX(4px);
+  transition: transform 180ms var(--ease-state);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .economics-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .economics-card:hover .inst-link-arrow {
+    transform: none;
+  }
+}
+
 .trust-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2087,6 +2134,55 @@ h6 {
   font-size: 0.5rem;
   letter-spacing: 0.12em;
   color: var(--ink-4);
+}
+
+/* V4 — Capability ledger elevation (monochrome palette, cobalt accent only). */
+.ledger-group-row th {
+  padding-top: 2.25rem;
+  padding-bottom: 0.75rem;
+}
+.ledger-group-row th .inst-num {
+  color: var(--cobalt);
+}
+
+.ledger-row {
+  transition: background 180ms var(--ease-state);
+}
+.ledger-row:hover {
+  background: var(--chip);
+}
+.ledger-row:hover .ledger-arrow svg {
+  stroke: var(--cobalt);
+  transform: translateX(4px);
+  transition: transform 180ms var(--ease-state), stroke 180ms var(--ease-state);
+}
+
+.ledger-capability .ledger-outcome {
+  max-width: 46ch;
+  color: var(--ink-2);
+}
+
+.ledger-row--featured {
+  position: relative;
+}
+.ledger-row--featured .ledger-title {
+  color: var(--cobalt);
+  font-weight: 600;
+}
+.ledger-row--featured::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--cobalt);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ledger-row:hover .ledger-arrow svg {
+    transform: none;
+  }
 }
 
 @media (max-width: 900px) {
