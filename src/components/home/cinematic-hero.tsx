@@ -1,53 +1,105 @@
 "use client";
 
 import Link from "next/link";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { institutionHero } from "@/content/institution";
 import { useReducedMotion } from "@/lib/motion/use-reduced-motion";
+import TextSplit from "@/components/motion/text-split";
 
 /**
- * Cinematic Hero — Apple-grade hero with multi-layer photo composition,
- * Ken Burns scroll effect, and smooth text reveals.
+ * Cinematic Hero — V4 premium hero.
  *
  * Layers:
- *   - Base: full-bleed hero image with slow Ken Burns scale
- *   - Overlay 1: textured paper layer that drifts with scroll
- *   - Overlay 2: ink plume accent that floats and scales
- * All pure CSS transforms — no WebGL, no 3D models.
+ *   - Base: full-bleed paper photo with slow Ken Burns scroll drift
+ *   - Accent: cropped cinema texture glowing behind the paper
+ *   - Overlay: soft ink plume accent
+ *
+ * Typography:
+ *   - Headline split per-word for a sequential cinematic reveal
+ *   - Lede, proof line, CTAs revealed in sequence
+ *
+ * Interaction:
+ *   - Primary CTA is magnetic (fine pointer only, disabled under reduced motion)
+ *   - All copy is server-rendered HTML first; motion is progressive enhancement
+ *   - No WebGL — pure CSS + gsap via the shared scroll controller
  */
 export default function CinematicHero() {
   const reduced = useReducedMotion();
   const [revealed, setRevealed] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const accentRef = useRef<HTMLDivElement>(null);
 
-  // Scroll-driven Ken Burns on the hero image
+  // Scroll-driven Ken Burns + depth on the base image
   useEffect(() => {
-    if (!reduced) {
-      const img = document.querySelector(".cinematic-base-img");
-      const handleScroll = () => {
-        const scrolled = window.scrollY;
-        const scale = 1 + scrolled * 0.00015;
-        const translateY = scrolled * 0.05;
-        if (img) {
-          (img as HTMLElement).style.transform = `scale(${Math.min(scale, 1.15)}) translateY(${translateY}px)`;
-        }
-      };
-      window.addEventListener("scroll", handleScroll, { passive: true });
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
+    if (reduced || !imgRef.current) return;
+    const img = imgRef.current;
+    const accent = accentRef.current;
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const scale = 1 + scrolled * 0.00012;
+      const translateY = scrolled * 0.04;
+      img.style.transform = `scale(${Math.min(scale, 1.12)}) translateY(${translateY}px)`;
+      if (accent) {
+        accent.style.transform = `translateY(${scrolled * 0.025}px)`;
+        accent.style.opacity = String(Math.min(0.35 + scrolled * 0.0003, 0.5));
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [reduced]);
+
+  // Magnetic CTA (fine pointer only)
+  const btnRef = useRef<HTMLAnchorElement>(null);
+  const [mag, setMag] = useState({ x: 0, y: 0 });
+  useEffect(() => {
+    if (reduced || !btnRef.current) return;
+    const btn = btnRef.current;
+    const handleMove = (event: MouseEvent) => {
+      const rect = btn.getBoundingClientRect();
+      const x = event.clientX - rect.left - rect.width / 2;
+      const y = event.clientY - rect.top - rect.height / 2;
+      const dist = Math.hypot(x, y);
+      const force = Math.max(0, 1 - dist / 120);
+      setMag({ x: x * force * 0.35, y: y * force * 0.35 });
+    };
+    const handleLeave = () => setMag({ x: 0, y: 0 });
+    btn.addEventListener("pointermove", handleMove, { passive: true });
+    btn.addEventListener("pointerleave", handleLeave);
+    return () => {
+      btn.removeEventListener("pointermove", handleMove);
+      btn.removeEventListener("pointerleave", handleLeave);
+    };
   }, [reduced]);
 
   // Reveal animation on mount
   useEffect(() => {
-    const timer = setTimeout(() => setRevealed(true), 100);
+    const timer = setTimeout(() => setRevealed(true), 120);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <section className="cinematic-hero" aria-labelledby="home-hero">
       <div className="cinematic-bg" />
-      
+
       <div className="cinematic-layers">
+        {/* Texture accent behind the paper — subtle depth, no WebGL. */}
+        <div
+          ref={accentRef}
+          className="cinematic-layer cinematic-layer-accent"
+          aria-hidden="true"
+        >
+          <img
+            src="/media/institution/hero-texture-accent.webp"
+            alt=""
+            width={900}
+            height={1350}
+            loading="lazy"
+            decoding="async"
+            className="cinematic-accent-img"
+          />
+        </div>
         <img
+          ref={imgRef}
           src={institutionHero.src}
           srcSet={institutionHero.srcSet}
           sizes="(max-width: 1023px) 100vw, 1200px"
@@ -70,10 +122,14 @@ export default function CinematicHero() {
           >
             Independent studio / Mumbai / Est. 2024
           </p>
-          <h1 id="home-hero" className={`inst-display-xl cinematic-headline cinematic-headline-reveal ${revealed ? "revealed" : ""}`}>
-            One system.
-            <br />
-            <span className="inst-serif">Every branch.</span>
+          <h1
+            id="home-hero"
+            className={`inst-display-monument cinematic-headline cinematic-headline-reveal ${revealed ? "revealed" : ""}`}
+          >
+            <TextSplit variant="word" inlineClass="ts-line">One system.</TextSplit>
+            <TextSplit variant="word" inlineClass="ts-line inst-serif">
+              Every branch.
+            </TextSplit>
           </h1>
           <p
             className={`inst-lede cinematic-lede cinematic-lede-reveal ${revealed ? "revealed" : ""}`}
@@ -86,11 +142,26 @@ export default function CinematicHero() {
             Verified build: PRV Financial Services, live since April 2025.
           </p>
           <div className="cinematic-actions">
-            <Link href="/#fit-check" className="inst-btn cinematic-btn cinematic-btn-primary">
+            <Link
+              href="/#fit-check"
+              className="inst-btn cinematic-btn cinematic-btn-primary"
+              ref={btnRef}
+              style={
+                reduced
+                  ? {}
+                  : {
+                      transform: `translate(${mag.x}px, ${mag.y}px)`,
+                      transition: reduced ? "none" : "transform 0.15s cubic-bezier(.2,.8,.2,1)",
+                    }
+              }
+            >
               Check fit in 60 seconds
-              <span className="btn-shine" />
+              <span className="btn-shine" aria-hidden="true" />
             </Link>
-            <Link href="/work" className="inst-btn inst-btn-ghost cinematic-btn cinematic-btn-secondary">
+            <Link
+              href="/work"
+              className="inst-btn inst-btn-ghost cinematic-btn cinematic-btn-secondary"
+            >
               See the proof
             </Link>
           </div>
@@ -116,7 +187,7 @@ export default function CinematicHero() {
                   <span className="cinematic-legend-index">{layer.index}</span>
                   <span className="cinematic-legend-title">{layer.title}</span>
                 </dt>
-                <dd className="cinematic-legend-meta cinematic-legend-reveal">
+                <dd key={`${layer.index}-def`} className="cinematic-legend-meta cinematic-legend-reveal">
                   {layer.meta}
                 </dd>
               </Fragment>

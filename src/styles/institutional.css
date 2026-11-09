@@ -63,6 +63,16 @@
   --inst-h2: clamp(2.25rem, 4vw, 3.5rem);
   --inst-h3: clamp(1.375rem, 2vw, 1.75rem);
   --inst-lede: clamp(1.125rem, 1.4vw, 1.375rem);
+
+  /* V4 cinematic refinements */
+  --inst-display-monument: clamp(5.5rem, 12vw, 11rem);
+  --inst-track-tight: -0.05em;
+  --inst-track-loose: 0.12em;
+  --inst-depth-layer: rgba(17, 18, 15, 0.06);
+  --inst-accent-line: 1px solid var(--cobalt);
+  --inst-rule-fine: 0.5px solid var(--rule);
+  --inst-chip: rgba(31, 58, 218, 0.08);
+  --inst-focus-ring: 0 0 0 2px var(--cobalt);
 }
 
 @media (max-width: 767px) {
@@ -4990,6 +5000,44 @@ h6 {
   filter: blur(3px);
   z-index: 1;
   mix-blend-mode: screen;
+}
+
+/* V4 — cinema texture accent behind the paper: soft depth, no WebGL. */
+.cinematic-layer-accent {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 62%;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(26px) saturate(1.1);
+  opacity: 0.28;
+  mix-blend-mode: soft-light;
+  will-change: transform, opacity;
+}
+
+.cinematic-accent-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.inst-display-monument {
+  font-family: var(--font-sans);
+  font-size: var(--inst-display-monument);
+  font-weight: 500;
+  letter-spacing: var(--inst-track-tight);
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+.ts-line {
+  display: block;
+  margin: 0;
 }
 
 .cinematic-shell {

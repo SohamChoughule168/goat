@@ -1,0 +1,104 @@
+{
+  "base": "https://goat-govg23er2-sohamchoughule168s-projects.vercel.app",
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "h1": "One system.Every branch.",
+      "overflow": 0,
+      "title": "Websites and student systems for institutes / ImaginarsClub",
+      "newErrors": 0
+    },
+    {
+      "route": "/platform/",
+      "status": 200,
+      "h1": "The institute, layer by layer.",
+      "overflow": 0,
+      "title": "The platform / ImaginarsClub",
+      "newErrors": 0
+    },
+    {
+      "route": "/solutions/",
+      "status": 200,
+      "h1": "One platform. Four realities.",
+      "overflow": 0,
+      "title": "Solutions by institution type / ImaginarsClub",
+      "newErrors": 0
+    },
+    {
+      "route": "/work/",
+      "status": 200,
+      "h1": "Case studies you can check.",
+      "overflow": 0,
+      "title": "Work — Case Studies With Sources / ImaginarsClub",
+      "newErrors": 0
+    },
+    {
+      "route": "/pricing/",
+      "status": 200,
+      "h1": "Clear scope, honest bands.",
+      "overflow": 0,
+      "title": "Pricing — websites, portals and apps / ImaginarsClub",
+      "newErrors": 0
+    },
+    {
+      "route": "/process/",
+      "status": 200,
+      "h1": "Four phases. No black boxes.",
+      "overflow": 0,
+      "title": "Process — How an Engagement Runs / ImaginarsClub",
+      "newErrors": 0
+    },
+    {
+      "route": "/trust/",
+      "status": 200,
+      "h1": "Claims are cheap. This page is specific.",
+      "overflow": 0,
+      "title": "Trust & Security / ImaginarsClub",
+      "newErrors": 0
+    },
+    {
+      "route": "/craft/",
+      "status": 200,
+      "h1": "The workshop, not the showroom.",
+      "overflow": 0,
+      "title": "Craft — the workshop / ImaginarsClub",
+      "newErrors": 0
+    },
+    {
+      "route": "/about/",
+      "status": 200,
+      "h1": "Small on purpose. Senior by default.",
+      "overflow": 0,
+      "title": "About the Studio / ImaginarsClub",
+      "newErrors": 0
+    },
+    {
+      "route": "/contact/",
+      "status": 200,
+      "h1": "Tell us what you're building.",
+      "overflow": 0,
+      "title": "Contact — Start a Project / ImaginarsClub",
+      "newErrors": 0
+    },
+    {
+      "route": "/book/",
+      "status": 200,
+      "h1": "A working call,not a pitch.",
+      "overflow": 0,
+      "title": "Book a discovery call — ImaginarsClub Services / ImaginarsClub",
+      "newErrors": 0
+    },
+    {
+      "route": "/blueprint/",
+      "status": 200,
+      "h1": "Plan the systembefore you price the page.",
+      "overflow": 0,
+      "title": "Institution blueprint — plan before you build / ImaginarsClub",
+      "newErrors": 0
+    }
+  ],
+  "junkFound": [],
+  "consoleErrors": [],
+  "mobileOverflow": 0
+}
