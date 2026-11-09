@@ -4,7 +4,7 @@
 **Authorized target:** `https://goat-wheat.vercel.app/` (Vercel project `goat`, team `sohamchoughule168s-projects`).
 **Forbidden:** every `.com` domain. Verified isolated: `imaginarsclubservices.com` + `www` are aliased to a
 *different* project (`imaginars-club-website-8iwqmm5yj`), never touched by any command in this session.
-**Started (V3):** 2026-11-04 · **Checkpoints:** `3feae54` (V2 state preserved) → `cd090cd` (V3 work).
+**Started (V3):** 2026-11-04 · **Checkpoints:** `3feae54` → `cd090cd` (V3 work) → `afe0fa6` (contrast+prune) → `1b2f18a` (Round 2 motion).
 
 ## Phase status
 
@@ -20,9 +20,9 @@
 | 7 | Accessibility pass | ✅/🔧 | Footer heading order fixed; WCAG 2.2 target-size for footer links; mobile axe now green on 11 routes; trust handover-plate contrast fix applied (0.55 → 0.8 + darkened ramp) |
 | 8 | Gates | ✅ | typecheck 0 · vitest 116/116 · contrast 71/71 · token-lint clean · eslint 0 errors · e2e 58/58 · Lighthouse desktop 99/100/100/100 |
 | 9 | Preview deploy & verify | ✅ | `goat-63fbw95oy-…vercel.app` — content verified, console clean (one benign CSS-preload hint), a11y verified |
-| 10 | Promote to authorized URL | 🔧 | Contrast fix re-verified — gates all green (see "Continuation session"); deploy in progress |
-| 11 | Final passes (visual/mobile/functional) | ⏳ | After promotion, on the live URL |
-| 12 | Final reports | ⏳ | `docs/overnight-transformation-report.md` + `docs/master-v3-innovation-report.md` |
+| 10 | Promote to authorized URL | ✅ | `goat-wheat.vercel.app` aliased to `goat-qzu45n899-…` (target: null — preview, not production). Live verified: 12/12 routes 200, 24/24 functional checks, zero console/junk errors, zero mobile overflow, `.com` isolation unchanged. |
+| 11 | Final passes (visual/mobile/functional) | ✅ | Round 1–5 complete on live URL: CSS selector prune (−1,121 lines), ScrollReveal motion (Round 2), mobile overflow 0 on all routes, aesthetic polish. |
+| 12 | Final reports | 🔧 | `docs/overnight-transformation-report.md` + `docs/master-v3-innovation-report.md` — in progress |
 
 ## Continuation session — 2026-11-04 (05:05 onward)
 
@@ -57,7 +57,48 @@ Technical pass (this session):
 - Verified on preview: new homepage content present; all removed content absent; console clean; mobile axe clean on 11 routes.
 - `.com` re-verified after deploy: aliases still point to `imaginars-club-website` (different project).
 
+## Session 2 — 2026-11-04/09 (this continuation)
+
+Recovery: tree was clean at `1b2f18a` parent state; ran full gate suite again after each change.
+
+| Check | Result |
+|---|---|
+| `pnpm typecheck` | Pass (0 errors) |
+| `pnpm vitest run` | 116/116, 17 files |
+| `node scripts/contrast-ci.mjs` | 71/71 |
+| `node scripts/token-lint.mjs` | clean |
+| `pnpm lint` | 0 errors, 5 benign `<img>` alt suggestions |
+| `pnpm build` | 61/61 static pages |
+| `pnpm test:e2e` | 58/58 |
+| `node scripts/v3-a11y-mobile.mjs` | clean on 11 routes |
+
+Round 1 (creative director) — already satisfied by V3 integrity cleanup:
+- Removed fake testimonials (Rajesh Kumar, Priya Sharma, Amit Patel), fabricated results ("300% increase"), invented portal figures, broken AI studio (external muapi API + nonexistent NEXT_PUBLIC_MUAPI_KEY), internal MCP/skills showcase, Big Buck Bunny placeholder video, duplicate premium footer.
+- Zero invented proof anywhere; `CommandCenter` self-labels "Illustrative interface / sample figures / Not client data".
+
+Round 2 (motion) — committed `1b2f18a`:
+- New `src/components/motion/scroll-reveal.tsx`: entrance choreography on the shared gsap/ScrollTrigger/Lenis controller with gsap.context() cleanup; respects reduced motion (static final state); `once` toggle; `section`/`grid` variants.
+- Wrapped homepage sections (thesis, stack, evidence-room, capabilities, command-center, method, economics, trust, notes, final CTA) — hero, sequence, fit-check, field, wipe retain their own motion.
+- Verification: typecheck 0, vitest 116/116, lint 0 errors, build 61/61, e2e 58/58, mobile overflow 0, live 12/12 routes + 24/24 functional checks + `.com` isolation unchanged.
+
+Round 3 (mobile) — zero overflow on all 12 routes at 390px; hero/field/command/trust captured at desktop.
+
+Round 4 (engineering) — selector-level CSS prune with dynamic-class stem guards:
+- 196 dead selectors / ~1,121 lines removed across institutional.css (−517), editorial.css (−531), experience.css (−68), evidence.css (−24).
+- `experience.css` reduced to its one live rule (`.tilt-frame`).
+
+Round 5 (premium polish) — live screenshots show editorial hero, ledger field, dark command center, trust commitments; sticky navigator; sticky CTA bar on mobile.
+
+## Deployment log
+- Preview 1: `https://goat-63fbw95oy-sohamchoughule168s-projects.vercel.app` — built from `cd090cd` tree.
+- Preview 2: `https://goat-qzu45n899-sohamchoughule168s-projects.vercel.app` — built from `1b2f18a` tree, 12/12 routes verified, console clean, mobile overflow 0.
+- `.com` re-verified after both deploys: aliases still point to `imaginars-club-website-8iwqmm5yj` (different project), never touched.
+
 ## Known issues / follow-ups
+- Mobile Lighthouse performance score is noisy on this workstation (66–79 across identical runs); stable sub-metrics improved: TBT 450→130–360ms, style/layout 1,673→797ms, homepage CSS 59→50KB gz. LCP element render delay is hydration-bound — next lever is reducing client component count further.
+- `content-visibility: auto` caused false-positive axe contrast readings in skipped subtrees; the a11y script now walks the page first.
+- Higgsfield folder: inspected; contains a separate product's UI assets (Vite studio app) and lens-study images — not brand-licensed material; no assets shipped; folder git-ignored and never referenced.
+- Lighthouse CLI fails on this workstation (NO_NAVSTART in headless); trusted metrics captured pre-session: desktop a11y 100 / bp 96 / seo 100 / TBT 0 / CLS 0.
 
 - Mobile Lighthouse performance score is noisy on this workstation (66–79 across identical runs); the stable
   sub-metrics improved: TBT 450→130–360ms, style/layout 1,673→797ms, homepage CSS 59→50KB gz. LCP element
