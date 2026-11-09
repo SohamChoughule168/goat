@@ -18,11 +18,17 @@
 | 5 | Hero transformation | ✅ | TextSplit headline, texture accent layer, magnetic CTA, Ken Burns depth — deployed live @ goat-wheat.vercel.app |
 | 6 | Motion system elevation | ✅ | text-split.tsx + mask-reveal.tsx primitives added; lint 0 errors |
 | 7 | 3D engineering (craft surface) | ⏳ | Not started (homepage stays no-WebGL per spec) |
-| 8 | Business/conversion review | ⏳ | Not started |
+| 8 | Business/conversion review | ✅ | Cycle F done — economics cards: hover lift +4px, cobalt border-left on Recommended tier, arrow travel on hover; deployed live |
 | 9 | Performance/SEO/a11y audit | ⏳ | Not started |
-| 10 | Improvement cycles A–H | ✅ Cycle A done | Cycle A (creative): capability ledger elevated — row hover, cobalt arrow, featured flagship (web-development), pillar headers; within monochrome palette |
-| 11 | Deploy + verify | ✅ | Deployed live @ goat-wheat.vercel.app; .com isolation confirmed unchanged |
+| 10 | Improvement cycles A–H | ✅ A, F done | Cycle A (creative ledger) + Cycle F (economics cards) complete & live |
+| 11 | Deploy + verify | ✅ | Deployed live @ goat-wheat.vercel.app (b797f2b); .com isolation confirmed unchanged |
 | 12 | Final report | ⏳ | Not started |
+
+## V4 session — 2026-11-09 continued
+- Deployed b797f2b to goat-wheat.vercel.app (alias from preview goat-jxv33cm54-...)
+- Live verified: 12/12 routes 200, 0 console errors, 0 junk markers, 0 mobile overflow, h1 correct
+- .com isolation: unchanged (separate project)
+- Next: Cycle B (interaction excellence), Cycle D (mobile review), then remaining cycles
 
 ## V4 session — 2026-11-09 (live)
 - Deployed V4 hero to goat-wheat.vercel.app (alias set from preview goat-govg23er2-...)

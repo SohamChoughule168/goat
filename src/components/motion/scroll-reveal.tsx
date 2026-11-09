@@ -46,7 +46,7 @@ export default function ScrollReveal({
           : [node];
       gsap.from(targets, {
         y: 24,
-        opacity: 0,
+        opacity: 1,
         duration: DURATION.reveal,
         ease: EASE.entrance,
         stagger: variant === "grid" ? stagger : 0,
