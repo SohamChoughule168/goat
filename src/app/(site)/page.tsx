@@ -12,6 +12,7 @@ import InstrumentField from "@/components/home/instrument-field";
 import ScrollWipe from "@/components/media/scroll-wipe";
 import SectionNavigator from "@/components/layout/section-navigator";
 import ScrollProgress from "@/components/layout/scroll-progress";
+import ScrollReveal from "@/components/motion/scroll-reveal";
 import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { insights } from "@/content/insights";
@@ -68,7 +69,8 @@ export default function HomePage() {
       <FitCheck />
 
       <section className="inst-section" aria-labelledby="home-thesis">
-        <div className="inst-shell thesis-grid">
+        <ScrollReveal variant="section">
+          <div className="inst-shell thesis-grid">
           <div>
             <p className="inst-label">The premise</p>
             <h2 id="home-thesis" className="inst-h2 mt-5">
@@ -89,10 +91,12 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+      </ScrollReveal>
       </section>
 
       <section className="inst-section-tight" aria-labelledby="home-stack">
-        <div className="inst-shell">
+        <ScrollReveal variant="section">
+          <div className="inst-shell">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="inst-label">The stack</p>
@@ -107,14 +111,18 @@ export default function HomePage() {
           </div>
           <InstitutionStack />
         </div>
+      </ScrollReveal>
       </section>
 
-      <EvidenceRoom />
+      <ScrollReveal variant="section">
+        <EvidenceRoom />
+      </ScrollReveal>
 
       <InstrumentField />
 
       <section className="inst-section" aria-labelledby="home-capabilities">
-        <div className="inst-shell">
+        <ScrollReveal variant="section">
+          <div className="inst-shell">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="inst-label">Capability ledger</p>
@@ -131,13 +139,15 @@ export default function HomePage() {
             <CapabilityLedger />
           </div>
         </div>
+      </ScrollReveal>
       </section>
 
       <ScrollWipe />
 
       <section className="inst-dark" aria-labelledby="home-command">
-        <div className="inst-section">
-          <div className="inst-shell">
+        <ScrollReveal variant="section">
+          <div className="inst-section">
+            <div className="inst-shell">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-end">
               <div>
                 <p className="inst-label">The operating view</p>
@@ -162,10 +172,12 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </ScrollReveal>
       </section>
 
       <section className="inst-section" aria-labelledby="home-method">
-        <div className="inst-shell">
+        <ScrollReveal variant="section">
+          <div className="inst-shell">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="inst-label">The method</p>
@@ -199,10 +211,12 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+      </ScrollReveal>
       </section>
 
       <section className="inst-section-tight" aria-labelledby="home-economics">
-        <div className="inst-shell">
+        <ScrollReveal variant="section">
+          <div className="inst-shell">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="inst-label">Economics</p>
@@ -254,10 +268,12 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+      </ScrollReveal>
       </section>
 
       <section className="inst-section" aria-labelledby="home-trust">
-        <div className="inst-shell">
+        <ScrollReveal variant="section">
+          <div className="inst-shell">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="inst-label">The commitments</p>
@@ -281,10 +297,12 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+      </ScrollReveal>
       </section>
 
       <section className="inst-section-tight" aria-labelledby="home-notes">
-        <div className="inst-shell">
+        <ScrollReveal variant="section">
+          <div className="inst-shell">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="inst-label">Field notes</p>
@@ -324,10 +342,12 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+      </ScrollReveal>
       </section>
 
       <section className="final-cta" aria-labelledby="home-cta">
-        <div className="inst-shell final-cta-inner">
+        <ScrollReveal variant="section">
+          <div className="inst-shell final-cta-inner">
           <div>
             <p className="inst-label">Next step</p>
             <h2 id="home-cta" className="inst-h2 mt-5 max-w-[20ch]">
@@ -353,6 +373,7 @@ export default function HomePage() {
             </p>
           </div>
         </div>
+      </ScrollReveal>
       </section>
     </>
   );
