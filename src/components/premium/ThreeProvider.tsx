@@ -319,8 +319,6 @@ export function useThreeCanvas(id: string, options?: CanvasOptions) {
   const powerPreference = options?.powerPreference;
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
-
     const canvas = canvasRef.current;
     if (!canvas) return;
 

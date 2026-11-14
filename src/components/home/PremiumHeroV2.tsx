@@ -58,11 +58,7 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
   const scrollYRef = useRef(0);
 
   useEffect(() => {
-    if (reduced || prefersReducedMotion || !context) {
-      setLoaded(true);
-      setRevealed(true);
-      return;
-    }
+    if (!context) return;
 
     const { scene, camera, animate, stop } = context;
     cameraRef.current = camera;
@@ -285,28 +281,6 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
     };
   }, [reduced, context, performanceLevel, prefersReducedMotion]);
 
-  if (reduced || prefersReducedMotion) {
-    return (
-      <section className={`premium-hero-v2 ${className}`} aria-labelledby="home-hero">
-        <div className="hero-bg">
-          <img
-            src={institutionHero.src}
-            srcSet={institutionHero.srcSet}
-            sizes="(max-width: 1023px) 100vw, 1200px"
-            width={institutionHero.width}
-            height={institutionHero.height}
-            alt={institutionHero.alt}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="hero-img"
-          />
-        </div>
-        <div className="hero-overlay" />
-        <HeroContent loaded={true} revealed={true} scrollY={0} />
-      </section>
-    );
-  }
 
   return (
     <section className={`premium-hero-v2 ${className}`} aria-labelledby="home-hero">
