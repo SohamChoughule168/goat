@@ -25,6 +25,12 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
   const reduced = useReducedMotion();
   const [loaded, setLoaded] = useState(false);
   const [revealed, setRevealed] = useState(false);
+
+  useEffect(() => {
+    // Reveal text immediately on mount independently of 3D context initialization
+    const timer = setTimeout(() => setRevealed(true), 50);
+    return () => clearTimeout(timer);
+  }, []);
   
   const { canvasRef, context, performanceLevel, prefersReducedMotion } = useThreeCanvas("hero-v2", { 
     cameraZ: 55,
@@ -381,6 +387,8 @@ function HeroContent({
   revealed: boolean; 
   scrollY: number;
 }) {
+  const reduced = useReducedMotion();
+  const isRevealed = revealed || reduced;
   const scrollProgress = typeof window !== "undefined" ? Math.min(scrollY / window.innerHeight, 1) : 0;
   const scale = typeof window !== "undefined" ? 1 - scrollProgress * 0.05 : 1;
   const opacity = typeof window !== "undefined" ? Math.max(1 - scrollProgress / 0.3, 0) : 1;
@@ -402,8 +410,8 @@ function HeroContent({
         <div className="hero-copy">
           <motion.div
             className="meridian-badge"
-            initial={{ y: 15, opacity: 0 }}
-            animate={revealed ? { y: 0, opacity: 1 } : { y: 15, opacity: 0 }}
+            initial={reduced ? false : { y: 15, opacity: 0 }}
+            animate={isRevealed ? { y: 0, opacity: 1 } : { y: 15, opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
           >
             <span className="meridian-badge-box" aria-hidden="true" />
@@ -414,8 +422,8 @@ function HeroContent({
             <span className="inline-block overflow-hidden pb-1 align-bottom">
               <motion.span
                 className="headline-line kinetic-word kinetic-word-1 inline-block"
-                initial={{ y: "115%", opacity: 0 }}
-                animate={revealed ? { y: "0%", opacity: 1 } : { y: "115%", opacity: 0 }}
+                initial={reduced ? false : { y: "115%", opacity: 0 }}
+                animate={isRevealed ? { y: "0%", opacity: 1 } : { y: "115%", opacity: 0 }}
                 transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
               >
                 One system.
@@ -425,8 +433,8 @@ function HeroContent({
             <span className="inline-block overflow-hidden pb-1 align-bottom">
               <motion.span
                 className="headline-line kinetic-word kinetic-word-2 headline-serif inline-block"
-                initial={{ y: "115%", opacity: 0 }}
-                animate={revealed ? { y: "0%", opacity: 1 } : { y: "115%", opacity: 0 }}
+                initial={reduced ? false : { y: "115%", opacity: 0 }}
+                animate={isRevealed ? { y: "0%", opacity: 1 } : { y: "115%", opacity: 0 }}
                 transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
               >
                 <span className="meridian-accent" data-text="Every branch.">
@@ -438,8 +446,8 @@ function HeroContent({
           
           <motion.p 
             className="hero-lede kinetic-lede"
-            initial={{ y: 20, opacity: 0 }}
-            animate={revealed ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+            initial={reduced ? false : { y: 20, opacity: 0 }}
+            animate={isRevealed ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
           >
             We design and build the public site, admissions path and student systems that institutes actually run on. One accountable team, from diagnosis to handover.
@@ -447,8 +455,8 @@ function HeroContent({
           
           <motion.p 
             className="hero-proof"
-            initial={{ y: 15, opacity: 0 }}
-            animate={revealed ? { y: 0, opacity: 1 } : { y: 15, opacity: 0 }}
+            initial={reduced ? false : { y: 15, opacity: 0 }}
+            animate={isRevealed ? { y: 0, opacity: 1 } : { y: 15, opacity: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.48 }}
           >
             <span className="proof-dot" aria-hidden="true" />
@@ -457,8 +465,8 @@ function HeroContent({
           
           <motion.div 
             className="hero-actions"
-            initial={{ y: 20, opacity: 0 }}
-            animate={revealed ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+            initial={reduced ? false : { y: 20, opacity: 0 }}
+            animate={isRevealed ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
           >
             <Link 
