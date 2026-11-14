@@ -462,3 +462,29 @@ export function PosterLedger() {
     </PosterFrame>
   );
 }
+
+export function PosterFernhollow() {
+  return (
+    <PosterFrame fig="12" tag="Spatial Valley">
+      <text x="40" y="58" className="cp-mono">
+        BIOLUMINESCENT FLORA / SPLINE FLIGHT
+      </text>
+      <path
+        d="M 40 160 Q 120 80, 200 130 T 360 100"
+        fill="none"
+        strokeWidth="2"
+        strokeDasharray="4 4"
+        className="cp-accent-stroke"
+      />
+      <circle cx="40" cy="160" r="4" className="cp-accent-fill" />
+      <circle cx="200" cy="130" r="4" className="cp-accent-fill" />
+      <circle cx="360" cy="100" r="4" className="cp-accent-fill" />
+      <text x="40" y="216" className="cp-mono">
+        2,200 FLORA SPRITES // AUDIO SYNTH
+      </text>
+      <text x="376" y="216" textAnchor="end" className="cp-mono cp-accent">
+        0 KB UNTIL RUN
+      </text>
+    </PosterFrame>
+  );
+}

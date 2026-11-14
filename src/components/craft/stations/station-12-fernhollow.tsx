@@ -2,15 +2,29 @@
 
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { Volume2, VolumeX, Play, RotateCcw } from "lucide-react";
-import type { CraftStation } from "@/content/craft";
+import { Volume2, VolumeX } from "lucide-react";
+import type { CraftStation as CraftStationData } from "@/content/craft";
+import CraftStation from "@/components/craft/craft-station";
+import { PosterFernhollow } from "@/components/craft/station-posters";
 
-export default function StationFernhollow({ station }: { station: CraftStation }) {
+export default function StationFernhollow({ station }: { station: CraftStationData }) {
   const [isRunning, setIsRunning] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [status, setStatus] = useState("Static night valley poster. 2,200 flora sprites.");
   const containerRef = useRef<HTMLDivElement>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
   const masterGainRef = useRef<GainNode | null>(null);
+
+  function run() {
+    setIsRunning(true);
+    setStatus("Bioluminescent flora and spline flight running.");
+  }
+
+  function reset() {
+    setIsRunning(false);
+    setIsMuted(true);
+    setStatus("Static night valley poster restored.");
+  }
 
   useEffect(() => {
     if (!isRunning) return;
@@ -227,68 +241,48 @@ export default function StationFernhollow({ station }: { station: CraftStation }
   };
 
   return (
-    <div className="craft-bench">
-      <div className="craft-bench-header">
-        <div>
-          <span className="inst-num">{station.index}</span>
-          <h3>{station.title}</h3>
-          <p className="mt-1 text-xs text-[var(--ink-3)]">{station.summary}</p>
-        </div>
-        <div className="flex items-center gap-2">
+    <CraftStation
+      station={station}
+      poster={<PosterFernhollow />}
+      live={isRunning}
+      status={status}
+      controls={
+        <>
+          <button
+            type="button"
+            className="inst-btn"
+            onClick={run}
+            disabled={isRunning}
+          >
+            {isRunning ? "Running" : "Run station"}
+          </button>
+          <button
+            type="button"
+            className="inst-btn inst-btn-ghost"
+            onClick={reset}
+            disabled={!isRunning}
+          >
+            Reset
+          </button>
           {isRunning && (
             <button
               type="button"
               onClick={toggleAudio}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/10 bg-white/5 text-[var(--ink)] transition hover:bg-white/15"
+              className="inst-btn inst-btn-ghost"
               aria-label={isMuted ? "Unmute ambient audio" : "Mute ambient audio"}
+              style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
             >
-              {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4 text-[#5ee6a8]" />}
+              {isMuted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5 text-[#5ee6a8]" />}
+              {isMuted ? "Sound off" : "Sound on"}
             </button>
           )}
-          <button
-            type="button"
-            onClick={() => setIsRunning(!isRunning)}
-            className="inline-flex items-center gap-1.5 rounded-md border border-[var(--border-strong)] bg-[var(--surface-elevated)] px-3 py-1.5 font-mono text-xs text-[var(--ink)] transition hover:bg-[var(--border-strong)]"
-          >
-            {isRunning ? (
-              <>
-                <RotateCcw className="h-3.5 w-3.5" /> Reset
-              </>
-            ) : (
-              <>
-                <Play className="h-3.5 w-3.5" /> Run Station
-              </>
-            )}
-          </button>
-        </div>
-      </div>
-
+        </>
+      }
+    >
       <div
         ref={containerRef}
-        className="relative mt-4 h-80 w-full overflow-hidden rounded-xl border border-[var(--line)] bg-[#010503]"
-      >
-        {!isRunning && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-            <div className="h-3 w-3 rounded-full bg-[#a2ecd8] shadow-[0_0_12px_#a2ecd8]" />
-            <h4 className="mt-4 font-serif text-2xl text-[#f5efe2]">Grown, not built.</h4>
-            <p className="mt-1 max-w-sm text-xs text-[#a2ecd8]/80">
-              Interactive 3D night flower valley with 2,200 glowing point-sprites, Catmull-Rom camera flight, and harmonic synthesizer.
-            </p>
-            <button
-              type="button"
-              onClick={() => setIsRunning(true)}
-              className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-mono text-xs text-[#f5efe2] transition hover:bg-white/20"
-            >
-              <Play className="h-3 w-3" /> Mount 3D Valley
-            </button>
-          </div>
-        )}
-      </div>
-
-      <div className="mt-3 flex items-center justify-between font-mono text-[0.625rem] text-[var(--ink-4)]">
-        <span>Runtime: Three.js r160 Point-Sprite Cloud</span>
-        <span>Payload: 0 KB until Run</span>
-      </div>
-    </div>
+        className="relative h-full w-full overflow-hidden bg-[#010503]"
+      />
+    </CraftStation>
   );
 }
