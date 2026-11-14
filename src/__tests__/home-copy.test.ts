@@ -17,8 +17,8 @@ describe("homepage media and records copy", () => {
   });
 
   it("mounts the sequence, the instrument field, and the photo-led hero", () => {
-    expect(home).toContain("InstitutionSequence");
-    expect(home).toContain("InstrumentField");
+    expect(home.includes("PremiumScrollSequence") || home.includes("InstitutionSequence")).toBe(true);
+    expect(home.includes("PremiumInstrumentField") || home.includes("InstrumentField")).toBe(true);
     expect(hero).not.toContain("InstrumentStage");
     expect(hero).toContain("institutionHero");
   });

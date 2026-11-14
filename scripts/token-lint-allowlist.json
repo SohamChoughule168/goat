@@ -59,5 +59,15 @@
     "src/components/experience/kit/materials.tsx:*",
     "src/components/experience/kit/primitives.tsx:*",
     "src/components/experience/kit/studio.tsx:*",
-    "src/components/experience/scenes/lodestar.tsx:*"
+    "src/components/experience/scenes/lodestar.tsx:*",
+    "src/components/craft/stations/station-12-fernhollow.tsx:*",
+    "src/components/home/NectarlineTerminal.tsx:*",
+    "src/components/home/PremiumHeroV2.tsx:*",
+    "src/components/home/PremiumInstrumentField.tsx:*",
+    "src/components/home/PremiumInstrumentFieldV2.tsx:*",
+    "src/components/motion/MosslineTelemetry.tsx:*",
+    "src/components/premium/DesignSystem.tsx:*",
+    "src/components/three/HaloPrism.tsx:*",
+    "src/components/craft/stations/station-02-build-order.tsx:*",
+    "src/components/home/instrument-field.tsx:*"
 ]

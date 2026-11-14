@@ -28,7 +28,6 @@ export default function ParticleSystem({
   style = {},
 }: ParticleSystemProps) {
   const reduced = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
@@ -40,7 +39,6 @@ export default function ParticleSystem({
 
   useEffect(() => {
     if (reduced) return;
-    setMounted(true);
 
     const container = containerRef.current;
     if (!container) return;
@@ -151,7 +149,6 @@ export default function ParticleSystem({
     container.addEventListener("mousemove", handleMouseMove);
 
     // Animation
-    let frame = 0;
     const animate = () => {
       animationRef.current = requestAnimationFrame(animate);
       timeRef.current += 0.016;
@@ -251,7 +248,7 @@ export default function ParticleSystem({
     };
   }, [reduced]);
 
-  if (!mounted || reduced) return null;
+  if (reduced) return null;
 
   return (
     <div

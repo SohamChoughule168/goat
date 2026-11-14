@@ -13,11 +13,12 @@ const SKILLS = [
   "rive-interactive",
   "spline-interactive",
   "animated-component-libraries",
+  "creative-3d-environments",
 ];
 
 describe("craft stations", () => {
-  it("keeps eleven stations in the approved skill order", () => {
-    expect(CRAFT_STATIONS).toHaveLength(11);
+  it("keeps twelve stations in the approved skill order", () => {
+    expect(CRAFT_STATIONS).toHaveLength(12);
     expect(CRAFT_STATIONS.map((station) => station.skill)).toEqual(SKILLS);
     expect(CRAFT_STATIONS.map((station) => station.index)).toEqual([
       "01",
@@ -31,10 +32,11 @@ describe("craft stations", () => {
       "09",
       "10",
       "11",
+      "12",
     ]);
   });
 
-  it("ships nine runnable stations and two labelled gaps", () => {
+  it("ships ten runnable stations and two labelled gaps", () => {
     const live = CRAFT_STATIONS.filter((station) => station.status === "live");
     const pending = CRAFT_STATIONS.filter((station) => station.status === "pending");
 
@@ -43,7 +45,7 @@ describe("craft stations", () => {
       "rive-interactive",
       "spline-interactive",
     ]);
-    expect(CRAFT_STATS).toEqual({ stations: 11, live: 9, pending: 2 });
+    expect(CRAFT_STATS).toEqual({ stations: 12, live: 10, pending: 2 });
   });
 
   it("gives every station a unique id and a poster description", () => {
@@ -82,9 +84,9 @@ describe("craft stations", () => {
 
   it("keeps the bench grid balanced", () => {
     const spans = CRAFT_STATIONS.map((station) => station.span);
-    expect(spans.filter((span) => span === "wide")).toHaveLength(2);
+    expect(spans.filter((span) => span === "wide")).toHaveLength(4);
     expect(spans.filter((span) => span === "two-thirds")).toHaveLength(1);
-    expect(spans.filter((span) => span === "half")).toHaveLength(4);
+    expect(spans.filter((span) => span === "half")).toHaveLength(3);
     expect(spans.filter((span) => span === "third")).toHaveLength(4);
   });
 

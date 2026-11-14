@@ -59,9 +59,13 @@ interface CapabilityCard3DProps {
   featured?: boolean;
 }
 
-function CapabilityCard3D({ service, number, pillarColor, index, featured }: CapabilityCard3DProps) {
-  const [hovered, setHovered] = useState(false);
-  const { canvasRef, context, performanceLevel } = useThreeCanvas(`capability-${service.slug}`, { cameraZ: 8 });
+interface FeaturedCardCanvasProps {
+  serviceSlug: string;
+  pillarColor: THREE.Color;
+}
+
+function FeaturedCardCanvas({ serviceSlug, pillarColor }: FeaturedCardCanvasProps) {
+  const { canvasRef, context, performanceLevel } = useThreeCanvas(`capability-${serviceSlug}`, { cameraZ: 8 });
   const meshRef = useRef<THREE.Mesh | null>(null);
   const glowRef = useRef<THREE.Mesh | null>(null);
   const particlesRef = useRef<THREE.Points | null>(null);
@@ -70,7 +74,7 @@ function CapabilityCard3D({ service, number, pillarColor, index, featured }: Cap
   useEffect(() => {
     if (!context) return;
 
-    const { scene, camera, animate, stop } = context;
+    const { scene, animate, stop } = context;
     const particleCount = getParticleCount("card", performanceLevel);
     const sphereDetail = getGeometryDetail("sphere", performanceLevel);
 
@@ -78,7 +82,7 @@ function CapabilityCard3D({ service, number, pillarColor, index, featured }: Cap
     const geometry = new THREE.IcosahedronGeometry(1.3, sphereDetail);
     const material = new THREE.MeshPhysicalMaterial({
       color: pillarColor,
-      metalness: featured ? 0.1 : 0,
+      metalness: 0.1,
       roughness: 0.25,
       transmission: 0.35,
       thickness: 0.5,
@@ -121,7 +125,7 @@ function CapabilityCard3D({ service, number, pillarColor, index, featured }: Cap
       transparent: true,
       depthWrite: false,
       side: THREE.BackSide,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.NormalBlending,
     });
     const glow = new THREE.Mesh(glowGeometry, glowMaterial);
     scene.add(glow);
@@ -156,12 +160,12 @@ function CapabilityCard3D({ service, number, pillarColor, index, featured }: Cap
     geometryRef.current = pGeometry;
 
     const particleMaterial = new THREE.PointsMaterial({
-      color: 0xffffff,
-      size: 0.08,
+      color: 0x1f3ad8,
+      size: 0.12,
       transparent: true,
-      opacity: 0.5,
+      opacity: 0.6,
       sizeAttenuation: true,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.NormalBlending,
       depthWrite: false,
     });
 
@@ -206,6 +210,12 @@ function CapabilityCard3D({ service, number, pillarColor, index, featured }: Cap
     };
   }, [pillarColor, context, performanceLevel]);
 
+  return <canvas ref={canvasRef} className="ledger-card-canvas" aria-hidden="true" />;
+}
+
+function CapabilityCard3D({ service, number, pillarColor, index, featured }: CapabilityCard3DProps) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <motion.div 
       className={`ledger-card-v2 ${featured ? "ledger-card-v2--featured" : ""}`}
@@ -215,7 +225,9 @@ function CapabilityCard3D({ service, number, pillarColor, index, featured }: Cap
       onMouseLeave={() => setHovered(false)}
     >
       <div className="ledger-card-canvas">
-        <canvas ref={canvasRef} className="ledger-card-canvas" aria-hidden="true" />
+        {featured ? (
+          <FeaturedCardCanvas serviceSlug={service.slug} pillarColor={pillarColor} />
+        ) : null}
         <div className="ledger-card-glow" aria-hidden="true" />
       </div>
       <div className="ledger-card-content">

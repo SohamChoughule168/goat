@@ -120,8 +120,8 @@ export default function HaloPrism({ className = "" }: HaloPrismProps) {
     scene.add(cobaltRim);
 
     // Mouse pointer state
-    let targetMouse = { x: 0.5, y: 0.25 };
-    let mouse = { x: 0.5, y: 0.25 };
+    const targetMouse = { x: 0.5, y: 0.25 };
+    const mouse = { x: 0.5, y: 0.25 };
 
     const handlePointerMove = (e: PointerEvent) => {
       const rect = container.getBoundingClientRect();

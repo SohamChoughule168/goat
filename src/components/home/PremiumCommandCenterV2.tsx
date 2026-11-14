@@ -163,12 +163,12 @@ export default function PremiumCommandCenterV2() {
     colorAttrRef.current = colorAttr;
 
     const material = new THREE.PointsMaterial({
-      size: 1.2,
+      size: 2.2,
       vertexColors: true,
       transparent: true,
-      opacity: 0.7,
+      opacity: 0.75,
       sizeAttenuation: true,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.NormalBlending,
       depthWrite: false,
     });
 
@@ -190,8 +190,8 @@ export default function PremiumCommandCenterV2() {
       const lineMaterial = new THREE.LineBasicMaterial({
         color: viewConfig.color,
         transparent: true,
-        opacity: 0.08,
-        blending: THREE.AdditiveBlending,
+        opacity: 0.22,
+        blending: THREE.NormalBlending,
         depthWrite: false,
       });
       const line = new THREE.Line(lineGeometry, lineMaterial);
@@ -452,8 +452,9 @@ export default function PremiumCommandCenterV2() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
       >
-        <span className="command-note">Illustrative interface / sample figures</span>
-        <span className="command-note">Not client data</span>
+        <span className="command-note" style={{ fontSize: "0.8125rem", opacity: 0.85, letterSpacing: "0.02em" }}>
+          Illustrative institute command centre &bull; Synthetic sample figures &bull; Client records remain strictly confidential
+        </span>
       </motion.div>
     </motion.div>
   );

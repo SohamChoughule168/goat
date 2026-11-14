@@ -158,41 +158,39 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
     sheet2.rotation.set(-0.06, -0.24, -0.05);
     paperGroup.add(sheet2);
 
-    // Sheet 3: Translucent Architectural Vellum / Glass Strip (Layered foreground)
-    const sheet3Geo = new THREE.PlaneGeometry(15, 20);
+    // Sheet 3: Translucent Architectural Vellum Strip (Layered foreground)
+    const sheet3Geo = new THREE.PlaneGeometry(16, 22);
     const sheet3Mat = new THREE.MeshPhysicalMaterial({
       color: 0xffffff,
-      transmission: 0.85,
-      opacity: 1,
+      roughness: 0.18,
+      metalness: 0.05,
+      clearcoat: 0.9,
+      clearcoatRoughness: 0.1,
       transparent: true,
-      roughness: 0.12,
-      ior: 1.5,
-      thickness: 1.4,
-      attenuationColor: new THREE.Color(0x1f3ad8),
-      attenuationDistance: 2.0,
+      opacity: 0.78,
       side: THREE.DoubleSide,
     });
     const sheet3 = new THREE.Mesh(sheet3Geo, sheet3Mat);
-    sheet3.position.set(-6, 4, 3);
+    sheet3.position.set(-6, 3, 4);
     sheet3.rotation.set(0.08, 0.14, 0.02);
     paperGroup.add(sheet3);
 
     // Edge highlight on sheet 3
     const wireGeo = new THREE.EdgesGeometry(sheet3Geo);
-    const wireMat = new THREE.LineBasicMaterial({ color: 0x93a5ff, transparent: true, opacity: 0.5 });
+    const wireMat = new THREE.LineBasicMaterial({ color: 0x1f3ad8, transparent: true, opacity: 0.75 });
     sheet3.add(new THREE.LineSegments(wireGeo, wireMat));
 
     // Directional Key Light
-    const keyLight = new THREE.DirectionalLight(0xfff8ee, 2.4);
+    const keyLight = new THREE.DirectionalLight(0xfffbf2, 2.6);
     keyLight.position.set(-15, 25, 30);
     scene.add(keyLight);
 
     // Ambient Room Fill (Warm bone/paper tint)
-    const ambLight = new THREE.AmbientLight(0xf2eee5, 1.6);
+    const ambLight = new THREE.AmbientLight(0xf2eee5, 1.8);
     scene.add(ambLight);
 
     // Restrained Cobalt Light Sweep
-    const cobaltLight = new THREE.DirectionalLight(0x1f3ad8, 2.8);
+    const cobaltLight = new THREE.DirectionalLight(0x1f3ad8, 3.2);
     cobaltLight.position.set(18, 14, 16);
     scene.add(cobaltLight);
 
@@ -207,31 +205,30 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
     }
     moteGeo.setAttribute("position", new THREE.BufferAttribute(motePos, 3));
     const moteMat = new THREE.PointsMaterial({
-      size: 1.6,
+      size: 2.2,
       color: 0x1f3ad8,
       transparent: true,
-      opacity: 0.4,
-      blending: THREE.AdditiveBlending,
+      opacity: 0.7,
+      blending: THREE.NormalBlending,
     });
     const motes = new THREE.Points(moteGeo, moteMat);
     scene.add(motes);
 
     const handleMouseMove = (e: MouseEvent) => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      mouseRef.current.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      mouseRef.current.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+      mouseRef.current.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouseRef.current.y = -(e.clientY / window.innerHeight) * 2 + 1;
     };
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
-    if (canvasRef.current) {
-      canvasRef.current.addEventListener("mousemove", handleMouseMove, { passive: true });
-    }
+    const handleScroll = () => {
+      scrollYRef.current = window.scrollY;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-    const animateFn = () => {
-      timeRef.current += 0.016;
+    const animateFn = (delta: number) => {
+      timeRef.current += delta || 0.016;
       const t = timeRef.current;
-      const scroll = scrollYRef.current / (window.innerHeight || 800);
+      const scroll = typeof window !== "undefined" ? window.scrollY / (window.innerHeight || 800) : 0;
 
       // Restrained cobalt light sweep oscillation
       cobaltLight.position.x = 18 + Math.sin(t * 0.7) * 12;
@@ -244,37 +241,34 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
       sheet1.rotation.y = -0.16 + mx * 0.04;
       sheet1.rotation.x = 0.06 - my * 0.03;
 
-      sheet2.rotation.y = -0.24 + mx * 0.09;
-      sheet2.rotation.x = -0.06 - my * 0.07;
+      sheet2.rotation.y = -0.22 + mx * 0.08;
+      sheet2.rotation.x = -0.06 - my * 0.06;
 
-      sheet3.rotation.y = 0.14 + mx * 0.15;
-      sheet3.rotation.x = 0.08 - my * 0.12;
+      sheet3.rotation.y = 0.14 + mx * 0.12;
+      sheet3.rotation.x = 0.08 - my * 0.10;
 
       // Subtle atmospheric float
-      sheet2.position.y = -3 + Math.sin(t * 0.7) * 0.35;
-      sheet3.position.y = 4 + Math.cos(t * 0.8) * 0.45;
+      sheet2.position.y = -2 + Math.sin(t * 0.7) * 0.35;
+      sheet3.position.y = 3 + Math.cos(t * 0.8) * 0.45;
 
       // Camera push-in on scroll
       camera.position.z = 50 - Math.min(scroll, 1) * 8;
-      sheet1.position.z = -12 - Math.min(scroll, 1) * 2.5;
-      sheet2.position.z = -4 + Math.min(scroll, 1) * 2;
-      sheet3.position.z = 3 + Math.min(scroll, 1) * 3;
+      sheet1.position.z = -10 - Math.min(scroll, 1) * 2.5;
+      sheet2.position.z = -3 + Math.min(scroll, 1) * 2;
+      sheet3.position.z = 4 + Math.min(scroll, 1) * 3;
 
-      motes.rotation.y = t * 0.015;
+      motes.rotation.y = t * 0.02;
     };
 
     animate(animateFn);
 
-    const img = new Image();
-    img.onload = () => {
-      setLoaded(true);
-      setTimeout(() => setRevealed(true), 150);
-    };
-    img.src = institutionHero.src;
+    setLoaded(true);
+    const revealTimer = setTimeout(() => setRevealed(true), 60);
 
     return () => {
-      const canvas = canvasRef.current;
-      if (canvas) canvas.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(revealTimer);
       stop();
       sheet1Geo.dispose();
       sheet1Mat.dispose();
@@ -316,6 +310,22 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
 
   return (
     <section className={`premium-hero-v2 ${className}`} aria-labelledby="home-hero">
+      <div className="hero-bg" aria-hidden="true">
+        <img
+          src={institutionHero.src}
+          srcSet={institutionHero.srcSet}
+          sizes="(max-width: 1023px) 100vw, 1200px"
+          width={institutionHero.width}
+          height={institutionHero.height}
+          alt=""
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="hero-img"
+          style={{ opacity: 0.28, objectFit: "cover", width: "100%", height: "100%" }}
+        />
+      </div>
+
       <div className="hero-canvas-wrapper">
         <canvas
           ref={canvasRef}

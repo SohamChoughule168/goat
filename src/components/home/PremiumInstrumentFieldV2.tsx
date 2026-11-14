@@ -108,12 +108,12 @@ export default function PremiumInstrumentFieldV2() {
     geometry.setAttribute("hue", new THREE.BufferAttribute(hues, 1));
 
     const material = new THREE.PointsMaterial({
-      size: 1,
+      size: 1.8,
       vertexColors: true,
       transparent: true,
-      opacity: 0.5,
+      opacity: 0.65,
       sizeAttenuation: true,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.NormalBlending,
       depthWrite: false,
       color: new THREE.Color(DESIGN_COLORS.primary.main),
     });
@@ -131,7 +131,7 @@ export default function PremiumInstrumentFieldV2() {
       transmission: 0.4,
       thickness: 0.5,
       transparent: true,
-      opacity: 0.15,
+      opacity: 0.25,
       clearcoat: 1,
       clearcoatRoughness: 0.1,
       ior: 1.5,
@@ -164,13 +164,13 @@ export default function PremiumInstrumentFieldV2() {
             float dist = length(vUv - vec2(0.5));
             float ring = smoothstep(0.47, 0.5, dist) - smoothstep(0.5, 0.53, dist);
             float pulse = sin(uTime * 0.5 + vUv.x * 20.0) * 0.3 + 0.7;
-            gl_FragColor = vec4(uColor, ring * pulse * 0.25);
+            gl_FragColor = vec4(uColor, ring * pulse * 0.35);
           }
         `,
         transparent: true,
         depthWrite: false,
         side: THREE.DoubleSide,
-        blending: THREE.AdditiveBlending,
+        blending: THREE.NormalBlending,
       });
       const ring = new THREE.Mesh(ringGeometry, ringMaterial);
       ring.rotation.x = i % 2 === 0 ? -Math.PI / 2 : Math.PI / 2;
@@ -198,8 +198,8 @@ export default function PremiumInstrumentFieldV2() {
       const lineMaterial = new THREE.LineBasicMaterial({
         color: DESIGN_COLORS.secondary.main,
         transparent: true,
-        opacity: 0.06,
-        blending: THREE.AdditiveBlending,
+        opacity: 0.18,
+        blending: THREE.NormalBlending,
         depthWrite: false,
       });
       const line = new THREE.Line(lineGeometry, lineMaterial);
