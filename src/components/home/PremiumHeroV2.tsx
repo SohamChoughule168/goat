@@ -418,7 +418,7 @@ function HeroContent({
             <span>OPERATING SYSTEMS FOR INSTITUTES · MUMBAI</span>
           </motion.div>
           
-          <h1 id="home-hero" className="hero-headline text-gradient-animated kinetic-title">
+          <h1 id="home-hero" className="hero-headline kinetic-title">
             <span className="inline-block overflow-hidden pb-1 align-bottom">
               <motion.span
                 className="headline-line kinetic-word kinetic-word-1 inline-block"
