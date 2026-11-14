@@ -74,27 +74,38 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
       c.width = 1024;
       c.height = 768;
       const ctx = c.getContext("2d")!;
-      ctx.fillStyle = "#f5f1e8";
+      ctx.fillStyle = "#faf6ed";
       ctx.fillRect(0, 0, 1024, 768);
-      // Fine blueprint grid
-      ctx.strokeStyle = "rgba(17, 18, 15, 0.06)";
+      // Outer border
+      ctx.strokeStyle = "rgba(31, 58, 218, 0.45)";
+      ctx.lineWidth = 3;
+      ctx.strokeRect(24, 24, 976, 720);
+      // Secondary frame
+      ctx.strokeStyle = "rgba(31, 58, 218, 0.2)";
       ctx.lineWidth = 1;
-      for (let x = 0; x <= 1024; x += 32) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, 768);
-        ctx.stroke();
-      }
-      for (let y = 0; y <= 768; y += 32) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(1024, y);
-        ctx.stroke();
-      }
-      // Corner tick marks & frame
-      ctx.strokeStyle = "rgba(31, 58, 218, 0.22)";
-      ctx.lineWidth = 1.5;
       ctx.strokeRect(32, 32, 960, 704);
+      // Fine blueprint grid
+      ctx.strokeStyle = "rgba(31, 58, 218, 0.14)";
+      ctx.lineWidth = 1;
+      for (let x = 32; x <= 992; x += 32) {
+        ctx.beginPath();
+        ctx.moveTo(x, 32);
+        ctx.lineTo(x, 736);
+        ctx.stroke();
+      }
+      for (let y = 32; y <= 736; y += 32) {
+        ctx.beginPath();
+        ctx.moveTo(32, y);
+        ctx.lineTo(992, y);
+        ctx.stroke();
+      }
+      // Corner tick marks & coordinates
+      ctx.fillStyle = "rgba(31, 58, 218, 0.85)";
+      ctx.font = "bold 14px monospace";
+      ctx.fillText("SPEC: ARCH-01 // FOUNDATION GRID", 48, 58);
+      ctx.font = "11px monospace";
+      ctx.fillStyle = "rgba(17, 18, 15, 0.55)";
+      ctx.fillText("SCALE 1:50 | ELEVATION REF 0.00 | IMAGINARS CLUB", 48, 76);
       return new THREE.CanvasTexture(c);
     };
 
@@ -106,52 +117,91 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
       const ctx = c.getContext("2d")!;
       ctx.fillStyle = "#faf7f0";
       ctx.fillRect(0, 0, 768, 1024);
+      // Outer border
+      ctx.strokeStyle = "rgba(17, 18, 15, 0.25)";
+      ctx.lineWidth = 2;
+      ctx.strokeRect(20, 20, 728, 984);
       // Ruled ledger lines
-      ctx.strokeStyle = "rgba(17, 18, 15, 0.08)";
+      ctx.strokeStyle = "rgba(17, 18, 15, 0.12)";
       ctx.lineWidth = 1.2;
-      for (let y = 80; y <= 980; y += 40) {
+      for (let y = 100; y <= 960; y += 36) {
         ctx.beginPath();
-        ctx.moveTo(40, y);
-        ctx.lineTo(728, y);
+        ctx.moveTo(30, y);
+        ctx.lineTo(738, y);
         ctx.stroke();
       }
-      // Cobalt vertical margin line
-      ctx.strokeStyle = "rgba(31, 58, 218, 0.3)";
+      // Double cobalt vertical margin line
+      ctx.strokeStyle = "rgba(31, 58, 218, 0.6)";
       ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(120, 40);
-      ctx.lineTo(120, 984);
+      ctx.moveTo(110, 30);
+      ctx.lineTo(110, 994);
       ctx.stroke();
+      ctx.strokeStyle = "rgba(31, 58, 218, 0.3)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(116, 30);
+      ctx.lineTo(116, 994);
+      ctx.stroke();
+      // Header stamp
+      ctx.fillStyle = "rgba(31, 58, 218, 0.85)";
+      ctx.font = "bold 15px monospace";
+      ctx.fillText("REGISTRY // ADMISSIONS RECORD 2026", 136, 68);
+      ctx.font = "11px monospace";
+      ctx.fillStyle = "rgba(17, 18, 15, 0.5)";
+      ctx.fillText("INSTITUTIONAL AUDIT TRAIL — VERIFIED", 136, 86);
+      return new THREE.CanvasTexture(c);
+    };
+
+    // Circular soft particle texture
+    const createMoteTexture = () => {
+      const c = document.createElement("canvas");
+      c.width = 64;
+      c.height = 64;
+      const ctx = c.getContext("2d")!;
+      const g = ctx.createRadialGradient(32, 32, 0, 32, 32, 30);
+      g.addColorStop(0, "rgba(31, 58, 218, 0.95)");
+      g.addColorStop(0.4, "rgba(31, 58, 218, 0.35)");
+      g.addColorStop(1, "rgba(31, 58, 218, 0)");
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, 64, 64);
       return new THREE.CanvasTexture(c);
     };
 
     const blueprintTex = createBlueprintTexture();
     const ledgerTex = createLedgerTexture();
+    const moteTex = createMoteTexture();
 
     // Sheet 1: Blueprint Ground Sheet (Base architectural plane)
     const sheet1Geo = new THREE.PlaneGeometry(36, 26);
     const sheet1Mat = new THREE.MeshStandardMaterial({
       map: blueprintTex,
-      roughness: 0.88,
+      roughness: 0.85,
       metalness: 0.02,
       side: THREE.DoubleSide,
     });
     const sheet1 = new THREE.Mesh(sheet1Geo, sheet1Mat);
     sheet1.position.set(4, 1, -12);
     sheet1.rotation.set(0.06, -0.16, 0.03);
+    const wireGeo1 = new THREE.EdgesGeometry(sheet1Geo);
+    const wireMat1 = new THREE.LineBasicMaterial({ color: 0x1f3ad8, transparent: true, opacity: 0.4 });
+    sheet1.add(new THREE.LineSegments(wireGeo1, wireMat1));
     paperGroup.add(sheet1);
 
     // Sheet 2: Institutional Ledger Sheet (Slanted floating document)
     const sheet2Geo = new THREE.PlaneGeometry(24, 32);
     const sheet2Mat = new THREE.MeshStandardMaterial({
       map: ledgerTex,
-      roughness: 0.84,
+      roughness: 0.82,
       metalness: 0.02,
       side: THREE.DoubleSide,
     });
     const sheet2 = new THREE.Mesh(sheet2Geo, sheet2Mat);
-    sheet2.position.set(14, -3, -4);
-    sheet2.rotation.set(-0.06, -0.24, -0.05);
+    sheet2.position.set(12, -2, -5);
+    sheet2.rotation.set(-0.06, -0.22, -0.05);
+    const wireGeo2 = new THREE.EdgesGeometry(sheet2Geo);
+    const wireMat2 = new THREE.LineBasicMaterial({ color: 0x11120f, transparent: true, opacity: 0.3 });
+    sheet2.add(new THREE.LineSegments(wireGeo2, wireMat2));
     paperGroup.add(sheet2);
 
     // Sheet 3: Translucent Architectural Vellum Strip (Layered foreground)
@@ -167,7 +217,7 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
       side: THREE.DoubleSide,
     });
     const sheet3 = new THREE.Mesh(sheet3Geo, sheet3Mat);
-    sheet3.position.set(-6, 3, 4);
+    sheet3.position.set(-6, 3, 3);
     sheet3.rotation.set(0.08, 0.14, 0.02);
     paperGroup.add(sheet3);
 
@@ -197,14 +247,15 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
     for (let i = 0; i < moteCount; i++) {
       motePos[i * 3] = (Math.random() - 0.5) * 45;
       motePos[i * 3 + 1] = (Math.random() - 0.5) * 30;
-      motePos[i * 3 + 2] = (Math.random() - 0.5) * 25;
+      motePos[i * 3 + 2] = (Math.random() - 0.5) * 20;
     }
     moteGeo.setAttribute("position", new THREE.BufferAttribute(motePos, 3));
     const moteMat = new THREE.PointsMaterial({
-      size: 2.2,
-      color: 0x1f3ad8,
+      size: 0.9,
+      map: moteTex,
       transparent: true,
-      opacity: 0.7,
+      opacity: 0.65,
+      depthWrite: false,
       blending: THREE.NormalBlending,
     });
     const motes = new THREE.Points(moteGeo, moteMat);
