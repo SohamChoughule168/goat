@@ -1,0 +1,3973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nectarline — Supply Side Studio</title>
+  <meta name="description" content="The leading independent self-serve curation studio for programmatic media buyers. Curate audience-layered CTV, video, and display supply pipelines with 0% hidden markup.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Instrument+Serif:ital@1&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Three.js Import Map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS & RESET
+       ========================================================================== */
+    :root {
+      --ink: #f4f2ff;
+      --ink-2: rgba(236, 232, 255, 0.72);
+      --ink-3: rgba(220, 214, 255, 0.50);
+      --ink-4: rgba(220, 214, 255, 0.28);
+      --peri: #6f78ff;
+      --peri-2: #8d94ff;
+      --peri-glow: rgba(141, 148, 255, 0.4);
+      --peri-subtle: rgba(111, 120, 255, 0.12);
+      --navy: #0d0830;
+      --navy-deep: #08051e;
+      --line: rgba(196, 178, 255, 0.15);
+      --line-bright: rgba(196, 178, 255, 0.3);
+      --surface-glass: rgba(13, 8, 48, 0.65);
+      --surface-card: rgba(22, 16, 66, 0.72);
+      --surface-card-hover: rgba(30, 22, 90, 0.85);
+      --emerald: #10b981;
+      --cyan: #38bdf8;
+      --font-ui: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-mono: 'Fira Code', monospace;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--navy);
+      color: var(--ink);
+      font-family: var(--font-ui);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: var(--navy);
+      color: var(--ink);
+      font-family: var(--font-ui);
+      line-height: 1.5;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Custom Selection */
+    ::selection {
+      background: var(--peri);
+      color: #ffffff;
+    }
+
+    /* Typography Utilities */
+    .accent-serif {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--peri-2);
+      letter-spacing: -0.01em;
+    }
+
+    .font-mono {
+      font-family: var(--font-mono);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* ==========================================================================
+       FIXED BACKGROUND SCENE STACK (4 LAYERS)
+       ========================================================================== */
+    .scene-stack {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    /* Layer 1: Day Plate & WebGL Ripple Pond */
+    .scene-layer-day {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 1;
+      will-change: opacity;
+      transition: opacity 0.15s ease-out;
+    }
+
+    #ripple-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: auto; /* allows interactive ripples */
+    }
+
+    /* Hidden video element used as WebGL texture source */
+    #pond-video {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0.001;
+      pointer-events: none;
+    }
+
+    /* Layer 2: Violet Gradient Layer */
+    .scene-layer-violet {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      opacity: 0;
+      will-change: opacity;
+      background: radial-gradient(circle at 60% 40%, rgba(111, 120, 255, 0.45) 0%, rgba(56, 32, 132, 0.8) 50%, rgba(13, 8, 48, 0.98) 100%),
+                  linear-gradient(180deg, rgba(13, 8, 48, 0.4) 0%, rgba(13, 8, 48, 0.95) 100%);
+      pointer-events: none;
+      transition: opacity 0.15s ease-out;
+    }
+
+    /* Layer 3: Night Plate */
+    .scene-layer-night {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      opacity: 0;
+      will-change: opacity;
+      background-image: url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261104_151304_3b7ab857-b4c2-4f5a-8d7f-e1ec429185a5.png&w=2400&q=85');
+      background-size: cover;
+      background-position: center center;
+      transition: opacity 0.15s ease-out;
+    }
+    .scene-layer-night::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(13, 8, 48, 0.4) 0%, rgba(8, 5, 30, 0.85) 100%),
+                  linear-gradient(180deg, transparent 0%, rgba(13, 8, 48, 0.8) 100%);
+    }
+
+    /* Layer 4: Koi Canvas (Three.js) */
+    .scene-layer-koi {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    #koi-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ==========================================================================
+       NAVIGATION BAR (FIXED, Z-INDEX 50)
+       ========================================================================== */
+    .nav-wrapper {
+      position: fixed;
+      top: 20px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      padding: 0 24px;
+      pointer-events: none;
+    }
+
+    .nav-container {
+      width: 100%;
+      max-width: 1220px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px 0 22px;
+      background: rgba(13, 8, 48, 0.65);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-full);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      pointer-events: auto;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .nav-container:hover {
+      border-color: rgba(196, 178, 255, 0.28);
+      box-shadow: 0 16px 42px rgba(13, 8, 48, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .brand-orb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ffffff 0%, var(--peri-2) 40%, var(--peri) 75%, #3d2c8d 100%);
+      box-shadow: 0 0 14px var(--peri-glow), inset 0 0 4px rgba(255, 255, 255, 0.8);
+      animation: orbPulse 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes orbPulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 10px var(--peri-glow); }
+      100% { transform: scale(1.15); box-shadow: 0 0 20px rgba(141, 148, 255, 0.7); }
+    }
+
+    .nav-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(111, 120, 255, 0.16);
+      border: 1px solid rgba(196, 178, 255, 0.2);
+      color: var(--peri-2);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px 6px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(196, 178, 255, 0.08);
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 7px 16px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink-2);
+      border-radius: var(--radius-full);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      background: rgba(196, 178, 255, 0.12);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-ghost {
+      padding: 8px 16px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink-2);
+      transition: color 0.2s ease;
+    }
+    .btn-ghost:hover {
+      color: var(--ink);
+    }
+
+    .btn-glass {
+      padding: 8px 18px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(12px);
+      transition: var(--transition-smooth);
+    }
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.13);
+      border-color: var(--line-bright);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: var(--peri);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 18px rgba(111, 120, 255, 0.4);
+      transition: var(--transition-smooth);
+    }
+    .btn-primary:hover {
+      background: var(--peri-2);
+      box-shadow: 0 6px 24px rgba(141, 148, 255, 0.6);
+      transform: translateY(-1px);
+    }
+
+    /* Mobile Hamburger Menu */
+    .nav-hamburger {
+      display: none;
+      width: 36px;
+      height: 36px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+    .nav-hamburger span {
+      width: 18px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 86px;
+      left: 20px;
+      right: 20px;
+      background: rgba(13, 8, 48, 0.95);
+      backdrop-filter: blur(30px);
+      border: 1px solid var(--line-bright);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      z-index: 49;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a {
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(196, 178, 255, 0.08);
+      color: var(--ink-2);
+    }
+    .mobile-drawer .mobile-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT CONTAINER & SECTIONS
+       ========================================================================== */
+    .page-content {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 130px 0;
+      position: relative;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--peri-2);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(111, 120, 255, 0.1);
+      border: 1px solid rgba(196, 178, 255, 0.18);
+      margin-bottom: 20px;
+    }
+
+    .section-eyebrow .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--peri-2);
+      box-shadow: 0 0 8px var(--peri-2);
+    }
+
+    .section-title {
+      font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      color: var(--ink);
+      max-width: 880px;
+    }
+
+    .section-desc {
+      font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+      font-weight: 300;
+      color: var(--ink-2);
+      line-height: 1.65;
+      max-width: 680px;
+      margin-top: 20px;
+    }
+
+    /* ==========================================================================
+       SECTION 1: HERO (100VH)
+       ========================================================================== */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 120px 0 60px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+      width: 100%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--peri-2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(111, 120, 255, 0.14);
+      border: 1px solid rgba(196, 178, 255, 0.22);
+      margin-bottom: 26px;
+    }
+
+    .kicker-live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulseGreen 2s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .hero-title {
+      font-size: clamp(3.2rem, 6.2vw, 5.2rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .hero-title .title-accent {
+      font-weight: 600;
+      background: linear-gradient(135deg, #ffffff 30%, var(--peri-2) 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-subline {
+      font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--ink-2);
+      max-width: 620px;
+      margin-bottom: 38px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .hero-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--peri) 0%, #565fe0 100%);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 28px rgba(111, 120, 255, 0.45);
+      transition: var(--transition-smooth);
+    }
+    .hero-btn-primary:hover {
+      background: linear-gradient(135deg, var(--peri-2) 0%, var(--peri) 100%);
+      box-shadow: 0 12px 36px rgba(141, 148, 255, 0.65);
+      transform: translateY(-2px);
+    }
+
+    .hero-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(16px);
+      transition: var(--transition-smooth);
+    }
+    .hero-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: var(--line-bright);
+      transform: translateY(-2px);
+    }
+
+    .hero-specs-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.825rem;
+      color: var(--ink-3);
+    }
+    .hero-spec-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Bottom-Right Floating Card in Hero */
+    .hero-scroll-card-wrap {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .hero-scroll-card {
+      pointer-events: auto;
+      width: 100%;
+      max-width: 340px;
+      background: rgba(13, 8, 48, 0.65);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid var(--line-bright);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .hero-scroll-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(196, 178, 255, 0.4);
+    }
+
+    .card-pool-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .card-pool-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .card-pool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .card-pool-val {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .card-pool-desc {
+      font-size: 0.8rem;
+      color: var(--ink-3);
+      margin-bottom: 18px;
+    }
+
+    /* Mini Live Wave SVG */
+    .mini-wave-chart {
+      width: 100%;
+      height: 48px;
+      margin-bottom: 16px;
+    }
+
+    .scroll-guide {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid rgba(196, 178, 255, 0.1);
+      font-size: 0.775rem;
+      color: var(--peri-2);
+    }
+    .scroll-guide-icon {
+      animation: bounceDown 1.8s ease-in-out infinite;
+    }
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    /* ==========================================================================
+       SECTION 2: STUDIO & DASHBOARD SECTION
+       ========================================================================== */
+    .studio-section {
+      padding-top: 80px;
+    }
+
+    .studio-header {
+      margin-bottom: 60px;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .stat-card {
+      background: rgba(17, 12, 53, 0.55);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 26px 22px;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--peri-2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .stat-card:hover {
+      background: rgba(25, 18, 75, 0.7);
+      border-color: rgba(196, 178, 255, 0.28);
+      transform: translateY(-2px);
+    }
+    .stat-card:hover::before {
+      opacity: 1;
+    }
+
+    .stat-num {
+      font-size: clamp(2.2rem, 3.2vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #ffffff 40%, var(--peri-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* COMPLETE DASHBOARD UI MOCKUP */
+    .dashboard-window {
+      width: 100%;
+      background: rgba(11, 7, 38, 0.78);
+      backdrop-filter: blur(32px) saturate(180%);
+      -webkit-backdrop-filter: blur(32px) saturate(180%);
+      border: 1px solid rgba(196, 178, 255, 0.22);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 32px 72px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      overflow: hidden;
+    }
+
+    /* Dashboard Header Bar */
+    .dash-chrome-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dash-window-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .dash-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .dot-close { background: #ff5f56; }
+    .dot-min { background: #ffbd2e; }
+    .dot-max { background: #27c93f; }
+
+    .dash-location-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--ink-3);
+      padding: 5px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(196, 178, 255, 0.1);
+      border-radius: var(--radius-full);
+    }
+    .dash-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 8px var(--emerald);
+    }
+
+    .dash-actions-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .dash-meta-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--peri-2);
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: rgba(111, 120, 255, 0.12);
+      border: 1px solid rgba(111, 120, 255, 0.2);
+    }
+
+    /* Dashboard Inner Layout: Sidebar + Main Area */
+    .dash-body {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: 620px;
+    }
+
+    /* Left Sidebar */
+    .dash-sidebar {
+      background: rgba(13, 8, 48, 0.45);
+      border-right: 1px solid var(--line);
+      padding: 22px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .dash-nav-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .dash-nav-heading {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--ink-4);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 8px 12px 6px;
+    }
+
+    .dash-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink-2);
+      transition: var(--transition-smooth);
+    }
+    .dash-nav-item:hover {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .dash-nav-item.active {
+      color: #ffffff;
+      background: rgba(111, 120, 255, 0.2);
+      border: 1px solid rgba(111, 120, 255, 0.3);
+    }
+    .dash-nav-item svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 1.8;
+      opacity: 0.8;
+    }
+
+    .dash-sidebar-deal-card {
+      background: rgba(22, 16, 66, 0.6);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+    .deal-card-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      color: var(--ink-3);
+      text-transform: uppercase;
+    }
+    .deal-card-code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--peri-2);
+      margin: 4px 0 8px;
+    }
+    .deal-card-progress {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .deal-card-bar {
+      width: 82%;
+      height: 100%;
+      background: var(--peri);
+      border-radius: 2px;
+    }
+
+    /* Main Area */
+    .dash-main {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      background: rgba(13, 8, 48, 0.2);
+    }
+
+    /* Top Command & Search Row */
+    .dash-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .dash-search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-full);
+      padding: 7px 16px;
+      width: 340px;
+    }
+    .dash-search-box svg {
+      width: 15px;
+      height: 15px;
+      color: var(--ink-3);
+    }
+    .dash-search-box input {
+      border: none;
+      background: transparent;
+      color: var(--ink);
+      font-size: 0.825rem;
+      width: 100%;
+      outline: none;
+    }
+    .dash-search-box input::placeholder {
+      color: var(--ink-4);
+    }
+
+    .dash-toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dash-btn-tool {
+      padding: 7px 14px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink-2);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+    }
+    .dash-btn-tool:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--ink);
+    }
+
+    .dash-btn-create {
+      padding: 7px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: var(--peri);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+    }
+    .dash-btn-create:hover {
+      background: var(--peri-2);
+    }
+
+    /* 4 KPI Tiles */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .kpi-tile {
+      background: rgba(20, 14, 60, 0.55);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .kpi-tile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .kpi-title {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-3);
+    }
+    .kpi-trend {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .trend-up {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald);
+    }
+    .trend-down {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--cyan);
+    }
+
+    .kpi-num {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .kpi-sub {
+      font-size: 0.72rem;
+      color: var(--ink-4);
+    }
+
+    /* Dashboard Chart Row (2 columns) */
+    .dash-chart-row {
+      display: grid;
+      grid-template-columns: 1.8fr 1.2fr;
+      gap: 16px;
+    }
+
+    .dash-chart-card {
+      background: rgba(20, 14, 60, 0.5);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .chart-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .chart-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .chart-legend {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.72rem;
+      color: var(--ink-3);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .legend-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+    }
+    .leg-nectar { background: var(--peri-2); }
+    .leg-legacy { background: rgba(196, 178, 255, 0.3); }
+
+    .chart-canvas-container {
+      position: relative;
+      width: 100%;
+      height: 180px;
+    }
+    #volume-chart-canvas, #donut-chart-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Deals Table */
+    .dash-table-card {
+      background: rgba(20, 14, 60, 0.5);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      overflow-x: auto;
+    }
+
+    .table-tabs-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .table-tabs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 3px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+    }
+
+    .tab-btn {
+      padding: 5px 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--ink-3);
+      border-radius: 6px;
+      transition: var(--transition-smooth);
+    }
+    .tab-btn.active {
+      color: #ffffff;
+      background: rgba(111, 120, 255, 0.25);
+    }
+
+    .deals-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.8rem;
+    }
+
+    .deals-table th {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--ink-4);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      font-weight: 500;
+    }
+
+    .deals-table td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(196, 178, 255, 0.06);
+      color: var(--ink-2);
+      vertical-align: middle;
+    }
+    .deals-table tr:hover td {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--ink);
+    }
+
+    .deal-name-cell {
+      display: flex;
+      flex-direction: column;
+    }
+    .deal-primary-name {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .deal-id-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--peri-2);
+    }
+
+    .ssp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .status-badge-active {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--emerald);
+      background: rgba(16, 185, 129, 0.12);
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .action-btn-copy {
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--ink-2);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      transition: var(--transition-smooth);
+    }
+    .action-btn-copy:hover {
+      background: var(--peri);
+      color: #ffffff;
+      border-color: var(--peri);
+    }
+
+    /* ==========================================================================
+       SECTION 3: PACKAGES SECTION
+       ========================================================================== */
+    .packages-section {
+      padding-top: 60px;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 50px;
+      margin-bottom: 70px;
+    }
+
+    .pkg-card {
+      background: rgba(17, 12, 53, 0.6);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+    .pkg-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--peri), transparent);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .pkg-card:hover {
+      background: rgba(26, 18, 80, 0.75);
+      border-color: rgba(196, 178, 255, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 30px rgba(111, 120, 255, 0.15);
+    }
+    .pkg-card:hover::before {
+      opacity: 1;
+    }
+
+    .pkg-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--peri-2);
+      padding: 4px 10px;
+      background: rgba(111, 120, 255, 0.12);
+      border: 1px solid rgba(196, 178, 255, 0.18);
+      border-radius: var(--radius-full);
+      margin-bottom: 18px;
+      align-self: flex-start;
+    }
+
+    .pkg-name {
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .pkg-desc {
+      font-size: 0.925rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .pkg-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(196, 178, 255, 0.1);
+      border-bottom: 1px solid rgba(196, 178, 255, 0.1);
+      margin-bottom: 24px;
+    }
+
+    .pkg-metric-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+    }
+    .pkg-metric-lbl {
+      color: var(--ink-3);
+    }
+    .pkg-metric-val {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .pkg-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 28px;
+    }
+    .pkg-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 3px 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(196, 178, 255, 0.1);
+      border-radius: 4px;
+      color: var(--ink-3);
+    }
+
+    .pkg-action-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-full);
+      text-align: center;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .pkg-action-btn:hover {
+      background: var(--peri);
+      border-color: var(--peri);
+      color: #ffffff;
+    }
+
+    /* CODE TYPING INTERACTIVE TERMINAL */
+    .terminal-container {
+      background: rgba(9, 6, 32, 0.85);
+      backdrop-filter: blur(28px);
+      border: 1px solid rgba(196, 178, 255, 0.2);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+      margin-bottom: 80px;
+      overflow: hidden;
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .terminal-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .terminal-file-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-copy-code {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 5px 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--ink-2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+    }
+    .btn-copy-code:hover {
+      background: rgba(111, 120, 255, 0.2);
+      color: var(--ink);
+      border-color: var(--peri);
+    }
+
+    .terminal-body {
+      padding: 24px;
+      overflow-x: auto;
+    }
+
+    .terminal-code {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      line-height: 1.68;
+      color: var(--ink-2);
+      white-space: pre;
+    }
+
+    .token-key { color: #a5b4fc; }
+    .token-str { color: #86efac; }
+    .token-num { color: #fca5a5; }
+    .token-bool { color: #fde047; }
+    .token-punct { color: rgba(196, 178, 255, 0.4); }
+
+    .cursor-blink {
+      display: inline-block;
+      width: 7px;
+      height: 15px;
+      background: var(--peri-2);
+      vertical-align: middle;
+      margin-left: 2px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    /* 3-STEP PROCESS STRIP */
+    .process-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+    .process-strip::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196, 178, 255, 0.25), transparent);
+      z-index: 0;
+    }
+
+    .step-card {
+      background: rgba(18, 13, 56, 0.5);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(16px);
+      transition: var(--transition-smooth);
+    }
+    .step-card:hover {
+      background: rgba(26, 19, 80, 0.65);
+      border-color: rgba(196, 178, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .step-num-bubble {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(111, 120, 255, 0.15);
+      border: 1px solid var(--peri-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--peri-2);
+      margin-bottom: 20px;
+      box-shadow: 0 0 16px rgba(111, 120, 255, 0.25);
+    }
+
+    .step-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .step-desc {
+      font-size: 0.88rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       SECTION 4: USE CASES SECTION (STAIRCASE CARDS)
+       ========================================================================== */
+    .usecases-section {
+      padding-top: 60px;
+    }
+
+    .staircase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 50px;
+    }
+
+    /* Staircase offset effect */
+    .staircase-card:nth-child(2) {
+      transform: translateY(35px);
+    }
+    .staircase-card:nth-child(4) {
+      transform: translateY(35px);
+    }
+
+    .staircase-card {
+      background: rgba(17, 12, 53, 0.65);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+    .staircase-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--peri-2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .staircase-card:hover {
+      background: rgba(28, 20, 88, 0.8);
+      border-color: rgba(196, 178, 255, 0.35);
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.45);
+    }
+    .staircase-card:hover::after {
+      opacity: 1;
+    }
+
+    .sc-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .sc-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(111, 120, 255, 0.15);
+      border: 1px solid rgba(196, 178, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--peri-2);
+    }
+    .sc-icon-wrap svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .sc-metric-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--emerald);
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.22);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .sc-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .sc-desc {
+      font-size: 0.95rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+      margin-bottom: 26px;
+    }
+
+    .sc-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(196, 178, 255, 0.1);
+      margin-bottom: 24px;
+    }
+    .sc-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: var(--ink-3);
+    }
+    .sc-feature-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--peri-2);
+      flex-shrink: 0;
+    }
+
+    .sc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--peri-2);
+      transition: gap 0.2s ease;
+    }
+    .sc-link:hover {
+      gap: 12px;
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       SECTION 5: CTA & FOOTER
+       ========================================================================== */
+    .cta-section {
+      padding: 120px 0 60px 0;
+      position: relative;
+    }
+
+    .cta-panel {
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, rgba(111, 120, 255, 0.25) 0%, rgba(20, 14, 62, 0.8) 60%, rgba(13, 8, 48, 0.95) 100%);
+      border: 1px solid rgba(196, 178, 255, 0.28);
+      border-radius: 32px;
+      padding: 70px 40px;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6), 0 0 80px rgba(111, 120, 255, 0.2);
+      overflow: hidden;
+      margin-bottom: 100px;
+    }
+    .cta-panel::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 20%;
+      width: 60%;
+      height: 100%;
+      background: radial-gradient(ellipse, rgba(141, 148, 255, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-heading {
+      font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .cta-subtext {
+      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+      font-weight: 300;
+      color: var(--ink-2);
+      max-width: 620px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .cta-form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      max-width: 520px;
+      margin: 0 auto 26px;
+      position: relative;
+    }
+
+    .cta-input {
+      flex: 1;
+      height: 52px;
+      padding: 0 20px;
+      font-size: 0.95rem;
+      background: rgba(13, 8, 48, 0.8);
+      border: 1px solid var(--line-bright);
+      border-radius: var(--radius-full);
+      color: var(--ink);
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+    .cta-input:focus {
+      border-color: var(--peri-2);
+      box-shadow: 0 0 16px var(--peri-glow);
+    }
+    .cta-input::placeholder {
+      color: var(--ink-4);
+    }
+
+    .cta-submit-btn {
+      height: 52px;
+      padding: 0 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: var(--peri);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: var(--radius-full);
+      box-shadow: 0 6px 24px rgba(111, 120, 255, 0.45);
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+    }
+    .cta-submit-btn:hover {
+      background: var(--peri-2);
+      box-shadow: 0 8px 30px rgba(141, 148, 255, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .cta-guarantees {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      font-size: 0.8rem;
+      color: var(--ink-3);
+      position: relative;
+    }
+    .cta-guarantee-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      position: relative;
+      padding-top: 40px;
+      border-top: 1px solid rgba(196, 178, 255, 0.1);
+    }
+
+    /* Ghosted Wordmark */
+    .footer-ghost-wordmark {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(4rem, 16vw, 15rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: rgba(255, 255, 255, 0.02);
+      user-select: none;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 0;
+    }
+
+    .footer-columns-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 36px;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-brand-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .footer-brand-desc {
+      font-size: 0.85rem;
+      color: var(--ink-3);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .footer-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--emerald);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      width: fit-content;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links-list a {
+      font-size: 0.85rem;
+      color: var(--ink-3);
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: inline-block;
+    }
+    .footer-links-list a:hover {
+      color: var(--ink);
+      transform: translateX(2px);
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 26px 0;
+      border-top: 1px solid rgba(196, 178, 255, 0.08);
+      font-size: 0.8rem;
+      color: var(--ink-4);
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .footer-legal-links a:hover {
+      color: var(--ink-2);
+    }
+
+    /* Toast Notification */
+    .toast-popup {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(22, 16, 66, 0.9);
+      border: 1px solid var(--peri);
+      border-radius: var(--radius-md);
+      padding: 12px 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(20px);
+      z-index: 100;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toast-popup.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1080px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .dash-body {
+        grid-template-columns: 1fr;
+      }
+      .dash-sidebar {
+        display: none;
+      }
+      .dash-chart-row {
+        grid-template-columns: 1fr;
+      }
+      .packages-grid {
+        grid-template-columns: 1fr;
+      }
+      .staircase-grid {
+        grid-template-columns: 1fr;
+      }
+      .staircase-card:nth-child(2),
+      .staircase-card:nth-child(4) {
+        transform: translateY(0);
+      }
+      .process-strip {
+        grid-template-columns: 1fr;
+      }
+      .process-strip::before {
+        display: none;
+      }
+      .footer-columns-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav-links, .nav-actions {
+        display: none;
+      }
+      .nav-hamburger {
+        display: flex;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        padding-top: 30px;
+      }
+      .hero-scroll-card-wrap {
+        display: none;
+      }
+      .kpi-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .cta-form {
+        flex-direction: column;
+      }
+      .cta-input, .cta-submit-btn {
+        width: 100%;
+      }
+      .footer-columns-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       FIXED SCENE STACK (4 LAYERS BEHIND EVERYTHING)
+       ========================================================================== -->
+  <div class="scene-stack" id="scene-stack">
+    <!-- Layer 1: Day Plate & Interactive WebGL Ripple Pond -->
+    <div class="scene-layer-day" id="layer-day">
+      <canvas id="ripple-canvas"></canvas>
+      <!-- Hidden video element for WebGL ripple lens texture -->
+      <video id="pond-video" loop muted playsinline crossOrigin="anonymous" preload="auto">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261104_160514_d8369d6e-d8ba-4532-9751-b32e0c8aaf75.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Layer 2: Violet Gradient Layer -->
+    <div class="scene-layer-violet" id="layer-violet"></div>
+
+    <!-- Layer 3: Night Plate -->
+    <div class="scene-layer-night" id="layer-night"></div>
+
+    <!-- Layer 4: Three.js 3D Koi Fish Canvas -->
+    <div class="scene-layer-koi" id="layer-koi">
+      <canvas id="koi-canvas"></canvas>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       NAVIGATION (FIXED, Z-INDEX 50)
+       ========================================================================== */ -->
+  <header class="nav-wrapper">
+    <nav class="nav-container">
+      <a href="#" class="nav-brand">
+        <div class="brand-orb"></div>
+        <span>Nectarline</span>
+        <span class="nav-tag">STUDIO</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#studio">Product</a></li>
+        <li><a href="#packages">Channels</a></li>
+        <li><a href="#usecases">Resources</a></li>
+        <li><a href="#stats">Customer Stories</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#login" class="btn-ghost">Login</a>
+        <a href="#cta" class="btn-glass">Book a Call</a>
+        <a href="#cta" class="btn-primary">
+          <span>Get Started</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <button class="nav-hamburger" id="nav-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <a href="#studio" class="mobile-nav-link">Product & Studio</a>
+    <a href="#packages" class="mobile-nav-link">Curated Packages</a>
+    <a href="#usecases" class="mobile-nav-link">Use Cases & Solutions</a>
+    <a href="#stats" class="mobile-nav-link">Exchange Metrics</a>
+    <div class="mobile-actions">
+      <a href="#login" class="btn-glass" style="text-align: center;">Login</a>
+      <a href="#cta" class="btn-primary" style="justify-content: center;">Get Started</a>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-popup" id="toast-popup">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toast-text">Deal ID copied to clipboard!</span>
+  </div>
+
+  <!-- ==========================================================================
+       PAGE CONTENT (Z-INDEX 10)
+       ========================================================================== -->
+  <main class="page-content">
+
+    <!-- -----------------------------------------------------------------------
+         SECTION 1: HERO (100VH)
+         ----------------------------------------------------------------------- -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <div class="hero-content">
+            <div class="hero-kicker">
+              <span class="kicker-live-dot"></span>
+              AUTONOMOUS CURATION ENGINE • OPENRTB 2.6
+            </div>
+
+            <h1 class="hero-title">
+              Introducing<br>
+              <span class="title-accent">Nectarline</span>
+            </h1>
+
+            <p class="hero-subline">
+              <span class="accent-serif">Supply Side Studio®</span> — The independent self-serve curation engine connecting premium publisher inventories directly to programmatic DSP buyers with zero hidden markups.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#cta" class="hero-btn-primary">
+                <span>Get Started Free</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#studio" class="hero-btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                <span>Explore Studio</span>
+              </a>
+            </div>
+
+            <div class="hero-specs-row">
+              <div class="hero-spec-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6f78ff" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span>48s median deal generation</span>
+              </div>
+              <span>•</span>
+              <div class="hero-spec-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>100% Brand-Safe Audited</span>
+              </div>
+              <span>•</span>
+              <div class="hero-spec-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+                <span>Pre-integrated with DV360 & TTD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom-Right Floating Card in Hero -->
+          <div class="hero-scroll-card-wrap">
+            <div class="hero-scroll-card">
+              <div class="card-pool-header">
+                <span class="card-pool-title">Live Supply Pool</span>
+                <span class="card-pool-badge">
+                  <span class="dash-status-dot"></span>
+                  99.4% Match Rate
+                </span>
+              </div>
+
+              <div class="card-pool-val" id="counter-pool">$84.2M</div>
+              <div class="card-pool-desc">Curated programmatic volume transacted today</div>
+
+              <!-- Animated Mini Wave SVG -->
+              <svg class="mini-wave-chart" viewBox="0 0 280 48" fill="none">
+                <defs>
+                  <linearGradient id="waveGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#8d94ff" stop-opacity="0.45"/>
+                    <stop offset="100%" stop-color="#6f78ff" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0 32 Q 35 14, 70 24 T 140 18 T 210 28 T 280 12 L 280 48 L 0 48 Z" fill="url(#waveGrad)"/>
+                <path d="M0 32 Q 35 14, 70 24 T 140 18 T 210 28 T 280 12" stroke="#8d94ff" stroke-width="2.5" fill="none"/>
+              </svg>
+
+              <div class="scroll-guide">
+                <span>Scroll to explore Studio</span>
+                <span class="scroll-guide-icon">↓</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SECTION 2: STUDIO & DASHBOARD SECTION
+         ----------------------------------------------------------------------- -->
+    <section class="section studio-section" id="studio">
+      <div class="container">
+        
+        <div class="studio-header">
+          <div class="section-eyebrow">
+            <span class="pulse-dot"></span>
+            INDEPENDENT CURATION STUDIO
+          </div>
+          <h2 class="section-title">
+            The leading independent <span class="accent-serif">self-serve curation studio</span> for all programmatic media buyers.
+          </h2>
+          <p class="section-desc">
+            Directly package supply channels, private marketplace deals, and enriched audience graphs into single turnkey Deal IDs ready for instant DSP bidding.
+          </p>
+        </div>
+
+        <!-- 4 Big Stats Grid -->
+        <div class="stats-grid" id="stats">
+          <div class="stat-card">
+            <div class="stat-num" data-target="2.4" data-suffix="B">2.4B</div>
+            <div class="stat-label">Daily Bid Requests Processed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" data-target="48" data-suffix="s">48s</div>
+            <div class="stat-label">Median Deal Setup Time</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" data-target="120" data-suffix="+">120+</div>
+            <div class="stat-label">Direct Supply Partners (SSPs)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" data-target="0" data-suffix="%">0%</div>
+            <div class="stat-label">Arbitrage Markup & Hidden Fees</div>
+          </div>
+        </div>
+
+        <!-- COMPLETE DASHBOARD UI MOCKUP -->
+        <div class="dashboard-window">
+          <!-- Window Chrome -->
+          <div class="dash-chrome-bar">
+            <div class="dash-window-dots">
+              <span class="dash-dot dot-close"></span>
+              <span class="dash-dot dot-min"></span>
+              <span class="dash-dot dot-max"></span>
+            </div>
+            <div class="dash-location-pill">
+              <span class="dash-status-dot"></span>
+              <span>app.nectarline.io/studio/deals/active</span>
+            </div>
+            <div class="dash-actions-meta">
+              <span class="dash-meta-badge">42ms Latency</span>
+              <span class="dash-meta-badge">OpenRTB 2.6 Sync</span>
+            </div>
+          </div>
+
+          <!-- Body with Sidebar and Content -->
+          <div class="dash-body">
+            <!-- Sidebar -->
+            <div class="dash-sidebar">
+              <div class="dash-nav-group">
+                <span class="dash-nav-heading">Platform</span>
+                <a href="#studio" class="dash-nav-item active">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                  <span>Overview</span>
+                </a>
+                <a href="#packages" class="dash-nav-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  <span>Deal Curator</span>
+                </a>
+                <a href="#studio" class="dash-nav-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                  <span>Audience Graphs</span>
+                </a>
+                <a href="#studio" class="dash-nav-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+                  <span>SSP Feeds (120+)</span>
+                </a>
+                <a href="#studio" class="dash-nav-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                  <span>SPO Cost Optimizer</span>
+                </a>
+              </div>
+
+              <div class="dash-sidebar-deal-card">
+                <div class="deal-card-lbl">Active Curated Deal</div>
+                <div class="deal-card-code">NECTAR-CTV-9042</div>
+                <div class="deal-card-progress">
+                  <div class="deal-card-bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="dash-main">
+              <!-- Toolbar -->
+              <div class="dash-toolbar">
+                <div class="dash-search-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" placeholder="Filter SSP streams, deal IDs, seat tokens..." readonly value="Search 120+ supply partners & deals">
+                </div>
+
+                <div class="dash-toolbar-actions">
+                  <button class="dash-btn-tool">
+                    <span>Last 30 Days</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <button class="dash-btn-create" onclick="triggerToast('New Deal ID generated: NECT-CTV-9821')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    <span>Create Deal</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- 4 KPI Tiles -->
+              <div class="kpi-row">
+                <div class="kpi-tile">
+                  <div class="kpi-tile-top">
+                    <span class="kpi-title">Curated Impressions</span>
+                    <span class="kpi-trend trend-up">+18.4%</span>
+                  </div>
+                  <div class="kpi-num">842.6M</div>
+                  <div class="kpi-sub">Across 120+ integrated SSPs</div>
+                </div>
+
+                <div class="kpi-tile">
+                  <div class="kpi-tile-top">
+                    <span class="kpi-title">Effective eCPM</span>
+                    <span class="kpi-trend trend-down">-14.2%</span>
+                  </div>
+                  <div class="kpi-num">$2.48</div>
+                  <div class="kpi-sub">Arbitrage fees eliminated</div>
+                </div>
+
+                <div class="kpi-tile">
+                  <div class="kpi-tile-top">
+                    <span class="kpi-title">Live PMP Deals</span>
+                    <span class="kpi-trend trend-up">98.6%</span>
+                  </div>
+                  <div class="kpi-num">1,420</div>
+                  <div class="kpi-sub">Synchronized to DSP seats</div>
+                </div>
+
+                <div class="kpi-tile">
+                  <div class="kpi-tile-top">
+                    <span class="kpi-title">Direct Path Rate</span>
+                    <span class="kpi-trend trend-up">Zero Hop</span>
+                  </div>
+                  <div class="kpi-num">94.1%</div>
+                  <div class="kpi-sub">Single-hop direct sellers.json</div>
+                </div>
+              </div>
+
+              <!-- Two Column Charts -->
+              <div class="dash-chart-row">
+                <div class="dash-chart-card">
+                  <div class="chart-card-header">
+                    <span class="chart-title">Curated Bid Volume vs Legacy Routing (Millions)</span>
+                    <div class="chart-legend">
+                      <div class="legend-item"><span class="legend-indicator leg-nectar"></span> Nectarline SPO</div>
+                      <div class="legend-item"><span class="legend-indicator leg-legacy"></span> Legacy SSP Multi-Hop</div>
+                    </div>
+                  </div>
+                  <div class="chart-canvas-container">
+                    <canvas id="volume-chart-canvas"></canvas>
+                  </div>
+                </div>
+
+                <div class="dash-chart-card">
+                  <div class="chart-card-header">
+                    <span class="chart-title">Supply Channel Distribution</span>
+                    <span class="font-mono" style="font-size: 0.72rem; color: var(--peri-2);">100% Verified</span>
+                  </div>
+                  <div class="chart-canvas-container">
+                    <canvas id="donut-chart-canvas"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Programmatic Deals Table -->
+              <div class="dash-table-card">
+                <div class="table-tabs-header">
+                  <div class="table-tabs">
+                    <button class="tab-btn active">All Deals (5)</button>
+                    <button class="tab-btn">Connected TV</button>
+                    <button class="tab-btn">High Viewability</button>
+                    <button class="tab-btn">B2B & News</button>
+                  </div>
+                  <span class="font-mono" style="font-size: 0.72rem; color: var(--ink-3);">Real-time QPS Syncing</span>
+                </div>
+
+                <table class="deals-table">
+                  <thead>
+                    <tr>
+                      <th>Deal & ID</th>
+                      <th>Supply Partner</th>
+                      <th>Format</th>
+                      <th>Audience Segment</th>
+                      <th>Floor Price</th>
+                      <th>24h Volume</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="deal-name-cell">
+                          <span class="deal-primary-name">OmniCTV Premier Prime</span>
+                          <span class="deal-id-tag">NECT-7019</span>
+                        </div>
+                      </td>
+                      <td><span class="ssp-badge">Magnite</span></td>
+                      <td>CTV / SSAI</td>
+                      <td>Live Sports & News</td>
+                      <td class="font-mono">$18.50</td>
+                      <td class="font-mono">14.8M</td>
+                      <td><span class="status-badge-active"><span class="dash-status-dot"></span> Live</span></td>
+                      <td><button class="action-btn-copy" onclick="copyDeal('NECT-7019')">Copy ID</button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="deal-name-cell">
+                          <span class="deal-primary-name">Bloomberg & Forbes Alpha</span>
+                          <span class="deal-id-tag">NECT-8831</span>
+                        </div>
+                      </td>
+                      <td><span class="ssp-badge">OpenX</span></td>
+                      <td>Display 300x250</td>
+                      <td>B2B C-Suite & Tech</td>
+                      <td class="font-mono">$4.20</td>
+                      <td class="font-mono">29.4M</td>
+                      <td><span class="status-badge-active"><span class="dash-status-dot"></span> Live</span></td>
+                      <td><button class="action-btn-copy" onclick="copyDeal('NECT-8831')">Copy ID</button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="deal-name-cell">
+                          <span class="deal-primary-name">Spotify & Pandora AudioStream</span>
+                          <span class="deal-id-tag">NECT-4412</span>
+                        </div>
+                      </td>
+                      <td><span class="ssp-badge">Triton Digital</span></td>
+                      <td>Digital Audio</td>
+                      <td>Gen-Z Streamers</td>
+                      <td class="font-mono">$6.80</td>
+                      <td class="font-mono">11.2M</td>
+                      <td><span class="status-badge-active"><span class="dash-status-dot"></span> Live</span></td>
+                      <td><button class="action-btn-copy" onclick="copyDeal('NECT-4412')">Copy ID</button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="deal-name-cell">
+                          <span class="deal-primary-name">Unity Mobile High-Engagement</span>
+                          <span class="deal-id-tag">NECT-3305</span>
+                        </div>
+                      </td>
+                      <td><span class="ssp-badge">Unity Ads</span></td>
+                      <td>Rewarded Video</td>
+                      <td>Active Gamers</td>
+                      <td class="font-mono">$3.15</td>
+                      <td class="font-mono">48.7M</td>
+                      <td><span class="status-badge-active"><span class="dash-status-dot"></span> Live</span></td>
+                      <td><button class="action-btn-copy" onclick="copyDeal('NECT-3305')">Copy ID</button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="deal-name-cell">
+                          <span class="deal-primary-name">Paramount+ & Pluto Dynamic</span>
+                          <span class="deal-id-tag">NECT-9120</span>
+                        </div>
+                      </td>
+                      <td><span class="ssp-badge">PubMatic</span></td>
+                      <td>SSAI Mid-Roll</td>
+                      <td>Household Shoppers</td>
+                      <td class="font-mono">$15.20</td>
+                      <td class="font-mono">22.3M</td>
+                      <td><span class="status-badge-active"><span class="dash-status-dot"></span> Live</span></td>
+                      <td><button class="action-btn-copy" onclick="copyDeal('NECT-9120')">Copy ID</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SECTION 3: PACKAGES SECTION
+         ----------------------------------------------------------------------- -->
+    <section class="section packages-section" id="packages">
+      <div class="container">
+        
+        <div>
+          <div class="section-eyebrow">
+            <span class="pulse-dot"></span>
+            TURNKEY MARKETPLACE PACKAGES
+          </div>
+          <h2 class="section-title">
+            Engineered supply pipelines, <span class="accent-serif">packaged in seconds.</span>
+          </h2>
+          <p class="section-desc">
+            Bypass months of bilateral publisher negotiation. Activate specialized inventory blends curated for identity resolution, CTV living-room viewability, and path optimization.
+          </p>
+        </div>
+
+        <!-- 3 Glass Package Cards -->
+        <div class="packages-grid">
+          <!-- Card 1 -->
+          <div class="pkg-card">
+            <div>
+              <span class="pkg-badge">FIRST-PARTY IDENTITY</span>
+              <h3 class="pkg-name">Audience-Layered Studio</h3>
+              <p class="pkg-desc">
+                Multi-graph identity matching combining Unified ID 2.0, LiveRamp RampID, and publisher declared first-party signals.
+              </p>
+              
+              <div class="pkg-metrics">
+                <div class="pkg-metric-row">
+                  <span class="pkg-metric-lbl">Identity Match Rate</span>
+                  <span class="pkg-metric-val" style="color: var(--emerald);">+38% vs Cookie</span>
+                </div>
+                <div class="pkg-metric-row">
+                  <span class="pkg-metric-lbl">Addressable Coverage</span>
+                  <span class="pkg-metric-val">100% Privacy-Safe</span>
+                </div>
+              </div>
+
+              <div class="pkg-tags">
+                <span class="pkg-tag">#UID2</span>
+                <span class="pkg-tag">#RampID</span>
+                <span class="pkg-tag">#CleanRooms</span>
+                <span class="pkg-tag">#FirstParty</span>
+              </div>
+            </div>
+
+            <button class="pkg-action-btn" onclick="triggerToast('Audience-Layered package added to studio')">
+              <span>Curate Identity Blend</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="pkg-card">
+            <div>
+              <span class="pkg-badge">PREMIUM LIVING ROOM</span>
+              <h3 class="pkg-name">CTV & Streaming Hub</h3>
+              <p class="pkg-desc">
+                Direct Server-Side Ad Insertion (SSAI) with frame-accurate pod management and 100% show-level contextual verification.
+              </p>
+
+              <div class="pkg-metrics">
+                <div class="pkg-metric-row">
+                  <span class="pkg-metric-lbl">Average Viewability</span>
+                  <span class="pkg-metric-val" style="color: var(--emerald);">99.2% Verified</span>
+                </div>
+                <div class="pkg-metric-row">
+                  <span class="pkg-metric-lbl">Video Completion Rate</span>
+                  <span class="pkg-metric-val">98.4% Audio-On</span>
+                </div>
+              </div>
+
+              <div class="pkg-tags">
+                <span class="pkg-tag">#SSAI</span>
+                <span class="pkg-tag">#ACRData</span>
+                <span class="pkg-tag">#ShowLevel</span>
+                <span class="pkg-tag">#FraudFree</span>
+              </div>
+            </div>
+
+            <button class="pkg-action-btn" onclick="triggerToast('CTV package added to studio')">
+              <span>Curate CTV Deal</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="pkg-card">
+            <div>
+              <span class="pkg-badge">SUPPLY PATH OPTIMIZATION</span>
+              <h3 class="pkg-name">Performance & SPO Alpha</h3>
+              <p class="pkg-desc">
+                Algorithmic path pruning eliminating intermediary re-sellers, duplicate auctions, and latency-inducing hops.
+              </p>
+
+              <div class="pkg-metrics">
+                <div class="pkg-metric-row">
+                  <span class="pkg-metric-lbl">Media Fee Reduction</span>
+                  <span class="pkg-metric-val" style="color: var(--cyan);">-24% Intermediary Tax</span>
+                </div>
+                <div class="pkg-metric-row">
+                  <span class="pkg-metric-lbl">Direct Publisher Path</span>
+                  <span class="pkg-metric-val">Single-Hop Direct</span>
+                </div>
+              </div>
+
+              <div class="pkg-tags">
+                <span class="pkg-tag">#ZeroMarkup</span>
+                <span class="pkg-tag">#SingleHop</span>
+                <span class="pkg-tag">#DirectSellers</span>
+                <span class="pkg-tag">#OpenRTB</span>
+              </div>
+            </div>
+
+            <button class="pkg-action-btn" onclick="triggerToast('SPO Alpha package added to studio')">
+              <span>Curate SPO Pipeline</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- CODE TYPING INTERACTIVE TERMINAL -->
+        <div class="terminal-container">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dash-dot dot-close"></span>
+              <span class="dash-dot dot-min"></span>
+              <span class="dash-dot dot-max"></span>
+            </div>
+            <div class="terminal-file-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6f78ff" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span>bid_request.json — OpenRTB 2.6 Curated Deal Payload</span>
+            </div>
+            <button class="btn-copy-code" id="btn-copy-code" onclick="copyCodeSnippet()">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copy JSON</span>
+            </button>
+          </div>
+          <div class="terminal-body">
+            <code class="terminal-code" id="code-stream"></code><span class="cursor-blink"></span>
+          </div>
+        </div>
+
+        <!-- 3-STEP PROCESS STRIP -->
+        <div class="process-strip">
+          <div class="step-card">
+            <div class="step-num-bubble">01</div>
+            <h4 class="step-title">Configure Supply Filters</h4>
+            <p class="step-desc">
+              Select verified publisher domains, CTV networks, viewability thresholds (>85%), and identity overlays in the self-serve Studio.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num-bubble">02</div>
+            <h4 class="step-title">Generate Curated Deal ID</h4>
+            <p class="step-desc">
+              The autonomous curation engine creates OpenRTB PMP deal contracts across 120+ supply partners in under 48 seconds with 0% markups.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num-bubble">03</div>
+            <h4 class="step-title">Target in Any DSP</h4>
+            <p class="step-desc">
+              Copy the single Deal ID into The Trade Desk, DV360, Amazon DSP, or Yahoo DSP and start bidding on direct, brand-safe inventory immediately.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SECTION 4: USE CASES SECTION (STAIRCASE CARDS)
+         ----------------------------------------------------------------------- -->
+    <section class="section usecases-section" id="usecases">
+      <div class="container">
+        
+        <div>
+          <div class="section-eyebrow">
+            <span class="pulse-dot"></span>
+            TAILORED STAKEHOLDER SOLUTIONS
+          </div>
+          <h2 class="section-title">
+            Architected for every <span class="accent-serif">programmatic leader.</span>
+          </h2>
+          <p class="section-desc">
+            Whether managing media spend for global brands, maximizing inventory yield, or reducing exchange cloud load, Nectarline provides precision curation.
+          </p>
+        </div>
+
+        <!-- 4 Staircase Role Cards -->
+        <div class="staircase-grid">
+          <!-- Card 1: Media Agency -->
+          <div class="staircase-card">
+            <div>
+              <div class="sc-header-row">
+                <div class="sc-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span class="sc-metric-pill">+42% Margin Transparency</span>
+              </div>
+
+              <h3 class="sc-title">Media Agencies & Holdings</h3>
+              <p class="sc-desc">
+                Command your client's supply chain. Consolidate programmatic spend into custom high-performance marketplace packages with transparent margin reporting.
+              </p>
+
+              <ul class="sc-features">
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Multi-client seat federation across all DSPs</span>
+                </li>
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Automated sellers.json SPO audit reports</span>
+                </li>
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Zero markup white-label curation portals</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#cta" class="sc-link">
+              <span>Explore Agency Workflows</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Card 2: Direct Enterprise Advertiser -->
+          <div class="staircase-card">
+            <div>
+              <div class="sc-header-row">
+                <div class="sc-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+                </div>
+                <span class="sc-metric-pill">-31% Media Waste Reduction</span>
+              </div>
+
+              <h3 class="sc-title">Direct Enterprise Advertisers</h3>
+              <p class="sc-desc">
+                Direct-to-publisher relationships without the operational overhead. Enforce brand safety, sustainability criteria, and eliminate MFA domains automatically.
+              </p>
+
+              <ul class="sc-features">
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Guaranteed zero Made-For-Advertising (MFA) inventory</span>
+                </li>
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>First-party data cleanroom integration (UID2 / RampID)</span>
+                </li>
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Scope 3 carbon-optimized programmatic routing</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#cta" class="sc-link">
+              <span>Explore Brand Workflows</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Card 3: Premium Publisher -->
+          <div class="staircase-card">
+            <div>
+              <div class="sc-header-row">
+                <div class="sc-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <span class="sc-metric-pill">+28% Yield & eCPM Lift</span>
+              </div>
+
+              <h3 class="sc-title">Premium Publishers & Broadcasters</h3>
+              <p class="sc-desc">
+                Package your premium inventory with proprietary first-party audience overlays. Unlock higher eCPMs and attract dedicated agency upfront budgets.
+              </p>
+
+              <ul class="sc-features">
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Protected first-party audience clean rooms</span>
+                </li>
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Turnkey PMP syndication to top 20 global DSPs</span>
+                </li>
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Show-level CTV transparency & SSAI ad pod controls</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#cta" class="sc-link">
+              <span>Explore Publisher Workflows</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Card 4: Ad Tech & DSP Platforms -->
+          <div class="staircase-card">
+            <div>
+              <div class="sc-header-row">
+                <div class="sc-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <span class="sc-metric-pill">-40% QPS Cloud Overhead</span>
+              </div>
+
+              <h3 class="sc-title">Ad Tech & DSP Platforms</h3>
+              <p class="sc-desc">
+                Clean your inbound QPS before it hits your bidding infrastructure. Ingest curated bidstreams tailored strictly to your buyers' active campaigns.
+              </p>
+
+              <ul class="sc-features">
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>40% reduction in useless auction query processing</span>
+                </li>
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Bidstream deduplication and duplicate path pruning</span>
+                </li>
+                <li class="sc-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Native OpenRTB 2.6 and AdCOM spec compliance</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#cta" class="sc-link">
+              <span>Explore Platform APIs</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SECTION 5: CTA & FOOTER
+         ----------------------------------------------------------------------- -->
+    <section class="section cta-section" id="cta">
+      <div class="container">
+        
+        <!-- Big Glass CTA Panel -->
+        <div class="cta-panel">
+          <h2 class="cta-heading">
+            Start Curating <span class="accent-serif">Supply-Side</span> Now!
+          </h2>
+          <p class="cta-subtext">
+            Join over 450 programmatic agencies, brands, and publishers building direct, transparent supply pathways with zero hidden markups.
+          </p>
+
+          <form class="cta-form" id="cta-form" onsubmit="handleCtaSubmit(event)">
+            <input type="email" class="cta-input" placeholder="Enter your business email..." required>
+            <button type="submit" class="cta-submit-btn">Get Started Free →</button>
+          </form>
+
+          <div class="cta-guarantees">
+            <div class="cta-guarantee-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>No credit card required</span>
+            </div>
+            <div class="cta-guarantee-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Instant DSP Deal ID setup</span>
+            </div>
+            <div class="cta-guarantee-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>SOC-2 Type II & TAG Certified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SITE FOOTER -->
+        <footer class="site-footer">
+          <!-- Ghosted Wordmark -->
+          <div class="footer-ghost-wordmark">NECTARLINE</div>
+
+          <div class="footer-columns-grid">
+            <!-- Brand Column -->
+            <div class="footer-brand-col">
+              <a href="#" class="nav-brand">
+                <div class="brand-orb"></div>
+                <span>Nectarline</span>
+              </a>
+              <p class="footer-brand-desc">
+                The independent self-serve programmatic curation studio. Delivering direct-path publisher supply with verified identity layers.
+              </p>
+              <div class="footer-status-pill">
+                <span class="dash-status-dot"></span>
+                <span>All 124 Supply Nodes Operational</span>
+              </div>
+            </div>
+
+            <!-- Col 2: Product -->
+            <div>
+              <h4 class="footer-col-title">Product</h4>
+              <ul class="footer-links-list">
+                <li><a href="#studio">Supply Studio</a></li>
+                <li><a href="#studio">Deal Curator</a></li>
+                <li><a href="#packages">Audience Graphs</a></li>
+                <li><a href="#packages">SPO Optimizer</a></li>
+                <li><a href="#packages">CTV Direct Feed</a></li>
+                <li><a href="#packages">OpenRTB 2.6 Engine</a></li>
+              </ul>
+            </div>
+
+            <!-- Col 3: Solutions -->
+            <div>
+              <h4 class="footer-col-title">Solutions</h4>
+              <ul class="footer-links-list">
+                <li><a href="#usecases">For Media Agencies</a></li>
+                <li><a href="#usecases">For Direct Brands</a></li>
+                <li><a href="#usecases">For Publishers</a></li>
+                <li><a href="#usecases">For DSP Platforms</a></li>
+                <li><a href="#usecases">Carbon-Safe SPO</a></li>
+                <li><a href="#usecases">Clean Room Sync</a></li>
+              </ul>
+            </div>
+
+            <!-- Col 4: Resources -->
+            <div>
+              <h4 class="footer-col-title">Resources</h4>
+              <ul class="footer-links-list">
+                <li><a href="#packages">OpenRTB 2.6 Specs</a></li>
+                <li><a href="#studio">SPO Benchmark 2026</a></li>
+                <li><a href="#packages">CTV Transparency Study</a></li>
+                <li><a href="#studio">DSP Deal Setup Guide</a></li>
+                <li><a href="#cta">API Documentation</a></li>
+                <li><a href="#cta">System Status</a></li>
+              </ul>
+            </div>
+
+            <!-- Col 5: Company -->
+            <div>
+              <h4 class="footer-col-title">Company</h4>
+              <ul class="footer-links-list">
+                <li><a href="#cta">About Us</a></li>
+                <li><a href="#cta">Careers (We're Hiring!)</a></li>
+                <li><a href="#cta">Security & Privacy</a></li>
+                <li><a href="#cta">Press & Media</a></li>
+                <li><a href="#cta">Leadership</a></li>
+                <li><a href="#cta">Contact Sales</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Footer Bottom Bar -->
+          <div class="footer-bottom-bar">
+            <span>© 2026 Nectarline Inc. All rights reserved. Supply Side Studio® is a registered trademark.</span>
+            <div class="footer-legal-links">
+              <a href="#privacy">Privacy Policy</a>
+              <a href="#terms">Terms of Service</a>
+              <a href="#security">Security</a>
+              <a href="#cookies">Cookie Preferences</a>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: WEBGL RIPPLE LENS, THREE.JS 3D KOI, DASHBOARD CHARTS, ANIMATIONS
+       ========================================================================== -->
+  <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+    /* ==========================================================================
+       SMOOTHSTEP HELPER
+       ========================================================================== */
+    function smoothstep(min, max, value) {
+      const x = Math.max(0, Math.min(1, (value - min) / (max - min)));
+      return x * x * (3 - 2 * x);
+    }
+
+    /* ==========================================================================
+       1. FIXED SCENE STACK CROSSFADE (DAY -> VIOLET -> NIGHT)
+       ========================================================================== */
+    const layerDay = document.getElementById('layer-day');
+    const layerViolet = document.getElementById('layer-violet');
+    const layerNight = document.getElementById('layer-night');
+
+    function updateSceneCrossfade() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const progress = Math.min(1, Math.max(0, scrollY / maxScroll));
+
+      // Layer 1 (Day/Pond video): Fades out between 15% and 45%
+      const dayOpacity = 1.0 - smoothstep(0.18, 0.45, progress);
+      layerDay.style.opacity = dayOpacity;
+
+      // Layer 2 (Violet Gradient): Fades in from 15% to 35%, peaks around 50%, fades out around 80%
+      const violetIn = smoothstep(0.12, 0.35, progress);
+      const violetOut = 1.0 - smoothstep(0.68, 0.90, progress);
+      layerViolet.style.opacity = (violetIn * violetOut);
+
+      // Layer 3 (Night Plate): Fades in between 60% and 90%
+      const nightOpacity = smoothstep(0.60, 0.90, progress);
+      layerNight.style.opacity = nightOpacity;
+    }
+
+    window.addEventListener('scroll', updateSceneCrossfade, { passive: true });
+    updateSceneCrossfade();
+
+    /* ==========================================================================
+       2. WEBGL RIPPLE LENS SHADER (FULL-SCREEN QUAD OVER VIDEO / DAY PLATE)
+       ========================================================================== */
+    const rippleCanvas = document.getElementById('ripple-canvas');
+    const pondVideo = document.getElementById('pond-video');
+    const gl = rippleCanvas.getContext('webgl') || rippleCanvas.getContext('experimental-webgl');
+
+    // Ripple state
+    const MAX_RIPPLES = 8;
+    const ripples = [];
+    for (let i = 0; i < MAX_RIPPLES; i++) {
+      ripples.push({ x: 0.5, y: 0.5, age: 999.0, strength: 0.0 });
+    }
+    let lastRippleTime = 0;
+    let lastMousePos = { x: 0.5, y: 0.5 };
+
+    function spawnRipple(normX, normY, strength = 1.0) {
+      // Find oldest ripple to replace
+      let oldestIndex = 0;
+      let maxAge = -1;
+      for (let i = 0; i < MAX_RIPPLES; i++) {
+        if (ripples[i].age > maxAge) {
+          maxAge = ripples[i].age;
+          oldestIndex = i;
+        }
+      }
+      ripples[oldestIndex] = {
+        x: normX,
+        y: 1.0 - normY, // WebGL Y is inverted
+        age: 0.0,
+        strength: strength
+      };
+    }
+
+    if (gl) {
+      // Vertex Shader
+      const vsSource = `
+        attribute vec2 a_position;
+        varying vec2 v_uv;
+        void main() {
+          v_uv = (a_position + 1.0) * 0.5;
+          gl_Position = vec4(a_position, 0.0, 1.0);
+        }
+      `;
+
+      // Fragment Shader with Ripple Displacement, Chromatic Aberration & Video Aspect Cover
+      const fsSource = `
+        precision mediump float;
+        varying vec2 v_uv;
+        uniform sampler2D u_texture;
+        uniform vec2 u_resolution;
+        uniform vec2 u_videoSize;
+        uniform float u_time;
+        uniform vec4 u_ripples[8]; // x, y, age, strength
+
+        void main() {
+          vec2 res = u_resolution;
+          vec2 vid = u_videoSize;
+          
+          // Cover-fit texture coordinates
+          float screenAspect = res.x / res.y;
+          float videoAspect = vid.x / vid.y;
+          vec2 uv = v_uv;
+
+          if (screenAspect > videoAspect) {
+            float scale = screenAspect / videoAspect;
+            uv.y = (uv.y - 0.5) * (1.0 / scale) + 0.5;
+          } else {
+            float scale = videoAspect / screenAspect;
+            uv.x = (uv.x - 0.5) * (1.0 / scale) + 0.5;
+          }
+
+          // Center zoom slightly to prevent sampling edges
+          uv = (uv - 0.5) * 0.96 + 0.5;
+
+          // Compute ripple displacement
+          vec2 totalDisp = vec2(0.0);
+          for (int i = 0; i < 8; i++) {
+            vec4 r = u_ripples[i];
+            float age = r.z;
+            if (age < 2.5) {
+              vec2 toPixel = (v_uv - r.xy) * vec2(screenAspect, 1.0);
+              float dist = length(toPixel);
+              float speed = 0.9;
+              float waveRadius = age * speed;
+              float waveWidth = 0.18;
+              
+              float ring = exp(-pow((dist - waveRadius) / waveWidth, 2.0));
+              float decay = exp(-age * 1.8) * r.w;
+              float wave = sin((dist - waveRadius) * 45.0) * ring * decay;
+              
+              if (dist > 0.001) {
+                totalDisp += normalize(toPixel) * wave * 0.035;
+              }
+            }
+          }
+
+          // Gentle ambient water surface caustics
+          float ambient = sin(v_uv.x * 10.0 + u_time * 0.8) * cos(v_uv.y * 10.0 + u_time * 0.7) * 0.0025;
+          totalDisp += vec2(ambient, -ambient);
+
+          // Chromatic Aberration sampling
+          float rDisp = 1.0;
+          float gDisp = 1.025;
+          float bDisp = 1.055;
+
+          vec4 cr = texture2D(u_texture, uv + totalDisp * rDisp);
+          vec4 cg = texture2D(u_texture, uv + totalDisp * gDisp);
+          vec4 cb = texture2D(u_texture, uv + totalDisp * bDisp);
+
+          // Specular wave highlight
+          float crest = clamp(length(totalDisp) * 14.0, 0.0, 0.6);
+          vec3 baseColor = vec3(cr.r, cg.g, cb.b) + vec3(0.4, 0.45, 0.8) * crest;
+
+          gl_FragColor = vec4(baseColor, 1.0);
+        }
+      `;
+
+      function createShader(gl, type, source) {
+        const shader = gl.createShader(type);
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+        return shader;
+      }
+
+      const program = gl.createProgram();
+      gl.attachShader(program, createShader(gl, gl.VERTEX_SHADER, vsSource));
+      gl.attachShader(program, createShader(gl, gl.FRAGMENT_SHADER, fsSource));
+      gl.linkProgram(program);
+
+      const posBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+        -1, -1,
+         1, -1,
+        -1,  1,
+        -1,  1,
+         1, -1,
+         1,  1
+      ]), gl.STATIC_DRAW);
+
+      const aPosition = gl.getAttribLocation(program, 'a_position');
+      const uTexture = gl.getUniformLocation(program, 'u_texture');
+      const uResolution = gl.getUniformLocation(program, 'u_resolution');
+      const uVideoSize = gl.getUniformLocation(program, 'u_videoSize');
+      const uTime = gl.getUniformLocation(program, 'u_time');
+      const uRipples = gl.getUniformLocation(program, 'u_ripples');
+
+      // Create Texture
+      const texture = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+
+      // 1x1 initial fallback pixel (deep navy lotus water)
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([13, 8, 48, 255]));
+
+      // Fallback Day Plate Image Texture
+      const fallbackImage = new Image();
+      fallbackImage.crossOrigin = 'anonymous';
+      fallbackImage.src = 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261104_151305_25ef1f45-0886-491c-a7a8-81e296402d5a.png&w=2400&q=85';
+      let textureLoaded = false;
+      let videoPlaying = false;
+
+      fallbackImage.onload = () => {
+        if (!videoPlaying) {
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, fallbackImage);
+          textureLoaded = true;
+        }
+      };
+
+      // Video playback initialization
+      pondVideo.play().then(() => {
+        videoPlaying = true;
+      }).catch(() => {
+        // Autoplay may need user gesture, image fallback takes care of it
+      });
+
+      function resizeRippleCanvas() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        rippleCanvas.width = w * dpr;
+        rippleCanvas.height = h * dpr;
+        gl.viewport(0, 0, rippleCanvas.width, rippleCanvas.height);
+      }
+      window.addEventListener('resize', resizeRippleCanvas);
+      resizeRippleCanvas();
+
+      // Mouse and pointer interaction for water ripples
+      window.addEventListener('mousemove', (e) => {
+        const normX = e.clientX / window.innerWidth;
+        const normY = e.clientY / window.innerHeight;
+        const dist = Math.hypot(normX - lastMousePos.x, normY - lastMousePos.y);
+        const now = performance.now();
+
+        if (dist > 0.04 && (now - lastRippleTime) > 90) {
+          spawnRipple(normX, normY, 0.7);
+          lastMousePos = { x: normX, y: normY };
+          lastRippleTime = now;
+        }
+      });
+
+      window.addEventListener('click', (e) => {
+        const normX = e.clientX / window.innerWidth;
+        const normY = e.clientY / window.innerHeight;
+        spawnRipple(normX, normY, 1.4);
+      });
+
+      // Initial welcoming ripples
+      setTimeout(() => spawnRipple(0.48, 0.45, 1.2), 400);
+      setTimeout(() => spawnRipple(0.55, 0.52, 1.0), 1100);
+
+      let startTime = performance.now();
+
+      function renderRipple(now) {
+        const elapsed = (now - startTime) * 0.001;
+        const dt = 0.016;
+
+        // Update ripple ages
+        const flatRipples = [];
+        for (let i = 0; i < MAX_RIPPLES; i++) {
+          ripples[i].age += dt;
+          flatRipples.push(ripples[i].x, ripples[i].y, ripples[i].age, ripples[i].strength);
+        }
+
+        gl.useProgram(program);
+
+        // Update texture if video has new frame
+        if (pondVideo.readyState >= pondVideo.HAVE_CURRENT_DATA) {
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, pondVideo);
+          videoPlaying = true;
+        }
+
+        gl.uniform1i(uTexture, 0);
+        gl.uniform2f(uResolution, rippleCanvas.width, rippleCanvas.height);
+        gl.uniform2f(uVideoSize, 2400.0, 1350.0);
+        gl.uniform1f(uTime, elapsed);
+        gl.uniform4fv(uRipples, new Float32Array(flatRipples));
+
+        gl.enableVertexAttribArray(aPosition);
+        gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
+        gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
+
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+        requestAnimationFrame(renderRipple);
+      }
+      requestAnimationFrame(renderRipple);
+    }
+
+    /* ==========================================================================
+       3. THREE.JS 3D CRYSTAL KOI FISH (GLTF + PROCEDURAL FALLBACK + SCROLL POSES)
+       ========================================================================== */
+    const koiCanvas = document.getElementById('koi-canvas');
+    const renderer = new THREE.WebGLRenderer({
+      canvas: koiCanvas,
+      alpha: true,
+      antialias: true,
+      powerPreference: 'high-performance'
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.35;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 5.5);
+
+    // Dynamic Lighting
+    const ambientLight = new THREE.AmbientLight(0x281e60, 1.8);
+    scene.add(ambientLight);
+
+    const dirLight1 = new THREE.DirectionalLight(0xdde5ff, 2.8);
+    dirLight1.position.set(5, 8, 4);
+    scene.add(dirLight1);
+
+    const dirLight2 = new THREE.DirectionalLight(0x6f78ff, 3.2);
+    dirLight2.position.set(-6, -2, -3);
+    scene.add(dirLight2);
+
+    const koiPointLight = new THREE.PointLight(0x8d94ff, 2.5, 8);
+    scene.add(koiPointLight);
+
+    // Floating Bioluminescent Water Particles
+    const particleCount = 70;
+    const particleGeo = new THREE.BufferGeometry();
+    const particlePositions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount * 3; i += 3) {
+      particlePositions[i] = (Math.random() - 0.5) * 8;
+      particlePositions[i + 1] = (Math.random() - 0.5) * 6;
+      particlePositions[i + 2] = (Math.random() - 0.5) * 4;
+    }
+    particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+    const particleMat = new THREE.PointsMaterial({
+      color: 0x8d94ff,
+      size: 0.04,
+      transparent: true,
+      opacity: 0.65,
+      blending: THREE.AdditiveBlending
+    });
+    const particleSystem = new THREE.Points(particleGeo, particleMat);
+    scene.add(particleSystem);
+
+    // Crystal Glass Material for Koi
+    const swimTime = { value: 0 };
+    const koiMaterial = new THREE.MeshPhysicalMaterial({
+      color: new THREE.Color(0xdde3ff),
+      emissive: new THREE.Color(0x281865),
+      emissiveIntensity: 0.35,
+      metalness: 0.05,
+      roughness: 0.08,
+      transmission: 0.90,
+      thickness: 1.4,
+      ior: 1.48,
+      transparent: true,
+      opacity: 0.92,
+      attenuationColor: new THREE.Color(0x6f78ff),
+      attenuationDistance: 1.1,
+      iridescence: 0.95,
+      iridescenceIOR: 1.33,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.06
+    });
+
+    // Vertex shader swim wave deformation
+    koiMaterial.onBeforeCompile = (shader) => {
+      shader.uniforms.uSwimTime = swimTime;
+      shader.vertexShader = `
+        uniform float uSwimTime;
+        ${shader.vertexShader}
+      `;
+      shader.vertexShader = shader.vertexShader.replace(
+        '#include <begin_vertex>',
+        `
+        #include <begin_vertex>
+        // Fluid lateral tail wave deformation
+        float wave = sin(position.z * 3.4 - uSwimTime * 4.2);
+        float tailTaper = smoothstep(-0.8, 1.4, position.z);
+        transformed.x += wave * 0.16 * tailTaper;
+        // Subtle vertical undulating rhythm
+        transformed.y += cos(position.z * 2.8 - uSwimTime * 3.8) * 0.04 * tailTaper;
+        `
+      );
+    };
+
+    // Root Group for Koi
+    const koiRoot = new THREE.Group();
+    scene.add(koiRoot);
+
+    // Build Gorgeous Procedural Koi Geometry as robust fallback/base
+    function buildProceduralKoi() {
+      const koiGroup = new THREE.Group();
+
+      // Torpedo-like smooth body
+      const bodyCurve = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(0, 0, -1.3),
+        new THREE.Vector3(0, 0.05, -0.6),
+        new THREE.Vector3(0, 0.08, 0.0),
+        new THREE.Vector3(0, 0.02, 0.6),
+        new THREE.Vector3(0, -0.01, 1.2)
+      ]);
+      const bodyGeo = new THREE.TubeGeometry(bodyCurve, 36, 0.28, 16, false);
+      // Flatten body slightly along Y and taper
+      const pos = bodyGeo.attributes.position;
+      for (let i = 0; i < pos.count; i++) {
+        const z = pos.getZ(i);
+        const taper = 1.0 - Math.pow(Math.abs(z) / 1.4, 2.0) * 0.45;
+        pos.setX(i, pos.getX(i) * 0.85 * taper);
+        pos.setY(i, pos.getY(i) * 1.15 * taper);
+      }
+      bodyGeo.computeVertexNormals();
+      const bodyMesh = new THREE.Mesh(bodyGeo, koiMaterial);
+      koiGroup.add(bodyMesh);
+
+      // Bifurcated flowing caudal (tail) fin
+      const finShape = new THREE.Shape();
+      finShape.moveTo(0, 0);
+      finShape.quadraticCurveTo(0.2, 0.5, 0.7, 0.8);
+      finShape.quadraticCurveTo(0.4, 0.2, 0.6, 0);
+      finShape.quadraticCurveTo(0.4, -0.2, 0.7, -0.8);
+      finShape.quadraticCurveTo(0.2, -0.5, 0, 0);
+
+      const finGeo = new THREE.ShapeGeometry(finShape, 12);
+      const tailFin = new THREE.Mesh(finGeo, koiMaterial);
+      tailFin.position.set(0, 0, 1.2);
+      tailFin.rotation.y = Math.PI / 2;
+      tailFin.scale.set(0.65, 0.65, 0.65);
+      koiGroup.add(tailFin);
+
+      // Flowing Dorsal Fin
+      const dorsalShape = new THREE.Shape();
+      dorsalShape.moveTo(0, 0);
+      dorsalShape.quadraticCurveTo(0.0, 0.25, 0.4, 0.35);
+      dorsalShape.quadraticCurveTo(0.8, 0.3, 1.0, 0.05);
+      dorsalShape.lineTo(0, 0);
+      const dorsalGeo = new THREE.ShapeGeometry(dorsalShape, 10);
+      const dorsalFin = new THREE.Mesh(dorsalGeo, koiMaterial);
+      dorsalFin.position.set(0, 0.24, -0.4);
+      dorsalFin.rotation.y = Math.PI / 2;
+      dorsalFin.scale.set(0.6, 0.6, 0.6);
+      koiGroup.add(dorsalFin);
+
+      // Pectoral Fins (Left & Right)
+      const pecShape = new THREE.Shape();
+      pecShape.moveTo(0, 0);
+      pecShape.quadraticCurveTo(0.4, 0.3, 0.7, 0.1);
+      pecShape.quadraticCurveTo(0.4, -0.1, 0, 0);
+      const pecGeo = new THREE.ShapeGeometry(pecShape, 8);
+
+      const pecLeft = new THREE.Mesh(pecGeo, koiMaterial);
+      pecLeft.position.set(0.22, -0.05, -0.3);
+      pecLeft.rotation.set(0.3, 0.4, -0.6);
+      pecLeft.scale.set(0.55, 0.55, 0.55);
+      koiGroup.add(pecLeft);
+
+      const pecRight = new THREE.Mesh(pecGeo, koiMaterial);
+      pecRight.position.set(-0.22, -0.05, -0.3);
+      pecRight.rotation.set(0.3, -0.4, 0.6);
+      pecRight.scale.set(-0.55, 0.55, 0.55);
+      koiGroup.add(pecRight);
+
+      return koiGroup;
+    }
+
+    // Initialize with procedural koi so there's never an empty scene
+    let activeKoi = buildProceduralKoi();
+    koiRoot.add(activeKoi);
+
+    // Try loading GLTF Koi model
+    let mixer = null;
+    const gltfLoader = new GLTFLoader();
+    gltfLoader.load(
+      'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261104_151843_47d87652-1c40-465c-b0d6-cd94c22a9d3e.glb',
+      (gltf) => {
+        const model = gltf.scene;
+        model.traverse((child) => {
+          if (child.isMesh) {
+            child.material = koiMaterial;
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        // Center and scale model appropriately
+        const box = new THREE.Box3().setFromObject(model);
+        const size = box.getSize(new THREE.Vector3());
+        const maxAxis = Math.max(size.x, size.y, size.z);
+        if (maxAxis > 0) {
+          model.scale.setScalar(2.2 / maxAxis);
+        }
+
+        if (gltf.animations && gltf.animations.length > 0) {
+          mixer = new THREE.AnimationMixer(model);
+          mixer.clipAction(gltf.animations[0]).play();
+        }
+
+        // Swap out procedural koi for full loaded GLB model
+        koiRoot.remove(activeKoi);
+        activeKoi = model;
+        koiRoot.add(activeKoi);
+      },
+      undefined,
+      (error) => {
+        // Fallback procedural koi continues rendering smoothly
+      }
+    );
+
+    /* ==========================================================================
+       6 SCROLL POSES WITH SMOOTH INTERPOLATION
+       ========================================================================== */
+    const poses = [
+      { progress: 0.00, pos: [1.75, 0.15, 0.5],   rot: [0.08, -0.65, 0.12],  scale: 1.15 }, // Hero
+      { progress: 0.22, pos: [-1.45, 0.35, 0.4],  rot: [-0.12, 0.75, -0.15], scale: 0.95 }, // Studio Heading
+      { progress: 0.44, pos: [1.65, -0.25, -0.1], rot: [0.20, -0.45, 0.18],  scale: 0.88 }, // Dashboard View
+      { progress: 0.65, pos: [-1.50, -0.18, 0.3], rot: [-0.25, 0.82, -0.20], scale: 1.02 }, // Packages Section
+      { progress: 0.82, pos: [1.35, 0.18, 0.4],   rot: [0.18, -0.68, 0.14],  scale: 1.05 }, // Use Cases Staircase
+      { progress: 1.00, pos: [0.00, -0.15, 0.9],  rot: [0.02, 0.02, 0.04],   scale: 1.25 }  // CTA & Footer
+    ];
+
+    function getInterpolatedPose(p) {
+      if (p <= poses[0].progress) return poses[0];
+      if (p >= poses[poses.length - 1].progress) return poses[poses.length - 1];
+
+      for (let i = 0; i < poses.length - 1; i++) {
+        const pA = poses[i];
+        const pB = poses[i + 1];
+        if (p >= pA.progress && p <= pB.progress) {
+          const t = smoothstep(pA.progress, pB.progress, p);
+          return {
+            pos: [
+              pA.pos[0] + (pB.pos[0] - pA.pos[0]) * t,
+              pA.pos[1] + (pB.pos[1] - pA.pos[1]) * t,
+              pA.pos[2] + (pB.pos[2] - pA.pos[2]) * t
+            ],
+            rot: [
+              pA.rot[0] + (pB.rot[0] - pA.rot[0]) * t,
+              pA.rot[1] + (pB.rot[1] - pA.rot[1]) * t,
+              pA.rot[2] + (pB.rot[2] - pA.rot[2]) * t
+            ],
+            scale: pA.scale + (pB.scale - pA.scale) * t
+          };
+        }
+      }
+      return poses[0];
+    }
+
+    // Pointer mouse tilt target
+    let mouseTilt = { x: 0, y: 0 };
+    window.addEventListener('mousemove', (e) => {
+      mouseTilt.x = (e.clientX / window.innerWidth - 0.5) * 2;
+      mouseTilt.y = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    function onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+    window.addEventListener('resize', onWindowResize);
+
+    // Animation Loop
+    const clock = new THREE.Clock();
+
+    function animateThreeScene() {
+      requestAnimationFrame(animateThreeScene);
+      const delta = clock.getDelta();
+      const elapsed = clock.getElapsedTime();
+
+      swimTime.value = elapsed;
+      if (mixer) mixer.update(delta);
+
+      // Normalized scroll progress
+      const scrollY = window.scrollY || window.pageYOffset;
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const progress = Math.min(1, Math.max(0, scrollY / maxScroll));
+
+      const targetPose = getInterpolatedPose(progress);
+
+      // Responsive adjustments for mobile
+      const isMobile = window.innerWidth <= 820;
+      const mobileFactor = isMobile ? 0.6 : 1.0;
+      const xOffset = isMobile ? targetPose.pos[0] * 0.4 : targetPose.pos[0];
+
+      // Smooth lerp koi position, rotation, scale
+      koiRoot.position.x += (xOffset - koiRoot.position.x) * 0.06;
+      koiRoot.position.y += (targetPose.pos[1] - koiRoot.position.y) * 0.06;
+      koiRoot.position.z += (targetPose.pos[2] - koiRoot.position.z) * 0.06;
+
+      koiRoot.rotation.x += (targetPose.rot[0] - koiRoot.rotation.x) * 0.06;
+      koiRoot.rotation.y += (targetPose.rot[1] - koiRoot.rotation.y) * 0.06;
+      koiRoot.rotation.z += (targetPose.rot[2] - koiRoot.rotation.z) * 0.06;
+
+      const targetScale = targetPose.scale * mobileFactor;
+      koiRoot.scale.set(targetScale, targetScale, targetScale);
+
+      // Dynamic light moves with koi
+      koiPointLight.position.copy(koiRoot.position);
+
+      // Camera responds subtly to mouse tilt for depth parallax
+      camera.position.x += (mouseTilt.x * 0.45 - camera.position.x) * 0.04;
+      camera.position.y += (-mouseTilt.y * 0.35 - camera.position.y) * 0.04;
+      camera.lookAt(0, 0, 0);
+
+      // Particle floating drift
+      const positions = particleGeo.attributes.position.array;
+      for (let i = 1; i < positions.length; i += 3) {
+        positions[i] += Math.sin(elapsed + i) * 0.002;
+      }
+      particleGeo.attributes.position.needsUpdate = true;
+
+      renderer.render(scene, camera);
+    }
+    animateThreeScene();
+
+    /* ==========================================================================
+       4. DASHBOARD CHARTS (CANVAS 2D WITH INTERACTIVE DRAW-IN)
+       ========================================================================== */
+    const volumeCanvas = document.getElementById('volume-chart-canvas');
+    const donutCanvas = document.getElementById('donut-chart-canvas');
+
+    function drawVolumeChart(progress = 1.0) {
+      if (!volumeCanvas) return;
+      const ctx = volumeCanvas.getContext('2d');
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const rect = volumeCanvas.getBoundingClientRect();
+      volumeCanvas.width = rect.width * dpr;
+      volumeCanvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+
+      const w = rect.width;
+      const h = rect.height;
+      ctx.clearRect(0, 0, w, h);
+
+      // Grid lines
+      ctx.strokeStyle = 'rgba(196, 178, 255, 0.08)';
+      ctx.lineWidth = 1;
+      for (let y = 20; y < h - 20; y += 35) {
+        ctx.beginPath();
+        ctx.moveTo(35, y);
+        ctx.lineTo(w - 10, y);
+        ctx.stroke();
+      }
+
+      // Data Points (Days of Month)
+      const dataCurated = [18, 24, 28, 36, 42, 54, 62, 70, 78, 88, 96, 114];
+      const dataLegacy  = [35, 38, 41, 40, 44, 43, 46, 45, 48, 50, 49, 52];
+
+      const maxVal = 120;
+      const stepX = (w - 60) / (dataCurated.length - 1);
+
+      function getY(val) {
+        return (h - 30) - (val / maxVal) * (h - 55) * progress;
+      }
+
+      // Draw Legacy Line
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(196, 178, 255, 0.35)';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([4, 4]);
+      dataLegacy.forEach((val, i) => {
+        const x = 40 + i * stepX;
+        const y = getY(val);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Draw Curated SPO Line with Gradient Fill
+      const grad = ctx.createLinearGradient(0, 20, 0, h - 30);
+      grad.addColorStop(0, 'rgba(141, 148, 255, 0.35)');
+      grad.addColorStop(1, 'rgba(111, 120, 255, 0.0)');
+
+      ctx.beginPath();
+      dataCurated.forEach((val, i) => {
+        const x = 40 + i * stepX;
+        const y = getY(val);
+        if (i === 0) ctx.moveTo(x, y);
+        else {
+          const prevX = 40 + (i - 1) * stepX;
+          const prevY = getY(dataCurated[i - 1]);
+          const cpX = (prevX + x) / 2;
+          ctx.bezierCurveTo(cpX, prevY, cpX, y, x, y);
+        }
+      });
+
+      // Fill area
+      ctx.lineTo(40 + (dataCurated.length - 1) * stepX, h - 30);
+      ctx.lineTo(40, h - 30);
+      ctx.closePath();
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Stroke Line
+      ctx.beginPath();
+      ctx.strokeStyle = '#8d94ff';
+      ctx.lineWidth = 3;
+      dataCurated.forEach((val, i) => {
+        const x = 40 + i * stepX;
+        const y = getY(val);
+        if (i === 0) ctx.moveTo(x, y);
+        else {
+          const prevX = 40 + (i - 1) * stepX;
+          const prevY = getY(dataCurated[i - 1]);
+          const cpX = (prevX + x) / 2;
+          ctx.bezierCurveTo(cpX, prevY, cpX, y, x, y);
+        }
+      });
+      ctx.stroke();
+
+      // Glowing Data Point at peak
+      if (progress > 0.8) {
+        const lastX = 40 + (dataCurated.length - 1) * stepX;
+        const lastY = getY(dataCurated[dataCurated.length - 1]);
+        ctx.beginPath();
+        ctx.arc(lastX, lastY, 5, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.shadowColor = '#8d94ff';
+        ctx.shadowBlur = 12;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    function drawDonutChart(progress = 1.0) {
+      if (!donutCanvas) return;
+      const ctx = donutCanvas.getContext('2d');
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const rect = donutCanvas.getBoundingClientRect();
+      donutCanvas.width = rect.width * dpr;
+      donutCanvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+
+      const w = rect.width;
+      const h = rect.height;
+      ctx.clearRect(0, 0, w, h);
+
+      const centerX = w * 0.35;
+      const centerY = h * 0.5;
+      const radius = Math.min(centerX, centerY) - 16;
+      const innerRadius = radius * 0.62;
+
+      const channels = [
+        { name: 'CTV / OTT', pct: 0.42, color: '#6f78ff' },
+        { name: 'In-App Video', pct: 0.28, color: '#8d94ff' },
+        { name: 'Premium Web', pct: 0.22, color: '#38bdf8' },
+        { name: 'Audio Stream', pct: 0.08, color: '#10b981' }
+      ];
+
+      let startAngle = -Math.PI / 2;
+      channels.forEach((ch) => {
+        const sliceAngle = ch.pct * (Math.PI * 2) * progress;
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle);
+        ctx.arc(centerX, centerY, innerRadius, startAngle + sliceAngle, startAngle, true);
+        ctx.closePath();
+        ctx.fillStyle = ch.color;
+        ctx.fill();
+        startAngle += sliceAngle;
+      });
+
+      // Center Text
+      ctx.font = '600 15px "Inter Tight", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('100%', centerX, centerY - 8);
+      ctx.font = '400 10px "Fira Code", monospace';
+      ctx.fillStyle = 'rgba(220, 214, 255, 0.5)';
+      ctx.fillText('DIRECT', centerX, centerY + 10);
+
+      // Legend on the Right
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      const legX = w * 0.68;
+      channels.forEach((ch, idx) => {
+        const legY = centerY - 38 + idx * 24;
+        ctx.fillStyle = ch.color;
+        ctx.fillRect(legX, legY - 5, 10, 10);
+
+        ctx.font = '500 12px "Inter Tight", sans-serif';
+        ctx.fillStyle = '#f4f2ff';
+        ctx.fillText(ch.name, legX + 16, legY);
+
+        ctx.font = '400 11px "Fira Code", monospace';
+        ctx.fillStyle = 'rgba(220, 214, 255, 0.6)';
+        ctx.fillText(Math.round(ch.pct * 100) + '%', legX + 110, legY);
+      });
+    }
+
+    // Chart Animation on Scroll into view
+    let chartDrawn = false;
+    const dashboardSection = document.getElementById('studio');
+    const chartObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !chartDrawn) {
+          chartDrawn = true;
+          let start = performance.now();
+          function animCharts(now) {
+            const p = Math.min(1, (now - start) / 1200);
+            drawVolumeChart(smoothstep(0, 1, p));
+            drawDonutChart(smoothstep(0, 1, p));
+            if (p < 1) requestAnimationFrame(animCharts);
+          }
+          requestAnimationFrame(animCharts);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    if (dashboardSection) chartObserver.observe(dashboardSection);
+    window.addEventListener('resize', () => {
+      drawVolumeChart(1.0);
+      drawDonutChart(1.0);
+    });
+
+    /* ==========================================================================
+       5. CODE TYPING ANIMATION (OPENRTB 2.6 BID_REQUEST.JSON)
+       ========================================================================== */
+    const codeContainer = document.getElementById('code-stream');
+    const jsonSnippet = `{
+  "id": "nectar-rtb-8849204",
+  "imp": [{
+    "id": "1",
+    "video": {
+      "mimes": ["video/mp4", "application/x-mpegURL"],
+      "minduration": 5,
+      "maxduration": 30,
+      "protocols": [2, 3, 5, 8],
+      "w": 1920,
+      "h": 1080,
+      "startdelay": 0,
+      "placement": 1,
+      "linearity": 1
+    },
+    "pmp": {
+      "private_auction": 1,
+      "deals": [{
+        "id": "NECTAR-CTV-PRIME-9042",
+        "bidfloor": 14.50,
+        "bidfloorcur": "USD",
+        "at": 3,
+        "wseat": ["DV360_SEAT_1049", "TTD_SEAT_8832"]
+      }]
+    }
+  }],
+  "site": {
+    "id": "nectar-curated-network",
+    "domain": "curated.nectarline.io",
+    "cat": ["IAB1-5", "IAB14-1"]
+  },
+  "device": {
+    "ua": "Mozilla/5.0 (SmartHub; SMART-TV; Tizen 6.0)",
+    "ip": "172.56.21.99"
+  },
+  "curation": {
+    "spo_hops": 0,
+    "verified_sellers_json": true
+  }
+}`;
+
+    // Syntax highlight helper
+    function highlightJson(str) {
+      return str
+        .replace(/"([^"]+)":/g, '<span class="token-key">"$1"</span>:')
+        .replace(/: "([^"]+)"/g, ': <span class="token-str">"$1"</span>')
+        .replace(/: (\d+(\.\d+)?)/g, ': <span class="token-num">$1</span>')
+        .replace(/: (true|false)/g, ': <span class="token-bool">$1</span>');
+    }
+
+    let typeIndex = 0;
+    let isTyping = false;
+
+    function startTypingEffect() {
+      if (isTyping) return;
+      isTyping = true;
+      typeIndex = 0;
+      codeContainer.innerHTML = '';
+
+      function typeChar() {
+        if (typeIndex < jsonSnippet.length) {
+          typeIndex += 3; // Type 3 chars at a time for fast, smooth cadence
+          const currentText = jsonSnippet.substring(0, Math.min(typeIndex, jsonSnippet.length));
+          codeContainer.innerHTML = highlightJson(currentText);
+          setTimeout(typeChar, 18);
+        } else {
+          // Pause and replay after 14 seconds
+          setTimeout(() => {
+            isTyping = false;
+            startTypingEffect();
+          }, 14000);
+        }
+      }
+      typeChar();
+    }
+
+    const packagesSection = document.getElementById('packages');
+    const pkgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !isTyping) {
+          startTypingEffect();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    if (packagesSection) pkgObserver.observe(packagesSection);
+    // Initial start if immediately visible
+    setTimeout(startTypingEffect, 600);
+
+    /* ==========================================================================
+       6. GLOBAL UI INTERACTIONS (MOBILE MENU, TOASTS, COPY CODE, STATS COUNTER)
+       ========================================================================== */
+    // Mobile Drawer Toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+
+    if (navToggle && mobileDrawer) {
+      navToggle.addEventListener('click', () => {
+        mobileDrawer.classList.toggle('open');
+      });
+      mobileDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => mobileDrawer.classList.remove('open'));
+      });
+    }
+
+    // Toast Feedback
+    window.triggerToast = function(msg) {
+      const toast = document.getElementById('toast-popup');
+      const text = document.getElementById('toast-text');
+      if (toast && text) {
+        text.innerText = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3200);
+      }
+    };
+
+    window.copyDeal = function(dealId) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(dealId);
+      }
+      triggerToast(`Deal ID [${dealId}] copied to clipboard!`);
+    };
+
+    window.copyCodeSnippet = function() {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(jsonSnippet);
+      }
+      triggerToast('OpenRTB 2.6 payload copied to clipboard!');
+    };
+
+    window.handleCtaSubmit = function(e) {
+      e.preventDefault();
+      triggerToast('Welcome to Nectarline Studio! Check your inbox for instant API access.');
+      const form = document.getElementById('cta-form');
+      if (form) form.reset();
+    };
+
+    // Live Pool Counter Ticker
+    let poolBase = 84.2;
+    setInterval(() => {
+      poolBase += (Math.random() * 0.05);
+      const el = document.getElementById('counter-pool');
+      if (el) el.innerText = `$${poolBase.toFixed(2)}M`;
+    }, 3500);
+
+    // Number roll-up on stats visibility
+    const statsSection = document.getElementById('stats');
+    let statsAnimated = false;
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !statsAnimated) {
+          statsAnimated = true;
+          document.querySelectorAll('.stat-num').forEach(stat => {
+            const target = parseFloat(stat.getAttribute('data-target'));
+            const suffix = stat.getAttribute('data-suffix') || '';
+            let current = 0;
+            const inc = target / 35;
+            const timer = setInterval(() => {
+              current += inc;
+              if (current >= target) {
+                current = target;
+                clearInterval(timer);
+              }
+              stat.innerText = (target % 1 === 0 ? Math.round(current) : current.toFixed(1)) + suffix;
+            }, 30);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    if (statsSection) statsObserver.observe(statsSection);
+
+  </script>
+</body>
+</html>

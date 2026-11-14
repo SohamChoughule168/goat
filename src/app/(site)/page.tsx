@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import CinematicHero from "@/components/home/cinematic-hero";
-import InstitutionSequence from "@/components/home/institution-sequence";
+import PremiumHeroV2 from "@/components/home/PremiumHeroV2";
+import PremiumScrollSequence from "@/components/media/PremiumScrollSequence";
 import FitCheck from "@/components/home/fit-check";
 import InstitutionStack from "@/components/home/institution-stack";
 import EvidenceRoom from "@/components/home/evidence-room";
-import CapabilityLedger from "@/components/home/capability-ledger";
-import CommandCenter from "@/components/home/command-center";
-import InstrumentField from "@/components/home/instrument-field";
-import ScrollWipe from "@/components/media/scroll-wipe";
+import PremiumCapabilityLedgerV2 from "@/components/home/PremiumCapabilityLedgerV2";
+import PremiumCommandCenterV2 from "@/components/home/PremiumCommandCenterV2";
+import PremiumInstrumentFieldV2 from "@/components/home/PremiumInstrumentFieldV2";
+import PremiumScrollWipeV2 from "@/components/media/PremiumScrollWipeV2";
 import SectionNavigator from "@/components/layout/section-navigator";
 import ScrollProgress from "@/components/layout/scroll-progress";
 import ScrollReveal from "@/components/motion/scroll-reveal";
@@ -18,6 +18,8 @@ import { site } from "@/content/site";
 import { insights } from "@/content/insights";
 import { methodPhases, trustCommitments } from "@/content/institutional";
 import { OFFER, PACKAGES, formatINR } from "@/content/packages";
+import { institutionFrames } from "@/content/institution";
+import { MagneticCursor, ThreeProvider } from "@/components/premium";
 
 export const metadata: Metadata = createMetadata({
   title: "Websites and student systems for institutes",
@@ -49,332 +51,348 @@ const institutional = {
 export default function HomePage() {
   return (
     <>
+      <MagneticCursor />
       <ScrollProgress />
       <SectionNavigator />
 
-      <CinematicHero />
+      <ThreeProvider>
+        <PremiumHeroV2 />
 
-      <div className="signal-bar">
-        <div className="inst-shell signal-bar-inner">
-          <p>Built for institutions where enquiries, admissions and parents all arrive at once.</p>
-          <Link href="/platform" className="inst-link">
-            Read the platform note
-            <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
-          </Link>
-        </div>
-      </div>
-
-      <InstitutionSequence />
-
-      <FitCheck />
-
-      <section className="inst-section" aria-labelledby="home-thesis">
-        <ScrollReveal variant="section">
-          <div className="inst-shell thesis-grid">
-          <div>
-            <p className="inst-label">The premise</p>
-            <h2 id="home-thesis" className="inst-h2 mt-5">
-              Most institute websites are brochures pretending to be systems.
-            </h2>
-          </div>
-          <div className="thesis-support">
-            <p>
-              The site is not the problem by itself. The problem is everything behind it:
-              enquiries in three inboxes, records in a spreadsheet, batch updates sent from a
-              personal phone, and no shared definition of what a qualified admission is. We
-              connect those parts in a fixed order, write the boundaries down, and hand the
-              system over.
-            </p>
-            <Link href="/process" className="inst-link">
-              How we work
+        <div className="signal-bar">
+          <div className="inst-shell signal-bar-inner">
+            <p>Built for institutions where enquiries, admissions and parents all arrive at once.</p>
+            <Link href="/platform" className="inst-link">
+              Read the platform note
               <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
             </Link>
           </div>
         </div>
-      </ScrollReveal>
-      </section>
 
-      <section className="inst-section-tight" aria-labelledby="home-stack">
-        <ScrollReveal variant="section">
-          <div className="inst-shell">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="inst-label">The stack</p>
-              <h2 id="home-stack" className="inst-h2 mt-5">
-                Eight layers. One accountable build.
-              </h2>
-            </div>
-            <p className="inst-body max-w-[38ch] text-[0.9375rem]">
-              Start where the leakage is. Add the rest in sequence, without stitching
-              together five vendors who have never spoken.
-            </p>
-          </div>
-          <InstitutionStack />
-        </div>
-      </ScrollReveal>
-      </section>
-
-      <ScrollReveal variant="section">
-        <EvidenceRoom />
-      </ScrollReveal>
-
-      <InstrumentField />
-
-      <section className="inst-section" aria-labelledby="home-capabilities">
-        <ScrollReveal variant="section">
-          <div className="inst-shell">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="inst-label">Capability ledger</p>
-              <h2 id="home-capabilities" className="inst-h2 mt-5">
-                Eighteen capabilities, mapped to outcomes.
-              </h2>
-            </div>
-            <Link href="/pricing" className="inst-link">
-              See how engagements are priced
+        <PremiumScrollSequence
+          sectionId="home-sequence"
+          label="One day, four layers"
+          title="From the first enquiry to the final record."
+          lede="The same definitions move through every branch. Nothing is re-keyed between the desk, the record and the report."
+          frames={institutionFrames}
+          note="Illustrative sequence. No client records are shown."
+          action={
+            <Link href="/platform" className="inst-link">
+              See how the platform is assembled
               <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
             </Link>
-          </div>
-          <div className="mt-10">
-            <CapabilityLedger />
-          </div>
-        </div>
-      </ScrollReveal>
-      </section>
+          }
+        />
 
-      <ScrollWipe />
+        <FitCheck />
 
-      <section className="inst-dark" aria-labelledby="home-command">
-        <ScrollReveal variant="section">
-          <div className="inst-section">
-            <div className="inst-shell">
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-end">
-              <div>
-                <p className="inst-label">The operating view</p>
-                <h2 id="home-command" className="inst-h2 mt-5 max-w-[20ch]">
-                  See the whole institution, not a dashboard of fragments.
-                </h2>
-              </div>
-              <p className="inst-body text-[0.9375rem]">
-                Enquiries, admissions and records share one set of definitions. Branch, source
-                and owner stay attached from first contact to handover.
-              </p>
+        <section className="inst-section" aria-labelledby="home-thesis">
+          <ScrollReveal variant="section">
+            <div className="inst-shell thesis-grid">
+            <div>
+              <p className="inst-label">The premise</p>
+              <h2 id="home-thesis" className="inst-h2 mt-5">
+                Most institute websites are brochures pretending to be systems.
+              </h2>
             </div>
-            <CommandCenter />
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
-              <p className="command-note">
-                The interface above is illustrative. No client dashboard is reproduced.
+            <div className="thesis-support">
+              <p>
+                The site is not the problem by itself. The problem is everything behind it:
+                enquiries in three inboxes, records in a spreadsheet, batch updates sent from a
+                personal phone, and no shared definition of what a qualified admission is. We
+                connect those parts in a fixed order, write the boundaries down, and hand the
+                system over.
               </p>
-              <Link href="/platform" className="inst-link">
-                How the platform is assembled
+              <Link href="/process" className="inst-link">
+                How we work
                 <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
               </Link>
             </div>
           </div>
-        </div>
-      </ScrollReveal>
-      </section>
+          </ScrollReveal>
+        </section>
 
-      <section className="inst-section" aria-labelledby="home-method">
-        <ScrollReveal variant="section">
-          <div className="inst-shell">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="inst-label">The method</p>
-              <h2 id="home-method" className="inst-h2 mt-5 max-w-[18ch]">
-                Four gates. No silent scope.
-              </h2>
+        <section className="inst-section-tight" aria-labelledby="home-stack">
+          <ScrollReveal variant="section">
+            <div className="inst-shell">
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="inst-label">The stack</p>
+                <h2 id="home-stack" className="inst-h2 mt-5">
+                  Eight layers. One accountable build.
+                </h2>
+              </div>
+              <p className="inst-body max-w-[38ch] text-[0.9375rem]">
+                Start where the leakage is. Add the rest in sequence, without stitching
+                together five vendors who have never spoken.
+              </p>
             </div>
-            <p className="inst-body max-w-[34ch] text-[0.9375rem]">
-              Each phase ends with something you can read, question and approve before the
-              next begins.
-            </p>
+            <InstitutionStack />
           </div>
+          </ScrollReveal>
+        </section>
 
-          <div className="method-grid">
-            {methodPhases.map((phase) => (
-              <article key={phase.index} className="method-phase">
-                <p className="inst-num text-[0.6875rem] text-[var(--ink-4)]">{phase.index}</p>
-                <h3>{phase.title}</h3>
-                <p>{phase.detail}</p>
-                <dl className="method-meta">
-                  <div>
-                    <dt>Output</dt>
-                    <dd>{phase.output}</dd>
-                  </div>
-                  <div>
-                    <dt>Gate</dt>
-                    <dd>{phase.gate}</dd>
-                  </div>
-                </dl>
-              </article>
-            ))}
-          </div>
-        </div>
-      </ScrollReveal>
-      </section>
-
-      <section className="inst-section-tight" aria-labelledby="home-economics">
         <ScrollReveal variant="section">
-          <div className="inst-shell">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="inst-label">Economics</p>
-              <h2 id="home-economics" className="inst-h2 mt-5">
-                Fixed scope. Fixed price.
-              </h2>
+          <EvidenceRoom />
+        </ScrollReveal>
+
+        <PremiumInstrumentFieldV2 />
+
+        <section className="inst-section" aria-labelledby="home-capabilities">
+          <ScrollReveal variant="section">
+            <div className="inst-shell">
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="inst-label">Capability ledger</p>
+                <h2 id="home-capabilities" className="inst-h2 mt-5">
+                  Eighteen capabilities, mapped to outcomes.
+                </h2>
+              </div>
+              <Link href="/pricing" className="inst-link">
+                See how engagements are priced
+                <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
+              </Link>
             </div>
-            <div className="max-w-[34ch]">
-              <p className="inst-tag">{OFFER.label}</p>
-              <p className="mt-3 text-[0.8125rem] leading-relaxed text-[var(--ink-3)]">
-                {OFFER.line}. Save up to {formatINR(OFFER.saveUpTo)} against standard pricing.
+            <div className="mt-10">
+              <PremiumCapabilityLedgerV2 />
+            </div>
+          </div>
+          </ScrollReveal>
+        </section>
+
+        <PremiumScrollWipeV2 />
+
+        <section className="inst-dark" aria-labelledby="home-command">
+          <ScrollReveal variant="section">
+            <div className="inst-section">
+              <div className="inst-shell">
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-end">
+                <div>
+                  <p className="inst-label">The operating view</p>
+                  <h2 id="home-command" className="inst-h2 mt-5 max-w-[20ch]">
+                    See the whole institution, not a dashboard of fragments.
+                  </h2>
+                </div>
+                <p className="inst-body text-[0.9375rem]">
+                  Enquiries, admissions and records share one set of definitions. Branch, source
+                  and owner stay attached from first contact to handover.
+                </p>
+              </div>
+              <PremiumCommandCenterV2 />
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+                <p className="command-note">
+                  The interface above is illustrative. No client dashboard is reproduced.
+                </p>
+                <Link href="/platform" className="inst-link">
+                  How the platform is assembled
+                  <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
+                </Link>
+              </div>
+            </div>
+          </div>
+          </ScrollReveal>
+        </section>
+
+        <section className="inst-section" aria-labelledby="home-method">
+          <ScrollReveal variant="section">
+            <div className="inst-shell">
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="inst-label">The method</p>
+                <h2 id="home-method" className="inst-h2 mt-5 max-w-[18ch]">
+                  Four gates. No silent scope.
+                </h2>
+              </div>
+              <p className="inst-body max-w-[34ch] text-[0.9375rem]">
+                Each phase ends with something you can read, question and approve before the
+                next begins.
+              </p>
+            </div>
+
+            <div className="method-grid">
+              {methodPhases.map((phase) => (
+                <article key={phase.index} className="method-phase">
+                  <p className="inst-num text-[0.6875rem] text-[var(--ink-4)]">{phase.index}</p>
+                  <h3>{phase.title}</h3>
+                  <p>{phase.detail}</p>
+                  <dl className="method-meta">
+                    <div>
+                      <dt>Output</dt>
+                      <dd>{phase.output}</dd>
+                    </div>
+                    <div>
+                      <dt>Gate</dt>
+                      <dd>{phase.gate}</dd>
+                    </div>
+                  </dl>
+                </article>
+              ))}
+            </div>
+          </div>
+          </ScrollReveal>
+        </section>
+
+        <section className="inst-section-tight" aria-labelledby="home-economics">
+          <ScrollReveal variant="section">
+            <div className="inst-shell">
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="inst-label">Economics</p>
+                <h2 id="home-economics" className="inst-h2 mt-5">
+                  Fixed scope. Fixed price.
+                </h2>
+              </div>
+              <div className="max-w-[34ch]">
+                <p className="inst-tag">{OFFER.label}</p>
+                <p className="mt-3 text-[0.8125rem] leading-relaxed text-[var(--ink-3)]">
+                  {OFFER.line}. Save up to {formatINR(OFFER.saveUpTo)} against standard pricing.
+                </p>
+              </div>
+            </div>
+
+            <div className="economics-grid">
+              {[...economicsPackages, institutional].map((tier) => (
+                <article
+                  key={tier.name}
+                  className="economics-card"
+                  data-featured={tier.featured}
+                >
+                  <p className="inst-num text-[0.6875rem] text-[var(--ink-4)]">
+                    {tier.featured ? "Recommended" : "Package"}
+                  </p>
+                  <h3 className="inst-h3 mt-5">{tier.name}</h3>
+                  <p className="economics-price">{tier.price}</p>
+                  <p
+                    className={`font-mono text-[0.625rem] uppercase tracking-[0.1em] text-[var(--ink-4)] ${tier.compareAt ? "line-through" : ""}`}
+                  >
+                    {tier.original}
+                  </p>
+                  <p>{tier.description}</p>
+                  <Link href={`/pricing#${tier.slug}`} className="inst-link">
+                    {tier.slug === "institutional" ? "Scope an engagement" : "See what is included"}
+                    <ArrowUpRight size={13} strokeWidth={1.5} className="inst-link-arrow" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+              <p className="text-[0.8125rem] text-[var(--ink-3)]">
+                Every engagement is quoted in writing after a scoping conversation.
+              </p>
+              <Link href="/estimate" className="inst-link">
+                Open Scope Architect
+                <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
+              </Link>
+            </div>
+          </div>
+        </ScrollReveal>
+        </section>
+
+        <section className="inst-section" aria-labelledby="home-trust">
+          <ScrollReveal variant="section">
+            <div className="inst-shell">
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="inst-label">The commitments</p>
+                <h2 id="home-trust" className="inst-h2 mt-5 max-w-[18ch]">
+                  The system should outlast the engagement.
+                </h2>
+              </div>
+              <Link href="/trust" className="inst-link">
+                Read the trust terms
+                <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
+              </Link>
+            </div>
+
+            <div className="trust-grid">
+              {trustCommitments.map((item) => (
+                <article key={item.index} className="trust-item">
+                  <p className="inst-num text-[0.625rem] text-[var(--ink-4)]">{item.index}</p>
+                  <h3>{item.title}</h3>
+                  <p>{item.detail}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          </ScrollReveal>
+        </section>
+
+        <section className="inst-section-tight" aria-labelledby="home-notes">
+          <ScrollReveal variant="section">
+            <div className="inst-shell">
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="inst-label">Field notes</p>
+                <h2 id="home-notes" className="inst-h2 mt-5">
+                  Working notes, not thought leadership.
+                </h2>
+              </div>
+              <Link href="/insights" className="inst-link">
+                All field notes
+                <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
+              </Link>
+            </div>
+
+            <div className="notes-grid">
+              {insights.slice(0, 3).map((insight) => (
+                <Link
+                  key={insight.slug}
+                  href={`/insights/${insight.slug}`}
+                  className="note-card"
+                >
+                  <p className="inst-num text-[0.625rem] text-[var(--ink-4)]">
+                    {insight.category}
+                  </p>
+                  <h3>{insight.title}</h3>
+                  <p>{insight.excerpt}</p>
+                  <div className="note-card-footer">
+                    <time dateTime={insight.date}>
+                      {new Date(insight.date).toLocaleDateString("en-IN", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </time>
+                    <span>{insight.readingTime} min</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+          </ScrollReveal>
+        </section>
+
+        <section className="final-cta" aria-labelledby="home-cta">
+          <ScrollReveal variant="section">
+            <div className="inst-shell final-cta-inner">
+            <div>
+              <p className="inst-label">Next step</p>
+              <h2 id="home-cta" className="inst-h2 mt-5 max-w-[20ch]">
+                Bring the whole institution into <span className="inst-serif">one system.</span>
+              </h2>
+              <p className="inst-body mt-5 text-[0.9375rem]">
+                A working session starts with the enquiry path, the admissions process and the reports you do not trust. No pitch deck required.
+              </p>
+            </div>
+            <div className="final-cta-actions">
+              <Link href="/book" className="inst-btn">
+                Book a working session
+              </Link>
+              <Link href="/estimate" className="inst-btn inst-btn-ghost">
+                Scope Architect
+              </Link>
+              <p className="mt-4 text-[0.8125rem] leading-relaxed text-[var(--ink-3)]">
+                {site.hours.responseNote} Direct line:{" "}
+                <a href={`tel:${site.phoneHref}`} className="underline underline-offset-4">
+                  {site.phone}
+                </a>
+                .
               </p>
             </div>
           </div>
-
-          <div className="economics-grid">
-            {[...economicsPackages, institutional].map((tier) => (
-              <article
-                key={tier.name}
-                className="economics-card"
-                data-featured={tier.featured}
-              >
-                <p className="inst-num text-[0.6875rem] text-[var(--ink-4)]">
-                  {tier.featured ? "Recommended" : "Package"}
-                </p>
-                <h3 className="inst-h3 mt-5">{tier.name}</h3>
-                <p className="economics-price">{tier.price}</p>
-                <p
-                  className={`font-mono text-[0.625rem] uppercase tracking-[0.1em] text-[var(--ink-4)] ${tier.compareAt ? "line-through" : ""}`}
-                >
-                  {tier.original}
-                </p>
-                <p>{tier.description}</p>
-                <Link href={`/pricing#${tier.slug}`} className="inst-link">
-                  {tier.slug === "institutional" ? "Scope an engagement" : "See what is included"}
-                  <ArrowUpRight size={13} strokeWidth={1.5} className="inst-link-arrow" />
-                </Link>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
-            <p className="text-[0.8125rem] text-[var(--ink-3)]">
-              Every engagement is quoted in writing after a scoping conversation.
-            </p>
-            <Link href="/estimate" className="inst-link">
-              Open Scope Architect
-              <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
-            </Link>
-          </div>
-        </div>
-      </ScrollReveal>
-      </section>
-
-      <section className="inst-section" aria-labelledby="home-trust">
-        <ScrollReveal variant="section">
-          <div className="inst-shell">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="inst-label">The commitments</p>
-              <h2 id="home-trust" className="inst-h2 mt-5 max-w-[18ch]">
-                The system should outlast the engagement.
-              </h2>
-            </div>
-            <Link href="/trust" className="inst-link">
-              Read the trust terms
-              <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
-            </Link>
-          </div>
-
-          <div className="trust-grid">
-            {trustCommitments.map((item) => (
-              <article key={item.index} className="trust-item">
-                <p className="inst-num text-[0.625rem] text-[var(--ink-4)]">{item.index}</p>
-                <h3>{item.title}</h3>
-                <p>{item.detail}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </ScrollReveal>
-      </section>
-
-      <section className="inst-section-tight" aria-labelledby="home-notes">
-        <ScrollReveal variant="section">
-          <div className="inst-shell">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="inst-label">Field notes</p>
-              <h2 id="home-notes" className="inst-h2 mt-5">
-                Working notes, not thought leadership.
-              </h2>
-            </div>
-            <Link href="/insights" className="inst-link">
-              All field notes
-              <ArrowUpRight size={14} strokeWidth={1.5} className="inst-link-arrow" />
-            </Link>
-          </div>
-
-          <div className="notes-grid">
-            {insights.slice(0, 3).map((insight) => (
-              <Link
-                key={insight.slug}
-                href={`/insights/${insight.slug}`}
-                className="note-card"
-              >
-                <p className="inst-num text-[0.625rem] text-[var(--ink-4)]">
-                  {insight.category}
-                </p>
-                <h3>{insight.title}</h3>
-                <p>{insight.excerpt}</p>
-                <div className="note-card-footer">
-                  <time dateTime={insight.date}>
-                    {new Date(insight.date).toLocaleDateString("en-IN", {
-                      day: "numeric",
-                      month: "short",
-                      year: "numeric",
-                    })}
-                  </time>
-                  <span>{insight.readingTime} min</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </ScrollReveal>
-      </section>
-
-      <section className="final-cta" aria-labelledby="home-cta">
-        <ScrollReveal variant="section">
-          <div className="inst-shell final-cta-inner">
-          <div>
-            <p className="inst-label">Next step</p>
-            <h2 id="home-cta" className="inst-h2 mt-5 max-w-[20ch]">
-              Bring the whole institution into <span className="inst-serif">one system.</span>
-            </h2>
-            <p className="inst-body mt-5 text-[0.9375rem]">
-              A working session starts with the enquiry path, the admissions process and the reports you do not trust. No pitch deck required.
-            </p>
-          </div>
-          <div className="final-cta-actions">
-            <Link href="/book" className="inst-btn">
-              Book a working session
-            </Link>
-            <Link href="/estimate" className="inst-btn inst-btn-ghost">
-              Scope Architect
-            </Link>
-            <p className="mt-4 text-[0.8125rem] leading-relaxed text-[var(--ink-3)]">
-              {site.hours.responseNote} Direct line:{" "}
-              <a href={`tel:${site.phoneHref}`} className="underline underline-offset-4">
-                {site.phone}
-              </a>
-              .
-            </p>
-          </div>
-        </div>
-      </ScrollReveal>
-      </section>
+          </ScrollReveal>
+        </section>
+      </ThreeProvider>
     </>
   );
 }

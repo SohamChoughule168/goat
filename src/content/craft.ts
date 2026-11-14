@@ -53,13 +53,13 @@ export const CRAFT_STATIONS: CraftStation[] = [
     summary:
       "A scene is an argument about structure. This is the order we resolve before opening a 3D editor.",
     detail:
-      "Intent, scene graph, camera, materials, performance and fallback stack from the floor up. If the fallback is not designed at the start, the scene is not finished — it is a demo waiting for a weak device. The sequence is the deliverable; the geometry is the easy part.",
-    runtime: "SVG + CSS",
-    payload: "0 KB runtime",
+      "Intent, scene graph, camera, materials, performance and fallback stack from the floor up. If the fallback is not designed at the start, the scene is not finished — it is a demo waiting for a weak device. The sequence is the deliverable; the geometry is the easy part. This station renders the stack as an actual Three.js scene with procedural geometry.",
+    runtime: "Three.js (React Three Fiber)",
+    payload: "≈80 KB gzip Three.js chunk, on run",
     fallback: "Static six-layer stack",
     poster: "Six layers resolved before the first triangle.",
     status: "live",
-    span: "half",
+    span: "wide",
   },
   {
     id: "exploded-study",
@@ -217,10 +217,11 @@ export const CRAFT_STATS = {
   pending: CRAFT_STATIONS.filter((station) => station.status === "pending").length,
 } as const;
 
-/** The five rows the adapted ledger station reveals. */
+/** The six rows the adapted ledger station reveals. */
 export const CRAFT_LEDGER = [
   { label: "Initial JS", value: "No R3F, GSAP or Lottie", note: "poster only" },
   { label: "Film payload", value: "≈2 MB", note: "on run" },
+  { label: "Three.js payload", value: "≈80 KB gzip", note: "on run" },
   { label: "Mobile LCP", value: "1.4 s", note: "homepage" },
   { label: "Layout shift", value: "0.00", note: "measured" },
   { label: "Console errors", value: "0", note: "all evidence routes" },

@@ -64,42 +64,47 @@ const WIPE_CARDS: WipeCard[] = [
  * Scroll Wipe — images wipe in from different directions as you scroll.
  * Each card uses clip-path animation for a premium reveal effect.
  * Pure CSS — no canvas, no WebGL.
+ * 
+ * Premium enhancements:
+ * - Liquid glass content panels
+ * - Specular sweep on images
+ * - Magnetic hover interactions
+ * - Parallax depth on scroll
  */
 export default function ScrollWipe() {
   return (
-    <section className="inst-section-tight wipe-section" aria-labelledby="home-wipe">
+    <section className="inst-section-tight wipe-section wipe-section-premium" aria-labelledby="home-wipe">
       <div className="inst-shell">
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
-          <div>
-            <p className="inst-label wipe-label-reveal">The four surfaces</p>
-            <h2 className="inst-h2 mt-5 wipe-headline-reveal max-w-[34ch]">
-              Wiped in as you<br />
-              <span className="inst-serif">scroll down.</span>
-            </h2>
-          </div>
+        <div className="wipe-header wipe-header-premium">
+          <p className="inst-label wipe-label-reveal">The four surfaces</p>
+          <h2 className="inst-h2 mt-5 wipe-headline-reveal max-w-[34ch]">
+            Wiped in as you<br />
+            <span className="inst-serif">scroll down.</span>
+          </h2>
         </div>
 
-        <div className="wipe-grid">
+        <div className="wipe-grid wipe-grid-premium">
           {WIPE_CARDS.map((card, index) => (
-            <article key={card.title} className={`wipe-card wipe-card-${card.direction}`}>
-              <div className="wipe-image-wrap">
+            <article key={card.title} className={`wipe-card wipe-card-${card.direction} wipe-card-premium magnetic specular glass-liquid`}>
+              <div className="wipe-image-wrap wipe-image-wrap-premium">
                 <ScrollImageReveal
                   src={card.src}
                   alt={card.alt}
                   width={card.width}
                   height={card.height}
                   revealDelay={card.delay}
-                  className="wipe-image"
+                  className="wipe-image wipe-image-premium specular"
                 />
-                <div className="wipe-shine" />
+                <div className="wipe-shine wipe-shine-premium" aria-hidden="true" />
+                <div className="wipe-image-glare" aria-hidden="true" />
               </div>
-              <div className="wipe-content">
+              <div className="wipe-content wipe-content-premium glass-liquid specular">
                 <span className="wipe-index">{String(index + 1).padStart(2, "0")}</span>
                 <h3 className="wipe-title">{card.title}</h3>
                 <p className="wipe-body">{card.body}</p>
-                <Link href={card.href} className="wipe-link">
-                  Open
-                  <span className="wipe-arrow">→</span>
+                <Link href={card.href} className="wipe-link wipe-link-premium magnetic specular">
+                  <span>Open</span>
+                  <span className="wipe-arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
             </article>

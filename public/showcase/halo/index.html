@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>halo — The P3 palette kit</title>
+  <meta name="description" content="halo is the P3 palette kit, crafted for screens.">
+  <meta name="theme-color" content="#151517">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..600&family=Newsreader:opsz,wght@6..72,300..500&display=swap" rel="stylesheet">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #151517;
+      --bg-2: #1b1b1e;
+      --ink: #ededed;
+      --muted: #a1a1a1;
+      --dim: #6e6e73;
+      --line: rgba(255, 255, 255, .12);
+      --chip: rgba(255, 255, 255, .04);
+      --gutter: clamp(16px, 2.6vw, 28px);
+      --sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+      --serif: "Newsreader", "Times New Roman", serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      background: var(--bg);
+    }
+
+    body {
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+      isolation: isolate;
+      overflow: hidden;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stage {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      touch-action: pan-y;
+      opacity: 0;
+      animation: fade 1.6s .2s ease forwards;
+    }
+
+    .stage canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    #fx {
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px var(--gutter);
+      height: 64px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-triangle {
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+
+    .brand-slash {
+      color: var(--dim);
+      font-size: 22px;
+      font-weight: 300;
+      transform: translateY(-1px);
+      user-select: none;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -.01em;
+      line-height: 1;
+    }
+
+    .links {
+      display: flex;
+      gap: 20px;
+      margin-left: 12px;
+    }
+
+    .links a {
+      font-size: 14px;
+      color: var(--muted);
+      transition: color .2s ease;
+    }
+
+    .links a:hover {
+      color: var(--ink);
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      height: 36px;
+      padding: 0 6px 0 12px;
+      min-width: 172px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--chip);
+      font-size: 14px;
+      color: var(--muted);
+      transition: border-color .2s ease, color .2s ease;
+    }
+
+    .search:hover {
+      border-color: rgba(255, 255, 255, .22);
+      color: var(--ink);
+    }
+
+    kbd {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 2px 5px;
+      background: rgba(255, 255, 255, .03);
+    }
+
+    .ask {
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      background: var(--chip);
+      transition: background .2s ease, border-color .2s ease;
+    }
+
+    .ask:hover {
+      background: rgba(255, 255, 255, .08);
+      border-color: rgba(255, 255, 255, .22);
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--muted);
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .icon-btn:hover {
+      background: rgba(255, 255, 255, .06);
+      color: var(--ink);
+    }
+
+    .menu {
+      display: none;
+    }
+
+    .copy {
+      position: relative;
+      z-index: 1;
+      min-height: calc(100svh - 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 var(--gutter) 64px;
+      max-width: 560px;
+      pointer-events: none;
+    }
+
+    .copy > * {
+      pointer-events: auto;
+    }
+
+    .wordmark {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(72px, 8.6vw, 124px);
+      line-height: .9;
+      letter-spacing: -.035em;
+      font-variation-settings: "opsz" 72;
+      margin-bottom: clamp(14px, 1.8vw, 22px);
+    }
+
+    .lede {
+      font-size: clamp(28px, 3.05vw, 44px);
+      line-height: 1.2;
+      font-weight: 400;
+      letter-spacing: -.025em;
+      margin-bottom: clamp(24px, 2.6vw, 36px);
+    }
+
+    .lede span {
+      display: block;
+    }
+
+    .tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    .tab {
+      color: var(--dim);
+      padding: 2px 0;
+      transition: color .2s ease;
+      cursor: pointer;
+    }
+
+    .tab:hover {
+      color: var(--muted);
+    }
+
+    .tab[aria-selected="true"] {
+      color: var(--ink);
+    }
+
+    .dot {
+      color: var(--dim);
+      font-size: 11px;
+      user-select: none;
+    }
+
+    .cmd {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      max-width: 440px;
+      padding-top: 14px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .cmd::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, .08) 70%, transparent);
+    }
+
+    .cmd-text {
+      transition: opacity .18s ease, transform .18s ease;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cmd-text.swap {
+      opacity: 0;
+      transform: translateY(3px);
+    }
+
+    .copy-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      color: var(--dim);
+      display: grid;
+      place-items: center;
+      position: relative;
+      transition: color .2s ease, background .2s ease;
+      flex-shrink: 0;
+    }
+
+    .copy-btn:hover {
+      color: var(--ink);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .copy-btn .ok {
+      display: none;
+      color: #ededed;
+    }
+
+    .copy-btn.done .cp {
+      display: none;
+    }
+
+    .copy-btn.done .ok {
+      display: block;
+    }
+
+    /* Load-in animations */
+    .rise {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: rise .9s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+
+    .copy > :nth-child(1) { animation-delay: 0s; }
+    .copy > :nth-child(2) { animation-delay: .08s; }
+    .copy > :nth-child(3) { animation-delay: .16s; }
+    .copy > :nth-child(4) { animation-delay: .24s; }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes fade {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 960px) {
+      .search {
+        min-width: 0;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .links, .search, .ask {
+        display: none;
+      }
+      .menu {
+        display: grid;
+      }
+      .copy {
+        justify-content: flex-start;
+        min-height: 0;
+        padding-top: clamp(28px, 7svh, 64px);
+        padding-bottom: 0;
+        max-width: 100%;
+      }
+      .hero {
+        min-height: max(100svh, 720px);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .tabs {
+        font-size: 14px;
+        gap: 6px;
+      }
+      .cmd {
+        font-size: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rise {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+      .stage {
+        animation: none;
+        opacity: 1;
+      }
+      .cmd-text {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero" aria-label="halo">
+    <div class="stage" aria-hidden="true">
+      <canvas id="gl"></canvas>
+      <canvas id="fx"></canvas>
+    </div>
+
+    <header class="nav">
+      <div class="brand">
+        <a href="#" class="brand-triangle" aria-label="halo home">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3 22 20H2z" />
+          </svg>
+        </a>
+        <span class="brand-slash">/</span>
+        <a href="#" class="brand-name">halo</a>
+        <nav class="links" aria-label="Main Navigation">
+          <a href="#docs">Docs</a>
+          <a href="#palettes">Palettes</a>
+        </nav>
+      </div>
+
+      <div class="right">
+        <button class="search" aria-label="Search">
+          <span>Search…</span>
+          <kbd>⌘ K</kbd>
+        </button>
+        <button class="ask">Ask AI</button>
+        <a href="https://github.com" class="icon-btn" aria-label="GitHub" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </a>
+        <button class="icon-btn menu" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <path d="M4 8h16M4 16h16" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="copy">
+      <h1 class="wordmark rise">halo</h1>
+      <p class="lede rise"><span>The P3 palette kit,</span><span>crafted for screens.</span></p>
+
+      <div class="tabs rise" role="tablist" aria-label="Install method">
+        <button class="tab" role="tab" aria-selected="true" data-cmd="Install halo in my site, then npx halo">Tokens</button>
+        <span class="dot">·</span>
+        <button class="tab" role="tab" aria-selected="false" data-cmd='@import "halo/p3.css";'>CSS</button>
+        <span class="dot">·</span>
+        <button class="tab" role="tab" aria-selected="false" data-cmd="Sync halo swatches into your Figma file">Figma</button>
+        <span class="dot">·</span>
+        <button class="tab" role="tab" aria-selected="false" data-cmd="GET api.halo.dev/v1/palette?space=p3">API</button>
+      </div>
+
+      <div class="cmd rise">
+        <span class="cmd-text" id="cmd">Install halo in my site, then npx halo</span>
+        <button class="copy-btn" id="copy" aria-label="Copy command">
+          <svg class="cp" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <svg class="ok" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m5 12.5 4.5 4.5L19 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Small classic script for tab switching and clipboard copy -->
+  <script>
+    (function() {
+      const tabs = document.querySelectorAll('.tab');
+      const cmdText = document.getElementById('cmd');
+      const copyBtn = document.getElementById('copy');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+          tab.setAttribute('aria-selected', 'true');
+          const nextCmd = tab.getAttribute('data-cmd');
+          cmdText.classList.add('swap');
+          setTimeout(() => {
+            cmdText.textContent = nextCmd;
+            cmdText.classList.remove('swap');
+          }, 160);
+        });
+      });
+
+      let copyTimeout;
+      copyBtn.addEventListener('click', () => {
+        const textToCopy = cmdText.textContent.trim();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(textToCopy).catch(() => {});
+        }
+        copyBtn.classList.add('done');
+        clearTimeout(copyTimeout);
+        copyTimeout = setTimeout(() => {
+          copyBtn.classList.remove('done');
+        }, 1400);
+      });
+    })();
+  </script>
+
+  <!-- Prism + Light Engine -->
+  <script type="module">
+    // Ported from vercel-labs/vgpu (MIT License, Copyright (c) Vercel, Inc.)
+    import * as THREE from 'three';
+
+    const stageEl = document.querySelector('.stage');
+    const glCanvas = document.getElementById('gl');
+    const fxCanvas = document.getElementById('fx');
+    const copyEl = document.querySelector('.copy');
+
+    // Offscreen canvas for additive light simulation before bloom
+    const offCanvas = document.createElement('canvas');
+    const offCtx = offCanvas.getContext('2d');
+    const fxCtx = fxCanvas.getContext('2d');
+
+    // Layout dimensions and state
+    let W = 0;
+    let H = 0;
+    let dpr = 1;
+    let lightDpr = 1;
+    let mobile = false;
+    let S = 0;
+    let cx = 0;
+    let cy = 0;
+    let R = 0;
+
+    // Triangle vertices & outward edge normals (Screen coords: Y down)
+    let V0 = { x: 0, y: 0 }; // Top
+    let V1 = { x: 0, y: 0 }; // Right
+    let V2 = { x: 0, y: 0 }; // Left
+
+    // Normals:
+    // Edge 0: Top -> Right, normal: (sqrt(3)/2, -0.5)
+    // Edge 1: Right -> Left (Base), normal: (0, 1)
+    // Edge 2: Left -> Top, normal: (-sqrt(3)/2, -0.5)
+    const SQRT3_2 = Math.sqrt(3) / 2;
+    const N0 = { x: SQRT3_2, y: -0.5 };
+    const N1 = { x: 0, y: 1.0 };
+    const N2 = { x: -SQRT3_2, y: -0.5 };
+
+    // Reduced motion & interaction state
+    let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', e => {
+      prefersReducedMotion = e.matches;
+    });
+
+    let pointer = { x: 0.5, y: 0.5 };
+    let smoothPointer = { x: 0.5, y: 0.5 };
+    let userActive = false;
+    let userTimer = null;
+
+    function handlePointer(clientX, clientY) {
+      if (prefersReducedMotion) return;
+      const rect = stageEl.getBoundingClientRect();
+      const px = (clientX - rect.left) / rect.width;
+      const py = (clientY - rect.top) / rect.height;
+      pointer.x = Math.max(0, Math.min(1, px));
+      pointer.y = Math.max(0, Math.min(1, py));
+      userActive = true;
+      clearTimeout(userTimer);
+      userTimer = setTimeout(() => {
+        userActive = false;
+      }, 5000);
+    }
+
+    window.addEventListener('pointermove', e => handlePointer(e.clientX, e.clientY), { passive: true });
+    window.addEventListener('pointerdown', e => handlePointer(e.clientX, e.clientY), { passive: true });
+    window.addEventListener('touchmove', e => {
+      if (e.touches && e.touches[0]) handlePointer(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
+
+    // 72 Wavelengths from 410 to 695 nm
+    const NUM_WAVELENGTHS = 72;
+    const wavelengths = [];
+    for (let i = 0; i < NUM_WAVELENGTHS; i++) {
+      const nm = 410 + (i / (NUM_WAVELENGTHS - 1)) * (695 - 410);
+      const um = nm / 1000;
+      // Cauchy dispersion formula: n(λ) = 1.2 + 0.1 / λ² (λ in µm)
+      const n = 1.2 + 0.1 / (um * um);
+      const rgb = wavelengthToRGB(nm);
+      wavelengths.push({ nm, um, n, rgb });
+    }
+
+    // Piecewise visible spectrum color function
+    function wavelengthToRGB(wl) {
+      let r = 0, g = 0, b = 0;
+      if (wl >= 400 && wl < 440) {
+        r = -(wl - 440) / (440 - 400);
+        g = 0.0;
+        b = 1.0;
+      } else if (wl >= 440 && wl < 490) {
+        r = 0.0;
+        g = (wl - 440) / (490 - 440);
+        b = 1.0;
+      } else if (wl >= 490 && wl < 510) {
+        r = 0.0;
+        g = 1.0;
+        b = -(wl - 510) / (510 - 490);
+      } else if (wl >= 510 && wl < 580) {
+        r = (wl - 510) / (580 - 510);
+        g = 1.0;
+        b = 0.0;
+      } else if (wl >= 580 && wl < 645) {
+        r = 1.0;
+        g = -(wl - 645) / (645 - 580);
+        b = 0.0;
+      } else if (wl >= 645 && wl <= 700) {
+        r = 1.0;
+        g = 0.0;
+        b = 0.0;
+      }
+
+      let factor = 1.0;
+      if (wl >= 400 && wl < 420) {
+        factor = 0.35 + 0.65 * (wl - 400) / (420 - 400);
+      } else if (wl > 650 && wl <= 700) {
+        factor = 0.35 + 0.65 * (700 - wl) / (700 - 650);
+      }
+
+      const gamma = 0.82;
+      return {
+        r: Math.round(Math.pow(Math.max(0, r * factor), gamma) * 255),
+        g: Math.round(Math.pow(Math.max(0, g * factor), gamma) * 255),
+        b: Math.round(Math.pow(Math.max(0, b * factor), gamma) * 255)
+      };
+    }
+
+    // 70 Dust motes drifting along incoming beam
+    const motes = [];
+    for (let i = 0; i < 70; i++) {
+      motes.push({
+        t: Math.random(),
+        speed: 0.0008 + Math.random() * 0.0016,
+        offset: (Math.random() - 0.5) * 12,
+        size: 0.7 + Math.random() * 1.5,
+        baseAlpha: 0.25 + Math.random() * 0.65,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+
+    // Three.js 3D Setup
+    const renderer = new THREE.WebGLRenderer({
+      canvas: glCanvas,
+      antialias: true,
+      alpha: true,
+      powerPreference: 'high-performance'
+    });
+    renderer.autoClear = false;
+    renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+    renderer.toneMapping = THREE.NoToneMapping;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(48, 1, 0.1, 10000);
+
+    // Analytic Studio Shaders
+    const studioEnvPars = `
+      vec3 getStudioEnvironment(vec3 dir, vec3 lampDir) {
+        float up = dir.y * 0.5 + 0.5;
+        vec3 env = mix(vec3(0.065, 0.065, 0.075), vec3(0.11, 0.11, 0.125), up);
+        
+        // Overhead softbox (large rectangular light source at top-back)
+        vec3 softboxDir = normalize(vec3(-0.3, 0.8, -0.5));
+        float softbox = max(dot(dir, softboxDir), 0.0);
+        env += vec3(0.85, 0.88, 0.95) * pow(softbox, 14.0) * 0.65;
+        env += vec3(0.55, 0.60, 0.70) * pow(softbox, 3.0) * 0.20;
+        
+        // Left rim light for sculptural edge separation
+        vec3 leftRimDir = normalize(vec3(-0.95, 0.15, 0.25));
+        float leftRim = max(dot(dir, leftRimDir), 0.0);
+        env += vec3(0.65, 0.72, 0.85) * pow(leftRim, 16.0) * 0.40;
+
+        // Lamp beam direction glow
+        float lampGlow = max(dot(dir, lampDir), 0.0);
+        env += vec3(1.0, 0.98, 0.94) * pow(lampGlow, 28.0) * 0.90;
+
+        // Subtle floor bounce
+        float floorBounce = max(-dir.y, 0.0);
+        env += vec3(0.04, 0.04, 0.045) * pow(floorBounce, 2.0);
+
+        return env;
+      }
+    `;
+
+    const backMaterial = new THREE.ShaderMaterial({
+      side: THREE.BackSide,
+      transparent: true,
+      depthWrite: true,
+      depthTest: true,
+      uniforms: {
+        uCameraPos: { value: new THREE.Vector3() },
+        uLampDir: { value: new THREE.Vector3(1, 0, 0) },
+        uAbsorption: { value: new THREE.Vector3(1.2, 1.15, 1.05) },
+        uPrismSize: { value: 100 }
+      },
+      vertexShader: `
+        varying vec3 vWorldNormal;
+        varying vec3 vWorldPosition;
+        varying vec3 vLocalPosition;
+        void main() {
+          vLocalPosition = position;
+          vWorldNormal = normalize((modelMatrix * vec4(normal, 0.0)).xyz);
+          vec4 worldPos = modelMatrix * vec4(position, 1.0);
+          vWorldPosition = worldPos.xyz;
+          gl_Position = projectionMatrix * viewMatrix * worldPos;
+        }
+      `,
+      fragmentShader: `
+        uniform vec3 uCameraPos;
+        uniform vec3 uLampDir;
+        uniform vec3 uAbsorption;
+        uniform float uPrismSize;
+
+        varying vec3 vWorldNormal;
+        varying vec3 vWorldPosition;
+        varying vec3 vLocalPosition;
+
+        ${studioEnvPars}
+
+        void main() {
+          vec3 N = normalize(-vWorldNormal);
+          vec3 V = normalize(uCameraPos - vWorldPosition);
+
+          float etaR = 1.0 / 1.625;
+          float etaG = 1.0 / 1.645;
+          float etaB = 1.0 / 1.670;
+
+          vec3 refrR = refract(-V, N, etaR);
+          vec3 refrG = refract(-V, N, etaG);
+          vec3 refrB = refract(-V, N, etaB);
+
+          vec3 refl = reflect(-V, N);
+          if (length(refrR) < 0.001) refrR = refl;
+          if (length(refrG) < 0.001) refrG = refl;
+          if (length(refrB) < 0.001) refrB = refl;
+
+          vec3 envR = getStudioEnvironment(refrR, uLampDir);
+          vec3 envG = getStudioEnvironment(refrG, uLampDir);
+          vec3 envB = getStudioEnvironment(refrB, uLampDir);
+          vec3 transmitted = vec3(envR.r, envG.g, envB.b);
+
+          float path = clamp(length(vLocalPosition.xy) / (uPrismSize * 0.45) + (vLocalPosition.z * 0.5 + 0.5) / (uPrismSize * 0.25), 0.2, 1.8);
+          vec3 tint = exp(-uAbsorption * path * 0.85);
+          vec3 finalColor = transmitted * tint;
+
+          float internalFresnel = pow(1.0 - clamp(dot(N, V), 0.0, 1.0), 3.0);
+          finalColor += vec3(0.18, 0.19, 0.22) * internalFresnel;
+
+          gl_FragColor = vec4(finalColor, 0.92);
+        }
+      `
+    });
+
+    const frontMaterial = new THREE.ShaderMaterial({
+      side: THREE.FrontSide,
+      transparent: true,
+      depthWrite: false,
+      depthTest: true,
+      blending: THREE.NormalBlending,
+      uniforms: {
+        uCameraPos: { value: new THREE.Vector3() },
+        uLampDir: { value: new THREE.Vector3(1, 0, 0) },
+        uLampPos: { value: new THREE.Vector3(300, 100, 150) }
+      },
+      vertexShader: `
+        varying vec3 vWorldNormal;
+        varying vec3 vWorldPosition;
+        void main() {
+          vWorldNormal = normalize((modelMatrix * vec4(normal, 0.0)).xyz);
+          vec4 worldPos = modelMatrix * vec4(position, 1.0);
+          vWorldPosition = worldPos.xyz;
+          gl_Position = projectionMatrix * viewMatrix * worldPos;
+        }
+      `,
+      fragmentShader: `
+        uniform vec3 uCameraPos;
+        uniform vec3 uLampDir;
+        uniform vec3 uLampPos;
+
+        varying vec3 vWorldNormal;
+        varying vec3 vWorldPosition;
+
+        ${studioEnvPars}
+
+        void main() {
+          vec3 N = normalize(vWorldNormal);
+          vec3 V = normalize(uCameraPos - vWorldPosition);
+
+          float NdotV = clamp(dot(N, V), 0.0, 1.0);
+
+          // IOR 1.645 Fresnel: R0 = ((1.645 - 1.0) / (1.645 + 1.0))^2 = 0.0594
+          float R0 = 0.0594;
+          float fresnel = R0 + (1.0 - R0) * pow(1.0 - NdotV, 5.0);
+
+          vec3 reflDir = reflect(-V, N);
+          vec3 envRefl = getStudioEnvironment(reflDir, uLampDir);
+
+          vec3 L = normalize(uLampPos - vWorldPosition);
+          vec3 H = normalize(L + V);
+          float NdotH = clamp(dot(N, H), 0.0, 1.0);
+          float specSharp = pow(NdotH, 256.0) * 3.5;
+          float specBroad = pow(NdotH, 48.0) * 1.5;
+
+          vec3 softboxDir = normalize(vec3(-0.3, 0.8, -0.5));
+          vec3 Hsoft = normalize(softboxDir + V);
+          float specSoft = pow(clamp(dot(N, Hsoft), 0.0, 1.0), 32.0) * 0.7;
+
+          float edgeBevel = pow(1.0 - NdotV, 4.0) * 0.45;
+
+          vec3 surfaceColor = envRefl * fresnel * 1.25 + 
+                              (specSharp + specBroad) * vec3(1.0, 0.98, 0.95) + 
+                              specSoft * vec3(0.88, 0.92, 0.98) + 
+                              vec3(0.25, 0.28, 0.35) * edgeBevel;
+
+          float alpha = clamp(fresnel * 0.95 + (specSharp + specBroad) * 0.5 + specSoft * 0.3 + edgeBevel + 0.07, 0.0, 1.0);
+
+          gl_FragColor = vec4(surfaceColor, alpha);
+        }
+      `
+    });
+
+    const prismGroup = new THREE.Group();
+    scene.add(prismGroup);
+
+    let backMesh = null;
+    let frontMesh = null;
+
+    function buildPrismGeometry(side) {
+      if (backMesh) prismGroup.remove(backMesh);
+      if (frontMesh) prismGroup.remove(frontMesh);
+
+      // Create rounded triangle shape in local coords (Y up)
+      const rad = side / Math.sqrt(3);
+      const fillet = Math.min(side * 0.05, 14);
+      const tan30 = Math.tan(Math.PI / 6);
+      const d = fillet / tan30;
+
+      // Vertices of equilateral triangle
+      const vTop = { x: 0, y: rad };
+      const vRight = { x: side / 2, y: -rad / 2 };
+      const vLeft = { x: -side / 2, y: -rad / 2 };
+
+      // Unit vectors along edges
+      const u01 = { x: (vRight.x - vTop.x) / side, y: (vRight.y - vTop.y) / side };
+      const u12 = { x: (vLeft.x - vRight.x) / side, y: (vLeft.y - vRight.y) / side };
+      const u20 = { x: (vTop.x - vLeft.x) / side, y: (vTop.y - vLeft.y) / side };
+
+      // Fillet tangent points
+      const t0_in = { x: vTop.x - u20.x * d, y: vTop.y - u20.y * d };
+      const t0_out = { x: vTop.x + u01.x * d, y: vTop.y + u01.y * d };
+
+      const t1_in = { x: vRight.x - u01.x * d, y: vRight.y - u01.y * d };
+      const t1_out = { x: vRight.x + u12.x * d, y: vRight.y + u12.y * d };
+
+      const t2_in = { x: vLeft.x - u12.x * d, y: vLeft.y - u12.y * d };
+      const t2_out = { x: vLeft.x + u20.x * d, y: vLeft.y + u20.y * d };
+
+      const shape = new THREE.Shape();
+      shape.moveTo(t0_out.x, t0_out.y);
+      shape.lineTo(t1_in.x, t1_in.y);
+      shape.quadraticCurveTo(vRight.x, vRight.y, t1_out.x, t1_out.y);
+      shape.lineTo(t2_in.x, t2_in.y);
+      shape.quadraticCurveTo(vLeft.x, vLeft.y, t2_out.x, t2_out.y);
+      shape.lineTo(t0_in.x, t0_in.y);
+      shape.quadraticCurveTo(vTop.x, vTop.y, t0_out.x, t0_out.y);
+
+      const depth = side * 0.46;
+      const bevel = Math.min(side * 0.035, 12);
+      const extrudeSettings = {
+        depth: depth,
+        bevelEnabled: true,
+        bevelSegments: 5,
+        steps: 1,
+        bevelSize: bevel,
+        bevelThickness: bevel
+      };
+
+      const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+      geometry.center();
+
+      backMaterial.uniforms.uPrismSize.value = side;
+
+      backMesh = new THREE.Mesh(geometry, backMaterial);
+      backMesh.renderOrder = 0;
+      prismGroup.add(backMesh);
+
+      frontMesh = new THREE.Mesh(geometry, frontMaterial);
+      frontMesh.renderOrder = 1;
+      prismGroup.add(frontMesh);
+    }
+
+    // 5a. Layout Computation (debounced 60ms)
+    function computeLayout() {
+      const rect = stageEl.getBoundingClientRect();
+      W = Math.max(rect.width, 320);
+      H = Math.max(rect.height, 480);
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      mobile = W < 820;
+      lightDpr = mobile ? Math.min(dpr, 1.5) : dpr;
+
+      // 2D light plane triangle dimensions
+      if (!mobile) {
+        S = Math.min(W * 0.36, H * 0.62);
+        cx = 0.66 * W;
+        cy = 0.53 * H;
+      } else {
+        const copyBottom = copyEl ? copyEl.getBoundingClientRect().bottom : H * 0.38;
+        S = Math.min(W * 0.72, H * 0.40, 400);
+        cx = W / 2;
+        cy = Math.max(copyBottom + 30 + S * 0.62, (copyBottom + 30 + H) / 2);
+      }
+
+      R = S / Math.sqrt(3);
+
+      // Vertices in 2D Screen Coordinates (Y down)
+      V0 = { x: cx, y: cy - R };             // Top
+      V1 = { x: cx + S / 2, y: cy + R / 2 }; // Right
+      V2 = { x: cx - S / 2, y: cy + R / 2 }; // Left
+
+      // Update Three.js size & camera
+      renderer.setPixelRatio(dpr);
+      renderer.setSize(W, H, false);
+
+      const fovRad = (48 * Math.PI) / 180;
+      const camZ = (H / 2) / Math.tan(fovRad / 2);
+      camera.fov = 48;
+      camera.aspect = W / H;
+      camera.near = 10;
+      camera.far = camZ * 5;
+      camera.updateProjectionMatrix();
+
+      // Position 3D prism group so its center maps 1:1 to screen (cx, cy)
+      prismGroup.position.set(cx - W / 2, -(cy - H / 2), 0);
+
+      buildPrismGeometry(S);
+
+      // Light FX canvases
+      const lw = Math.round(W * lightDpr);
+      const lh = Math.round(H * lightDpr);
+      fxCanvas.width = lw;
+      fxCanvas.height = lh;
+      offCanvas.width = lw;
+      offCanvas.height = lh;
+    }
+
+    let resizeDebounce = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeDebounce);
+      resizeDebounce = setTimeout(computeLayout, 60);
+    });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(computeLayout);
+    }
+    computeLayout();
+
+    // 5b. 2D Ray Tracing Optics
+    function intersectSegment(px, py, dx, dy, ax, ay, bx, by) {
+      const vx = bx - ax;
+      const vy = by - ay;
+      const denom = dx * vy - dy * vx;
+      if (Math.abs(denom) < 1e-9) return null;
+
+      const qx = ax - px;
+      const qy = ay - py;
+      const t = (qx * vy - qy * vx) / denom;
+      const s = (qx * dy - qy * dx) / denom;
+
+      if (t > 1e-3 && s >= -0.005 && s <= 1.005) {
+        return { t, s, x: px + t * dx, y: py + t * dy };
+      }
+      return null;
+    }
+
+    function tracePrismOptics(pEntry, dIn) {
+      // Faces: 0 = Right (V0 -> V1), 1 = Base (V1 -> V2), 2 = Left (V2 -> V0)
+      const faces = [
+        { a: V0, b: V1, n: N0 },
+        { a: V1, b: V2, n: N1 },
+        { a: V2, b: V0, n: N2 }
+      ];
+
+      const rayResults = [];
+
+      for (let i = 0; i < wavelengths.length; i++) {
+        const wl = wavelengths[i];
+        const nGlass = wl.n;
+
+        // Entry at Face 0 from outside (air n1=1 -> glass n2=nGlass)
+        const cos1 = -(dIn.x * N0.x + dIn.y * N0.y);
+        const eta = 1.0 / nGlass;
+        const k = 1.0 - eta * eta * (1.0 - cos1 * cos1);
+        if (k < 0) continue; // Total reflection at entry (rare)
+
+        const cos2 = Math.sqrt(Math.max(0, k));
+        let dx = eta * dIn.x + (eta * cos1 - cos2) * N0.x;
+        let dy = eta * dIn.y + (eta * cos1 - cos2) * N0.y;
+        const len = Math.hypot(dx, dy);
+        dx /= len;
+        dy /= len;
+
+        // Fresnel at entry
+        const rs = (1.0 * cos1 - nGlass * cos2) / (1.0 * cos1 + nGlass * cos2);
+        const rp = (nGlass * cos1 - 1.0 * cos2) / (nGlass * cos1 + 1.0 * cos2);
+        const Rentry = 0.5 * (rs * rs + rp * rp);
+        const Tentry = 1.0 - Rentry;
+
+        // Trace inside prism
+        const pts = [{ x: pEntry.x, y: pEntry.y }];
+        let curX = pEntry.x;
+        let curY = pEntry.y;
+        let curDx = dx;
+        let curDy = dy;
+        let curEnergy = Tentry;
+        let curFace = 0;
+
+        for (let depth = 0; depth < 7; depth++) {
+          let bestHit = null;
+          let bestFace = -1;
+
+          for (let f = 0; f < 3; f++) {
+            if (f === curFace) continue;
+            const hit = intersectSegment(curX, curY, curDx, curDy, faces[f].a.x, faces[f].a.y, faces[f].b.x, faces[f].b.y);
+            if (hit && (!bestHit || hit.t < bestHit.t)) {
+              bestHit = hit;
+              bestFace = f;
+            }
+          }
+
+          if (!bestHit) break;
+
+          pts.push({ x: bestHit.x, y: bestHit.y });
+          const fn = faces[bestFace].n;
+          const cosI = curDx * fn.x + curDy * fn.y; // Ray is inside: cosI > 0
+          const etaExit = nGlass; // Glass to air
+          const sin2T = etaExit * etaExit * (1.0 - cosI * cosI);
+
+          if (sin2T > 1.0) {
+            // Total Internal Reflection (TIR)
+            curDx = curDx - 2.0 * cosI * fn.x;
+            curDy = curDy - 2.0 * cosI * fn.y;
+            const l = Math.hypot(curDx, curDy);
+            curDx /= l;
+            curDy /= l;
+            curX = bestHit.x;
+            curY = bestHit.y;
+            curFace = bestFace;
+          } else {
+            // Refract out of prism into air
+            const cosT = Math.sqrt(Math.max(0, 1.0 - sin2T));
+            let exitDx = etaExit * curDx - (etaExit * cosI - cosT) * fn.x;
+            let exitDy = etaExit * curDy - (etaExit * cosI - cosT) * fn.y;
+            const l = Math.hypot(exitDx, exitDy);
+            exitDx /= l;
+            exitDy /= l;
+
+            // Transmitted ray extending into air
+            const beamDist = Math.max(W, H) * 1.5;
+            pts.push({
+              x: bestHit.x + exitDx * beamDist,
+              y: bestHit.y + exitDy * beamDist
+            });
+            break;
+          }
+
+          if (curEnergy < 0.015) break;
+        }
+
+        rayResults.push({
+          pts,
+          rgb: wl.rgb,
+          wl: wl.nm
+        });
+      }
+
+      return rayResults;
+    }
+
+    // Main animation loop
+    let lastTime = performance.now();
+
+    function render(currentTime) {
+      requestAnimationFrame(render);
+
+      const dt = Math.min((currentTime - lastTime) / 1000, 0.1);
+      lastTime = currentTime;
+
+      // Update pointer with smooth easing & mobile orbit
+      if (prefersReducedMotion) {
+        smoothPointer.x = 0.5;
+        smoothPointer.y = 0.5;
+      } else {
+        if (mobile || !userActive) {
+          // Virtual pointer circles center: radius 0.34, period 18s
+          const period = 18;
+          const angle = (currentTime / 1000) * (Math.PI * 2 / period);
+          const vx = 0.5 + 0.34 * Math.cos(angle);
+          const vy = 0.5 + 0.34 * Math.sin(angle);
+          if (!userActive) {
+            pointer.x = vx;
+            pointer.y = vy;
+          }
+        }
+        const ease = 0.055;
+        smoothPointer.x += (pointer.x - smoothPointer.x) * ease;
+        smoothPointer.y += (pointer.y - smoothPointer.y) * ease;
+      }
+
+      // Lamp aim & incidence angle:
+      // Piecewise -35° (top py=0) -> 60° (middle py=0.5) -> 75° (bottom py=1)
+      const py = smoothPointer.y;
+      let angleDeg;
+      if (py <= 0.5) {
+        const t = py / 0.5;
+        angleDeg = -35 + t * (60 - (-35));
+      } else {
+        const t = (py - 0.5) / 0.5;
+        angleDeg = 60 + t * (75 - 60);
+      }
+      const angleRad = (angleDeg * Math.PI) / 180;
+
+      // Inward normal for Face 0 is (-sqrt(3)/2, 0.5), pointing down-left at 150 deg
+      const baseInwardAngle = Math.atan2(0.5, -SQRT3_2);
+      const beamAngle = baseInwardAngle + angleRad;
+      const dIn = { x: Math.cos(beamAngle), y: Math.sin(beamAngle) };
+
+      // Entry point: lerp along Face 0 (Top -> Right) from 0.08 to 0.92 by pointer x
+      const entryT = 0.08 + (0.92 - 0.08) * smoothPointer.x;
+      const pEntry = {
+        x: V0.x + (V1.x - V0.x) * entryT,
+        y: V0.y + (V1.y - V0.y) * entryT
+      };
+
+      // Lamp origin outside stage
+      const lampDist = Math.max(W, H) * 1.3;
+      const pLamp = {
+        x: pEntry.x - dIn.x * lampDist,
+        y: pEntry.y - dIn.y * lampDist
+      };
+
+      // Three.js 3D Prism Camera & Orbit (±3.5° from pointer)
+      const fovRad = (48 * Math.PI) / 180;
+      const camDist = (H / 2) / Math.tan(fovRad / 2);
+      const orbitRange = (3.5 * Math.PI) / 180;
+      const yaw = (smoothPointer.x - 0.5) * 2 * orbitRange;
+      const pitch = (smoothPointer.y - 0.5) * 2 * orbitRange;
+
+      camera.position.set(0, 0, camDist);
+      camera.lookAt(0, 0, 0);
+
+      // Rotate prism in place so centroid remains locked to (cx, cy)
+      prismGroup.position.set(cx - W / 2, -(cy - H / 2), 0);
+      prismGroup.rotation.y = yaw;
+      prismGroup.rotation.x = pitch;
+
+      // Update shader uniforms
+      const lamp3DDir = new THREE.Vector3(-dIn.x, dIn.y, 0.45).normalize();
+      const lamp3DPos = new THREE.Vector3(
+        (pEntry.x - W / 2) - dIn.x * 300,
+        -(pEntry.y - H / 2) + dIn.y * 300,
+        180
+      );
+
+      backMaterial.uniforms.uCameraPos.value.copy(camera.position);
+      backMaterial.uniforms.uLampDir.value.copy(lamp3DDir);
+
+      frontMaterial.uniforms.uCameraPos.value.copy(camera.position);
+      frontMaterial.uniforms.uLampDir.value.copy(lamp3DDir);
+      frontMaterial.uniforms.uLampPos.value.copy(lamp3DPos);
+
+      // Render 3D Prism
+      renderer.clear();
+      renderer.render(scene, camera);
+
+      // 5c. 2D Ray Tracing & Offscreen Light Canvas
+      const rays = tracePrismOptics(pEntry, dIn);
+
+      offCtx.save();
+      offCtx.clearRect(0, 0, offCanvas.width, offCanvas.height);
+      offCtx.scale(lightDpr, lightDpr);
+      offCtx.globalCompositeOperation = 'lighter';
+
+      // 1. Incoming Beam
+      const beamScale = mobile ? 0.8 : 1.0;
+      // Soft wide core
+      offCtx.strokeStyle = 'rgba(255, 255, 255, 0.30)';
+      offCtx.lineWidth = 12 * beamScale;
+      offCtx.beginPath();
+      offCtx.moveTo(pLamp.x, pLamp.y);
+      offCtx.lineTo(pEntry.x, pEntry.y);
+      offCtx.stroke();
+
+      // Sharp intense laser center
+      offCtx.strokeStyle = 'rgba(255, 255, 255, 1.0)';
+      offCtx.lineWidth = 4.5 * beamScale;
+      offCtx.beginPath();
+      offCtx.moveTo(pLamp.x, pLamp.y);
+      offCtx.lineTo(pEntry.x, pEntry.y);
+      offCtx.stroke();
+
+      // 2. Dust Motes along incoming beam
+      const beamDx = pEntry.x - pLamp.x;
+      const beamDy = pEntry.y - pLamp.y;
+      const totalBeamDist = Math.hypot(beamDx, beamDy);
+      const uBeamX = beamDx / totalBeamDist;
+      const uBeamY = beamDy / totalBeamDist;
+      const normBeamX = -uBeamY;
+      const normBeamY = uBeamX;
+
+      for (let i = 0; i < motes.length; i++) {
+        const m = motes[i];
+        if (!prefersReducedMotion) {
+          m.t = (m.t + m.speed) % 1.0;
+        }
+        const fadeInOut = Math.sin(m.t * Math.PI);
+        const twinkle = 0.7 + 0.3 * Math.sin(currentTime * 0.003 + m.phase);
+        const alpha = m.baseAlpha * fadeInOut * twinkle;
+
+        const mx = pLamp.x + uBeamX * (m.t * totalBeamDist) + normBeamX * m.offset;
+        const my = pLamp.y + uBeamY * (m.t * totalBeamDist) + normBeamY * m.offset;
+
+        offCtx.fillStyle = `rgba(255, 255, 255, ${alpha.toFixed(3)})`;
+        offCtx.beginPath();
+        offCtx.arc(mx, my, m.size * beamScale, 0, Math.PI * 2);
+        offCtx.fill();
+      }
+
+      // 3. Dispersed Beams: Fill quads and core lines with vivid spectrum colors
+      for (let i = 0; i < rays.length - 1; i++) {
+        const r1 = rays[i];
+        const r2 = rays[i + 1];
+
+        if (r1.pts.length === r2.pts.length && r1.pts.length >= 2) {
+          for (let k = 0; k < r1.pts.length - 1; k++) {
+            const p1a = r1.pts[k];
+            const p1b = r1.pts[k + 1];
+            const p2a = r2.pts[k];
+            const p2b = r2.pts[k + 1];
+
+            const rgb = r1.rgb;
+            const isInside = k === 0;
+            const fillAlpha = isInside ? 0.22 : 0.36;
+
+            offCtx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${fillAlpha})`;
+            offCtx.beginPath();
+            offCtx.moveTo(p1a.x, p1a.y);
+            offCtx.lineTo(p1b.x, p1b.y);
+            offCtx.lineTo(p2b.x, p2b.y);
+            offCtx.lineTo(p2a.x, p2a.y);
+            offCtx.closePath();
+            offCtx.fill();
+          }
+        }
+      }
+
+      // Fine core lines for crisp optical definition
+      for (let i = 0; i < rays.length; i++) {
+        const r = rays[i];
+        const rgb = r.rgb;
+        offCtx.strokeStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.75)`;
+        offCtx.lineWidth = mobile ? 0.85 : 1.25;
+        offCtx.beginPath();
+        for (let k = 0; k < r.pts.length; k++) {
+          if (k === 0) offCtx.moveTo(r.pts[k].x, r.pts[k].y);
+          else offCtx.lineTo(r.pts[k].x, r.pts[k].y);
+        }
+        offCtx.stroke();
+      }
+
+      // 4. Edge Glints where beam crosses faces
+      function drawGlint(gx, gy, radius, intensity) {
+        const grad = offCtx.createRadialGradient(gx, gy, 0, gx, gy, radius);
+        grad.addColorStop(0, `rgba(255, 255, 255, ${intensity})`);
+        grad.addColorStop(0.25, `rgba(255, 255, 255, ${intensity * 0.7})`);
+        grad.addColorStop(0.6, `rgba(255, 255, 255, ${intensity * 0.2})`);
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+        offCtx.fillStyle = grad;
+        offCtx.beginPath();
+        offCtx.arc(gx, gy, radius, 0, Math.PI * 2);
+        offCtx.fill();
+      }
+
+      // Entry glint at Face 0
+      drawGlint(pEntry.x, pEntry.y, 20 * beamScale, 1.0);
+
+      // Exit glint at Face 2
+      if (rays.length > 0 && rays[0].pts.length >= 2) {
+        const midIdx = Math.floor(rays.length / 2);
+        const exitMid = rays[midIdx].pts[1];
+        if (exitMid) drawGlint(exitMid.x, exitMid.y, 18 * beamScale, 0.9);
+      }
+
+      offCtx.restore();
+
+      // 5. Triple-Pass Bloom onto FX Canvas
+      fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
+      fxCtx.save();
+      fxCtx.globalCompositeOperation = 'lighter';
+
+      // Bloom pass 1: blur(34px) @ 0.6
+      fxCtx.globalAlpha = 0.6;
+      fxCtx.filter = `blur(${34 * lightDpr}px)`;
+      fxCtx.drawImage(offCanvas, 0, 0);
+
+      // Bloom pass 2: blur(12px) @ 0.9
+      fxCtx.globalAlpha = 0.9;
+      fxCtx.filter = `blur(${12 * lightDpr}px)`;
+      fxCtx.drawImage(offCanvas, 0, 0);
+
+      // Bloom pass 3: blur(3.2px) @ 1.0
+      fxCtx.globalAlpha = 1.0;
+      fxCtx.filter = `blur(${3.2 * lightDpr}px)`;
+      fxCtx.drawImage(offCanvas, 0, 0);
+
+      // Sharp unblurred pass for crisp lasers
+      fxCtx.filter = 'none';
+      fxCtx.globalAlpha = 0.85;
+      fxCtx.drawImage(offCanvas, 0, 0);
+
+      fxCtx.restore();
+    }
+
+    requestAnimationFrame(render);
+  </script>
+</body>
+</html>

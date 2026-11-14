@@ -18,6 +18,7 @@ export const primaryNav: NavItem[] = [
 
 export const companyNav: NavItem[] = [
   { label: "About", href: "/about", description: "The studio and the people behind it." },
+  { label: "Motion Showcase", href: "/showcase", description: "3D animated and cinematic motion landing pages." },
   { label: "Process", href: "/process", description: "How an engagement runs, phase by phase." },
   { label: "Trust", href: "/trust", description: "Ownership, security and accessibility commitments." },
   { label: "Field Notes", href: "/insights", description: "Working notes on education systems." },
@@ -45,6 +46,7 @@ export const footerColumns = [
     links: [
       { label: "Work", href: "/work" },
       { label: "Craft", href: "/craft" },
+      { label: "Motion Showcase", href: "/showcase" },
       { label: "Trust", href: "/trust" },
       { label: "Process", href: "/process" },
       { label: "Field Notes", href: "/insights" },

@@ -1,7 +1,7 @@
 /**
- * IMAGINARS CLUB - $1B DESIGN SYSTEM
+ * IMAGINARS CLUB - PREMIUM DESIGN SYSTEM
  * 
- * Built from analysis of: Apple, Stripe, Linear, Vercel, Notion, Arc
+ * Built from analysis of: Apple, Stripe, Linear, Vercel, Notion, Arc, Rive
  * Principles: Purposeful motion, depth & layering, typography as design,
  * color with intent, micro-interactions, performance as feature, a11y first
  */
@@ -11,44 +11,56 @@
      COLOR SYSTEM - Semantic, not decorative
      ======================================== */
   
-  /* --- Base Neutrals (Stripe/Linear inspired) --- */
-  --color-neutral-950: #020203;
-  --color-neutral-900: #08080a;
-  --color-neutral-850: #111114;
-  --color-neutral-800: #1a1a1f;
-  --color-neutral-750: #24242b;
-  --color-neutral-700: #2d2d35;
-  --color-neutral-600: #3d3d47;
-  --color-neutral-500: #52525e;
-  --color-neutral-400: #71717a;
-  --color-neutral-300: #a1a1aa;
-  --color-neutral-200: #d4d4d8;
-  --color-neutral-100: #e4e4e7;
-  --color-neutral-50:  #fafafa;
+  /* --- Base Neutrals (Apple/Linear inspired) --- */
+  --color-neutral-950: #030305;
+  --color-neutral-900: #0a0a0d;
+  --color-neutral-850: #141419;
+  --color-neutral-800: #1e1e26;
+  --color-neutral-750: #282832;
+  --color-neutral-700: #343442;
+  --color-neutral-600: #484858;
+  --color-neutral-500: #616178;
+  --color-neutral-400: #8888a0;
+  --color-neutral-300: #b0b0c4;
+  --color-neutral-200: #d4d4e0;
+  --color-neutral-100: #e8e8f0;
+  --color-neutral-50:  #f4f4f8;
   
-  /* --- Brand Colors (Linear teal + Stripe purple) --- */
-  --color-brand-50:  #f0fdfa;
-  --color-brand-100: #ccfbf1;
-  --color-brand-200: #99f6e4;
-  --color-brand-300: #5eead4;
-  --color-brand-400: #2dd4bf;
-  --color-brand-500: #14b8a6;  /* Primary - Linear teal */
-  --color-brand-600: #0d9488;
-  --color-brand-700: #0f766e;
-  --color-brand-800: #115e59;
-  --color-brand-900: #134e4a;
-  --color-brand-950: #042f2e;
+  /* --- Brand Colors (Linear teal + Stripe purple + custom cobalt) --- */
+  --color-brand-50:  #ecfef9;
+  --color-brand-100: #cffce8;
+  --color-brand-200: #a0f9d6;
+  --color-brand-300: #5df5bc;
+  --color-brand-400: #1ee8a5;
+  --color-brand-500: #14d896;  /* Primary - vibrant teal */
+  --color-brand-600: #0ec982;
+  --color-brand-700: #11a66c;
+  --color-brand-800: #148558;
+  --color-brand-900: #166d48;
+  --color-brand-950: #053624;
   
-  --color-accent-50:  #faf5ff;
-  --color-accent-100: #f3e8ff;
-  --color-accent-200: #e9d5ff;
-  --color-accent-300: #d8b4fe;
-  --color-accent-400: #c084fc;
-  --color-accent-500: #a855f7;  /* Stripe purple */
-  --color-accent-600: #9333ea;
-  --color-accent-700: #7e22ce;
-  --color-accent-800: #6b21a8;
-  --color-accent-900: #581c87;
+  --color-cobalt-50:  #eff6ff;
+  --color-cobalt-100: #dbeafe;
+  --color-cobalt-200: #bfdbfe;
+  --color-cobalt-300: #93c5fd;
+  --color-cobalt-400: #60a5fa;
+  --color-cobalt-500: #3b82f6;
+  --color-cobalt-600: #2563eb;
+  --color-cobalt-700: #1d4ed8;
+  --color-cobalt-800: #1e40af;
+  --color-cobalt-900: #1e3a8a;
+  --color-cobalt-950: #172554;
+  
+  --color-accent-50:  #fdf4ff;
+  --color-accent-100: #fae8ff;
+  --color-accent-200: #f5d0fe;
+  --color-accent-300: #f0abfc;
+  --color-accent-400: #e879f9;
+  --color-accent-500: #d946ef;  /* Stripe purple */
+  --color-accent-600: #c026d3;
+  --color-accent-700: #a21caf;
+  --color-accent-800: #86198f;
+  --color-accent-900: #701a75;
   
   /* --- Semantic Colors --- */
   --color-success-500: #22c55e;
@@ -66,10 +78,10 @@
   --surface-card-hover: var(--color-neutral-850);
   --surface-input: var(--color-neutral-800);
   --surface-input-focus: var(--color-neutral-750);
-  --surface-overlay: rgba(2, 2, 3, 0.8);
-  --surface-glass: rgba(255, 255, 255, 0.03);
-  --surface-glass-strong: rgba(255, 255, 255, 0.06);
-  --surface-glass-hover: rgba(255, 255, 255, 0.1);
+  --surface-overlay: rgba(3, 3, 5, 0.85);
+  --surface-glass: rgba(255, 255, 255, 0.04);
+  --surface-glass-strong: rgba(255, 255, 255, 0.08);
+  --surface-glass-hover: rgba(255, 255, 255, 0.12);
   
   /* --- Text System --- */
   --text-primary: #fafafa;
@@ -79,12 +91,13 @@
   --text-inverse: var(--color-neutral-950);
   --text-brand: var(--color-brand-400);
   --text-accent: var(--color-accent-400);
+  --text-cobalt: var(--color-cobalt-400);
   
   /* --- Border System --- */
   --border-hairline: rgba(255, 255, 255, 0.04);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-default: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.2);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
   --border-focus: var(--color-brand-500);
   --border-error: var(--color-error-500);
   
@@ -92,60 +105,63 @@
      GRADIENT SYSTEM - Purposeful, not decorative
      ======================================== */
   --gradient-brand: linear-gradient(135deg, var(--color-brand-500) 0%, var(--color-brand-400) 100%);
-  --gradient-brand-subtle: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(45, 212, 191, 0.05) 100%);
+  --gradient-brand-subtle: linear-gradient(135deg, rgba(20, 216, 150, 0.1) 0%, rgba(30, 232, 165, 0.04) 100%);
+  --gradient-cobalt: linear-gradient(135deg, var(--color-cobalt-500) 0%, var(--color-cobalt-400) 100%);
   --gradient-accent: linear-gradient(135deg, var(--color-accent-500) 0%, var(--color-accent-400) 100%);
-  --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(20, 184, 166, 0.15) 0%, transparent 70%);
-  --gradient-hero-deep: radial-gradient(ellipse 100% 80% at 50% 50%, rgba(16, 16, 20, 0.6) 0%, transparent 60%);
-  --gradient-card: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 50%);
-  --gradient-glass: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 50%, transparent 100%);
-  --gradient-border: linear-gradient(135deg, var(--color-brand-500), var(--color-accent-500));
+  --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(20, 216, 150, 0.18) 0%, transparent 70%);
+  --gradient-hero-deep: radial-gradient(ellipse 100% 80% at 50% 50%, rgba(16, 16, 20, 0.7) 0%, transparent 60%);
+  --gradient-card: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 50%);
+  --gradient-glass: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 50%, transparent 100%);
+  --gradient-border: linear-gradient(135deg, var(--color-brand-500), var(--color-cobalt-500), var(--color-accent-500));
   --gradient-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --gradient-radial-premium: radial-gradient(ellipse at 30% 20%, #1a1a1f 0%, #0d0d10 50%, #020203 100%);
+  --gradient-radial-premium: radial-gradient(ellipse at 30% 20%, #141419 0%, #0a0a0d 50%, #030305 100%);
+  --gradient-mesh: radial-gradient(ellipse at 20% 80%, rgba(20, 216, 150, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 50%), radial-gradient(ellipse at 40% 40%, rgba(217, 70, 239, 0.08) 0%, transparent 40%);
   
-/* ========================================
-   TYPOGRAPHY SYSTEM - Apple/Linear precision
-   ======================================== */
---font-sans: 'Geist', 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
---font-mono: 'Geist Mono', 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
---font-display: 'Geist', 'SF Pro Display', -apple-system, sans-serif;
-
-/* Optical sizing axis for variable fonts (Geist supports opsz) */
---font-optical-sizing: auto;
-
-/* Fluid type scale (clamp for fluid responsiveness) */
---text-xs: 0.7rem;           /* 11.2px */
---text-sm: 0.8125rem;        /* 13px */
---text-base: 1rem;           /* 16px */
---text-lg: 1.125rem;         /* 18px */
---text-xl: 1.25rem;          /* 20px */
---text-2xl: 1.5rem;          /* 24px */
---text-3xl: 2rem;            /* 32px */
---text-4xl: 2.5rem;          /* 40px */
---text-5xl: 3.5rem;          /* 56px */
---text-6xl: 5rem;            /* 80px */
---text-7xl: 7rem;            /* 112px */
---text-8xl: clamp(5rem, 14vw, 12rem); /* Hero display */
-
-/* Fluid display headings */
---display-xs: clamp(1.5rem, 3vw, 2.5rem);
---display-sm: clamp(2rem, 4vw, 3.5rem);
---display-md: clamp(2.5rem, 5vw, 4.5rem);
---display-lg: clamp(3.5rem, 7vw, 6rem);
---display-xl: clamp(4.5rem, 10vw, 8rem);
---display-2xl: clamp(5.5rem, 12vw, 10rem);
-
-/* Line heights */
---leading-tight: 1.02;
---leading-snug: 1.15;
---leading-normal: 1.6;
---leading-relaxed: 1.75;
-
-/* Letter spacing */
---tracking-tight: -0.035em;
---tracking-normal: -0.01em;
---tracking-wide: 0.02em;
---tracking-wider: 0.1em;
---tracking-widest: 0.2em;
+  /* ========================================
+     TYPOGRAPHY SYSTEM - Apple/Linear precision
+     ======================================== */
+  --font-sans: 'Geist', 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-display: 'Geist', 'SF Pro Display', -apple-system, sans-serif;
+  
+  /* Optical sizing axis for variable fonts (Geist supports opsz) */
+  --font-optical-sizing: auto;
+  
+  /* Fluid type scale (clamp for fluid responsiveness) */
+  --text-xs: 0.6875rem;        /* 11px */
+  --text-sm: 0.8125rem;        /* 13px */
+  --text-base: 1rem;           /* 16px */
+  --text-lg: 1.125rem;         /* 18px */
+  --text-xl: 1.25rem;          /* 20px */
+  --text-2xl: 1.5rem;          /* 24px */
+  --text-3xl: 2rem;            /* 32px */
+  --text-4xl: 2.5rem;          /* 40px */
+  --text-5xl: 3.5rem;          /* 56px */
+  --text-6xl: 5rem;            /* 80px */
+  --text-7xl: 7rem;            /* 112px */
+  --text-8xl: clamp(5rem, 14vw, 14rem); /* Hero display */
+  
+  /* Fluid display headings */
+  --display-xs: clamp(1.5rem, 3vw, 2.5rem);
+  --display-sm: clamp(2rem, 4vw, 3.5rem);
+  --display-md: clamp(2.5rem, 5vw, 4.5rem);
+  --display-lg: clamp(3.5rem, 7vw, 6rem);
+  --display-xl: clamp(4.5rem, 10vw, 8rem);
+  --display-2xl: clamp(5.5rem, 12vw, 10rem);
+  --display-3xl: clamp(6rem, 14vw, 12rem);
+  
+  /* Line heights */
+  --leading-tight: 1.02;
+  --leading-snug: 1.15;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+  
+  /* Letter spacing */
+  --tracking-tight: -0.035em;
+  --tracking-normal: -0.01em;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.2em;
   
   /* ========================================
      SPACING SYSTEM - 8pt grid, fluid
@@ -172,36 +188,38 @@
   --gutter: clamp(24px, 5vw, 64px);
   --gutter-wide: clamp(32px, 8vw, 96px);
   
-/* ========================================
-   CONTAINER QUERIES & SUBGRID
-   ======================================== */
---container-main: main;
---container-card: .card;
---container-section: section;
-
-/* Subgrid column definitions */
---grid-cols-12: subgrid;
---grid-cols-6: subgrid;
---grid-cols-4: subgrid;
+  /* ========================================
+     CONTAINER QUERIES & SUBGRID
+     ======================================== */
+  --container-main: main;
+  --container-card: .card;
+  --container-section: section;
+  
+  /* Subgrid column definitions */
+  --grid-cols-12: subgrid;
+  --grid-cols-6: subgrid;
+  --grid-cols-4: subgrid;
   
   /* ========================================
      SHADOW SYSTEM - Apple-style depth
      ======================================== */
-  --shadow-xs: 0 1px 2px rgba(0,0,0,0.3);
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.35);
-  --shadow-md: 0 8px 16px -4px rgba(0,0,0,0.4);
-  --shadow-lg: 0 16px 32px -8px rgba(0,0,0,0.45);
-  --shadow-xl: 0 24px 48px -12px rgba(0,0,0,0.5);
-  --shadow-2xl: 0 32px 64px -16px rgba(0,0,0,0.55);
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.35);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.4);
+  --shadow-md: 0 8px 16px -4px rgba(0,0,0,0.45);
+  --shadow-lg: 0 16px 32px -8px rgba(0,0,0,0.5);
+  --shadow-xl: 0 24px 48px -12px rgba(0,0,0,0.55);
+  --shadow-2xl: 0 32px 64px -16px rgba(0,0,0,0.6);
   --shadow-inner: inset 0 1px 0 rgba(255,255,255,0.05);
-  --shadow-glow: 0 0 60px rgba(20, 184, 166, 0.15);
-  --shadow-glow-strong: 0 0 100px rgba(20, 184, 166, 0.25);
-  --shadow-glow-accent: 0 0 80px rgba(168, 85, 247, 0.15);
+  --shadow-glow: 0 0 60px rgba(20, 216, 150, 0.18);
+  --shadow-glow-strong: 0 0 100px rgba(20, 216, 150, 0.3);
+  --shadow-glow-cobalt: 0 0 80px rgba(37, 99, 235, 0.18);
+  --shadow-glow-accent: 0 0 80px rgba(217, 70, 239, 0.15);
   
   /* 3D Depth shadows */
-  --shadow-3d: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  --shadow-3d-strong: 0 35px 60px -15px rgba(0, 0, 0, 0.6);
-  --shadow-3d-card: 0 12px 24px -8px rgba(0, 0, 0, 0.4);
+  --shadow-3d: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
+  --shadow-3d-strong: 0 35px 60px -15px rgba(0, 0, 0, 0.65);
+  --shadow-3d-card: 0 12px 24px -8px rgba(0, 0, 0, 0.45);
+  --shadow-3d-float: 0 40px 80px -20px rgba(0, 0, 0, 0.5);
   
   /* ========================================
      3D / SHADER DESIGN TOKENS
@@ -213,24 +231,24 @@
   --camera-default-distance: 8;
   
   /* Particles */
-  --particle-count-low: 100;
-  --particle-count-medium: 500;
-  --particle-count-high: 2000;
-  --particle-size-base: 0.05;
+  --particle-count-low: 150;
+  --particle-count-medium: 800;
+  --particle-count-high: 3000;
+  --particle-size-base: 0.04;
   
   /* Shader uniforms */
   --shader-time-speed: 1.0;
-  --shader-displacement: 0.05;
-  --shader-chromatic-aberration: 0.0008;
+  --shader-displacement: 0.04;
+  --shader-chromatic-aberration: 0.0006;
   --shader-bloom-threshold: 0.85;
   --shader-bloom-radius: 0.8;
-  --shader-vignette-darkness: 0.4;
+  --shader-vignette-darkness: 0.35;
   
   /* Quality tiers */
   --quality-low-dpr: 1;
-  --quality-low-particles: 0.4;
+  --quality-low-particles: 0.3;
   --quality-medium-dpr: 1.5;
-  --quality-medium-particles: 0.7;
+  --quality-medium-particles: 0.6;
   --quality-high-dpr: 2.5;
   --quality-high-particles: 1.0;
   
@@ -241,9 +259,13 @@
   --accent-primary-hover: var(--color-brand-400);
   --accent-primary-fg: var(--color-neutral-950);
   
-  --accent-secondary: var(--color-accent-500);
-  --accent-secondary-hover: var(--color-accent-400);
+  --accent-secondary: var(--color-cobalt-500);
+  --accent-secondary-hover: var(--color-cobalt-400);
   --accent-secondary-fg: var(--color-neutral-950);
+  
+  --accent-tertiary: var(--color-accent-500);
+  --accent-tertiary-hover: var(--color-accent-400);
+  --accent-tertiary-fg: var(--color-neutral-950);
   
   --accent-success: var(--color-success-500);
   --accent-success-hover: var(--color-success-400);
@@ -259,21 +281,24 @@
   
   /* Focus ring colors per category */
   --focus-primary: var(--accent-primary);
+  --focus-secondary: var(--accent-secondary);
+  --focus-tertiary: var(--accent-tertiary);
   --focus-success: var(--accent-success);
   --focus-warning: var(--accent-warning);
   --focus-error: var(--accent-error);
   
   /* ========================================
-     MOTION SYSTEM - Stripe/Linear precision
+     MOTION SYSTEM - Stripe/Linear/Apple precision
      ======================================== */
   --duration-instant: 50ms;
   --duration-fast: 120ms;
   --duration-base: 200ms;
   --duration-slow: 300ms;
   --duration-slower: 500ms;
-  --duration-hero: 800ms;
-  --duration-cinematic: 1200ms;
-  --duration-stagger: 80ms;
+  --duration-hero: 1000ms;
+  --duration-cinematic: 1500ms;
+  --duration-stagger: 60ms;
+  --duration-stagger-slow: 100ms;
   
   /* Easing curves (cubic-bezier) */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -285,10 +310,12 @@
   --ease-elastic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+  --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-apple-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   
   /* Spring physics for GSAP */
-  --spring-stiffness: 180;
-  --spring-damping: 18;
+  --spring-stiffness: 200;
+  --spring-damping: 20;
   --spring-mass: 1;
   
   /* ========================================
@@ -300,18 +327,22 @@
   --depth-layer-3: 28px;
   --depth-layer-4: 60px;
   --depth-layer-5: 120px;
+  --depth-layer-6: 200px;
   
   /* ========================================
      LIQUID GLASS / SPATIAL (Apple 2025)
      ======================================== */
   --glass-blur: 20px;
   --glass-blur-strong: 40px;
-  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-blur-ultra: 60px;
+  --glass-bg: rgba(255, 255, 255, 0.04);
   --glass-bg-hover: rgba(255, 255, 255, 0.08);
-  --glass-bg-strong: rgba(255, 255, 255, 0.1);
+  --glass-bg-strong: rgba(255, 255, 255, 0.12);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-border-focus: rgba(20, 184, 166, 0.3);
-  --glass-border-strong: rgba(255, 255, 255, 0.15);
+  --glass-border-focus: rgba(20, 216, 150, 0.35);
+  --glass-border-strong: rgba(255, 255, 255, 0.18);
+  --glass-specular: rgba(255, 255, 255, 0.4);
+  --glass-lens: rgba(255, 255, 255, 0.06);
   
   /* Spatial offsets */
   --spatial-offset: 8px;
@@ -358,19 +389,19 @@
     --surface-input: #f5f5f5;
     --surface-input-focus: #ffffff;
     --surface-overlay: rgba(250, 250, 250, 0.95);
-    --surface-glass: rgba(0, 0, 0, 0.02);
-    --surface-glass-strong: rgba(0, 0, 0, 0.04);
-    --surface-glass-hover: rgba(0, 0, 0, 0.06);
+    --surface-glass: rgba(0, 0, 0, 0.03);
+    --surface-glass-strong: rgba(0, 0, 0, 0.05);
+    --surface-glass-hover: rgba(0, 0, 0, 0.08);
     
-    --text-primary: #08080a;
-    --text-secondary: #27272a;
-    --text-tertiary: #52525b;
-    --text-muted: #71717a;
+    --text-primary: #030305;
+    --text-secondary: #141419;
+    --text-tertiary: #484858;
+    --text-muted: #8888a0;
     
     --border-hairline: rgba(0, 0, 0, 0.04);
-    --border-subtle: rgba(0, 0, 0, 0.06);
-    --border-default: rgba(0, 0, 0, 0.1);
-    --border-strong: rgba(0, 0, 0, 0.15);
+    --border-subtle: rgba(0, 0, 0, 0.05);
+    --border-default: rgba(0, 0, 0, 0.08);
+    --border-strong: rgba(0, 0, 0, 0.12);
     
     --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
     --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
@@ -379,11 +410,11 @@
     --shadow-xl: 0 24px 48px -12px rgba(0,0,0,0.12);
     --shadow-inner: inset 0 1px 0 rgba(255,255,255,0.5);
     
-    --glass-bg: rgba(0, 0, 0, 0.02);
-    --glass-bg-hover: rgba(0, 0, 0, 0.04);
+    --glass-bg: rgba(0, 0, 0, 0.03);
+    --glass-bg-hover: rgba(0, 0, 0, 0.05);
     --glass-border: rgba(0, 0, 0, 0.06);
     
-    --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(20, 184, 166, 0.08) 0%, transparent 70%);
+    --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(20, 216, 150, 0.1) 0%, transparent 70%);
     --gradient-hero-deep: radial-gradient(ellipse 100% 80% at 50% 50%, rgba(240, 240, 240, 0.6) 0%, transparent 60%);
     --gradient-glass: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, transparent 50%);
   }
@@ -401,6 +432,7 @@
     --duration-hero: 0ms;
     --duration-cinematic: 0ms;
     --duration-stagger: 0ms;
+    --duration-stagger-slow: 0ms;
   }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -421,4 +453,76 @@
     --text-tertiary: var(--text-secondary);
     --glass-border: currentColor;
   }
+}
+
+/* ========================================
+   FOCUS VISIBLE POLYFILL
+   ======================================== */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 
+    0 0 0 2px var(--surface-base),
+    0 0 0 4px var(--border-focus);
+  border-radius: 2px;
+}
+
+/* ========================================
+   SELECTION
+   ======================================== */
+::selection {
+  background: rgba(20, 216, 150, 0.35);
+  color: var(--text-primary);
+}
+
+::-moz-selection {
+  background: rgba(20, 216, 150, 0.35);
+  color: var(--text-primary);
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+  .grain, .cursor-dot, .cursor-ring, .cursor-label,
+  .nav, .preloader, .hero-canvas,
+  .marquee, .magnetic, .cursor-dot,
+  .cursor-ring, .cursor-label { display: none !important; }
+  
+  .hero { min-height: auto; }
+  .chapter { min-height: auto; page-break-inside: avoid; }
+  
+  body { background: white !important; color: black !important; }
+  a { color: black !important; text-decoration: underline; }
 }

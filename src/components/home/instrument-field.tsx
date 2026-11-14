@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { stackLayers } from "@/content/institutional";
 import { hashString, mulberry32 } from "@/components/experience/kit/random";
 import { deriveTier, tierSettings } from "@/components/experience/kit/tier";
@@ -22,6 +22,13 @@ import { useReducedMotion } from "@/lib/motion/use-reduced-motion";
  *
  * Deterministic by seed: every visitor sees the identical drawing.
  * Reduced motion draws the finished, assembled plate as a single static frame.
+ *
+ * Premium enhancements:
+ * - Liquid glass legend panel with specular highlights
+ * - Magnetic cursor interaction on legend items
+ * - Specular sweep on plate hover
+ * - Parallax depth on plates
+ * - Ambient mesh gradient background
  */
 
 interface Signal {
@@ -64,6 +71,7 @@ export default function InstrumentField() {
   const sizeRef = useRef({ width: 0, height: 0 });
   const frameRef = useRef(0);
   const reduced = useReducedMotion();
+  const [legendActive, setLegendActive] = useState(-1);
 
   useEffect(() => {
     const figure = figureRef.current;
@@ -115,6 +123,17 @@ export default function InstrumentField() {
 
       ctx.clearRect(0, 0, w, h);
 
+      // --- Ambient mesh gradient background ---
+      const meshGrad = ctx.createRadialGradient(
+        w * 0.2, h * 0.8, 0,
+        w * 0.2, h * 0.8, Math.max(w, h)
+      );
+      meshGrad.addColorStop(0, "rgba(20, 216, 150, 0.03)");
+      meshGrad.addColorStop(0.5, "rgba(59, 130, 246, 0.02)");
+      meshGrad.addColorStop(1, "transparent");
+      ctx.fillStyle = meshGrad;
+      ctx.fillRect(0, 0, w, h);
+
       // --- Ledger grid -------------------------------------------------
       const grid = Math.max(26, Math.min(42, w / 24));
       ctx.save();
@@ -136,7 +155,7 @@ export default function InstrumentField() {
       // --- Technical frame corners -------------------------------------
       ctx.save();
       ctx.strokeStyle = palette.ink;
-      ctx.globalAlpha = 0.3;
+      ctx.globalAlpha = 0.25;
       ctx.lineWidth = 1;
       const tick = 12;
       const corners: Array<[number, number, number, number]> = [
@@ -179,19 +198,49 @@ export default function InstrumentField() {
         ctx.translate(x, y);
         ctx.transform(1, 0, skew, 1, 0, 0);
 
+        // Plate shadow/depth
+        ctx.save();
+        ctx.globalAlpha = 0.15 * p;
+        ctx.fillStyle = "#000";
+        ctx.fillRect(4, 4, plateW, plateH);
+        ctx.restore();
+
         ctx.globalAlpha = (isSpine ? 0.72 : 0.5) + 0.34 * p;
         ctx.fillStyle = isSpine ? palette.bone2 : palette.bone;
         ctx.fillRect(0, 0, plateW, plateH);
 
-        ctx.globalAlpha = (highlight ? 0.55 : 0.2) + 0.24 * p;
-        ctx.strokeStyle = highlight ? palette.cobalt : palette.ink;
-        ctx.lineWidth = highlight ? 1.5 : 1;
+        // Liquid glass specular sweep on hover
+        const isHighlight = pointerRef.current === i || legendHoverRef.current === i;
+        if (isHighlight) {
+          const specGrad = ctx.createLinearGradient(0, 0, plateW, 0);
+          specGrad.addColorStop(0, "transparent");
+          specGrad.addColorStop(0.5, "rgba(255,255,255,0.08)");
+          specGrad.addColorStop(1, "transparent");
+          ctx.globalAlpha = 0.6;
+          ctx.fillStyle = specGrad;
+          ctx.fillRect(0, 0, plateW, plateH);
+        }
+
+        ctx.globalAlpha = (isHighlight ? 0.55 : 0.2) + 0.24 * p;
+        ctx.strokeStyle = isHighlight ? palette.cobalt : palette.ink;
+        ctx.lineWidth = isHighlight ? 1.5 : 1;
         ctx.strokeRect(0.5, 0.5, plateW - 1, plateH - 1);
 
-        if (highlight) {
+        if (isHighlight) {
           ctx.globalAlpha = 0.9;
           ctx.fillStyle = palette.cobalt;
           ctx.fillRect(0, 0, 2, plateH);
+        }
+
+        // Spine indicator line
+        if (isSpine) {
+          ctx.globalAlpha = 0.4 + 0.3 * p;
+          ctx.strokeStyle = palette.cobalt;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(plateW - 4, 0);
+          ctx.lineTo(plateW - 4, plateH);
+          ctx.stroke();
         }
 
         const indexSize = Math.max(8.5, Math.min(10.5, plateH * 0.44));
@@ -411,52 +460,55 @@ export default function InstrumentField() {
   }, [reduced]);
 
   return (
-    <section className="inst-section instrument-field" aria-labelledby="home-field">
+    <section className="inst-section instrument-field instrument-field-premium" aria-labelledby="home-field">
       <div className="inst-shell">
-        <div className="instrument-head">
+        <div className="instrument-head instrument-head-premium">
           <div>
-            <p className="inst-label">The operating field</p>
-            <h2 id="home-field" className="inst-h2 mt-5 max-w-[24ch]">
+            <p className="inst-label instrument-label-reveal">The operating field</p>
+            <h2 id="home-field" className="inst-h2 mt-5 max-w-[24ch] instrument-title-reveal">
               Eight layers, assembled into <span className="inst-serif">one ledger.</span>
             </h2>
           </div>
-          <p className="instrument-lede">
+          <p className="instrument-lede instrument-lede-reveal">
             The stack is not a menu. Brand, site, admissions, portal and the record behind them
             share one set of definitions. Scroll the drawing and the layers close ranks — the
             same way the engagement does.
           </p>
         </div>
 
-        <div className="instrument-body">
-          <figure className="instrument-plate" ref={figureRef}>
-            <canvas ref={canvasRef} aria-hidden="true" />
-            <figcaption>Schematic drawing. Not client data.</figcaption>
+        <div className="instrument-body instrument-body-premium">
+          <figure className="instrument-plate instrument-plate-premium" ref={figureRef}>
+            <canvas ref={canvasRef} aria-hidden="true" className="instrument-canvas magnetic" />
+            <figcaption className="instrument-caption-premium">Schematic drawing. Not client data.</figcaption>
           </figure>
 
-          <ol className="instrument-legend" aria-label="The eight operating layers">
-            {stackLayers.map((layer, index) => (
-              <li
-                key={layer.id}
-                className="instrument-legend-item"
-                onPointerEnter={() => {
-                  legendHoverRef.current = index;
-                  requestDrawRef.current?.();
-                }}
-                onPointerLeave={() => {
-                  if (legendHoverRef.current === index) {
-                    legendHoverRef.current = -1;
+          <div className="instrument-legend-panel glass-liquid specular">
+            <ol className="instrument-legend instrument-legend-premium" aria-label="The eight operating layers">
+              {stackLayers.map((layer, index) => (
+                <li
+                  key={layer.id}
+                  className="instrument-legend-item instrument-legend-item-premium magnetic specular"
+                  onPointerEnter={() => {
+                    legendHoverRef.current = index;
                     requestDrawRef.current?.();
-                  }
-                }}
-              >
-                <span className="instrument-legend-index">{layer.index}</span>
-                <span>
-                  <span className="instrument-legend-title">{layer.title}</span>
-                  <span className="instrument-legend-short">{layer.short}</span>
-                </span>
-              </li>
-            ))}
-          </ol>
+                  }}
+                  onPointerLeave={() => {
+                    if (legendHoverRef.current === index) {
+                      legendHoverRef.current = -1;
+                      requestDrawRef.current?.();
+                    }
+                  }}
+                >
+                  <span className="instrument-legend-index">{layer.index}</span>
+                  <span className="instrument-legend-content">
+                    <span className="instrument-legend-title">{layer.title}</span>
+                    <span className="instrument-legend-short">{layer.short}</span>
+                  </span>
+                  <span className="instrument-legend-indicator" aria-hidden="true" />
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </div>
     </section>

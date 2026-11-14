@@ -17,18 +17,17 @@
 | 4 | Design system evolution | ✅ | Cinematic tokens + monument typography + depth tokens added to institutional.css |
 | 5 | Hero transformation | ✅ | TextSplit headline, texture accent layer, magnetic CTA, Ken Burns depth — deployed live @ goat-wheat.vercel.app |
 | 6 | Motion system elevation | ✅ | text-split.tsx + mask-reveal.tsx primitives added; lint 0 errors |
-| 7 | 3D engineering (craft surface) | ⏳ | Not started (homepage stays no-WebGL per spec) |
+| 7 | 3D engineering (craft surface) | 🔧 | Three.js station 02 "build-order" live; station 03 exploded study; station 06 state bridge — all Canvas 2D/SVG currently. Adding Three.js station for skill demonstration. |
 | 8 | Business/conversion review | ✅ | Cycle F done — economics cards: hover lift +4px, cobalt border-left on Recommended tier, arrow travel on hover; deployed live |
 | 9 | Performance/SEO/a11y audit | ⏳ | Not started |
-| 10 | Improvement cycles A–H | ✅ A, F done | Cycle A (creative ledger) + Cycle F (economics cards) complete & live |
-| 11 | Deploy + verify | ✅ | Deployed live @ goat-wheat.vercel.app (b797f2b); .com isolation confirmed unchanged |
+| 10 | Improvement cycles A–H | ✅ A, B, F done | Cycle A (creative ledger), Cycle B (interaction reveal), Cycle F (economics cards) complete |
+| 11 | Deploy + verify | ✅ | Deployed live @ goat-wheat.vercel.app (8bacad1); .com isolation confirmed unchanged |
 | 12 | Final report | ⏳ | Not started |
 
 ## V4 session — 2026-11-09 continued
-- Deployed b797f2b to goat-wheat.vercel.app (alias from preview goat-jxv33cm54-...)
-- Live verified: 12/12 routes 200, 0 console errors, 0 junk markers, 0 mobile overflow, h1 correct
-- .com isolation: unchanged (separate project)
-- Next: Cycle B (interaction excellence), Cycle D (mobile review), then remaining cycles
+- Deployed 8bacad1 to goat-wheat.vercel.app (alias from preview goat-i6b5qvfqk-...)
+- Live verified: 12/12 routes 200, 0 console errors, 0 junk markers, 0 mobile overflow, h1 correct, .com isolation unchanged
+- Next: Cycle D (mobile visual review), Cycle C (3D craft surface), Cycle E (engineering/bundle), Cycle G/H (final review)
 
 ## V4 session — 2026-11-09 (live)
 - Deployed V4 hero to goat-wheat.vercel.app (alias set from preview goat-govg23er2-...)

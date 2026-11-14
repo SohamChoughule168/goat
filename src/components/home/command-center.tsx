@@ -114,9 +114,9 @@ export default function CommandCenter() {
   const barSeed = { all: 3, main: 9, north: 15, online: 21 }[branch];
 
   return (
-    <div className="command-center-shell" role="region" aria-label="Illustrative institute command centre">
-      <div className="command-top">
-        <div className="command-tabs" role="tablist" aria-label="Command centre views">
+    <div className="command-center-shell command-center-premium" role="region" aria-label="Illustrative institute command centre">
+      <div className="command-top command-top-premium">
+        <div className="command-tabs command-tabs-premium" role="tablist" aria-label="Command centre views">
           {views.map((item) => (
             <button
               key={item.id}
@@ -125,20 +125,21 @@ export default function CommandCenter() {
               id={`${baseId}-tab-${item.id}`}
               aria-selected={view === item.id}
               aria-controls={`${baseId}-panel`}
-              className="command-tab"
+              className="command-tab command-tab-premium magnetic specular"
               onClick={() => setView(item.id)}
             >
               {item.label}
+              <span className="command-tab-indicator" aria-hidden="true" />
             </button>
           ))}
         </div>
-        <div className="command-filters">
+        <div className="command-filters command-filters-premium">
           <label htmlFor={`${baseId}-branch`} className="visually-hidden">
             Branch
           </label>
           <select
             id={`${baseId}-branch`}
-            className="command-select"
+            className="command-select command-select-premium glass-liquid"
             value={branch}
             onChange={(event) => setBranch(event.target.value as BranchId)}
           >
@@ -148,7 +149,7 @@ export default function CommandCenter() {
               </option>
             ))}
           </select>
-          <span className="command-note">FY 2026</span>
+          <span className="command-note command-note-premium">FY 2026</span>
         </div>
       </div>
 
@@ -156,34 +157,35 @@ export default function CommandCenter() {
         id={`${baseId}-panel`}
         role="tabpanel"
         aria-labelledby={`${baseId}-tab-${view}`}
-        className="command-body"
+        className="command-body command-body-premium"
       >
-        <div className="command-kpis">
+        <div className="command-kpis command-kpis-premium">
           {kpis[view].map((kpi) => (
-            <div key={kpi.label} className="command-kpi">
+            <div key={kpi.label} className="command-kpi command-kpi-premium magnetic specular glass-liquid">
               <span className="command-kpi-label">{kpi.label}</span>
-              <span className="command-kpi-value">{kpi.value}</span>
+              <span className="command-kpi-value command-kpi-value-premium">{kpi.value}</span>
+              <span className="command-kpi-spark" aria-hidden="true" />
             </div>
           ))}
         </div>
 
-        <div className="command-split">
-          <div className="command-panel">
-            <h3>{view === "records" ? "Monthly records" : "Monthly intake"}</h3>
-            <div className="command-bars" aria-hidden="true">
+        <div className="command-split command-split-premium">
+          <div className="command-panel command-panel-premium glass-liquid magnetic specular">
+            <h3 className="command-panel-title">{view === "records" ? "Monthly records" : "Monthly intake"}</h3>
+            <div className="command-bars command-bars-premium" aria-hidden="true">
               {Array.from({ length: 12 }, (_, index) => {
                 const height = 38 + ((index * 17 + barSeed * 7) % 58);
                 return (
                   <span
                     key={index}
-                    className="command-bar"
+                    className="command-bar command-bar-premium magnetic"
                     data-signal={index === 8 || index === 9}
-                    style={{ height: `${height}%` }}
+                    style={{ height: `${height}%`, transitionDelay: `${index * 40}ms` }}
                   />
                 );
               })}
             </div>
-            <div className="command-axis">
+            <div className="command-axis command-axis-premium">
               <span>Apr</span>
               <span>Jul</span>
               <span>Oct</span>
@@ -192,30 +194,31 @@ export default function CommandCenter() {
             </div>
           </div>
 
-          <div className="command-panel">
-            <h3>{rowCaption(view)}</h3>
-            <div className="command-table-wrap">
-              <table className="command-table">
+          <div className="command-panel command-panel-premium glass-liquid magnetic specular">
+            <h3 className="command-panel-title">{rowCaption(view)}</h3>
+            <div className="command-table-wrap command-table-wrap-premium">
+              <table className="command-table command-table-premium">
                 <thead>
-                  <tr>
+                  <tr className="command-table-header-row">
                     {current.columns.map((column) => (
-                      <th key={column} scope="col">
+                      <th key={column} scope="col" className="command-table-header magnetic specular">
                         {column}
+                        <span className="command-table-sort" aria-hidden="true" />
                       </th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {rows.slice(0, 5).map((row) => (
-                    <tr key={row.name}>
-                      <td>{row.name}</td>
-                      <td data-muted="true">{row.detail}</td>
-                      <td data-muted="true">
+                    <tr key={row.name} className="command-table-row command-table-row-premium magnetic specular">
+                      <td className="command-table-cell">{row.name}</td>
+                      <td className="command-table-cell command-table-cell-muted" data-muted="true">{row.detail}</td>
+                      <td className="command-table-cell command-table-cell-muted" data-muted="true">
                         {view === "enquiries" ? row.source : branchLabel[row.branch]}
                       </td>
-                      <td>
+                      <td className="command-table-cell">
                         <span
-                          className="command-status"
+                          className="command-status command-status-premium"
                           data-status={stageTone(view, row.status, row.source)}
                         >
                           {stageLabel(view, row.status, row.source)}
@@ -230,18 +233,18 @@ export default function CommandCenter() {
         </div>
       </div>
 
-      <div className="command-foot">
-        <span className="command-note">Illustrative interface / sample figures</span>
-        <span className="command-note">Not client data</span>
+      <div className="command-foot command-foot-premium">
+        <span className="command-note command-note-premium">Illustrative interface / sample figures</span>
+        <span className="command-note command-note-premium">Not client data</span>
       </div>
     </div>
   );
 }
 
 function rowCaption(view: ViewId) {
+  if (view === "records") return "Monthly records";
   if (view === "admissions") return "Pipeline";
-  if (view === "records") return "Recent records";
-  return "Recent enquiries";
+  return "Monthly intake";
 }
 
 function statusLabel(status: string) {
