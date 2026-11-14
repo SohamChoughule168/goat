@@ -1,10 +1,11 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 import PillarMotif from "@/components/services/pillar-motif";
 import HeroLedger from "@/components/editorial/hero-ledger";
+import NectarlineWorld from "@/components/three/NectarlineWorld";
 import { FooterCTA } from "@/components/home/final-cta";
 import { getServicesByPillar, pillars } from "@/content/services";
 
@@ -178,6 +179,8 @@ export default function ServicesPage() {
               </li>
             ))}
           </ol>
+
+          <NectarlineWorld />
         </div>
       </section>
 

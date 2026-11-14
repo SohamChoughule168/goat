@@ -2,21 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import MosslineIsland, { HotspotItem } from "@/components/three/MosslineIsland";
 
-interface HotspotData {
-  id: string;
-  label: string;
-  value: string;
-  metric: string;
-  x: number;
-  y: number;
-}
-
-const HOTSPOTS: HotspotData[] = [
-  { id: "hs1", label: "Enquiry Velocity", value: "+38.4%", metric: "Meta Ads & WhatsApp routing", x: 18, y: 35 },
-  { id: "hs2", label: "Admissions SLA", value: "14 mins", metric: "Median response time", x: 42, y: 58 },
-  { id: "hs3", label: "Parent Retention", value: "96.2%", metric: "Daily portal active rate", x: 68, y: 28 },
-  { id: "hs4", label: "Fee Reconciliation", value: "100%", metric: "Zero orphaned bank deposits", x: 84, y: 62 },
+const HOTSPOTS: HotspotItem[] = [
+  { id: "hs1", label: "Enquiry Velocity", value: "+38.4%", metric: "Meta Ads & WhatsApp routing", pos: [-7, 1.2, 3] },
+  { id: "hs2", label: "Admissions SLA", value: "14 mins", metric: "Median response time", pos: [6, 1.8, -2] },
+  { id: "hs3", label: "Parent Retention", value: "96.2%", metric: "Daily portal active rate", pos: [-5, 0.8, -6] },
+  { id: "hs4", label: "Fee Reconciliation", value: "100%", metric: "Zero orphaned bank deposits", pos: [6, 1.4, 6] },
 ];
 
 const STATS = [
@@ -130,56 +122,34 @@ export default function MosslineTelemetry() {
         </p>
       </div>
 
-      {/* Interactive Telemetry Hotspot Field */}
-      <div className="relative my-8 h-72 w-full rounded-xl border border-[var(--rule)] bg-white/70 backdrop-blur-md overflow-hidden shadow-inner">
-        {/* Radar subtle pulse */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-10"
-          style={{
-            background: "radial-gradient(ellipse at 50% 50%, rgba(31, 58, 218, 0.4) 0%, transparent 70%)",
-          }}
-          aria-hidden="true"
+      {/* 3D Mossline Floating Island Telemetry Field */}
+      <div className="my-8">
+        <MosslineIsland
+          hotspots={HOTSPOTS}
+          activeHotspot={activeHotspot}
+          onSelectHotspot={(id) => setActiveHotspot(id || null)}
         />
+      </div>
 
-        {/* Hotspots */}
-        {HOTSPOTS.map((hs) => {
-          const isActive = activeHotspot === hs.id;
-          return (
-            <div
-              key={hs.id}
-              onClick={() => setActiveHotspot(isActive ? null : hs.id)}
-              style={{ left: `${hs.x}%`, top: `${hs.y}%` }}
-              className="absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-200 hover:scale-110"
-            >
-              {/* Pulsing Dot */}
-              <div className="relative flex items-center justify-center">
-                <span className="absolute h-6 w-6 animate-ping rounded-full bg-[var(--cobalt)]/30" />
-                <span className="relative flex h-5 w-5 items-center justify-center rounded-full bg-[var(--cobalt)] text-[10px] font-bold text-white shadow-md">
-                  +
-                </span>
-              </div>
-
-              {/* Expanding Label Pill */}
-              <div
-                className={`mt-2 whitespace-nowrap rounded-md border border-[var(--rule)] bg-white/95 px-3 py-1.5 shadow-lg backdrop-blur-md transition-all duration-300 ${
-                  isActive ? "scale-100 opacity-100 ring-1 ring-[var(--cobalt)]/30" : "scale-90 opacity-80"
-                }`}
+      {/* Mossline Word-by-Word Accounting Paragraph */}
+      <div className="my-8 rounded-xl border border-[var(--rule)] bg-white/70 p-6 shadow-sm backdrop-blur-md lg:p-8">
+        <div className="flex items-center gap-2 font-mono text-[0.625rem] uppercase tracking-wider text-[var(--cobalt)]">
+          <span className="h-1.5 w-1.5 rounded-full bg-[var(--cobalt)]" />
+          <span>Institutional Ecosystem Accounting</span>
+        </div>
+        <p className="mt-3 font-serif text-lg leading-relaxed text-[var(--ink)] lg:text-xl">
+          {`Our ecosystem-level accounting translates complex field science into verifiable, compliance-ready metrics — so you can monitor, verify and report outcomes with absolute institutional clarity.`
+            .split(" ")
+            .map((word, i) => (
+              <span
+                key={i}
+                className="inline-block mr-1.5 transition-opacity duration-300"
+                style={{ opacity: animated ? 1 : 0.25, transitionDelay: `${i * 30}ms` }}
               >
-                <div className="font-mono text-[0.625rem] uppercase tracking-wider text-[var(--ink-4)]">
-                  {hs.label}
-                </div>
-                <div className="font-mono text-xs font-semibold text-[var(--cobalt)]">
-                  {hs.value}
-                </div>
-                {isActive && (
-                  <div className="mt-1 font-mono text-[0.5625rem] text-[var(--ink-3)] border-t border-[var(--rule)] pt-1">
-                    {hs.metric}
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })}
+                {word}
+              </span>
+            ))}
+        </p>
       </div>
 
       {/* 3D Perspective Tilt Cards Grid */}

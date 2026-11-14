@@ -402,41 +402,54 @@ function HeroContent({
         <div className="hero-copy">
           <motion.div
             className="meridian-badge"
-            variants={MOTION_VARIANTS.section}
-            custom={{ delay: 0 }}
-            style={{ opacity: revealed ? 1 : 0 }}
+            initial={{ y: 15, opacity: 0 }}
+            animate={revealed ? { y: 0, opacity: 1 } : { y: 15, opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
           >
             <span className="meridian-badge-box" aria-hidden="true" />
             <span>OPERATING SYSTEMS FOR INSTITUTES · MUMBAI</span>
           </motion.div>
           
-          <motion.h1 
-            id="home-hero" 
-            className="hero-headline text-gradient-animated kinetic-title"
-            variants={MOTION_VARIANTS.section}
-            custom={{ delay: 0.15 }}
-          >
-            <span className="headline-line kinetic-word kinetic-word-1">One system.</span>
-            <br />
-            <span className="headline-line kinetic-word kinetic-word-2 headline-serif">
-              <span className="meridian-accent" data-text="Every branch.">Every branch.</span>
+          <h1 id="home-hero" className="hero-headline text-gradient-animated kinetic-title">
+            <span className="inline-block overflow-hidden pb-1 align-bottom">
+              <motion.span
+                className="headline-line kinetic-word kinetic-word-1 inline-block"
+                initial={{ y: "115%", opacity: 0 }}
+                animate={revealed ? { y: "0%", opacity: 1 } : { y: "115%", opacity: 0 }}
+                transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+              >
+                One system.
+              </motion.span>
             </span>
-          </motion.h1>
+            <br />
+            <span className="inline-block overflow-hidden pb-1 align-bottom">
+              <motion.span
+                className="headline-line kinetic-word kinetic-word-2 headline-serif inline-block"
+                initial={{ y: "115%", opacity: 0 }}
+                animate={revealed ? { y: "0%", opacity: 1 } : { y: "115%", opacity: 0 }}
+                transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+              >
+                <span className="meridian-accent" data-text="Every branch.">
+                  Every branch.
+                </span>
+              </motion.span>
+            </span>
+          </h1>
           
           <motion.p 
             className="hero-lede kinetic-lede"
-            variants={MOTION_VARIANTS.section}
-            custom={{ delay: 0.3 }}
-            style={{ opacity: revealed ? 1 : 0 }}
+            initial={{ y: 20, opacity: 0 }}
+            animate={revealed ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
           >
             We design and build the public site, admissions path and student systems that institutes actually run on. One accountable team, from diagnosis to handover.
           </motion.p>
           
           <motion.p 
             className="hero-proof"
-            variants={MOTION_VARIANTS.section}
-            custom={{ delay: 0.4 }}
-            style={{ opacity: revealed ? 1 : 0 }}
+            initial={{ y: 15, opacity: 0 }}
+            animate={revealed ? { y: 0, opacity: 1 } : { y: 15, opacity: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.48 }}
           >
             <span className="proof-dot" aria-hidden="true" />
             Verified build: PRV Financial Services, live since April 2025.
@@ -444,8 +457,9 @@ function HeroContent({
           
           <motion.div 
             className="hero-actions"
-            variants={MOTION_VARIANTS.section}
-            custom={{ delay: 0.5 }}
+            initial={{ y: 20, opacity: 0 }}
+            animate={revealed ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
           >
             <Link 
               href="/#fit-check" 

@@ -8,6 +8,33 @@
   border-bottom: 1px solid var(--rule);
 }
 
+@keyframes ev-head-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ev-head-copy {
+  animation: ev-head-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ev-file {
+  animation: ev-head-in 700ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ev-head-copy,
+  .ev-file {
+    animation: none;
+    transform: none;
+  }
+}
+
 .ev-head-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.32fr) minmax(280px, 0.58fr);
