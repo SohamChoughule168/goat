@@ -52,10 +52,6 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
 
   const scrollProgress = typeof window !== "undefined" ? Math.min(scrollY / window.innerHeight, 1) : 0;
   
-  const particlesRef = useRef<THREE.Points | null>(null);
-  const sphereRef = useRef<THREE.Mesh | null>(null);
-  const ringsRef = useRef<THREE.Mesh[]>([]);
-  const glowRef = useRef<THREE.Mesh | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const timeRef = useRef(0);
@@ -70,275 +66,155 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
 
     const { scene, camera, animate, stop } = context;
     cameraRef.current = camera;
-    const particleCount = getParticleCount("hero", performanceLevel);
-    const sphereDetail = getGeometryDetail("sphere", performanceLevel);
+    camera.position.set(0, 0, 50);
 
-    const geometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(particleCount * 3);
-    const velocities = new Float32Array(particleCount * 3);
-    const sizes = new Float32Array(particleCount);
-    const hues = new Float32Array(particleCount);
-    const phases = new Float32Array(particleCount);
+    // 3D Architectural Layered Paper Scene
+    const paperGroup = new THREE.Group();
+    scene.add(paperGroup);
 
-    for (let i = 0; i < particleCount; i++) {
-      const i3 = i * 3;
-      const radius = 20 + Math.random() * 40;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
+    // Procedural Blueprint Texture (Bone-white paper with fine architectural grid)
+    const createBlueprintTexture = () => {
+      const c = document.createElement("canvas");
+      c.width = 1024;
+      c.height = 768;
+      const ctx = c.getContext("2d")!;
+      ctx.fillStyle = "#f5f1e8";
+      ctx.fillRect(0, 0, 1024, 768);
+      // Fine blueprint grid
+      ctx.strokeStyle = "rgba(17, 18, 15, 0.06)";
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= 1024; x += 32) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, 768);
+        ctx.stroke();
+      }
+      for (let y = 0; y <= 768; y += 32) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(1024, y);
+        ctx.stroke();
+      }
+      // Corner tick marks & frame
+      ctx.strokeStyle = "rgba(31, 58, 218, 0.22)";
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(32, 32, 960, 704);
+      return new THREE.CanvasTexture(c);
+    };
 
-      positions[i3] = radius * Math.sin(phi) * Math.cos(theta);
-      positions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-      positions[i3 + 2] = radius * Math.cos(phi);
+    // Procedural Ledger Texture (Ruled paper with margin)
+    const createLedgerTexture = () => {
+      const c = document.createElement("canvas");
+      c.width = 768;
+      c.height = 1024;
+      const ctx = c.getContext("2d")!;
+      ctx.fillStyle = "#faf7f0";
+      ctx.fillRect(0, 0, 768, 1024);
+      // Ruled ledger lines
+      ctx.strokeStyle = "rgba(17, 18, 15, 0.08)";
+      ctx.lineWidth = 1.2;
+      for (let y = 80; y <= 980; y += 40) {
+        ctx.beginPath();
+        ctx.moveTo(40, y);
+        ctx.lineTo(728, y);
+        ctx.stroke();
+      }
+      // Cobalt vertical margin line
+      ctx.strokeStyle = "rgba(31, 58, 218, 0.3)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(120, 40);
+      ctx.lineTo(120, 984);
+      ctx.stroke();
+      return new THREE.CanvasTexture(c);
+    };
 
-      velocities[i3] = (Math.random() - 0.5) * 0.008;
-      velocities[i3 + 1] = (Math.random() - 0.5) * 0.008;
-      velocities[i3 + 2] = (Math.random() - 0.5) * 0.008;
+    const blueprintTex = createBlueprintTexture();
+    const ledgerTex = createLedgerTexture();
 
-      sizes[i] = Math.random() * 2 + 0.8;
-      hues[i] = Math.random();
-      phases[i] = Math.random() * Math.PI * 2;
-    }
-
-    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute("velocity", new THREE.BufferAttribute(velocities, 3));
-    geometry.setAttribute("size", new THREE.BufferAttribute(sizes, 1));
-    geometry.setAttribute("hue", new THREE.BufferAttribute(hues, 1));
-    geometry.setAttribute("phase", new THREE.BufferAttribute(phases, 1));
-
-    const particleMaterial = new THREE.ShaderMaterial({
-      uniforms: {
-        uTime: { value: 0 },
-        uColor1: { value: new THREE.Color(DESIGN_COLORS.primary.main) },
-        uColor2: { value: new THREE.Color(DESIGN_COLORS.secondary.main) },
-        uColor3: { value: new THREE.Color(DESIGN_COLORS.accent.purple) },
-        uMouse: { value: new THREE.Vector2(0, 0) },
-        uScroll: { value: 0 },
-        uResolution: { value: new THREE.Vector2(1, 1) },
-        uPixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
-      },
-      vertexShader: `
-        attribute float size;
-        attribute float hue;
-        attribute float phase;
-        varying float vAlpha;
-        varying float vHue;
-        varying vec3 vPosition;
-        varying float vPhase;
-        uniform float uTime;
-        uniform vec2 uMouse;
-        uniform float uScroll;
-        uniform float uPixelRatio;
-
-        void main() {
-          vAlpha = size;
-          vHue = hue;
-          vPosition = position;
-          vPhase = phase;
-
-          vec3 pos = position;
-          float orbitSpeed = 0.04 + hue * 0.15;
-          float angle = uTime * orbitSpeed + phase;
-          float r = length(pos.xy);
-          pos.x = r * cos(angle);
-          pos.y = r * sin(angle);
-          pos.z += sin(uTime * 0.4 + hue * 6.0 + phase) * 1.2;
-          pos.y += uScroll * 30.0 * (0.5 + hue * 0.8);
-
-          float mouseDist = length(vec2(uMouse.x - pos.x * 0.06, uMouse.y - pos.y * 0.06));
-          if (mouseDist < 10.0) {
-            float force = (1.0 - mouseDist / 10.0) * 3.0;
-            vec2 mouseDir = normalize(vec2(uMouse.x * 20.0 - pos.x, uMouse.y * 20.0 - pos.y));
-            pos.xy += mouseDir * force;
-          }
-
-          vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-          gl_PointSize = size * uPixelRatio * (500.0 / -mvPosition.z);
-          gl_Position = projectionMatrix * mvPosition;
-        }
-      `,
-      fragmentShader: `
-        varying float vAlpha;
-        varying float vHue;
-        varying vec3 vPosition;
-        varying float vPhase;
-        uniform float uTime;
-        uniform vec3 uColor1;
-        uniform vec3 uColor2;
-        uniform vec3 uColor3;
-
-        void main() {
-          vec2 center = gl_PointCoord - vec2(0.5);
-          float dist = length(center);
-          if (dist > 0.5) discard;
-          float alpha = smoothstep(0.5, 0.02, dist) * vAlpha;
-          vec3 color = mix(uColor1, uColor2, vHue);
-          color = mix(color, uColor3, sin(vPosition.y * 0.08 + vPosition.x * 0.08 + uTime * 0.2) * 0.5 + 0.5);
-          float glow = 1.0 - smoothstep(0.0, 0.5, dist);
-          color += vec3(1.0, 1.0, 1.0) * glow * 0.5 * vAlpha;
-          float pulse = sin(uTime * 2.0 + vPhase) * 0.1 + 0.9;
-          color *= pulse;
-          gl_FragColor = vec4(color, alpha);
-        }
-      `,
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-    });
-
-    const particles = new THREE.Points(geometry, particleMaterial);
-    particlesRef.current = particles;
-    scene.add(particles);
-
-    const sphereGeometry = new THREE.IcosahedronGeometry(5, sphereDetail);
-    const sphereMaterial = new THREE.ShaderMaterial({
-      uniforms: {
-        uTime: { value: 0 },
-        uColor1: { value: new THREE.Color(DESIGN_COLORS.primary.main) },
-        uColor2: { value: new THREE.Color(DESIGN_COLORS.secondary.main) },
-        uColor3: { value: new THREE.Color(DESIGN_COLORS.accent.purple) },
-        uMouse: { value: new THREE.Vector2(0, 0) },
-        uScroll: { value: 0 },
-      },
-      vertexShader: `
-        varying vec2 vUv;
-        varying vec3 vNormal;
-        varying vec3 vWorldPosition;
-        uniform float uTime;
-        uniform vec2 uMouse;
-        uniform float uScroll;
-
-        void main() {
-          vUv = uv;
-          vNormal = normalize(normalMatrix * normal);
-          vWorldPosition = (modelMatrix * vec4(position, 1.0)).xyz;
-          vec3 pos = position;
-          float noise1 = sin(uTime * 0.4 + pos.x * 2.5) * cos(uTime * 0.3 + pos.y * 2.5) * sin(uTime * 0.2 + pos.z * 2.5);
-          float noise2 = sin(uTime * 0.7 + pos.x * 1.8) * cos(uTime * 0.5 + pos.y * 1.8) * 0.5;
-          float noise3 = sin(uTime * 1.2 + pos.x * 1.2) * 0.3;
-          float totalNoise = noise1 + noise2 + noise3;
-          pos += normal * totalNoise * 0.5;
-          float scrollMorph = uScroll * 0.6;
-          pos += normal * scrollMorph * 0.4;
-          vec3 mouseDir = normalize(vec3(uMouse.x * 25.0, uMouse.y * 25.0, 12.0));
-          float mouseDist = length(pos - mouseDir * 30.0);
-          if (mouseDist < 15.0) {
-            float force = (1.0 - mouseDist / 15.0) * 1.5;
-            pos += normal * force;
-          }
-          vWorldPosition = (modelMatrix * vec4(pos, 1.0)).xyz;
-          vNormal = normalize(normalMatrix * normal);
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-        }
-      `,
-      fragmentShader: `
-        varying vec3 vNormal;
-        varying vec3 vWorldPosition;
-        uniform float uTime;
-        uniform vec3 uColor1;
-        uniform vec3 uColor2;
-        uniform vec3 uColor3;
-
-        void main() {
-          vec3 viewDir = normalize(-vWorldPosition);
-          float fresnel = pow(1.0 - abs(dot(vNormal, viewDir)), 3.0);
-          vec3 color = mix(uColor1, uColor2, sin(uTime * 0.25 + vWorldPosition.y * 0.3) * 0.5 + 0.5);
-          color = mix(color, uColor3, sin(uTime * 0.18 + vWorldPosition.x * 0.3) * 0.5 + 0.5);
-          float glow = fresnel * 0.9;
-          vec3 finalColor = color + vec3(1.0) * glow * 0.3;
-          float pulse = sin(uTime * 1.0) * 0.05 + 0.95;
-          finalColor *= pulse;
-          float alpha = 0.2 + fresnel * 0.6;
-          gl_FragColor = vec4(finalColor, alpha);
-        }
-      `,
-      transparent: true,
-      depthWrite: false,
+    // Sheet 1: Blueprint Ground Sheet (Base architectural plane)
+    const sheet1Geo = new THREE.PlaneGeometry(36, 26);
+    const sheet1Mat = new THREE.MeshStandardMaterial({
+      map: blueprintTex,
+      roughness: 0.88,
+      metalness: 0.02,
       side: THREE.DoubleSide,
     });
+    const sheet1 = new THREE.Mesh(sheet1Geo, sheet1Mat);
+    sheet1.position.set(4, 1, -12);
+    sheet1.rotation.set(0.06, -0.16, 0.03);
+    paperGroup.add(sheet1);
 
-    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    sphereRef.current = sphere;
-    scene.add(sphere);
+    // Sheet 2: Institutional Ledger Sheet (Slanted floating document)
+    const sheet2Geo = new THREE.PlaneGeometry(24, 32);
+    const sheet2Mat = new THREE.MeshStandardMaterial({
+      map: ledgerTex,
+      roughness: 0.84,
+      metalness: 0.02,
+      side: THREE.DoubleSide,
+    });
+    const sheet2 = new THREE.Mesh(sheet2Geo, sheet2Mat);
+    sheet2.position.set(14, -3, -4);
+    sheet2.rotation.set(-0.06, -0.24, -0.05);
+    paperGroup.add(sheet2);
 
-    const glowGeometry = new THREE.SphereGeometry(7, 32, 32);
-    const glowMaterial = new THREE.ShaderMaterial({
-      uniforms: {
-        uTime: { value: 0 },
-        uColor: { value: new THREE.Color(DESIGN_COLORS.primary.main) },
-      },
-      vertexShader: `
-        varying vec3 vNormal;
-        void main() {
-          vNormal = normalize(normalMatrix * normal);
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        varying vec3 vNormal;
-        uniform float uTime;
-        uniform vec3 uColor;
-        void main() {
-          float fresnel = pow(1.0 - abs(dot(vNormal, vec3(0.0, 0.0, 1.0))), 2.0);
-          float pulse = sin(uTime * 0.6) * 0.3 + 0.7;
-          vec3 color = uColor * pulse;
-          float alpha = fresnel * 0.15 * pulse;
-          gl_FragColor = vec4(color, alpha);
-        }
-      `,
+    // Sheet 3: Translucent Architectural Vellum / Glass Strip (Layered foreground)
+    const sheet3Geo = new THREE.PlaneGeometry(15, 20);
+    const sheet3Mat = new THREE.MeshPhysicalMaterial({
+      color: 0xffffff,
+      transmission: 0.85,
+      opacity: 1,
       transparent: true,
-      depthWrite: false,
-      side: THREE.BackSide,
+      roughness: 0.12,
+      ior: 1.5,
+      thickness: 1.4,
+      attenuationColor: new THREE.Color(0x1f3ad8),
+      attenuationDistance: 2.0,
+      side: THREE.DoubleSide,
+    });
+    const sheet3 = new THREE.Mesh(sheet3Geo, sheet3Mat);
+    sheet3.position.set(-6, 4, 3);
+    sheet3.rotation.set(0.08, 0.14, 0.02);
+    paperGroup.add(sheet3);
+
+    // Edge highlight on sheet 3
+    const wireGeo = new THREE.EdgesGeometry(sheet3Geo);
+    const wireMat = new THREE.LineBasicMaterial({ color: 0x93a5ff, transparent: true, opacity: 0.5 });
+    sheet3.add(new THREE.LineSegments(wireGeo, wireMat));
+
+    // Directional Key Light
+    const keyLight = new THREE.DirectionalLight(0xfff8ee, 2.4);
+    keyLight.position.set(-15, 25, 30);
+    scene.add(keyLight);
+
+    // Ambient Room Fill (Warm bone/paper tint)
+    const ambLight = new THREE.AmbientLight(0xf2eee5, 1.6);
+    scene.add(ambLight);
+
+    // Restrained Cobalt Light Sweep
+    const cobaltLight = new THREE.DirectionalLight(0x1f3ad8, 2.8);
+    cobaltLight.position.set(18, 14, 16);
+    scene.add(cobaltLight);
+
+    // Floating fine microscopic paper motes (35 particles)
+    const moteCount = 35;
+    const moteGeo = new THREE.BufferGeometry();
+    const motePos = new Float32Array(moteCount * 3);
+    for (let i = 0; i < moteCount; i++) {
+      motePos[i * 3] = (Math.random() - 0.5) * 45;
+      motePos[i * 3 + 1] = (Math.random() - 0.5) * 30;
+      motePos[i * 3 + 2] = (Math.random() - 0.5) * 25;
+    }
+    moteGeo.setAttribute("position", new THREE.BufferAttribute(motePos, 3));
+    const moteMat = new THREE.PointsMaterial({
+      size: 1.6,
+      color: 0x1f3ad8,
+      transparent: true,
+      opacity: 0.4,
       blending: THREE.AdditiveBlending,
     });
-
-    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
-    glowRef.current = glow;
-    scene.add(glow);
-
-    const rings: THREE.Mesh[] = [];
-    const ringColors = [
-      DESIGN_COLORS.primary.main,
-      DESIGN_COLORS.secondary.main,
-      DESIGN_COLORS.accent.purple,
-    ];
-
-    for (let i = 0; i < 4; i++) {
-      const ringGeometry = new THREE.RingGeometry(9 + i * 3, 12 + i * 3, 128);
-      const ringMaterial = new THREE.ShaderMaterial({
-        uniforms: {
-          uTime: { value: 0 },
-          uColor: { value: new THREE.Color(ringColors[i]) },
-        },
-        vertexShader: `
-          varying vec2 vUv;
-          void main() {
-            vUv = uv;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          }
-        `,
-        fragmentShader: `
-          varying vec2 vUv;
-          uniform float uTime;
-          uniform vec3 uColor;
-          void main() {
-            float dist = length(vUv - vec2(0.5));
-            float ring = smoothstep(0.46, 0.5, dist) - smoothstep(0.5, 0.54, dist);
-            float pulse = sin(uTime * 0.8 + vUv.x * 20.0) * 0.2 + 0.8;
-            gl_FragColor = vec4(uColor, ring * pulse * 0.35);
-          }
-        `,
-        transparent: true,
-        depthWrite: false,
-        side: THREE.DoubleSide,
-        blending: THREE.AdditiveBlending,
-      });
-      const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-      ring.rotation.x = i % 2 === 0 ? -Math.PI / 2 : Math.PI / 2;
-      ring.rotation.z = i * 0.7;
-      scene.add(ring);
-      rings.push(ring);
-    }
-    ringsRef.current = rings;
+    const motes = new THREE.Points(moteGeo, moteMat);
+    scene.add(motes);
 
     const handleMouseMove = (e: MouseEvent) => {
       const canvas = canvasRef.current;
@@ -354,69 +230,37 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
 
     const animateFn = () => {
       timeRef.current += 0.016;
-      const scroll = scrollYRef.current / window.innerHeight;
-      
-      if (particlesRef.current) {
-        (particlesRef.current.material as THREE.ShaderMaterial).uniforms.uTime.value = timeRef.current;
-        (particlesRef.current.material as THREE.ShaderMaterial).uniforms.uMouse.value.set(
-          mouseRef.current.x * 25,
-          mouseRef.current.y * 25
-        );
-        (particlesRef.current.material as THREE.ShaderMaterial).uniforms.uScroll.value = scroll;
-        (particlesRef.current.material as THREE.ShaderMaterial).uniforms.uResolution.value.set(
-          canvasRef.current?.clientWidth || 1920,
-          canvasRef.current?.clientHeight || 1080
-        );
-      }
+      const t = timeRef.current;
+      const scroll = scrollYRef.current / (window.innerHeight || 800);
 
-      if (sphereRef.current) {
-        (sphereRef.current.material as THREE.ShaderMaterial).uniforms.uTime.value = timeRef.current;
-        (sphereRef.current.material as THREE.ShaderMaterial).uniforms.uMouse.value.set(
-          mouseRef.current.x * 25,
-          mouseRef.current.y * 25
-        );
-        (sphereRef.current.material as THREE.ShaderMaterial).uniforms.uScroll.value = scroll;
-      }
+      // Restrained cobalt light sweep oscillation
+      cobaltLight.position.x = 18 + Math.sin(t * 0.7) * 12;
+      cobaltLight.position.y = 12 + Math.cos(t * 0.5) * 8;
 
-      if (glowRef.current) {
-        (glowRef.current.material as THREE.ShaderMaterial).uniforms.uTime.value = timeRef.current;
-      }
+      // Independent pointer tilt with smooth damping
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
 
-      ringsRef.current.forEach((ring: THREE.Mesh, index: number) => {
-        (ring.material as THREE.ShaderMaterial).uniforms.uTime.value = timeRef.current;
-        ring.rotation.y += 0.0003 * (index + 1);
-        ring.rotation.z += 0.00015 * (index + 1);
-      });
+      sheet1.rotation.y = -0.16 + mx * 0.04;
+      sheet1.rotation.x = 0.06 - my * 0.03;
 
-      const positions = geometry.attributes.position.array as Float32Array;
-      const hues = geometry.attributes.hue.array as Float32Array;
-      const phases = geometry.attributes.phase.array as Float32Array;
+      sheet2.rotation.y = -0.24 + mx * 0.09;
+      sheet2.rotation.x = -0.06 - my * 0.07;
 
-      for (let i = 0; i < particleCount; i++) {
-        const i3 = i * 3;
-        const radius = Math.sqrt(positions[i3] ** 2 + positions[i3 + 1] ** 2);
-        const theta = Math.atan2(positions[i3 + 1], positions[i3]);
-        const orbitSpeed = 0.00012 * (0.5 + hues[i] * 0.8);
-        
-        positions[i3] = radius * Math.cos(theta + orbitSpeed + phases[i] * 0.001);
-        positions[i3 + 1] = radius * Math.sin(theta + orbitSpeed + phases[i] * 0.001);
-        positions[i3 + 2] += Math.sin(timeRef.current * 0.25 + hues[i] * 4 + phases[i]) * 0.015;
-        positions[i3 + 1] += scroll * 0.6 * (0.5 + hues[i]);
-      }
+      sheet3.rotation.y = 0.14 + mx * 0.15;
+      sheet3.rotation.x = 0.08 - my * 0.12;
 
-      geometry.attributes.position.needsUpdate = true;
+      // Subtle atmospheric float
+      sheet2.position.y = -3 + Math.sin(t * 0.7) * 0.35;
+      sheet3.position.y = 4 + Math.cos(t * 0.8) * 0.45;
 
-      if (sphereRef.current) {
-        sphereRef.current.rotation.y += 0.0004;
-        sphereRef.current.rotation.x += 0.0002;
-      }
+      // Camera push-in on scroll
+      camera.position.z = 50 - Math.min(scroll, 1) * 8;
+      sheet1.position.z = -12 - Math.min(scroll, 1) * 2.5;
+      sheet2.position.z = -4 + Math.min(scroll, 1) * 2;
+      sheet3.position.z = 3 + Math.min(scroll, 1) * 3;
 
-      if (cameraRef.current) {
-        cameraRef.current.position.x += (mouseRef.current.x * 4 - cameraRef.current.position.x) * 0.008;
-        cameraRef.current.position.y += (-mouseRef.current.y * 4 - cameraRef.current.position.y) * 0.008;
-        cameraRef.current.position.z += (-scroll * 15 - cameraRef.current.position.z + 60) * 0.01;
-        cameraRef.current.lookAt(0, scroll * 8, 0);
-      }
+      motes.rotation.y = t * 0.015;
     };
 
     animate(animateFn);
@@ -424,7 +268,7 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
     const img = new Image();
     img.onload = () => {
       setLoaded(true);
-      setTimeout(() => setRevealed(true), 200);
+      setTimeout(() => setRevealed(true), 150);
     };
     img.src = institutionHero.src;
 
@@ -432,16 +276,18 @@ export default function PremiumHeroV2({ className = "" }: PremiumHeroV2Props) {
       const canvas = canvasRef.current;
       if (canvas) canvas.removeEventListener("mousemove", handleMouseMove);
       stop();
-      geometry.dispose();
-      particleMaterial.dispose();
-      sphereGeometry.dispose();
-      sphereMaterial.dispose();
-      glowGeometry.dispose();
-      glowMaterial.dispose();
-      ringsRef.current.forEach((r: THREE.Mesh) => {
-        r.geometry.dispose();
-        (r.material as THREE.Material).dispose();
-      });
+      sheet1Geo.dispose();
+      sheet1Mat.dispose();
+      sheet2Geo.dispose();
+      sheet2Mat.dispose();
+      sheet3Geo.dispose();
+      sheet3Mat.dispose();
+      wireGeo.dispose();
+      wireMat.dispose();
+      moteGeo.dispose();
+      moteMat.dispose();
+      blueprintTex.dispose();
+      ledgerTex.dispose();
     };
   }, [reduced, context, performanceLevel, prefersReducedMotion]);
 

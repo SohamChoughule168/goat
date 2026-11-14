@@ -8,8 +8,8 @@ interface HotspotData {
   label: string;
   value: string;
   metric: string;
-  x: number; // percentage
-  y: number; // percentage
+  x: number;
+  y: number;
 }
 
 const HOTSPOTS: HotspotData[] = [
@@ -61,13 +61,11 @@ export default function MosslineTelemetry() {
         if (entries[0].isIntersecting && !animated) {
           setAnimated(true);
 
-          // Animate SVG sparkline
           if (sparklineRef.current) {
             sparklineRef.current.style.transition = "stroke-dashoffset 1.6s cubic-bezier(0.2, 0.7, 0.2, 1)";
             sparklineRef.current.style.strokeDashoffset = "0";
           }
 
-          // Count up
           const duration = 1600;
           const start = performance.now();
 
@@ -98,32 +96,32 @@ export default function MosslineTelemetry() {
   return (
     <div
       ref={containerRef}
-      className="relative overflow-hidden rounded-2xl border border-[var(--line)] bg-[#111914] p-6 text-[var(--ink)] shadow-2xl lg:p-10"
+      className="relative overflow-hidden rounded-2xl border border-[var(--rule)] bg-[#f7f4ed] p-6 text-[var(--ink)] shadow-[0_16px_48px_rgba(17,18,15,0.06)] lg:p-10"
     >
-      {/* Background ambient grid */}
+      {/* Background blueprint grid */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-15"
+        className="pointer-events-none absolute inset-0 opacity-40"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(198, 243, 92, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(198, 243, 92, 0.15) 1px, transparent 1px)",
+            "linear-gradient(rgba(17, 18, 15, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(17, 18, 15, 0.04) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
         aria-hidden="true"
       />
 
       {/* Header */}
-      <div className="relative z-10 flex flex-wrap items-end justify-between gap-6 border-b border-white/10 pb-8">
+      <div className="relative z-10 flex flex-wrap items-end justify-between gap-6 border-b border-[var(--rule)] pb-8">
         <div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex h-5 items-center rounded bg-[#c6f35c] px-2 font-mono text-[0.625rem] font-bold uppercase tracking-wider text-[#10291a]">
-              Mossline Telemetry
+            <span className="inline-flex h-5 items-center rounded bg-[var(--cobalt)] px-2.5 font-mono text-[0.625rem] font-medium uppercase tracking-wider text-[#f7f5ef]">
+              Field Telemetry
             </span>
             <span className="font-mono text-xs uppercase tracking-widest text-[var(--ink-4)]">
-              Field Telemetry & Hotspot Matrix
+              Branch Hotspot Matrix
             </span>
           </div>
-          <h3 className="mt-3 text-2xl font-medium tracking-tight text-white lg:text-3xl">
-            Live telemetry from <span className="font-serif italic text-[#c6f35c]">every active branch.</span>
+          <h3 className="mt-3 text-2xl font-medium tracking-tight text-[var(--ink)] lg:text-3xl">
+            Live telemetry from <span className="font-serif italic text-[var(--cobalt)]">every active branch.</span>
           </h3>
         </div>
         <p className="max-w-md text-xs leading-relaxed text-[var(--ink-3)] lg:text-sm">
@@ -133,12 +131,12 @@ export default function MosslineTelemetry() {
       </div>
 
       {/* Interactive Telemetry Hotspot Field */}
-      <div className="relative my-8 h-72 w-full rounded-xl border border-white/10 bg-black/30 backdrop-blur-md overflow-hidden">
-        {/* Radar scanline animation */}
+      <div className="relative my-8 h-72 w-full rounded-xl border border-[var(--rule)] bg-white/70 backdrop-blur-md overflow-hidden shadow-inner">
+        {/* Radar subtle pulse */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-20"
+          className="pointer-events-none absolute inset-0 opacity-10"
           style={{
-            background: "radial-gradient(ellipse at 50% 50%, rgba(198, 243, 92, 0.35) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at 50% 50%, rgba(31, 58, 218, 0.4) 0%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -155,26 +153,26 @@ export default function MosslineTelemetry() {
             >
               {/* Pulsing Dot */}
               <div className="relative flex items-center justify-center">
-                <span className="absolute h-6 w-6 animate-ping rounded-full bg-[#c6f35c]/40" />
-                <span className="relative flex h-5 w-5 items-center justify-center rounded-full bg-[#c6f35c] text-[10px] font-bold text-[#10291a] shadow-lg">
+                <span className="absolute h-6 w-6 animate-ping rounded-full bg-[var(--cobalt)]/30" />
+                <span className="relative flex h-5 w-5 items-center justify-center rounded-full bg-[var(--cobalt)] text-[10px] font-bold text-white shadow-md">
                   +
                 </span>
               </div>
 
               {/* Expanding Label Pill */}
               <div
-                className={`mt-2 whitespace-nowrap rounded-md border border-white/15 bg-black/80 px-2.5 py-1.5 shadow-xl backdrop-blur-md transition-all duration-300 ${
-                  isActive ? "scale-100 opacity-100" : "scale-90 opacity-80"
+                className={`mt-2 whitespace-nowrap rounded-md border border-[var(--rule)] bg-white/95 px-3 py-1.5 shadow-lg backdrop-blur-md transition-all duration-300 ${
+                  isActive ? "scale-100 opacity-100 ring-1 ring-[var(--cobalt)]/30" : "scale-90 opacity-80"
                 }`}
               >
-                <div className="font-mono text-[0.625rem] uppercase tracking-wider text-[var(--ink-3)]">
+                <div className="font-mono text-[0.625rem] uppercase tracking-wider text-[var(--ink-4)]">
                   {hs.label}
                 </div>
-                <div className="font-mono text-xs font-semibold text-[#c6f35c]">
+                <div className="font-mono text-xs font-semibold text-[var(--cobalt)]">
                   {hs.value}
                 </div>
                 {isActive && (
-                  <div className="mt-1 font-mono text-[0.5625rem] text-[var(--ink-4)] border-t border-white/10 pt-1">
+                  <div className="mt-1 font-mono text-[0.5625rem] text-[var(--ink-3)] border-t border-[var(--rule)] pt-1">
                     {hs.metric}
                   </div>
                 )}
@@ -186,19 +184,19 @@ export default function MosslineTelemetry() {
 
       {/* 3D Perspective Tilt Cards Grid */}
       <div className="grid gap-6 md:grid-cols-3">
-        {/* Card 1: Enquiry Velocity */}
+        {/* Card 1: Intake Velocity */}
         <div
           onPointerMove={handleCardMove}
           onPointerLeave={handleCardLeave}
-          className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg transition-all duration-300"
+          className="group relative overflow-hidden rounded-xl border border-[var(--rule)] bg-white/80 p-6 shadow-sm backdrop-blur-lg transition-all duration-300 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
-            <span className="font-mono text-[0.625rem] uppercase tracking-wider text-[#c6f35c]">
+            <span className="font-mono text-[0.625rem] uppercase tracking-wider text-[var(--cobalt)] font-medium">
               [01 Intake Velocity]
             </span>
-            <ArrowUpRight className="h-4 w-4 text-[var(--ink-3)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#c6f35c]" />
+            <ArrowUpRight className="h-4 w-4 text-[var(--ink-4)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[var(--cobalt)]" />
           </div>
-          <h4 className="mt-4 text-lg font-medium text-white">
+          <h4 className="mt-4 text-lg font-medium text-[var(--ink)]">
             Lead routing with zero orphan drop
           </h4>
           <p className="mt-2 text-xs leading-relaxed text-[var(--ink-3)]">
@@ -210,17 +208,17 @@ export default function MosslineTelemetry() {
         <div
           onPointerMove={handleCardMove}
           onPointerLeave={handleCardLeave}
-          className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg transition-all duration-300"
+          className="group relative overflow-hidden rounded-xl border border-[var(--rule)] bg-white/80 p-6 shadow-sm backdrop-blur-lg transition-all duration-300 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
-            <span className="font-mono text-[0.625rem] uppercase tracking-wider text-[#a2ecd8]">
+            <span className="font-mono text-[0.625rem] uppercase tracking-wider text-[var(--cobalt)] font-medium">
               [02 Admission Yield]
             </span>
-            <span className="rounded bg-[#a2ecd8]/15 px-2 py-0.5 font-mono text-[0.625rem] font-semibold text-[#a2ecd8]">
+            <span className="rounded bg-[var(--cobalt)]/10 px-2 py-0.5 font-mono text-[0.625rem] font-semibold text-[var(--cobalt)]">
               +28% QoQ
             </span>
           </div>
-          <h4 className="mt-4 text-lg font-medium text-white">
+          <h4 className="mt-4 text-lg font-medium text-[var(--ink)]">
             Live cohort conversion chart
           </h4>
           {/* Animated SVG Sparkline */}
@@ -229,15 +227,15 @@ export default function MosslineTelemetry() {
               ref={sparklineRef}
               points="0,42 30,38 60,39 90,28 120,31 150,18 180,14 214,6"
               fill="none"
-              stroke="#c6f35c"
+              stroke="#1f3ad8"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
               style={{ strokeDasharray: 240, strokeDashoffset: 240 }}
             />
-            <circle cx="90" cy="28" r="3" fill="#fff" />
-            <circle cx="150" cy="18" r="3" fill="#fff" />
-            <circle cx="214" cy="6" r="4" fill="#c6f35c" />
+            <circle cx="90" cy="28" r="3" fill="#11120f" />
+            <circle cx="150" cy="18" r="3" fill="#11120f" />
+            <circle cx="214" cy="6" r="4" fill="#1f3ad8" />
           </svg>
           <div className="mt-2 flex justify-between font-mono text-[0.5625rem] text-[var(--ink-4)]">
             <span>Q1 INTAKE</span>
@@ -250,15 +248,15 @@ export default function MosslineTelemetry() {
         <div
           onPointerMove={handleCardMove}
           onPointerLeave={handleCardLeave}
-          className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg transition-all duration-300"
+          className="group relative overflow-hidden rounded-xl border border-[var(--rule)] bg-white/80 p-6 shadow-sm backdrop-blur-lg transition-all duration-300 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
-            <span className="font-mono text-[0.625rem] uppercase tracking-wider text-[#c6f35c]">
+            <span className="font-mono text-[0.625rem] uppercase tracking-wider text-[var(--cobalt)] font-medium">
               [03 Multi-Branch Control]
             </span>
-            <ArrowUpRight className="h-4 w-4 text-[var(--ink-3)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#c6f35c]" />
+            <ArrowUpRight className="h-4 w-4 text-[var(--ink-4)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[var(--cobalt)]" />
           </div>
-          <h4 className="mt-4 text-lg font-medium text-white">
+          <h4 className="mt-4 text-lg font-medium text-[var(--ink)]">
             Single institutional audit ledger
           </h4>
           <p className="mt-2 text-xs leading-relaxed text-[var(--ink-3)]">
@@ -268,16 +266,16 @@ export default function MosslineTelemetry() {
       </div>
 
       {/* Animated Count-up Statistics Row */}
-      <div className="mt-10 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 lg:grid-cols-4">
+      <div className="mt-10 grid grid-cols-2 gap-6 border-t border-[var(--rule)] pt-8 lg:grid-cols-4">
         {STATS.map((stat) => (
           <div key={stat.id}>
-            <div className="text-3xl font-medium tracking-tight text-white lg:text-4xl">
+            <div className="text-3xl font-medium tracking-tight text-[var(--ink)] lg:text-4xl">
               {counts[stat.id] !== undefined
                 ? stat.dec
                   ? counts[stat.id].toFixed(1)
                   : counts[stat.id].toLocaleString("en-IN")
                 : stat.to}
-              <span className="text-[#c6f35c]">{stat.suffix}</span>
+              <span className="text-[var(--cobalt)]">{stat.suffix}</span>
             </div>
             <div className="mt-1 font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--ink-4)]">
               {stat.label}
