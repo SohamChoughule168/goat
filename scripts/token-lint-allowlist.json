@@ -69,5 +69,6 @@
     "src/components/premium/DesignSystem.tsx:*",
     "src/components/three/HaloPrism.tsx:*",
     "src/components/craft/stations/station-02-build-order.tsx:*",
-    "src/components/home/instrument-field.tsx:*"
+    "src/components/home/instrument-field.tsx:*",
+    "src/components/home/PremiumCommandCenterV2.tsx:*"
 ]
