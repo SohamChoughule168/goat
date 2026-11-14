@@ -519,14 +519,15 @@ function HeroContent({
         }}
       >
         <div className="hero-copy">
-          <motion.p 
-            className="hero-label kinetic-label"
+          <motion.div
+            className="meridian-badge"
             variants={MOTION_VARIANTS.section}
             custom={{ delay: 0 }}
             style={{ opacity: revealed ? 1 : 0 }}
           >
-            Independent studio / Mumbai / Est. 2024
-          </motion.p>
+            <span className="meridian-badge-box" aria-hidden="true" />
+            <span>OPERATING SYSTEMS FOR INSTITUTES · MUMBAI</span>
+          </motion.div>
           
           <motion.h1 
             id="home-hero" 
@@ -536,7 +537,9 @@ function HeroContent({
           >
             <span className="headline-line kinetic-word kinetic-word-1">One system.</span>
             <br />
-            <span className="headline-line kinetic-word kinetic-word-2 headline-serif">Every branch.</span>
+            <span className="headline-line kinetic-word kinetic-word-2 headline-serif">
+              <span className="meridian-accent" data-text="Every branch.">Every branch.</span>
+            </span>
           </motion.h1>
           
           <motion.p 

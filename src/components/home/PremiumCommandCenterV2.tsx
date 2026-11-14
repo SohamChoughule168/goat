@@ -11,6 +11,7 @@ import {
   INTERACTIONS,
   SPRINGS,
 } from "@/components/premium";
+import NectarlineTerminal from "./NectarlineTerminal";
 
 type BranchId = "all" | "main" | "north" | "online";
 type ViewId = "enquiries" | "admissions" | "records";
@@ -442,6 +443,8 @@ export default function PremiumCommandCenterV2() {
           </motion.div>
         </div>
       </motion.div>
+
+      <NectarlineTerminal />
 
       <motion.div 
         className="command-foot" 

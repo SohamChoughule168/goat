@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import "../../../styles/evidence.css";
 import EvidenceHeader from "@/components/evidence/evidence-header";
 import PlatformMap from "@/components/evidence/platform-map";
+import HaloPrism from "@/components/three/HaloPrism";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -101,6 +102,10 @@ export default function PlatformPage() {
           </div>
 
           <PlatformMap />
+
+          <div className="mt-16">
+            <HaloPrism />
+          </div>
         </div>
       </section>
 

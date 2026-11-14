@@ -209,6 +209,22 @@ export const CRAFT_STATIONS: CraftStation[] = [
     status: "live",
     span: "two-thirds",
   },
+  {
+    id: "fernhollow-spatial-valley",
+    index: "12",
+    skill: "creative-3d-environments",
+    title: "Spatial flora & ambient synthesizer.",
+    summary:
+      "A 3D night valley with 2,200 glowing point-sprite flowers, Catmull-Rom camera flight, and harmonic synthesizer.",
+    detail:
+      "Thousands of point-sprite flora particles scattered along procedural terrain, rendered with additive blending and size attenuation. Camera flies along a 3D Catmull-Rom spline while Web Audio API synthesizes a multi-oscillator ambient soundscape.",
+    runtime: "Three.js r160 + Web Audio API",
+    payload: "≈45 KB runtime, on run",
+    fallback: "Static night valley poster",
+    poster: "Bioluminescent flora, camera spline, ambient audio.",
+    status: "live",
+    span: "wide",
+  },
 ];
 
 export const CRAFT_STATS = {

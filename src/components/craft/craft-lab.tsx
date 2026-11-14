@@ -14,6 +14,7 @@ import StationDial from "./stations/station-08-dial";
 import StationRive from "./stations/station-09-rive";
 import StationSpline from "./stations/station-10-spline";
 import StationLedger from "./stations/station-11-ledger";
+import StationFernhollow from "./stations/station-12-fernhollow";
 
 const STATIONS: Record<string, ComponentType<{ station: CraftStationData }>> = {
   "route-gate-budget": StationRoute,
@@ -27,6 +28,7 @@ const STATIONS: Record<string, ComponentType<{ station: CraftStationData }>> = {
   "rive-state-machine": StationRive,
   "spline-scene": StationSpline,
   "adapted-ledger": StationLedger,
+  "fernhollow-spatial-valley": StationFernhollow,
 };
 
 /**

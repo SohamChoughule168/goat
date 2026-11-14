@@ -526,3 +526,71 @@
   body { background: white !important; color: black !important; }
   a { color: black !important; text-decoration: underline; }
 }
+
+/* ========================================
+   MERIDIAN CINEMATIC ACCENTS & TELEMETRY
+   ======================================== */
+.meridian-accent {
+  position: relative;
+  display: inline-block;
+  color: #6b7378;
+}
+
+.meridian-accent::before,
+.meridian-accent::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 72px), transparent 100%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 72px), transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 0% 100%;
+  mask-size: 0% 100%;
+}
+
+.meridian-accent::before {
+  color: #7eb6ee;
+  animation: meridian-accent-fill 1.05s cubic-bezier(0.4, 0, 0.2, 1) 0.7s forwards;
+}
+
+.meridian-accent::after {
+  color: #14d896;
+  animation: meridian-accent-fill 1.05s cubic-bezier(0.4, 0, 0.2, 1) 1.08s forwards;
+}
+
+@keyframes meridian-accent-fill {
+  to {
+    -webkit-mask-size: calc(100% + 72px) 100%;
+    mask-size: calc(100% + 72px) 100%;
+  }
+}
+
+.meridian-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: clamp(32px, 3.4vw, 38px);
+  padding: 0 16px 0 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(20, 216, 150, 0.3);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 4px;
+  color: var(--ink);
+  font-family: var(--font-mono, monospace);
+  font-size: clamp(11px, 1.1vw, 12.5px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+.meridian-badge-box {
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border: 2px solid #14d896;
+  flex-shrink: 0;
+}

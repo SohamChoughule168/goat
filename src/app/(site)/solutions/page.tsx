@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import MosslineTelemetry from "@/components/motion/MosslineTelemetry";
 import { createMetadata } from "@/lib/seo";
 import { audienceSolutions, referenceArchitectures } from "@/content/institutional";
 
@@ -63,6 +64,10 @@ export default function SolutionsPage() {
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="mt-16">
+            <MosslineTelemetry />
           </div>
         </div>
       </section>
